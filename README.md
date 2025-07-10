@@ -133,11 +133,7 @@ Akses aplikasi di: `http://127.0.0.1:8000`
 ## 📄 Lisensi
 
 Proyek ini dibuat sebagai bagian dari penilaian akademik mata kuliah *Interaksi Manusia dan Komputer*. Penggunaan diperbolehkan untuk referensi dan pengembangan non-komersial.
-
 ---
-
 > Dibuat dengan semangat oleh **Cahyadi Prasetyo**
 > Universitas Maritim Raja Ali Haji (UMRAH) – Teknik Informatika
 > Tahun Akademik 2025
-
-```
