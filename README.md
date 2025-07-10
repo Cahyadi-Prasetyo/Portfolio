@@ -113,7 +113,7 @@ Akses aplikasi di: `http://127.0.0.1:8000`
 
 ## 🛠️ Teknologi yang Digunakan
 
-| Logo                                                                                                                        |Deskripsi                                                   |
+| Teknologi                                                                                                                        |Deskripsi                                                   |
 | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | ![Laravel](https://img.shields.io/badge/Laravel-F55247?style=for-the-badge&logo=laravel&logoColor=white)| Backend framework PHP modern untuk routing, controller, dsb |
 | ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)   | Utility-first CSS framework untuk desain modern dan cepat   |
