@@ -1,71 +1,83 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
-model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  password  String
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
 }
 
 model Project {
   id          String   @id @default(cuid())
   title       String
+  slug        String   @unique
   description String
-  content     String   @db.Text
+  content     String?  @db.Text
   image       String?
   demoUrl     String?
   githubUrl   String?
   tags        String[]
   featured    Boolean  @default(false)
-  published   Boolean  @default(false)
-  order       Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-}
 
-model Post {
-  id        String   @id @default(cuid())
-  title     String
-  slug      String   @unique
-  excerpt   String?
-  content   String   @db.Text
-  image     String?
-  tags      String[]
-  published Boolean  @default(false)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  @@map("projects")
 }
 
 model Skill {
   id       String @id @default(cuid())
   name     String
-  category String
-  level    Int    @default(50)
-  icon     String?
+  category String // e.g., "Frontend", "Backend", "Tools"
+  icon     String? // Path to icon or icon name
   order    Int    @default(0)
+
+  @@map("skills")
 }
 
-model Contact {
+model Experience {
+  id          String    @id @default(cuid())
+  company     String
+  role        String
+  startDate   DateTime
+  endDate     DateTime? // Null if currently working
+  description String?   @db.Text
+  type        String    // "Internship", "Full-time", "Freelance"
+  order       Int       @default(0)
+
+  @@map("experience")
+}
+
+model Education {
+  id          String    @id @default(cuid())
+  school      String
+  degree      String
+  startDate   DateTime
+  endDate     DateTime?
+  description String?   @db.Text
+  order       Int       @default(0)
+
+  @@map("education")
+}
+
+model Organization {
+  id          String    @id @default(cuid())
+  name        String
+  role        String
+  startDate   DateTime
+  endDate     DateTime?
+  description String?   @db.Text
+  order       Int       @default(0)
+
+  @@map("organizations")
+}
+
+model Message {
   id        String   @id @default(cuid())
   name      String
   email     String
-  subject   String?
   message   String   @db.Text
-  read      Boolean  @default(false)
   createdAt DateTime @default(now())
+  read      Boolean  @default(false)
+
+  @@map("messages")
 }

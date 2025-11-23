@@ -1,0 +1,32 @@
+
+> portfolio@1.0.0 build
+> next build
+
+   ▲ Next.js 16.0.3 (Turbopack)
+   - Environments: .env
+
+   Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 1 errors:
+./app/globals.css
+Error evaluating Node.js code
+CssSyntaxError: D:\Workspace\portfolio\app\globals.css:1:1: The `border-border` class does not exist. If `border-border` is a custom class, make sure it is defined within a `@layer` directive.
+    at Input.error (node_modules/postcss/lib/input.js:135:16) [D:\Workspace\portfolio\.next\build\chunks\node_modules_fe693df6._.js:4651:22]
+    at AtRule.error (node_modules/postcss/lib/node.js:146:32) [D:\Workspace\portfolio\.next\build\chunks\node_modules_fe693df6._.js:928:38]
+    [at processApply (D:\Workspace\portfolio\node_modules\tailwindcss\lib\lib\expandApplyAtRules.js:380:29)]
+    [at D:\Workspace\portfolio\node_modules\tailwindcss\lib\lib\expandApplyAtRules.js:551:9]
+    [at D:\Workspace\portfolio\node_modules\tailwindcss\lib\processTailwindFeatures.js:55:50]
+    [at async plugins (D:\Workspace\portfolio\node_modules\tailwindcss\lib\plugin.js:38:17)]
+    at async LazyResult.runAsync (node_modules/postcss/lib/lazy-result.js:293:11) [D:\Workspace\portfolio\.next\build\chunks\node_modules_fe693df6._.js:6206:21]
+    at async transform (turbopack:///[turbopack-node]/transforms/postcss.ts:70:34) [D:\Workspace\portfolio\.next\build\chunks\[root-of-the-server]__6d51cb5d._.js:172:36]
+    at async run (turbopack:///[turbopack-node]/ipc/evaluate.ts:92:23) [D:\Workspace\portfolio\.next\build\chunks\[root-of-the-server]__44695d76._.js:443:31]
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at async transform (turbopack:///[turbopack-node]/transforms/postcss.ts:70:34) [D:\Workspace\portfolio\.next\build\chunks\[root-of-the-server]__6d51cb5d._.js:172:36])
+    at async run (turbopack:///[turbopack-node]/ipc/evaluate.ts:92:23) [D:\Workspace\portfolio\.next\build\chunks\[root-of-the-server]__44695d76._.js:443:31])
