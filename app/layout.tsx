@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Portfolio",
-    description: "My Personal Portfolio",
+    title: "Cahyadi Prasetyo - Full Stack Developer",
+    description: "Portfolio of Cahyadi Prasetyo, a passionate Full Stack Developer from Indonesia",
 };
 
 export default function RootLayout({
@@ -17,10 +19,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={cn(inter.className, "min-h-screen bg-background text-foreground antialiased")}>
-                <main className="relative flex min-h-screen flex-col">
+            <body className={inter.className}>
+                <Navbar />
+                <PageTransition>
                     {children}
-                </main>
+                </PageTransition>
+                <Footer />
             </body>
         </html>
     );

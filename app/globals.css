@@ -2,36 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #f8fafc; /* Slate 50 */
-  --foreground: #1e293b; /* Slate 800 */
-  
-  --card: #ffffff;
-  --card-foreground: #1e293b;
-  
-  --popover: #ffffff;
-  --popover-foreground: #1e293b;
-  
-  --primary: #6366f1; /* Indigo 500 - Soft but visible */
-  --primary-foreground: #ffffff;
-  
-  --secondary: #e2e8f0; /* Slate 200 */
-  --secondary-foreground: #1e293b;
-  
-  --muted: #f1f5f9; /* Slate 100 */
-  --muted-foreground: #64748b; /* Slate 500 */
-  
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
-  
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #6366f1;
-  
-  --radius: 0.75rem;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+  }
 }
 
 @layer base {
@@ -44,17 +19,52 @@
   }
 }
 
-/* Soft Scrollbar */
+/* Clean, minimal scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #f5f5f5;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #d1d5db;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #9ca3af;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Simple scroll animations */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 40s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 40s linear infinite;
 }
