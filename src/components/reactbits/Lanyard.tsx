@@ -44,13 +44,19 @@ export default function Lanyard({
     }, []);
 
     return (
-        // Changed h-screen to h-full to fit in parent container
-        <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center">
+        // Increased height for better desktop display
+        <div className="relative z-0 w-full h-[600px] lg:h-[900px] flex justify-center items-center transform scale-100 origin-center">
             <Canvas
                 camera={{ position, fov }}
                 dpr={[1, isMobile ? 1.5 : 2]}
-                gl={{ alpha: transparent }}
-                onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
+                gl={{
+                    alpha: transparent,
+                    antialias: true,
+                    powerPreference: "high-performance"
+                }}
+                onCreated={({ gl }) => {
+                    gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1);
+                }}
             >
                 <ambientLight intensity={Math.PI} />
                 <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
@@ -98,7 +104,6 @@ interface BandProps {
 }
 
 function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }: BandProps) {
-    // Using "any" for refs since the exact types depend on Rapier's internals
     const band = useRef<any>(null);
     const fixed = useRef<any>(null);
     const j1 = useRef<any>(null);

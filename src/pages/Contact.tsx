@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Send, CheckCircle, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { supabase } from '../../utils/supabase/client';
 import ScrollReveal from '../components/reactbits/ScrollReveal';
+import Lanyard from '../components/reactbits/Lanyard';
 
 export default function Contact() {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -30,7 +31,7 @@ export default function Contact() {
 
     return (
         <div className="pt-32 pb-20 px-6 min-h-screen bg-white">
-            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+            <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr,1fr,420px] gap-12">
 
                 {/* Contact Info */}
                 <div>
@@ -139,6 +140,17 @@ export default function Contact() {
                             </div>
                         </form>
                     </ScrollReveal>
+                </div>
+
+                {/* Lanyard Sidebar - NOW WITH LARGER DISPLAY */}
+                <div className="hidden lg:block">
+                    <div className="sticky top-24">
+                        <ScrollReveal delay={0.5}>
+                            <div className="rounded-2xl overflow-hidden bg-gray-50/30">
+                                <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
+                            </div>
+                        </ScrollReveal>
+                    </div>
                 </div>
 
             </div>
