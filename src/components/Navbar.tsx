@@ -1,34 +1,34 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import Magnet from './reactbits/Magnet';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const [language, setLanguage] = useState<'ID' | 'EN'>('EN');
     const location = useLocation();
+    const { language, toggleLanguage, t } = useLanguage();
+
+    // Pages with white background - navbar should be dark/black text
+    const whiteBackgroundPages = ['/projects', '/about', '/contact'];
+    const isWhitePage = whiteBackgroundPages.includes(location.pathname);
 
     // Scroll detection to toggle between standard nav and floating button
     useEffect(() => {
         const handleScroll = () => {
-            // Hide navbar immediately on any scroll
             setIsScrolled(window.scrollY > 0);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Cyclic toggle for Single Language Button
-    const toggleLanguage = () => {
-        setLanguage(prev => prev === 'ID' ? 'EN' : 'ID');
-    };
-
     const navLinks = [
-        { name: 'Home', path: '/' },
-        { name: 'Projects', path: '/projects' },
-        { name: 'About', path: '/about' },
-        { name: 'Contact', path: '/contact' },
+        { name: t.nav.home, path: '/' },
+        { name: t.nav.projects, path: '/projects' },
+        { name: t.nav.about, path: '/about' },
+        { name: t.nav.contact, path: '/contact' },
     ];
 
     return (
@@ -51,18 +51,27 @@ export default function Navbar() {
                                     <Link
                                         key={link.path}
                                         to={link.path}
-                                        className={`text-sm font-medium tracking-[0.2em] uppercase transition-all duration-300 relative ${location.pathname === link.path
-                                            ? 'text-white after:content-[""] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[1px] after:bg-white'
-                                            : 'text-gray-500 hover:text-gray-300'
+                                        className={`group text-sm font-medium tracking-[0.2em] uppercase transition-all duration-300 relative ${isWhitePage ? 'text-black' : 'text-white'
                                             }`}
                                     >
                                         {link.name}
+                                        {/* Underline - visible on active OR hover */}
+                                        <span
+                                            className={`absolute -bottom-2 left-0 h-[1px] transition-all duration-300 ${isWhitePage ? 'bg-black' : 'bg-white'
+                                                } ${location.pathname === link.path
+                                                    ? 'w-full'
+                                                    : 'w-0 group-hover:w-full'
+                                                }`}
+                                        />
                                     </Link>
                                 ))}
                             </div>
 
                             {/* Mobile Standard Toggle */}
-                            <button className="md:hidden text-white" onClick={() => setIsOpen(true)}>
+                            <button
+                                className={`md:hidden ${isWhitePage ? 'text-black' : 'text-white'}`}
+                                onClick={() => setIsOpen(true)}
+                            >
                                 <Menu />
                             </button>
                         </div>
@@ -73,29 +82,32 @@ export default function Navbar() {
             {/* 2. FLOATING HAMBURGER BUTTON (Visible when scrolled) */}
             <AnimatePresence>
                 {(isScrolled || isOpen) && (
-                    <motion.button
+                    <motion.div
                         initial={{ scale: 0, rotate: 90 }}
                         animate={{ scale: 1, rotate: 0 }}
                         exit={{ scale: 0, rotate: 90 }}
                         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                        onClick={() => setIsOpen(!isOpen)}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className={`group fixed top-8 right-8 z-[100000] p-4 rounded-full shadow-lg border border-black/10 backdrop-blur-md transition-colors duration-300 ${isOpen ? 'bg-white text-black' : 'bg-white text-black hover:bg-black hover:text-white'
-                            }`}
+                        className="fixed top-8 right-8 z-[100000]"
                     >
-                        <span className="sr-only">Toggle Menu</span>
-                        {/* Staggered Hamburger - Rotates 45° when Open */}
-                        <motion.div
-                            animate={{ rotate: isOpen ? 45 : 0 }}
-                            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                            className="flex flex-col items-end gap-1.5 w-6"
-                        >
-                            <span className="block h-0.5 w-full bg-current transition-all duration-300" />
-                            <span className="block h-0.5 w-3/4 bg-current transition-all duration-300 group-hover:w-full" />
-                            <span className="block h-0.5 w-1/2 bg-current transition-all duration-300 group-hover:w-full" />
-                        </motion.div>
-                    </motion.button>
+                        <Magnet padding={50} disabled={false} magnetStrength={3}>
+                            <button
+                                onClick={() => setIsOpen(!isOpen)}
+                                className={`group p-4 rounded-full shadow-lg border border-black/10 backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 ${isOpen ? 'bg-white text-black' : 'bg-white text-black hover:bg-black hover:text-white'
+                                    }`}
+                            >
+                                <span className="sr-only">Toggle Menu</span>
+                                <motion.div
+                                    animate={{ rotate: isOpen ? 45 : 0 }}
+                                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                                    className="flex flex-col items-end gap-1.5 w-6"
+                                >
+                                    <span className="block h-0.5 w-full bg-current transition-all duration-300" />
+                                    <span className="block h-0.5 w-3/4 bg-current transition-all duration-300 group-hover:w-full" />
+                                    <span className="block h-0.5 w-1/2 bg-current transition-all duration-300 group-hover:w-full" />
+                                </motion.div>
+                            </button>
+                        </Magnet>
+                    </motion.div>
                 )}
             </AnimatePresence>
 
@@ -109,7 +121,7 @@ export default function Navbar() {
                         transition={{ duration: 0.7, ease: [0.77, 0, 0.175, 1] }}
                         className="fixed inset-0 h-screen w-screen bg-black z-[99999] flex flex-col justify-center items-center text-white isolate"
                     >
-                        {/* Language Switcher - Top Left (Minimalist Smooth) */}
+                        {/* Language Switcher */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -126,7 +138,7 @@ export default function Navbar() {
                                         initial={{ y: 20, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
                                         exit={{ y: -20, opacity: 0 }}
-                                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }} // Smooth easeOutQuint
+                                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                                         className="block text-xl font-medium font-display text-white tracking-wide"
                                     >
                                         {language}

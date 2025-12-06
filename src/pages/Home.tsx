@@ -6,6 +6,7 @@ import ScrollReveal from '../components/reactbits/ScrollReveal';
 import RotatingText from '../components/reactbits/RotatingText';
 import FAQ from '../components/FAQ';
 import Lanyard from '../components/reactbits/Lanyard';
+import { useLanguage } from '../context/LanguageContext';
 import {
     SiPhp, SiLaravel, SiCodeigniter, SiMysql, SiPostgresql,
     SiJavascript, SiTypescript, SiTailwindcss, SiReact, SiDocker, SiGit, SiRedis
@@ -13,6 +14,8 @@ import {
 import { TbApi } from 'react-icons/tb';
 
 export default function Home() {
+    const { t } = useLanguage();
+
     // Parallax scroll effect for name
     const { scrollY } = useScroll();
     const cahyadiX = useTransform(scrollY, [0, 500], [0, -150]);
@@ -73,9 +76,9 @@ export default function Home() {
 
                             {/* Animated Role with RotatingText */}
                             <div className="text-xl md:text-2xl text-gray-400 font-medium leading-tight flex flex-wrap gap-2 items-center">
-                                I am a
+                                {t.hero.iAmA}
                                 <RotatingText
-                                    texts={['Backend Engineer', 'Fullstack Developer', 'System Architect']}
+                                    texts={t.hero.roles}
                                     mainClassName="px-3 text-white overflow-hidden py-1 justify-center rounded-lg inline-flex"
                                     staggerFrom="last"
                                     initial={{ y: "100%" }}
@@ -90,7 +93,7 @@ export default function Home() {
 
                             {/* Animated Tagline with TextType */}
                             <TextType
-                                text={["Architecting scalable backend systems.", "Building end-to-end web solutions.", "Creating robust APIs & databases."]}
+                                text={t.hero.taglines}
                                 typingSpeed={50}
                                 deletingSpeed={30}
                                 pauseDuration={2000}
@@ -104,12 +107,12 @@ export default function Home() {
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                                 </span>
-                                Siap bantuin projectmu 🚀
+                                {t.hero.available}
                             </div>
 
                             <div className="flex gap-4">
                                 <Link to="/contact" className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors flex items-center gap-2 text-lg">
-                                    CONTACT SAYA <ArrowUpRight size={24} />
+                                    {t.hero.contactMe} <ArrowUpRight size={24} />
                                 </Link>
                             </div>
                         </motion.div>
@@ -131,16 +134,27 @@ export default function Home() {
             <section className="py-32 px-6 overflow-hidden bg-[#fafafa] text-gray-900">
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <h2 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Who Am I?</h2>
+                        <h2 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{t.whoAmI.title}</h2>
                         <div className="mb-8">
                             <ScrollReveal
                                 baseOpacity={0.1}
                                 enableBlur={true}
                                 baseRotation={3}
                                 blurStrength={4}
-                                textClassName="text-3xl md:text-5xl font-bold leading-tight font-display text-gray-900 text-justify"
+                                textClassName="text-2xl md:text-4xl font-bold leading-relaxed font-display text-gray-900 text-justify"
                             >
-                                A student from Raja Ali Haji Maritime University (UMRAH), Informatics Engineering, passionate about Full-Stack Development, Secure Systems, and API Engineering.
+                                {t.whoAmI.paragraph1}
+                            </ScrollReveal>
+                        </div>
+                        <div className="mb-8">
+                            <ScrollReveal
+                                baseOpacity={0.1}
+                                enableBlur={true}
+                                baseRotation={2}
+                                blurStrength={3}
+                                textClassName="text-xl text-gray-600 leading-relaxed text-justify"
+                            >
+                                {t.whoAmI.paragraph2}
                             </ScrollReveal>
                         </div>
                         <div className="mb-12">
@@ -151,10 +165,10 @@ export default function Home() {
                                 blurStrength={3}
                                 textClassName="text-xl text-gray-600 leading-relaxed text-justify"
                             >
-                                Continuously learn and explore new technologies to create elegant and scalable web solutions. Focus on clean API design and robust system architecture.
+                                {t.whoAmI.paragraph3}
                             </ScrollReveal>
                         </div>
-                       
+
                     </div>
 
                     <div className="h-[600px] w-full relative bg-transparent flex justify-center items-center">
@@ -172,12 +186,12 @@ export default function Home() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
-                            className="text-4xl md:text-6xl font-bold font-display"
+                            className="text-4xl md:text-6xl font-bold font-display whitespace-pre-line"
                         >
-                            Selected<br />Projects.
+                            {t.projects.title}
                         </motion.h2>
                         <Link to="/projects" className="hidden md:flex items-center gap-2 font-bold hover:text-gray-600 transition-colors">
-                            View All <ArrowUpRight size={20} />
+                            {t.projects.viewAll} <ArrowUpRight size={20} />
                         </Link>
                     </div>
 
@@ -213,7 +227,7 @@ export default function Home() {
 
                     <div className="mt-12 text-center md:hidden">
                         <Link to="/projects" className="inline-flex items-center gap-2 font-bold hover:text-gray-600 transition-colors">
-                            View All Projects <ArrowUpRight size={20} />
+                            {t.projects.viewAllProjects} <ArrowUpRight size={20} />
                         </Link>
                     </div>
                 </div>

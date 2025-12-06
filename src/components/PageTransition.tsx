@@ -1,20 +1,23 @@
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 interface PageTransitionProps {
     children: React.ReactNode;
 }
 
-// Map paths to display names
-const pageNames: Record<string, string> = {
-    '/': 'Home',
-    '/projects': 'Projects',
-    '/about': 'About Me',
-    '/contact': 'Contact',
-};
-
 export default function PageTransition({ children }: PageTransitionProps) {
     const location = useLocation();
+    const { t } = useLanguage();
+
+    // Map paths to translated display names
+    const pageNames: Record<string, string> = {
+        '/': t.pageTransition.home,
+        '/projects': t.pageTransition.projects,
+        '/about': t.pageTransition.about,
+        '/contact': t.pageTransition.contact,
+    };
+
     const currentPageName = pageNames[location.pathname] || 'Page';
 
     // Timing constants
@@ -54,7 +57,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
                             ease: 'easeInOut',
                         }
                     }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-wide text-gray-500 uppercase"
+                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-wide text-white uppercase"
                     style={{ fontFamily: 'Syne, sans-serif' }}
                 >
                     {currentPageName}
