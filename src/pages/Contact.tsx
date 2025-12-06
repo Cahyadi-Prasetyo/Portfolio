@@ -54,13 +54,13 @@ export default function Contact() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            href="mailto:cahyadiprasetyo@example.com"
+                            href="mailto:chdprasetyo@gmail.com"
                             className="flex items-center gap-4 p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:bg-gray-100 transition-colors"
                         >
                             <Mail className="text-gray-900" size={24} />
                             <div>
                                 <h3 className="font-bold text-gray-900">{t.contact.email}</h3>
-                                <p className="text-gray-500">cahyadiprasetyo@example.com</p>
+                                <p className="text-gray-500">chdprasetyo@gmail.com</p>
                             </div>
                         </motion.a>
 
@@ -74,7 +74,7 @@ export default function Contact() {
                                 <Github size={24} />
                                 <span className="font-bold">GitHub</span>
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-3 p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:bg-gray-100 transition-colors">
+                            <a href="https://www.linkedin.com/in/cahyadi-prasetyo-924616290/" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-3 p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:bg-gray-100 transition-colors">
                                 <Linkedin size={24} />
                                 <span className="font-bold">LinkedIn</span>
                             </a>

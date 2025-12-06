@@ -77,7 +77,7 @@ export default function Footer() {
                                 <Github size={20} />
                             </a>
                             <a
-                                href="https://linkedin.com"
+                                href="https://www.linkedin.com/in/cahyadi-prasetyo-924616290/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-3 bg-white/5 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300"
@@ -85,7 +85,7 @@ export default function Footer() {
                                 <Linkedin size={20} />
                             </a>
                             <a
-                                href="https://instagram.com"
+                                href="https://www.instagram.com/cahyadi_p24/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-3 bg-white/5 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300"
@@ -93,7 +93,7 @@ export default function Footer() {
                                 <Instagram size={20} />
                             </a>
                             <a
-                                href="mailto:cahyadiprasetyo@example.com"
+                                href="mailto:chdprasetyo@gmail.com"
                                 className="p-3 bg-white/5 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300"
                             >
                                 <Mail size={20} />
@@ -105,7 +105,7 @@ export default function Footer() {
                 {/* Bottom: Copyright */}
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-center items-center gap-4">
                     <p className="text-gray-500 text-sm">
-                        {t.footer.coding} Cahyadi Prasetyo © {currentYear} 
+                        {t.footer.coding} Cahyadi Prasetyo © {currentYear}
                     </p>
                 </div>
             </div>
