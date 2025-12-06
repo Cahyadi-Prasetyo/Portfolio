@@ -22,7 +22,7 @@ const faqs = [
 ];
 
 export default function FAQ() {
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
         <div className="max-w-3xl mx-auto w-full">

@@ -6,15 +6,23 @@ import { Menu, X } from 'lucide-react';
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [language, setLanguage] = useState<'ID' | 'EN'>('EN');
     const location = useLocation();
 
+    // Scroll detection to toggle between standard nav and floating button
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            // Hide navbar immediately on any scroll
+            setIsScrolled(window.scrollY > 0);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Cyclic toggle for Single Language Button
+    const toggleLanguage = () => {
+        setLanguage(prev => prev === 'ID' ? 'EN' : 'ID');
+    };
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -24,62 +32,132 @@ export default function Navbar() {
     ];
 
     return (
-        <nav
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
-                }`}
-        >
-            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                <Link to="/" className="text-2xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
-                    CP.
-                </Link>
+        <>
+            {/* 1. STANDARD NAVBAR (Visible only at top) */}
+            <AnimatePresence>
+                {!isScrolled && !isOpen && (
+                    <motion.nav
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed top-0 left-0 w-full z-[99990] py-8 px-6"
+                    >
+                        <div className="max-w-7xl mx-auto flex justify-end md:justify-center items-center">
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex gap-8">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.path}
-                            to={link.path}
-                            className={`text-sm font-medium transition-colors ${location.pathname === link.path ? 'text-black' : 'text-gray-500 hover:text-black'
-                                }`}
+                            {/* Desktop Menu */}
+                            <div className="hidden md:flex gap-12">
+                                {navLinks.map((link) => (
+                                    <Link
+                                        key={link.path}
+                                        to={link.path}
+                                        className={`text-sm font-medium tracking-[0.2em] uppercase transition-all duration-300 relative ${location.pathname === link.path
+                                            ? 'text-white after:content-[""] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[1px] after:bg-white'
+                                            : 'text-gray-500 hover:text-gray-300'
+                                            }`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                ))}
+                            </div>
+
+                            {/* Mobile Standard Toggle */}
+                            <button className="md:hidden text-white" onClick={() => setIsOpen(true)}>
+                                <Menu />
+                            </button>
+                        </div>
+                    </motion.nav>
+                )}
+            </AnimatePresence>
+
+            {/* 2. FLOATING HAMBURGER BUTTON (Visible when scrolled) */}
+            <AnimatePresence>
+                {(isScrolled || isOpen) && (
+                    <motion.button
+                        initial={{ scale: 0, rotate: 90 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        exit={{ scale: 0, rotate: 90 }}
+                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                        onClick={() => setIsOpen(!isOpen)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`group fixed top-8 right-8 z-[100000] p-4 rounded-full shadow-lg border border-black/10 backdrop-blur-md transition-colors duration-300 ${isOpen ? 'bg-white text-black' : 'bg-white text-black hover:bg-black hover:text-white'
+                            }`}
+                    >
+                        <span className="sr-only">Toggle Menu</span>
+                        {/* Staggered Hamburger - Rotates 45° when Open */}
+                        <motion.div
+                            animate={{ rotate: isOpen ? 45 : 0 }}
+                            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                            className="flex flex-col items-end gap-1.5 w-6"
                         >
-                            {link.name}
-                        </Link>
-                    ))}
-                </div>
+                            <span className="block h-0.5 w-full bg-current transition-all duration-300" />
+                            <span className="block h-0.5 w-3/4 bg-current transition-all duration-300 group-hover:w-full" />
+                            <span className="block h-0.5 w-1/2 bg-current transition-all duration-300 group-hover:w-full" />
+                        </motion.div>
+                    </motion.button>
+                )}
+            </AnimatePresence>
 
-                {/* Mobile Menu Button */}
-                <button
-                    className="md:hidden p-2"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X /> : <Menu />}
-                </button>
-            </div>
-
-            {/* Mobile Menu Overlay */}
+            {/* 3. FULLSCREEN OVERLAY MENU */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: '100vh' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="fixed inset-0 bg-white z-40 md:hidden pt-24 px-6"
+                        initial={{ clipPath: "circle(0% at 100% 0%)" }}
+                        animate={{ clipPath: "circle(150% at 100% 0%)" }}
+                        exit={{ clipPath: "circle(0% at 100% 0%)" }}
+                        transition={{ duration: 0.7, ease: [0.77, 0, 0.175, 1] }}
+                        className="fixed inset-0 h-screen w-screen bg-black z-[99999] flex flex-col justify-center items-center text-white isolate"
                     >
-                        <div className="flex flex-col gap-8 text-center bg-white h-full">
-                            {navLinks.map((link) => (
-                                <Link
+                        {/* Language Switcher - Top Left (Minimalist Smooth) */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.5 }}
+                            className="absolute top-8 left-8 md:top-12 md:left-12"
+                        >
+                            <button
+                                onClick={toggleLanguage}
+                                className="group relative overflow-hidden pb-1"
+                            >
+                                <AnimatePresence mode="wait" initial={false}>
+                                    <motion.span
+                                        key={language}
+                                        initial={{ y: 20, opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        exit={{ y: -20, opacity: 0 }}
+                                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }} // Smooth easeOutQuint
+                                        className="block text-xl font-medium font-display text-white tracking-wide"
+                                    >
+                                        {language}
+                                    </motion.span>
+                                </AnimatePresence>
+                                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-left" />
+                            </button>
+                        </motion.div>
+
+                        {/* Navigation Links */}
+                        <div className="flex flex-col gap-6 md:gap-8 text-center bg-transparent z-10 w-full">
+                            {navLinks.map((link, index) => (
+                                <motion.div
                                     key={link.path}
-                                    to={link.path}
-                                    onClick={() => setIsOpen(false)}
-                                    className="text-4xl font-bold tracking-tight hover:text-gray-600 transition-colors"
+                                    initial={{ opacity: 0, y: 50 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.1 + index * 0.1 }}
                                 >
-                                    {link.name}
-                                </Link>
+                                    <Link
+                                        to={link.path}
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-5xl md:text-7xl font-black font-display tracking-tighter hover:text-gray-400 transition-colors"
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </motion.div>
                             ))}
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </nav>
+        </>
     );
 }
