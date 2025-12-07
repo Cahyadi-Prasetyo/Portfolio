@@ -80,17 +80,50 @@ const id = {
 
     // About Page
     about: {
-        title: 'Tentang Saya',
-        intro: 'Hai! Aku Cahyadi Prasetyo, Mahasiswa Teknik Informatika di Universitas Maritim Raja Ali Haji (UMRAH). Aku passionate banget di dunia web development dan terus mengeksplorasi teknologi baru.',
-        hobby: 'Kalau lagi nggak ngoding, biasanya aku explore teknologi baru, kontribusi ke open source, atau main game.',
-        experience: 'Pengalaman',
+        title: 'Cerita Singkat',
+        subtitle: 'Mari kenalan dulu 👋',
+        intro: 'Hai! Aku Cahyadi Prasetyo, Mahasiswa Teknik Informatika semester 5 di Universitas Maritim Raja Ali Haji (UMRAH). Perjalananku di dunia programming dimulai sejak SMK jurusan Rekayasa Perangkat Lunak. Aku sudah pernah magang sebagai IT Support di PT Pelindo Regional 1 Tanjungpinang selama 6 bulan, di mana aku belajar troubleshooting, pengelolaan database, dan kerja tim profesional.',
+        intro2: 'Sekarang aku fokus sebagai Fullstack Developer dan sudah membangun berbagai project seperti Sistem Ujian Online, Sistem Laundry, Sistem Absensi, dan E-commerce UMKM. Aku dapat pengalaman seru make teknologi backend kayak',
+        skills: [
+            { name: 'Laravel', color: 'blue' },
+            { name: 'React', color: 'blue' },
+            { name: 'PostgreSQL', color: 'blue' },
+            { name: 'TypeScript', color: 'blue' },
+        ],
+        intro3: 'plus teknologi frontend modern.',
+        hobby: 'Selain ngoding, aku suka mengeksplorasi teknologi baru, berkontribusi ke proyek open source, dan bermain game. Aku selalu terbuka buat peluang dan kolaborasi baru! Jangan sungkan buat chat aku ya. 🚀',
+        experience: 'Karir Aku',
         education: 'Pendidikan',
         experienceData: [
-            { year: '2022 (6 bulan)', role: 'IT Support', company: 'PT Pelindo Persero Regional 1 Tanjungpinang', desc: 'Troubleshooting perangkat, pengelolaan database, dan kerja tim di lingkungan profesional.' },
+            { 
+                years: '2022\n2022', 
+                period: 'Jan 2022 - Jun 2022', 
+                role: 'IT Support', 
+                company: 'PT Pelindo (Persero) Regional 1 Tanjungpinang', 
+                desc: [
+                    'Melakukan troubleshooting perangkat komputer, printer, dan perangkat jaringan.',
+                    'Menangani instalasi, konfigurasi, dan pemeliharaan software serta hardware.',
+                    'Mendukung operasional harian terkait sistem informasi perusahaan.',
+                    'Melakukan dokumentasi terkait kejadian (incident) dan perbaikan.',
+                    'Berkoordinasi dengan tim TI untuk memastikan sistem tetap berjalan optimal.'
+                ]
+            },
         ],
         educationData: [
-            { year: '2023 - Sekarang', role: 'S1 Teknik Informatika', company: 'Universitas Maritim Raja Ali Haji', desc: 'Fokus pada pengembangan web dan sistem informasi.' },
-            { year: '2020 - 2023', role: 'Rekayasa Perangkat Lunak', company: 'SMKN 1 Bintan Timur', desc: 'Dasar pemrograman, basis data, dan pengembangan perangkat lunak.' },
+            { 
+                years: '2023\nSekarang', 
+                period: '2023 - Sekarang', 
+                role: 'S1 Teknik Informatika', 
+                company: 'Universitas Maritim Raja Ali Haji', 
+                desc: ['Fokus pada pengembangan web dan sistem informasi.']
+            },
+            { 
+                years: '2020\n2023', 
+                period: '2020 - 2023', 
+                role: 'Rekayasa Perangkat Lunak', 
+                company: 'SMKN 1 Bintan Timur', 
+                desc: ['Dasar pemrograman, basis data, dan pengembangan perangkat lunak.']
+            },
         ],
     },
 

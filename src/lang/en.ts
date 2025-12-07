@@ -80,17 +80,50 @@ const en = {
 
     // About Page
     about: {
-        title: 'About Me',
-        intro: "Hi! I'm Cahyadi Prasetyo, an Informatics Engineering student at Raja Ali Haji Maritime University (UMRAH). I'm passionate about web development and continuously exploring new technologies.",
-        hobby: "When I'm not coding, you can find me exploring new technologies, contributing to open source, or gaming.",
-        experience: 'Experience',
+        title: 'Short Story',
+        subtitle: 'Let\'s get introduced 👋',
+        intro: "Hi! I'm Cahyadi Prasetyo, a 5th semester Informatics Engineering student at Raja Ali Haji Maritime University (UMRAH). My programming journey started in vocational school majoring in Software Engineering. I've completed a 6-month internship as IT Support at PT Pelindo Regional 1 Tanjungpinang, where I learned troubleshooting, database management, and professional teamwork.",
+        intro2: "Now I focus as a Fullstack Developer and have built various projects like Online Exam System, Laundry System, Attendance System, and UMKM E-commerce. I got exciting experience using backend tech like",
+        skills: [
+            { name: 'Laravel', color: 'blue' },
+            { name: 'React', color: 'blue' },
+            { name: 'PostgreSQL', color: 'blue' },
+            { name: 'TypeScript', color: 'blue' },
+        ],
+        intro3: 'plus modern frontend technologies.',
+        hobby: "Besides coding, I love exploring new technologies, contributing to open source projects, and gaming. I'm always open to new opportunities and collaborations! Feel free to reach out. 🚀",
+        experience: 'My Career',
         education: 'Education',
         experienceData: [
-            { year: '2022 (6 months)', role: 'IT Support', company: 'PT Pelindo Persero Regional 1 Tanjungpinang', desc: 'Device troubleshooting, database management, and teamwork in a professional environment.' },
+            {
+                years: '2022\n2022',
+                period: 'Jan 2022 - Jun 2022',
+                role: 'IT Support',
+                company: 'PT Pelindo (Persero) Regional 1 Tanjungpinang',
+                desc: [
+                    'Performed troubleshooting for computer devices, printers, and network equipment.',
+                    'Handled installation, configuration, and maintenance of software and hardware.',
+                    'Supported daily operations related to corporate information systems.',
+                    'Documented incidents and repairs.',
+                    'Coordinated with the IT team to ensure systems remained optimal.'
+                ]
+            },
         ],
         educationData: [
-            { year: '2023 - Present', role: 'B.S. Informatics Engineering', company: 'Raja Ali Haji Maritime University', desc: 'Focus on web development and information systems.' },
-            { year: '2020 - 2023', role: 'Software Engineering', company: 'SMKN 1 Bintan Timur', desc: 'Programming fundamentals, databases, and software development.' },
+            {
+                years: '2023\nPresent',
+                period: '2023 - Present',
+                role: 'B.S. Informatics Engineering',
+                company: 'Raja Ali Haji Maritime University',
+                desc: ['Focus on web development and information systems.']
+            },
+            {
+                years: '2020\n2023',
+                period: '2020 - 2023',
+                role: 'Software Engineering',
+                company: 'SMKN 1 Bintan Timur',
+                desc: ['Programming fundamentals, databases, and software development.']
+            },
         ],
     },
 

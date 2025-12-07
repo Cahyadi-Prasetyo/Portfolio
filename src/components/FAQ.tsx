@@ -15,7 +15,7 @@ export default function FAQ() {
             </h2>
 
             {/* FAQ Items */}
-            <div>
+            <div className="border-b border-gray-300">
                 {t.faq.questions.map((faq, index) => (
                     <div key={index} className="border-t border-gray-300">
                         <button
