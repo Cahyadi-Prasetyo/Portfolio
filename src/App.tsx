@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import ProjectDetail from './pages/ProjectDetail';
 import PageTransition from './components/PageTransition';
 import ScrollProgress from './components/reactbits/ScrollProgress';
 
@@ -23,6 +24,7 @@ function App() {
                         <Routes location={location} key={location.pathname}>
                             <Route path="/" element={<PageTransition><Home /></PageTransition>} />
                             <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+                            <Route path="/projects/:slug" element={<PageTransition><ProjectDetail /></PageTransition>} />
                             <Route path="/about" element={<PageTransition><About /></PageTransition>} />
                             <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
                         </Routes>

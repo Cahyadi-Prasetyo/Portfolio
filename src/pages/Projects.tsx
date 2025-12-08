@@ -6,90 +6,6 @@ import { useLanguage } from '../context/LanguageContext';
 import Magnet from '../components/reactbits/Magnet';
 import CountUp from '../components/reactbits/CountUp';
 
-// Project data from GitHub repositories
-const projectsData = [
-    {
-        id: 1,
-        title: 'EXAM SYSTEM',
-        category: 'web',
-        image: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        slug: 'exam-system',
-        github: 'https://github.com/Cahyadi-Prasetyo/Exam-System'
-    },
-    {
-        id: 2,
-        title: 'LAUNDRY SYSTEM',
-        category: 'web',
-        image: 'https://images.unsplash.com/photo-1545173168-9f1947eebb7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        slug: 'laundry-system',
-        github: 'https://github.com/Cahyadi-Prasetyo/LaundrySystem'
-    },
-    {
-        id: 3,
-        title: 'SISTEM ABSENSI',
-        category: 'web',
-        image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        slug: 'sistem-absensi',
-        github: 'https://github.com/Cahyadi-Prasetyo/Sistem-Absensi'
-    },
-    {
-        id: 4,
-        title: 'WARUNG DIGITAL',
-        category: 'web',
-        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        slug: 'warung-digital',
-        github: 'https://github.com/Cahyadi-Prasetyo/warung-digital'
-    },
-    {
-        id: 5,
-        title: 'BAHARI KEPRI',
-        category: 'web',
-        image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        slug: 'bahari-kepri',
-        github: 'https://github.com/Cahyadi-Prasetyo/bahari-kepri'
-    },
-    {
-        id: 6,
-        title: 'WHATSAPP API',
-        category: 'api',
-        image: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        slug: 'whatsapp-api',
-        github: 'https://github.com/Cahyadi-Prasetyo/WhatsApp-Api'
-    },
-    {
-        id: 7,
-        title: 'TRASH MONITORING',
-        category: 'mobile',
-        image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        slug: 'trash-monitoring',
-        github: 'https://github.com/Cahyadi-Prasetyo/TrashMonitoring'
-    },
-    {
-        id: 8,
-        title: 'UMKM MARITIM',
-        category: 'web',
-        image: 'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        slug: 'umkm-maritim',
-        github: 'https://github.com/Cahyadi-Prasetyo/umkm_maritim'
-    },
-    {
-        id: 9,
-        title: 'PEMIRA OSMA',
-        category: 'web',
-        image: 'https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        slug: 'pemira-osma',
-        github: 'https://github.com/Cahyadi-Prasetyo/pemira-osma-v2'
-    },
-    {
-        id: 10,
-        title: 'INVENTORY SYSTEM',
-        category: 'web',
-        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        slug: 'inventory-system',
-        github: 'https://github.com/Cahyadi-Prasetyo/Inventory-v2'
-    },
-];
-
 const categories = [
     { id: 'all', labelId: 'Semua', labelEn: 'All' },
     { id: 'web', labelId: 'Website', labelEn: 'Website' },
@@ -183,8 +99,8 @@ export default function Projects() {
 
     // Filter projects based on active category
     const filteredProjects = activeFilter === 'all'
-        ? projectsData
-        : projectsData.filter(p => p.category === activeFilter);
+        ? t.projectsList
+        : t.projectsList.filter((p: any) => p.category === activeFilter);
 
     return (
         <div className="pt-32 pb-20 min-h-screen bg-white">

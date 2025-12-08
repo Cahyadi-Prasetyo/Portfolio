@@ -1,6 +1,5 @@
-// Indonesian translations
 const id = {
-    // Navbar
+    // Navigation
     nav: {
         home: 'Beranda',
         projects: 'Proyek',
@@ -66,6 +65,13 @@ const id = {
         letsChat: 'Ayo ngobrol',
         description: 'Fullstack Developer berbasis di Indonesia. Siap membantu mewujudkan ide digitalmu.',
         navigation: 'Navigasi',
+        services: 'Layanan',
+        serviceList: [
+            'Web Development',
+            'Mobile Development',
+            'UI/UX Design',
+            'System Architecture'
+        ],
         connect: 'Terhubung',
         coding: 'Coding Dengan',
     },
@@ -95,11 +101,11 @@ const id = {
         experience: 'Karir Aku',
         education: 'Pendidikan',
         experienceData: [
-            { 
-                years: '2022\n2022', 
-                period: 'Jan 2022 - Jun 2022', 
-                role: 'IT Support', 
-                company: 'PT Pelindo (Persero) Regional 1 Tanjungpinang', 
+            {
+                years: '2022\n2022',
+                period: 'Jan 2022 - Jun 2022',
+                role: 'IT Support',
+                company: 'PT Pelindo (Persero) Regional 1 Tanjungpinang',
                 desc: [
                     'Melakukan troubleshooting perangkat komputer, printer, dan perangkat jaringan.',
                     'Menangani instalasi, konfigurasi, dan pemeliharaan software serta hardware.',
@@ -110,18 +116,18 @@ const id = {
             },
         ],
         educationData: [
-            { 
-                years: '2023\nSekarang', 
-                period: '2023 - Sekarang', 
-                role: 'S1 Teknik Informatika', 
-                company: 'Universitas Maritim Raja Ali Haji', 
+            {
+                years: '2023\nSekarang',
+                period: '2023 - Sekarang',
+                role: 'S1 Teknik Informatika',
+                company: 'Universitas Maritim Raja Ali Haji',
                 desc: ['Fokus pada pengembangan web dan sistem informasi.']
             },
-            { 
-                years: '2020\n2023', 
-                period: '2020 - 2023', 
-                role: 'Rekayasa Perangkat Lunak', 
-                company: 'SMKN 1 Bintan Timur', 
+            {
+                years: '2020\n2023',
+                period: '2020 - 2023',
+                role: 'Rekayasa Perangkat Lunak',
+                company: 'SMKN 1 Bintan Timur',
                 desc: ['Dasar pemrograman, basis data, dan pengembangan perangkat lunak.']
             },
         ],
@@ -131,6 +137,150 @@ const id = {
     projectsPage: {
         title: 'Proyek',
     },
+    projectsList: [
+        {
+            id: 1,
+            title: 'EXAM SYSTEM',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'exam-system',
+            github: 'https://github.com/Cahyadi-Prasetyo/Exam-System',
+            description: "Sistem CBT (Computer Based Test) komprehensif yang dirancang untuk memfasilitasi ujian online yang aman dan efisien. Sistem ini mendukung berbagai jenis soal, penilaian otomatis, dan pemantauan peserta secara real-time.",
+            techStack: ['React', 'Node.js', 'Next.js', 'PostgreSQL', 'TailwindCSS', 'Typescript'],
+            features: [
+                'Lingkungan ujian aman dengan timer',
+                'Berbagai jenis soal (Pilihan Ganda, Esai)',
+                'Penilaian otomatis dan pembuatan hasil',
+                'Dashboard Siswa dan Guru',
+                'Import/Export soal via Excel'
+            ]
+        },
+        {
+            id: 2,
+            title: 'LAUNDRY SYSTEM',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1545173168-9f1947eebb7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'laundry-system',
+            github: 'https://github.com/Cahyadi-Prasetyo/LaundrySystem',
+            description: "Aplikasi manajemen untuk bisnis laundry guna memperlancar operasional. Menangani pencatatan pesanan, manajemen pelanggan, pelacakan status, dan laporan keuangan.",
+            techStack: ['Laravel', 'MySQL', 'jQuery', 'TailwindCss'],
+            features: [
+                'Pencatatan transaksi POS (Point of Sale)',
+                'Pelacakan status laundry real-time',
+                'Integrasi notifikasi SMS/WhatsApp',
+                'Laporan pemasukan dan pengeluaran',
+                'Manajemen database pelanggan'
+            ]
+        },
+        {
+            id: 3,
+            title: 'SISTEM ABSENSI',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'sistem-absensi',
+            github: 'https://github.com/Cahyadi-Prasetyo/Sistem-Absensi',
+            description: "Sistem absensi karyawan menggunakan Kode QR dan validasi Geolokasi. Tujuannya Mencegah kecurangan absensi dan menyediakan data jam kerja yang akurat untuk HR.",
+            techStack: ['Docker', 'Laravel', 'MySQL', 'Javascript', 'TailwindCss', 'Redis', 'WebSocket', 'Nginx'],
+            features: [
+                'Absensi Berbasis Geolokasi',
+                'Sinkronisasi Spreadsheet Real-time',
+                'Pelaporan Otomatis (Data Studio)',
+                'Manajemen Cuti & Izin',
+                'Dukungan Pengenalan Wajah',
+                'Antarmuka Ramah Mobile'
+            ]
+        },
+        {
+            id: 4,
+            title: 'WARUNG DIGITAL',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'warung-digital',
+            github: 'https://github.com/Cahyadi-Prasetyo/warung-digital',
+            description: "Platform pasar digital yang memberdayakan UMKM lokal untuk go online. Menampilkan antarmuka belanja yang ramah pengguna dan pengelolaan produk yang mudah bagi pemilik warung.",
+            techStack: ['React', 'Node.js', 'Next.js', 'PostgreSQL', 'TailwindCSS', 'Typescript'],
+            features: [
+                'Katalog produk dengan kategori',
+                'Keranjang belanja dan alur checkout',
+                'Dashboard pedagang',
+                'Pelacakan status pesanan',
+                'Desain mobile yang responsif'
+            ]
+        },
+        {
+            id: 5,
+            title: 'BAHARI KEPRI',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'bahari-kepri',
+            github: 'https://github.com/Cahyadi-Prasetyo/bahari-kepri',
+            description: "Portal informasi pariwisata yang didedikasikan untuk mempromosikan keindahan bahari Kepulauan Riau. Menampilkan destinasi, kuliner, dan panduan perjalanan.",
+            techStack: ['React', 'Node.js', 'Next.js', 'PostgreSQL', 'TailwindCSS', 'Typescript'],
+            features: [
+                'Pemetaan Wisata Bahari',
+                'Detail Pulau Interaktif',
+                'Perencanaan Rute',
+                'Sistem Pemesanan Tiket',
+                'Manajemen Konten Admin',
+                'Ulasan Pengunjung'
+            ]
+        },
+        {
+            id: 6,
+            title: 'TRASH MONITORING',
+            category: 'mobile',
+            image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'trash-monitoring',
+            github: 'https://github.com/Cahyadi-Prasetyo/TrashMonitoring',
+            description: "Aplikasi mobile terintegrasi IoT untuk memantau tingkat sampah di tempat sampah pintar secara real-time. Membantu mengoptimalkan rute pengangkutan sampah.",
+            techStack: ['Javascript', 'PHP', 'Firebase', 'Arduino', 'ESP32'],
+            features: [
+                'Monitoring Level Sampah Real-time',
+                'Integrasi Sensor IoT (ESP32)',
+                'Peringatan Otomatis',
+                'Analitik Data Historis',
+                'Optimasi Rute Pengangkutan',
+                'Manajemen Daya Surya'
+            ]
+        },
+
+        {
+            id: 7,
+            title: 'PEMIRA OSMA',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'pemira-osma',
+            github: 'https://github.com/Cahyadi-Prasetyo/pemira-osma-v2',
+            description: "Sistem E-Voting untuk pemilihan organisasi mahasiswa (OSMA). Menjamin proses pemungutan suara yang transparan, adil, dan efisien.",
+            techStack: ['PHP', 'MySQL', 'Bootstrap'],
+            features: [
+                'Otentikasi pemilih yang aman',
+                'Penghitungan suara real-time (Quick Count)',
+                'Halaman profil kandidat',
+                'Log audit untuk keamanan',
+                'Antarmuka pemilihan yang responsif'
+            ]
+        },
+        {
+            id: 8,
+            title: 'INVENTORY SYSTEM',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'inventory-system',
+            github: 'https://github.com/Cahyadi-Prasetyo/Inventory-v2',
+            description: "Sistem manajemen stok untuk gudang. Melacak barang masuk, keluar, dan tingkat stok saat ini dengan fitur pelaporan.",
+            techStack: ['PHP', 'MySQL', 'Bootstrap'],
+            features: [
+                'Pelacakan Stok Real-time',
+                'Manajemen Pesanan Pembelian',
+                'Laporan Penjualan & Analitik',
+                'Database Supplier',
+                'Scan Barcode/QR Code',
+                'Dukungan Multi-gudang'
+            ]
+        },
+
+    ],
 
     // Contact Page
     contact: {

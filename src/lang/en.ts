@@ -1,6 +1,5 @@
-// English translations
 const en = {
-    // Navbar
+    // Navigation
     nav: {
         home: 'Home',
         projects: 'Projects',
@@ -66,6 +65,13 @@ const en = {
         letsChat: "Let's chat",
         description: 'Fullstack Developer based in Indonesia. Ready to help bring your digital ideas to life.',
         navigation: 'Navigation',
+        services: 'Services',
+        serviceList: [
+            'Web Development',
+            'Mobile Development',
+            'UI/UX Design',
+            'System Architecture'
+        ],
         connect: 'Connect',
         coding: 'Coding With ',
     },
@@ -131,6 +137,151 @@ const en = {
     projectsPage: {
         title: 'Projects',
     },
+    projectsList: [
+        {
+            id: 1,
+            title: 'EXAM SYSTEM',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'exam-system',
+            github: 'https://github.com/Cahyadi-Prasetyo/Exam-System',
+            description: "A comprehensive CBT (Computer Based Test) system designed to facilitate secure and efficient online examinations. This system supports various question types, automated grading, and real-time monitoring of examinees.",
+            techStack: ['React', 'Node.js', 'Next.js', 'PostgreSQL', 'TailwindCSS', 'Typescript'],
+            features: [
+                'Real-time Exam Monitoring',
+                'Synchronous Broadcasting (Redis/Reverb)',
+                'Automated Grading System',
+                'Secure Browser Lockdown',
+                'Teacher & Student Dashboards',
+                'Comprehensive Reporting'
+            ]
+        },
+        {
+            id: 2,
+            title: 'LAUNDRY SYSTEM',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1545173168-9f1947eebb7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'laundry-system',
+            github: 'https://github.com/Cahyadi-Prasetyo/LaundrySystem',
+            description: "A management application for laundry businesses to streamline operations. It handles order recording, customer management, status tracking, and financial reporting.",
+            techStack: ['Laravel', 'MySQL', 'jQuery', 'TailwindCss'],
+            features: [
+                'POS (Point of Sale) transaction entry',
+                'Real-time laundry status tracking',
+                'SMS/WhatsApp notification integration',
+                'Income and expense reports',
+                'Customer database management'
+            ]
+        },
+        {
+            id: 3,
+            title: 'SISTEM ABSENSI',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'sistem-absensi',
+            github: 'https://github.com/Cahyadi-Prasetyo/Sistem-Absensi',
+            description: "An employee attendance system using QR Codes and Geolocation validation. It prevents attendance fraud and provides accurate working hour data for HR.",
+            techStack: ['Docker', 'Laravel', 'MySQL', 'Javascript', 'TailwindCss', 'Redis', 'WebSocket', 'Nginx'],
+            features: [
+                'Geolocation-based Attendance',
+                'Real-time Spreadsheet Sync',
+                'Automated Reporting (Data Studio)',
+                'Leave & Permission Management',
+                'Face Recognition Support',
+                'Mobile-friendly Interface'
+            ]
+        },
+        {
+            id: 4,
+            title: 'WARUNG DIGITAL',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'warung-digital',
+            github: 'https://github.com/Cahyadi-Prasetyo/warung-digital',
+            description: "A digital marketplace platform empowering local MSMEs to go online. Features a user-friendly shopping interface and easier product management for stall owners.",
+            techStack: ['React', 'Node.js', 'Next.js', 'PostgreSQL', 'TailwindCSS', 'Typescript'],
+            features: [
+                'Product catalog with categories',
+                'Shopping cart and checkout flow',
+                'Merchant dashboard',
+                'Order status tracking',
+                'Responsive mobile design'
+            ]
+        },
+        {
+            id: 5,
+            title: 'BAHARI KEPRI',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'bahari-kepri',
+            github: 'https://github.com/Cahyadi-Prasetyo/bahari-kepri',
+            description: "A tourism information portal dedicated to promoting the marine beauty of Kepulauan Riau. Showcases destinations, culinary spots, and travel guides.",
+            techStack: ['PHP', 'MySQL', 'CSS', 'JavaScript', 'Bootstrap', 'Leaflet.js'],
+            features: [
+                'Maritime Tourism Mapping',
+                'Interactive Island Details',
+                'Route Planning',
+                'Ticket Booking System',
+                'Admin Content Management',
+                'Visitor Reviews'
+            ]
+        },
+        {
+            id: 6,
+            title: 'TRASH MONITORING',
+            category: 'mobile',
+            image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'trash-monitoring',
+            github: 'https://github.com/Cahyadi-Prasetyo/TrashMonitoring',
+            description: "An IoT-integrated mobile app to monitor trash levels in smart bins real-time. Helps in optimizing waste collection routes.",
+            techStack: ['Javascript', 'PHP', 'Firebase', 'Arduino', 'ESP32'],
+            features: [
+                'Real-time Fill Level Monitoring',
+                'IoT Sensor Integration (ESP32)',
+                'Automated Alerts',
+                'Historical Data Analytics',
+                'Route Optimization for Pickup',
+                'Solar Power Management'
+            ]
+        },
+
+        {
+            id: 7,
+            title: 'PEMIRA OSMA',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'pemira-osma',
+            github: 'https://github.com/Cahyadi-Prasetyo/pemira-osma-v2',
+            description: "E-Voting system for student organization elections (OSMA). Ensures a transparent, fair, and efficient voting process.",
+            techStack: ['PHP', 'MySQL', 'Bootstrap'],
+            features: [
+                'Secure voter authentication',
+                'Real-time vote counting (Quick Count)',
+                'Candidate profile pages',
+                'Audit logs for security',
+                'Responsive voting interface'
+            ]
+        },
+        {
+            id: 8,
+            title: 'INVENTORY SYSTEM',
+            category: 'web',
+            image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+            slug: 'inventory-system',
+            github: 'https://github.com/Cahyadi-Prasetyo/Inventory-v2',
+            description: "A stock management system for warehouses. Tracks item entry, exit, and current stock levels with reporting features.",
+            techStack: ['PHP', 'MySQL', 'Bootstrap'],
+            features: [
+                'Real-time Stock Tracking',
+                'Purchase Order Management',
+                'Sales Reporting & Analytics',
+                'Supplier Database',
+                'Barcode/QR Code Scanning',
+                'Multi-warehouse Support'
+            ]
+        },
+
+    ],
 
     // Contact Page
     contact: {

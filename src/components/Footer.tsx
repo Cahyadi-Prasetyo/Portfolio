@@ -43,8 +43,8 @@ export default function Footer() {
                 </div>
 
                 {/* Footer Content */}
-                <div className="grid md:grid-cols-3 gap-12 py-12 border-t border-white/20">
-                    {/* Left: Branding */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 py-12 border-t border-white/20">
+                    {/* Branding */}
                     <div>
                         <h3 className="text-2xl font-bold font-display mb-4">Cahyadi Prasetyo</h3>
                         <p className="text-gray-400 leading-relaxed">
@@ -52,7 +52,7 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Center: Navigation */}
+                    {/* Navigation */}
                     <div>
                         <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{t.footer.navigation}</h4>
                         <nav className="flex flex-col gap-3">
@@ -64,7 +64,19 @@ export default function Footer() {
                         </nav>
                     </div>
 
-                    {/* Right: Social */}
+                    {/* Services */}
+                    <div>
+                        <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{t.footer.services}</h4>
+                        <ul className="flex flex-col gap-3">
+                            {t.footer.serviceList.map((service: string, index: number) => (
+                                <li key={index} className="text-gray-400">
+                                    {service}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Social */}
                     <div>
                         <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{t.footer.connect}</h4>
                         <div className="flex gap-4">

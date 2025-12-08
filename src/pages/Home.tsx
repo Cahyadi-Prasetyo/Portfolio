@@ -21,12 +21,9 @@ export default function Home() {
     const cahyadiX = useTransform(scrollY, [0, 500], [0, -150]);
     const prasetyoX = useTransform(scrollY, [0, 500], [0, 150]);
 
-    const projects = [
-        { id: "001", name: "E-Commerce Platform", category: "Web Development", image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-        { id: "002", name: "Finance Dashboard", category: "UI/UX Design", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-        { id: "003", name: "Social Media App", category: "Mobile App", image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-        { id: "004", name: "AI Portfolio", category: "Creative Dev", image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
-    ];
+    // Select specific projects to feature on Home (IDs: 1, 4, 6, 9)
+    const featuredProjectIds = [1, 4, 6, 2];
+    const projects = t.projectsList.filter((p: any) => featuredProjectIds.includes(p.id));
 
     return (
         <div className="bg-[#fafafa] min-h-screen relative">
@@ -34,11 +31,12 @@ export default function Home() {
 
             {/* 1. HERO SECTION (Dark Grid Editorial) */}
             <section className="min-h-screen bg-black text-white relative flex flex-col justify-center px-6 pt-32 pb-20 overflow-hidden isolate">
+                {/* ... (Hero content remains same, not touching this part in this chunk) ... */}
                 {/* Grid Background */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none z-0" />
 
                 <div className="max-w-7xl mx-auto w-full z-10 relative grid lg:grid-cols-12 gap-12 items-center">
-                    {/* LEFT: Typography & Info */}
+                    {/* ... Hero Left ... */}
                     <div className="lg:col-span-7 flex flex-col gap-6">
                         <motion.div
                             initial={{ opacity: 0, y: 100 }}
@@ -196,7 +194,7 @@ export default function Home() {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8 md:gap-x-12 md:gap-y-20">
-                        {projects.map((project, index) => (
+                        {projects.map((project: any, index: number) => (
                             <div key={index}>
                                 <motion.div
                                     initial={{ opacity: 0, y: 50 }}
@@ -204,22 +202,22 @@ export default function Home() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                 >
-                                    <div className="group cursor-pointer">
+                                    <Link to={`/projects/${project.slug}`} className="group cursor-pointer block">
                                         <div className="overflow-hidden rounded-2xl mb-6 aspect-[4/3]">
                                             <img
                                                 src={project.image}
-                                                alt={project.name}
+                                                alt={project.title}
                                                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                                             />
                                         </div>
                                         <div className="flex justify-between items-start border-b border-gray-200 pb-6 group-hover:border-black transition-colors duration-300">
                                             <div>
-                                                <span className="text-sm font-bold text-gray-400 mb-2 block">DEV.{project.id}</span>
-                                                <h3 className="text-2xl font-bold">{project.name}</h3>
+                                                <span className="text-sm font-bold text-gray-400 mb-2 block">DEV.00{project.id}</span>
+                                                <h3 className="text-2xl font-bold">{project.title}</h3>
                                             </div>
-                                            <span className="text-gray-500 font-medium">{project.category}</span>
+                                            <span className="text-gray-500 font-medium uppercase tracking-wider">{project.category}</span>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </motion.div>
                             </div>
                         ))}
