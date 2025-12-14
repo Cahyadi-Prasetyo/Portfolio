@@ -1,170 +1,92 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu } from 'lucide-react';
-import Magnet from './reactbits/Magnet';
+import { Menu, X, Home, Folder, User, Mail, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
     const { language, toggleLanguage, t } = useLanguage();
 
-    // Pages with white background - navbar should be dark/black text
-    const whiteBackgroundPages = ['/projects', '/about', '/contact'];
-    const isWhitePage = whiteBackgroundPages.includes(location.pathname);
-
-    // Scroll detection to toggle between standard nav and floating button
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 0);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
     const navLinks = [
-        { name: t.nav.home, path: '/' },
-        { name: t.nav.projects, path: '/projects' },
-        { name: t.nav.about, path: '/about' },
-        { name: t.nav.contact, path: '/contact' },
+        { name: t.nav.home, path: '/', icon: Home },
+        { name: t.nav.projects, path: '/projects', icon: Folder },
+        { name: t.nav.about, path: '/about', icon: User },
+        { name: t.nav.contact, path: '/contact', icon: Mail },
     ];
 
     return (
         <>
-            {/* 1. STANDARD NAVBAR (Visible only at top) */}
-            <AnimatePresence>
-                {!isScrolled && !isOpen && (
-                    <motion.nav
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
-                        className="fixed top-0 left-0 w-full z-[99990] py-8 px-6"
-                    >
-                        <div className="max-w-7xl mx-auto flex justify-end md:justify-center items-center">
+            {/* BENTO ISLAND NAVBAR */}
+            <div className="fixed top-6 left-0 w-full z-[9999] px-4 flex justify-center pointer-events-none">
+                <nav className="pointer-events-auto bg-white/90 backdrop-blur-xl border border-white/20 shadow-bento rounded-full p-2 flex items-center gap-1 max-w-fit">
+                    
+                    {/* Brand Icon */}
+                    <Link to="/" className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mr-2 hover:scale-105 transition-transform">
+                        C
+                    </Link>
 
-                            {/* Desktop Menu */}
-                            <div className="hidden md:flex gap-12">
-                                {navLinks.map((link) => (
-                                    <Link
-                                        key={link.path}
-                                        to={link.path}
-                                        className={`group text-sm font-medium tracking-[0.2em] uppercase transition-all duration-300 relative ${isWhitePage ? 'text-black' : 'text-white'
-                                            }`}
-                                    >
-                                        {link.name}
-                                        {/* Underline - visible on active OR hover */}
-                                        <span
-                                            className={`absolute -bottom-2 left-0 h-[1px] transition-all duration-300 ${isWhitePage ? 'bg-black' : 'bg-white'
-                                                } ${location.pathname === link.path
-                                                    ? 'w-full'
-                                                    : 'w-0 group-hover:w-full'
-                                                }`}
-                                        />
-                                    </Link>
-                                ))}
-                            </div>
-
-                            {/* Mobile Standard Toggle */}
-                            <button
-                                className={`md:hidden ${isWhitePage ? 'text-black' : 'text-white'}`}
-                                onClick={() => setIsOpen(true)}
+                    {/* Desktop Links */}
+                    <div className="hidden md:flex items-center gap-1">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.path}
+                                to={link.path}
+                                className={`
+                                    px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 flex items-center gap-2
+                                    ${location.pathname === link.path 
+                                        ? 'bg-background text-primary' 
+                                        : 'text-secondary hover:bg-background hover:text-primary'}
+                                `}
                             >
-                                <Menu />
-                            </button>
-                        </div>
-                    </motion.nav>
-                )}
-            </AnimatePresence>
+                                <link.icon size={16} />
+                                {link.name}
+                            </Link>
+                        ))}
+                    </div>
 
-            {/* 2. FLOATING HAMBURGER BUTTON (Visible when scrolled) */}
-            <AnimatePresence>
-                {(isScrolled || isOpen) && (
-                    <motion.div
-                        initial={{ scale: 0, rotate: 90 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        exit={{ scale: 0, rotate: 90 }}
-                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                        className="fixed top-8 right-8 z-[100000]"
+                    <div className="h-6 w-[1px] bg-border mx-2 hidden md:block" />
+
+                    {/* Language Toggle */}
+                    <button 
+                        onClick={toggleLanguage}
+                        className="w-10 h-10 rounded-full flex items-center justify-center text-secondary hover:bg-background hover:text-primary transition-colors font-bold text-xs"
                     >
-                        <Magnet padding={50} disabled={false} magnetStrength={3}>
-                            <button
-                                onClick={() => setIsOpen(!isOpen)}
-                                className={`group p-4 rounded-full shadow-lg border border-black/10 backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 ${isOpen ? 'bg-white text-black' : 'bg-white text-black hover:bg-black hover:text-white'
-                                    }`}
-                            >
-                                <span className="sr-only">Toggle Menu</span>
-                                <motion.div
-                                    animate={{ rotate: isOpen ? 45 : 0 }}
-                                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                                    className="flex flex-col items-end gap-1.5 w-6"
-                                >
-                                    <span className="block h-0.5 w-full bg-current transition-all duration-300" />
-                                    <span className="block h-0.5 w-3/4 bg-current transition-all duration-300 group-hover:w-full" />
-                                    <span className="block h-0.5 w-1/2 bg-current transition-all duration-300 group-hover:w-full" />
-                                </motion.div>
-                            </button>
-                        </Magnet>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                        {language}
+                    </button>
 
-            {/* 3. FULLSCREEN OVERLAY MENU */}
+                    {/* Mobile Toggle */}
+                    <button
+                        className="md:hidden w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-background transition-colors"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {isOpen ? <X size={20} /> : <Menu size={20} />}
+                    </button>
+                </nav>
+            </div>
+
+            {/* MOBILE MENU */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ clipPath: "circle(0% at 100% 0%)" }}
-                        animate={{ clipPath: "circle(150% at 100% 0%)" }}
-                        exit={{ clipPath: "circle(0% at 100% 0%)" }}
-                        transition={{ duration: 0.7, ease: [0.77, 0, 0.175, 1] }}
-                        className="fixed inset-0 h-screen w-screen bg-black z-[99999] flex flex-col justify-center items-center text-white isolate"
+                        initial={{ opacity: 0, scale: 0.9, y: -20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, opacity: 0, scale: 0.9, y: -20 }}
+                        transition={{ type: "spring", duration: 0.5 }}
+                        className="fixed top-24 left-4 right-4 bg-white rounded-3xl p-4 shadow-bento-hover z-[9990] md:hidden"
                     >
-                        {/* Language Switcher */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.5 }}
-                            className="absolute top-8 left-8 md:top-12 md:left-12"
-                        >
-                            <button
-                                onClick={toggleLanguage}
-                                className="group relative overflow-hidden pb-1"
-                            >
-                                <AnimatePresence mode="wait" initial={false}>
-                                    <motion.span
-                                        key={language}
-                                        initial={{ y: 20, opacity: 0 }}
-                                        animate={{ y: 0, opacity: 1 }}
-                                        exit={{ y: -20, opacity: 0 }}
-                                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                                        className="block text-xl font-medium font-display text-white tracking-wide"
-                                    >
-                                        {language}
-                                    </motion.span>
-                                </AnimatePresence>
-                                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-left" />
-                            </button>
-                        </motion.div>
-
-                        {/* Navigation Links */}
-                        <div className="flex flex-col gap-6 md:gap-8 text-center bg-transparent z-10 w-full">
-                            {navLinks.map((link, index) => (
-                                <motion.div
+                        <div className="grid grid-cols-2 gap-3">
+                            {navLinks.map((link) => (
+                                <Link
                                     key={link.path}
-                                    initial={{ opacity: 0, y: 50 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 + index * 0.1 }}
+                                    to={link.path}
+                                    onClick={() => setIsOpen(false)}
+                                    className="flex flex-col items-center justify-center gap-2 bg-background p-6 rounded-2xl hover:bg-gray-100 transition-colors"
                                 >
-                                    <Link
-                                        to={link.path}
-                                        onClick={() => setIsOpen(false)}
-                                        className="text-5xl md:text-7xl font-black font-display tracking-tighter hover:text-gray-400 transition-colors"
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </motion.div>
+                                    <link.icon size={24} className="text-secondary" />
+                                    <span className="font-bold text-sm text-primary">{link.name}</span>
+                                </Link>
                             ))}
                         </div>
                     </motion.div>

@@ -1,124 +1,72 @@
-import { Github, Linkedin, Mail, Instagram, ArrowUpRight } from 'lucide-react';
+import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
     const { t } = useLanguage();
 
-    const navLinks = [
-        { name: t.nav.home, path: '/' },
-        { name: t.nav.projects, path: '/projects' },
-        { name: t.nav.about, path: '/about' },
-        { name: t.nav.contact, path: '/contact' },
+    const socialLinks = [
+        { Icon: Github, href: "https://github.com/Cahyadi-Prasetyo", color: "hover:bg-[#181717]" },
+        { Icon: Linkedin, href: "https://www.linkedin.com/in/cahyadi-prasetyo-924616290/", color: "hover:bg-[#0077B5]" },
+        { Icon: Instagram, href: "https://www.instagram.com/cahyadi_p24/", color: "hover:bg-[#E1306C]" }
     ];
 
     return (
-        <footer className="bg-black text-white pt-24 pb-8">
-            <div className="max-w-7xl mx-auto px-6">
-                {/* CTA Section */}
-                <div className="mb-20">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-tight mb-8 whitespace-pre-line"
-                    >
-                        {t.footer.cta}
-                    </motion.h2>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <Link
-                            to="/contact"
-                            className="inline-flex items-center gap-3 text-xl md:text-2xl font-bold border-b-2 border-white pb-2 hover:text-gray-300 hover:border-gray-300 transition-colors"
-                        >
-                            {t.footer.letsChat} <ArrowUpRight size={24} />
+        <footer className="px-4 pb-4 pt-12">
+            <div className="max-w-6xl mx-auto bg-surface rounded-bento p-8 md:p-12 shadow-bento">
+                <div className="flex flex-col md:flex-row justify-between gap-12">
+
+                    {/* Brand */}
+                    <div className="max-w-sm">
+                        <Link to="/" className="w-12 h-12 bg-black text-white rounded-2xl flex items-center justify-center font-bold text-2xl mb-6">
+                            C
                         </Link>
-                    </motion.div>
-                </div>
-
-                {/* Footer Content */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 py-12 border-t border-white/20">
-                    {/* Branding */}
-                    <div>
-                        <h3 className="text-2xl font-bold font-display mb-4">Cahyadi Prasetyo</h3>
-                        <p className="text-gray-400 leading-relaxed">
-                            {t.footer.description}
+                        <h2 className="text-2xl font-bold mb-4">Let's build something amazing together.</h2>
+                        <p className="text-secondary mb-6">
+                            Open for freelance opportunities and full-time roles.
                         </p>
+                        <a href="mailto:chdprasetyo@gmail.com" className="text-accent-blue font-bold hover:underline">
+                            chdprasetyo@gmail.com
+                        </a>
                     </div>
 
-                    {/* Navigation */}
-                    <div>
-                        <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{t.footer.navigation}</h4>
-                        <nav className="flex flex-col gap-3">
-                            {navLinks.map((link) => (
-                                <Link key={link.path} to={link.path} className="text-white hover:text-gray-300 transition-colors">
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </nav>
-                    </div>
-
-                    {/* Services */}
-                    <div>
-                        <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{t.footer.services}</h4>
-                        <ul className="flex flex-col gap-3">
-                            {t.footer.serviceList.map((service: string, index: number) => (
-                                <li key={index} className="text-gray-400">
-                                    {service}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Social */}
-                    <div>
-                        <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{t.footer.connect}</h4>
-                        <div className="flex gap-4">
-                            <a
-                                href="https://github.com/Cahyadi-Prasetyo"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-3 bg-white/5 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300"
-                            >
-                                <Github size={20} />
-                            </a>
-                            <a
-                                href="https://www.linkedin.com/in/cahyadi-prasetyo-924616290/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-3 bg-white/5 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300"
-                            >
-                                <Linkedin size={20} />
-                            </a>
-                            <a
-                                href="https://www.instagram.com/cahyadi_p24/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-3 bg-white/5 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300"
-                            >
-                                <Instagram size={20} />
-                            </a>
-                            <a
-                                href="mailto:chdprasetyo@gmail.com"
-                                className="p-3 bg-white/5 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300"
-                            >
-                                <Mail size={20} />
-                            </a>
+                    {/* Links */}
+                    <div className="grid grid-cols-2 gap-12">
+                        <div>
+                            <h4 className="font-bold mb-4">Pages</h4>
+                            <ul className="space-y-3 text-secondary text-sm">
+                                <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
+                                <li><Link to="/projects" className="hover:text-primary transition-colors">Projects</Link></li>
+                                <li><Link to="/about" className="hover:text-primary transition-colors">About</Link></li>
+                                <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="font-bold mb-4">Connect</h4>
+                            <div className="flex gap-2">
+                                {socialLinks.map((social, i) => (
+                                    <a
+                                        key={i}
+                                        href={social.href}
+                                        className={`w-10 h-10 rounded-full bg-background flex items-center justify-center text-secondary hover:text-white transition-colors duration-300 ${social.color}`}
+                                    >
+                                        <social.Icon size={18} />
+                                    </a>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Bottom: Copyright */}
-                <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-center items-center gap-4">
-                    <p className="text-gray-500 text-sm">
-                        {t.footer.coding} Cahyadi Prasetyo © {currentYear}
-                    </p>
+                <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-secondary font-medium">
+                    <p>© {currentYear} Cahyadi Prasetyo</p>
+                    <div className="flex gap-6">
+                        <span className="flex items-center gap-1">
+                            <span className="w-2 h-2 rounded-full bg-accent-green" />
+                            All Systems Normal
+                        </span>
+                    </div>
                 </div>
             </div>
         </footer>

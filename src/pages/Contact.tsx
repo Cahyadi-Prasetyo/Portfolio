@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Send, CheckCircle, Github, Linkedin, Mail, MapPin, Copy, Instagram } from 'lucide-react';
+import { Send, CheckCircle, Github, Linkedin, Mail, MapPin, Copy, Instagram, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { useLanguage } from '../context/LanguageContext';
-import Magnet from '../components/reactbits/Magnet';
 import TextType from '../components/reactbits/TextType';
 
 export default function Contact() {
@@ -17,13 +16,12 @@ export default function Contact() {
         setStatus('loading');
 
         try {
-            // EmailJS configuration from environment variables
             const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
             const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
             const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
             if (!serviceId || !templateId || !publicKey) {
-                throw new Error('EmailJS not configured. Please check your .env file.');
+                throw new Error('EmailJS not configured.');
             }
 
             await emailjs.send(
@@ -33,7 +31,7 @@ export default function Contact() {
                     from_name: formData.name,
                     from_email: formData.email,
                     message: formData.message,
-                    to_name: 'Cahyadi Prasetyo', // Your name
+                    to_name: 'Cahyadi Prasetyo',
                 },
                 publicKey
             );
@@ -54,190 +52,166 @@ export default function Contact() {
         setTimeout(() => setCopied(false), 2000);
     };
 
+    const socialLinks = [
+        { Icon: Github, href: "https://github.com/Cahyadi-Prasetyo", color: "hover:bg-[#181717] hover:text-white" },
+        { Icon: Linkedin, href: "https://www.linkedin.com/in/cahyadi-prasetyo-924616290/", color: "hover:bg-[#0077B5] hover:text-white" },
+        { Icon: Instagram, href: "https://www.instagram.com/cahyadi_p24/", color: "hover:bg-[#E1306C] hover:text-white" }
+    ];
+
     return (
-        <div className="pt-32 pb-20 min-h-screen bg-[#fafafa] relative overflow-hidden">
-            {/* Background Grid (Consistent with Home) */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0" />
+        <div className="pt-32 pb-20 min-h-screen bg-background text-primary selection:bg-accent-blue selection:text-white">
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="max-w-6xl mx-auto px-4 md:px-6">
 
-                {/* Header Section */}
-                <div className="mb-20 border-b border-black pb-12">
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <span className="text-sm font-bold text-gray-500 tracking-[0.2em] uppercase mb-4 block">
-                            {t.contact.label}
-                        </span>
-                        <h1 className="text-6xl md:text-8xl font-bold font-display tracking-tight text-black mb-6">
-                            {t.contact.title}
-                        </h1>
-                        <div className="text-xl md:text-2xl text-gray-600 max-w-2xl leading-relaxed">
-                            <TextType
-                                text={[t.contact.subtitle]}
-                                typingSpeed={30}
-                                showCursor={true}
-                                cursorClassName="bg-black w-3 h-8 ml-1"
-                            />
-                        </div>
-                    </motion.div>
+                {/* HEADER */}
+                <div className="text-center mb-16">
+                    <div className="inline-block bg-white px-4 py-1.5 rounded-full text-sm font-semibold text-accent-green shadow-sm mb-6 border border-green-100">
+                        Let's Talk
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+                        {t.contact.title}
+                    </h1>
+                    <p className="text-secondary text-lg max-w-2xl mx-auto">
+                        {t.contact.subtitle}
+                    </p>
                 </div>
 
-                <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
+                <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
 
-                    {/* Left Column: Contact Info */}
-                    <div className="lg:col-span-5 space-y-12">
-                        {/* Email Card */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
+                    {/* Left Column: Info Cards (Span 5) */}
+                    <div className="lg:col-span-5 space-y-6">
+
+                        {/* Email Card - Bento */}
+                        <motion.button
+                            initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3, duration: 0.6 }}
-                            className="group"
+                            onClick={handleCopyEmail}
+                            className="w-full text-left bg-surface p-8 rounded-bento shadow-bento hover:shadow-bento-hover transition-all duration-300 group relative overflow-hidden"
                         >
-                            <h3 className="text-lg font-bold text-gray-400 mb-4 uppercase tracking-widest">{t.contact.email}</h3>
-                            <button
-                                onClick={handleCopyEmail}
-                                className="w-full text-left p-8 bg-white border border-black rounded-2xl relative overflow-hidden group-hover:bg-black group-hover:text-white transition-all duration-500"
-                            >
-                                <div className="relative z-10 flex justify-between items-center">
-                                    <div>
-                                        <p className="text-sm font-mono opacity-60 mb-2">MAIL TO</p>
-                                        <p className="text-xl md:text-2xl font-bold break-all">chdprasetyo@gmail.com</p>
-                                    </div>
-                                    {copied ? <CheckCircle size={24} className="text-green-500" /> : <Copy size={24} className="opacity-0 group-hover:opacity-100 transition-opacity" />}
+                            <div className="relative z-10">
+                                <h3 className="text-xs font-bold uppercase text-secondary tracking-widest mb-4">Email</h3>
+                                <div className="flex justify-between items-center">
+                                    <p className="text-xl md:text-2xl font-bold text-primary break-all">chdprasetyo@gmail.com</p>
+                                    {copied ? <CheckCircle className="text-accent-green" /> : <Copy className="text-gray-300 group-hover:text-accent-blue transition-colors" />}
                                 </div>
-                            </button>
-                        </motion.div>
+                                <p className="text-sm text-secondary mt-2 group-hover:text-accent-blue transition-colors">
+                                    {copied ? "Copied to clipboard!" : "Click to copy"}
+                                </p>
+                            </div>
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-accent-blue/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500" />
+                        </motion.button>
 
-                        {/* Socials */}
+                        {/* Socials - Bento */}
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
+                            initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.4, duration: 0.6 }}
+                            transition={{ delay: 0.1 }}
+                            className="bg-surface p-8 rounded-bento shadow-bento flex flex-col justify-center"
                         >
-                            <h3 className="text-lg font-bold text-gray-400 mb-6 uppercase tracking-widest">SOCIALS</h3>
-                            <div className="flex flex-wrap gap-4">
-                                <Magnet padding={50} magnetStrength={5}>
-                                    <a href="https://github.com/Cahyadi-Prasetyo" target="_blank" rel="noopener noreferrer" className="w-16 h-16 bg-white border border-black rounded-full flex items-center justify-center text-black hover:bg-black hover:text-white transition-all duration-300">
-                                        <Github size={24} />
+                            <h3 className="text-xs font-bold uppercase text-secondary tracking-widest mb-6">Socials</h3>
+                            <div className="flex gap-4">
+                                {socialLinks.map((social, i) => (
+                                    <a
+                                        key={i}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`w-14 h-14 rounded-full bg-background flex items-center justify-center text-primary transition-all duration-300 ${social.color}`}
+                                    >
+                                        <social.Icon size={24} />
                                     </a>
-                                </Magnet>
-                                <Magnet padding={50} magnetStrength={5}>
-                                    <a href="https://www.linkedin.com/in/cahyadi-prasetyo-924616290/" target="_blank" rel="noopener noreferrer" className="w-16 h-16 bg-white border border-black rounded-full flex items-center justify-center text-black hover:bg-black hover:text-white transition-all duration-300">
-                                        <Linkedin size={24} />
-                                    </a>
-                                </Magnet>
-                                <Magnet padding={50} magnetStrength={5}>
-                                    <a href="https://www.instagram.com/cahyadi_p24/" target="_blank" rel="noopener noreferrer" className="w-16 h-16 bg-white border border-black rounded-full flex items-center justify-center text-black hover:bg-black hover:text-white transition-all duration-300">
-                                        <Instagram size={24} />
-                                    </a>
-                                </Magnet>
+                                ))}
                             </div>
                         </motion.div>
 
-                        {/* Location */}
+                        {/* Location - Bento */}
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
+                            initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.5, duration: 0.6 }}
-                            className="flex items-center gap-4 text-gray-600"
+                            transition={{ delay: 0.2 }}
+                            className="bg-surface p-8 rounded-bento shadow-bento flex items-center gap-6"
                         >
-                            <MapPin size={24} />
-                            <span className="text-lg font-medium">Bintan, Kepulauan Riau, Indonesia</span>
+                            <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                                <MapPin size={24} className="text-secondary" />
+                            </div>
+                            <div>
+                                <h3 className="text-xs font-bold uppercase text-secondary tracking-widest mb-1">Office</h3>
+                                <p className="text-lg font-bold text-primary">Bintan, Kepulauan Riau</p>
+                            </div>
                         </motion.div>
                     </div>
 
-                    {/* Right Column: Form */}
+                    {/* Right Column: Form (Span 7) */}
                     <div className="lg:col-span-7">
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.3, duration: 0.6 }}
-                            className="bg-white p-8 md:p-12 rounded-[2rem] border border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
+                            className="bg-surface p-8 md:p-12 rounded-bento shadow-bento h-full"
                         >
-                            <form onSubmit={handleSubmit} className="space-y-8">
-                                <div className="space-y-6">
-                                    <div className="relative">
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label htmlFor="name" className="text-sm font-bold text-black ml-1">{t.contact.form.name}</label>
                                         <input
                                             type="text"
                                             id="name"
                                             required
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="w-full h-16 px-0 bg-transparent border-b-2 border-gray-200 text-xl font-medium focus:outline-none focus:border-black transition-colors peer placeholder-transparent"
+                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 transition-all outline-none font-medium"
                                             placeholder={t.contact.form.namePlaceholder}
                                         />
-                                        <label
-                                            htmlFor="name"
-                                            className="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-xl peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm font-bold uppercase tracking-wider"
-                                        >
-                                            {t.contact.form.name}
-                                        </label>
                                     </div>
-
-                                    <div className="relative">
+                                    <div className="space-y-2">
+                                        <label htmlFor="email" className="text-sm font-bold text-black ml-1">{t.contact.form.email}</label>
                                         <input
                                             type="email"
                                             id="email"
                                             required
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full h-16 px-0 bg-transparent border-b-2 border-gray-200 text-xl font-medium focus:outline-none focus:border-black transition-colors peer placeholder-transparent"
+                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 transition-all outline-none font-medium"
                                             placeholder={t.contact.form.emailPlaceholder}
                                         />
-                                        <label
-                                            htmlFor="email"
-                                            className="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-xl peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm font-bold uppercase tracking-wider"
-                                        >
-                                            {t.contact.form.email}
-                                        </label>
-                                    </div>
-
-                                    <div className="relative">
-                                        <textarea
-                                            id="message"
-                                            required
-                                            rows={4}
-                                            value={formData.message}
-                                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                            className="w-full p-0 py-4 bg-transparent border-b-2 border-gray-200 text-xl font-medium focus:outline-none focus:border-black transition-colors peer placeholder-transparent resize-none"
-                                            placeholder={t.contact.form.messagePlaceholder}
-                                        />
-                                        <label
-                                            htmlFor="message"
-                                            className="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-xl peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-6 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm font-bold uppercase tracking-wider"
-                                        >
-                                            {t.contact.form.message}
-                                        </label>
                                     </div>
                                 </div>
 
-                                <div className="pt-4">
-                                    <button
-                                        type="submit"
-                                        disabled={status === 'loading'}
-                                        className="w-full py-6 bg-black text-white rounded-xl font-bold text-lg hover:bg-gray-900 transition-all flex items-center justify-center gap-3 disabled:opacity-70 group"
-                                    >
-                                        {status === 'loading' ? (
-                                            <span>{t.contact.form.sending}</span>
-                                        ) : status === 'success' ? (
-                                            <>
-                                                <CheckCircle size={24} className="text-green-400" />
-                                                <span>{t.contact.form.sent}</span>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <span>{t.contact.form.send}</span>
-                                                <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                            </>
-                                        )}
-                                    </button>
+                                <div className="space-y-2">
+                                    <label htmlFor="message" className="text-sm font-bold text-black ml-1">{t.contact.form.message}</label>
+                                    <textarea
+                                        id="message"
+                                        required
+                                        rows={6}
+                                        value={formData.message}
+                                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:border-accent-blue focus:ring-4 focus:ring-accent-blue/10 transition-all outline-none font-medium resize-none"
+                                        placeholder={t.contact.form.messagePlaceholder}
+                                    />
                                 </div>
+
+                                <button
+                                    type="submit"
+                                    disabled={status === 'loading'}
+                                    className="w-full py-4 bg-black text-white rounded-xl font-bold text-lg hover:bg-gray-900 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:translate-y-0 disabled:opacity-70 disabled:hover:translate-y-0 flex items-center justify-center gap-2"
+                                >
+                                    {status === 'loading' ? (
+                                        <span>{t.contact.form.sending}</span>
+                                    ) : status === 'success' ? (
+                                        <>
+                                            <CheckCircle size={20} />
+                                            <span>{t.contact.form.sent}</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <span>{t.contact.form.send}</span>
+                                            <ArrowRight size={20} />
+                                        </>
+                                    )}
+                                </button>
 
                                 {status === 'error' && (
-                                    <p className="text-red-500 text-sm text-center font-bold tracking-wide animate-pulse">
+                                    <p className="text-red-500 text-sm text-center font-bold bg-red-50 p-3 rounded-lg border border-red-100">
                                         {t.contact.form.error}
                                     </p>
                                 )}
