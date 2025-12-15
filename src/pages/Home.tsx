@@ -131,7 +131,7 @@ export default function Home() {
                         <img
                             src="/assets/my-self.png"
                             alt="Cahyadi Prasetyo"
-                            className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700"
+                            className="w-full h-full object-cover object-left-top grayscale group-hover:grayscale-0 transition-all duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-50 group-hover:opacity-0 transition-opacity duration-700" />
                     </div>
