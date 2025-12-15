@@ -43,7 +43,7 @@ export default function Home() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            <h1 className="text-[12vw] sm:text-[10vw] lg:text-[8vw] leading-[0.85] font-black tracking-tighter font-display uppercase flex flex-col">
+                            <h1 className="text-[10vw] xs:text-[9vw] sm:text-[8vw] md:text-[7vw] lg:text-[6vw] leading-[0.85] font-black tracking-tighter font-display uppercase flex flex-col">
                                 <motion.span style={{ x: cahyadiX }} className="block">CAHYADI</motion.span>
                                 <motion.span style={{ x: prasetyoX }} className="block text-gray-500">PRASETYO</motion.span>
                             </h1>
@@ -56,7 +56,7 @@ export default function Home() {
                             className="flex flex-col gap-6 mt-4"
                         >
                             {/* Tech Stack Icons Row */}
-                            <div className="flex flex-wrap gap-4 text-2xl md:text-3xl">
+                            <div className="flex flex-wrap gap-3 sm:gap-4 text-xl sm:text-2xl md:text-3xl">
                                 <SiPhp className="text-indigo-400 hover:scale-110 transition-transform cursor-pointer" title="PHP" />
                                 <SiLaravel className="text-red-500 hover:scale-110 transition-transform cursor-pointer" title="Laravel" />
                                 <SiCodeigniter className="text-orange-500 hover:scale-110 transition-transform cursor-pointer" title="CodeIgniter" />
@@ -73,7 +73,7 @@ export default function Home() {
                             </div>
 
                             {/* Animated Role with RotatingText */}
-                            <div className="text-xl md:text-2xl text-gray-400 font-medium leading-tight flex flex-wrap gap-2 items-center">
+                            <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 font-medium leading-tight flex flex-wrap gap-2 items-center">
                                 {t.hero.iAmA}
                                 <RotatingText
                                     texts={t.hero.roles}
@@ -95,7 +95,7 @@ export default function Home() {
                                 typingSpeed={50}
                                 deletingSpeed={30}
                                 pauseDuration={2000}
-                                className="text-lg md:text-xl text-gray-500 h-8 md:h-10"
+                                className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 h-6 sm:h-8 md:h-10"
                                 showCursor={true}
                                 cursorClassName="bg-green-500 w-0.5 h-6 inline-block ml-1"
                             />
@@ -109,7 +109,7 @@ export default function Home() {
                             </div>
 
                             <div className="flex gap-4">
-                                <Link to="/contact" className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors flex items-center gap-2 text-lg">
+                                <Link to="/contact" className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors flex items-center gap-2 text-sm sm:text-base md:text-lg">
                                     {t.hero.contactMe} <ArrowUpRight size={24} />
                                 </Link>
                             </div>
@@ -117,11 +117,11 @@ export default function Home() {
                     </div>
 
                     {/* RIGHT: Image (Actual Photo) */}
-                    <div className="lg:col-span-5 relative h-[500px] lg:h-[700px] bg-[#111] rounded-2xl overflow-hidden border border-white/10 group">
+                    <div className="lg:col-span-5 relative h-[400px] sm:h-[500px] lg:h-[700px] bg-[#111] rounded-2xl overflow-hidden border border-white/10 group">
                         <img
                             src="/assets/my-self.png"
                             alt="Cahyadi Prasetyo"
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-50 group-hover:opacity-0 transition-opacity duration-700" />
                     </div>
