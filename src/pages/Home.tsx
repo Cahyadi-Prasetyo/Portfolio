@@ -127,11 +127,11 @@ export default function Home() {
                     </div>
 
                     {/* RIGHT: Image (Actual Photo) */}
-                    <div className="lg:col-span-5 relative h-[350px] sm:h-[450px] lg:h-[600px] bg-[#111] rounded-2xl overflow-hidden border border-white/10 group">
+                    <div className="lg:col-span-5 relative aspect-[3/4] sm:aspect-[4/5] lg:h-[600px] lg:aspect-auto bg-[#111] rounded-2xl overflow-hidden border border-white/10 group">
                         <img
                             src="/assets/my-self.png"
                             alt="Cahyadi Prasetyo"
-                            className="w-full h-full object-cover object-[center_20%] grayscale group-hover:grayscale-0 transition-all duration-700"
+                            className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-50 group-hover:opacity-0 transition-opacity duration-700" />
                     </div>
