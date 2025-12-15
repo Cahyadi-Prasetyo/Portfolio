@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import ProjectDetail from './pages/ProjectDetail';
 import PageTransition from './components/PageTransition';
 import ScrollProgress from './components/reactbits/ScrollProgress';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
     const location = useLocation();
@@ -17,6 +18,7 @@ function App() {
     return (
         <LanguageProvider>
             <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans relative">
+                <ScrollToTop />
                 <ScrollProgress />
                 <Navbar />
                 <main className="flex-grow">

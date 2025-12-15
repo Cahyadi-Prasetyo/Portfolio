@@ -169,18 +169,11 @@ export default function Home() {
 
                     </div>
 
-                    {/* Lanyard 3D - only on desktop for performance */}
-                    <div className="hidden lg:flex h-[600px] w-full relative bg-transparent justify-center items-center">
+                    {/* Lanyard 3D - visible on all devices */}
+                    <div className="flex h-[400px] sm:h-[500px] lg:h-[600px] w-full relative bg-transparent justify-center items-center">
                         <Suspense fallback={<div className="text-gray-400">Loading...</div>}>
                             <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
                         </Suspense>
-                    </div>
-                    {/* Mobile fallback - simple placeholder */}
-                    <div className="lg:hidden h-[250px] w-full relative bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex justify-center items-center">
-                        <div className="text-center p-6">
-                            <div className="text-5xl mb-3">👨‍💻</div>
-                            <p className="text-gray-600 font-medium text-sm">Open for opportunities</p>
-                        </div>
                     </div>
                 </div>
             </section>
