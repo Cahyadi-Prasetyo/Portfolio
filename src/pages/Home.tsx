@@ -120,11 +120,11 @@ export default function Home() {
                     </div>
 
                     {/* RIGHT: Image (Actual Photo) */}
-                    <div className="lg:col-span-5 relative h-[350px] sm:h-[450px] lg:h-[600px] bg-[#111] rounded-2xl overflow-hidden border border-white/10 group flex items-end justify-center">
+                    <div className="lg:col-span-5 relative h-[350px] sm:h-[450px] lg:h-[600px] bg-[#111] rounded-2xl overflow-hidden border border-white/10 group">
                         <img
                             src="/assets/my-self.png"
                             alt="Cahyadi Prasetyo"
-                            className="w-full h-full object-contain object-bottom grayscale group-hover:grayscale-0 transition-all duration-700"
+                            className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-50 group-hover:opacity-0 transition-opacity duration-700" />
                     </div>
@@ -138,10 +138,9 @@ export default function Home() {
                         <h2 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{t.whoAmI.title}</h2>
                         <div className="mb-8">
                             <ScrollReveal
-                                baseOpacity={0.1}
-                                enableBlur={true}
-                                baseRotation={3}
-                                blurStrength={4}
+                                baseOpacity={0.2}
+                                enableBlur={false}
+                                baseRotation={2}
                                 textClassName="text-2xl md:text-4xl font-bold leading-relaxed font-display text-gray-900 text-justify"
                             >
                                 {t.whoAmI.paragraph1}
@@ -149,10 +148,9 @@ export default function Home() {
                         </div>
                         <div className="mb-8">
                             <ScrollReveal
-                                baseOpacity={0.1}
-                                enableBlur={true}
-                                baseRotation={2}
-                                blurStrength={3}
+                                baseOpacity={0.2}
+                                enableBlur={false}
+                                baseRotation={1}
                                 textClassName="text-xl text-gray-600 leading-relaxed text-justify"
                             >
                                 {t.whoAmI.paragraph2}
@@ -160,10 +158,9 @@ export default function Home() {
                         </div>
                         <div className="mb-12">
                             <ScrollReveal
-                                baseOpacity={0.1}
-                                enableBlur={true}
-                                baseRotation={2}
-                                blurStrength={3}
+                                baseOpacity={0.2}
+                                enableBlur={false}
+                                baseRotation={1}
                                 textClassName="text-xl text-gray-600 leading-relaxed text-justify"
                             >
                                 {t.whoAmI.paragraph3}

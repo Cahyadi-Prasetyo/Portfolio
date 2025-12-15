@@ -20,7 +20,7 @@ interface ScrollRevealProps {
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
     children,
     scrollContainerRef,
-    enableBlur = true,
+    enableBlur = false, // Disabled by default for performance
     baseOpacity = 0.1,
     baseRotation = 3,
     blurStrength = 4,
@@ -30,6 +30,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     wordAnimationEnd = 'bottom bottom'
 }) => {
     const containerRef = useRef<HTMLHeadingElement>(null);
+    const triggersRef = useRef<ScrollTrigger[]>([]);
 
     const splitText = useMemo(() => {
         const text = typeof children === 'string' ? children : '';
@@ -48,68 +49,56 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         if (!el) return;
 
         const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
-
-        gsap.fromTo(
-            el,
-            { transformOrigin: '0% 50%', rotate: baseRotation },
-            {
-                ease: 'none',
-                rotate: 0,
-                scrollTrigger: {
-                    trigger: el,
-                    scroller,
-                    start: 'top bottom',
-                    end: rotationEnd,
-                    scrub: true
-                }
-            }
-        );
-
         const wordElements = el.querySelectorAll<HTMLElement>('.word');
 
-        gsap.fromTo(
-            wordElements,
-            { opacity: baseOpacity, willChange: 'opacity' },
-            {
-                ease: 'none',
-                opacity: 1,
-                stagger: 0.05,
-                scrollTrigger: {
-                    trigger: el,
-                    scroller,
-                    start: 'top bottom-=20%',
-                    end: wordAnimationEnd,
-                    scrub: true
-                }
+        // Create a single timeline for better performance
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                scroller,
+                start: 'top bottom-=20%',
+                end: wordAnimationEnd,
+                scrub: 0.5, // Smoother scrub
+                fastScrollEnd: true, // Performance optimization
             }
+        });
+
+        // Batch animations together
+        tl.fromTo(el,
+            { transformOrigin: '0% 50%', rotate: baseRotation },
+            { rotate: 0, ease: 'none' },
+            0
         );
 
+        tl.fromTo(wordElements,
+            { opacity: baseOpacity },
+            { opacity: 1, stagger: 0.02, ease: 'none' }, // Reduced stagger
+            0
+        );
+
+        // Only add blur if explicitly enabled (expensive operation)
         if (enableBlur) {
-            gsap.fromTo(
-                wordElements,
+            tl.fromTo(wordElements,
                 { filter: `blur(${blurStrength}px)` },
-                {
-                    ease: 'none',
-                    filter: 'blur(0px)',
-                    stagger: 0.05,
-                    scrollTrigger: {
-                        trigger: el,
-                        scroller,
-                        start: 'top bottom-=20%',
-                        end: wordAnimationEnd,
-                        scrub: true
-                    }
-                }
+                { filter: 'blur(0px)', stagger: 0.02, ease: 'none' },
+                0
             );
         }
 
+        if (tl.scrollTrigger) {
+            triggersRef.current.push(tl.scrollTrigger);
+        }
+
         return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            // Clean up only our triggers, not all triggers
+            triggersRef.current.forEach(trigger => trigger.kill());
+            triggersRef.current = [];
+            tl.kill();
         };
     }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
 
     return (
-        <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
+        <h2 ref={containerRef} className={`my-5 ${containerClassName}`} style={{ willChange: 'transform' }}>
             <p className={`text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-semibold ${textClassName}`}>{splitText}</p>
         </h2>
     );
