@@ -1,12 +1,15 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import TextType from '../components/reactbits/TextType';
 import ScrollReveal from '../components/reactbits/ScrollReveal';
 import RotatingText from '../components/reactbits/RotatingText';
 import FAQ from '../components/FAQ';
-import Lanyard from '../components/reactbits/Lanyard';
 import { useLanguage } from '../context/LanguageContext';
+
+// Lazy load heavy 3D component
+const Lanyard = lazy(() => import('../components/reactbits/Lanyard'));
 import {
     SiPhp, SiLaravel, SiCodeigniter, SiMysql, SiPostgresql,
     SiJavascript, SiTypescript, SiTailwindcss, SiReact, SiDocker, SiGit, SiRedis
@@ -117,13 +120,13 @@ export default function Home() {
                     </div>
 
                     {/* RIGHT: Image (Actual Photo) */}
-                    <div className="lg:col-span-5 relative h-[400px] sm:h-[500px] lg:h-[700px] bg-[#111] rounded-2xl overflow-hidden border border-white/10 group">
+                    <div className="lg:col-span-5 relative h-[350px] sm:h-[450px] lg:h-[600px] bg-[#111] rounded-2xl overflow-hidden border border-white/10 group flex items-end justify-center">
                         <img
                             src="/assets/my-self.png"
                             alt="Cahyadi Prasetyo"
-                            className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
+                            className="w-full h-full object-contain object-bottom grayscale group-hover:grayscale-0 transition-all duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-50 group-hover:opacity-0 transition-opacity duration-700" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-50 group-hover:opacity-0 transition-opacity duration-700" />
                     </div>
                 </div>
             </section>
@@ -169,8 +172,18 @@ export default function Home() {
 
                     </div>
 
-                    <div className="h-[600px] w-full relative bg-transparent flex justify-center items-center">
-                        <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
+                    {/* Lanyard 3D - only on desktop for performance */}
+                    <div className="hidden lg:flex h-[600px] w-full relative bg-transparent justify-center items-center">
+                        <Suspense fallback={<div className="text-gray-400">Loading...</div>}>
+                            <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
+                        </Suspense>
+                    </div>
+                    {/* Mobile fallback - simple placeholder */}
+                    <div className="lg:hidden h-[250px] w-full relative bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex justify-center items-center">
+                        <div className="text-center p-6">
+                            <div className="text-5xl mb-3">👨‍💻</div>
+                            <p className="text-gray-600 font-medium text-sm">Open for opportunities</p>
+                        </div>
                     </div>
                 </div>
             </section>
