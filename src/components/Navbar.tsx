@@ -92,18 +92,18 @@ export default function Navbar() {
                         <Magnet padding={50} disabled={false} magnetStrength={3}>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className={`group p-5 rounded-full shadow-lg border border-black/10 backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 ${isOpen ? 'bg-white text-black' : 'bg-white text-black hover:bg-black hover:text-white'
+                                className={`group p-6 rounded-full shadow-lg border border-black/10 backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 ${isOpen ? 'bg-white text-black' : 'bg-white text-black hover:bg-black hover:text-white'
                                     }`}
                             >
                                 <span className="sr-only">Toggle Menu</span>
                                 <motion.div
                                     animate={{ rotate: isOpen ? 45 : 0 }}
                                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                                    className="flex flex-col items-end gap-2 w-8"
+                                    className="flex flex-col items-end gap-2.5 w-10"
                                 >
-                                    <span className="block h-[3px] w-full bg-current transition-all duration-300 rounded-full" />
-                                    <span className="block h-[3px] w-3/4 bg-current transition-all duration-300 group-hover:w-full rounded-full" />
-                                    <span className="block h-[3px] w-1/2 bg-current transition-all duration-300 group-hover:w-full rounded-full" />
+                                    <span className="block h-1 w-full bg-current transition-all duration-300 rounded-full" />
+                                    <span className="block h-1 w-3/4 bg-current transition-all duration-300 group-hover:w-full rounded-full" />
+                                    <span className="block h-1 w-1/2 bg-current transition-all duration-300 group-hover:w-full rounded-full" />
                                 </motion.div>
                             </button>
                         </Magnet>
