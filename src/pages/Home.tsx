@@ -7,6 +7,7 @@ import ScrollReveal from '../components/reactbits/ScrollReveal';
 import RotatingText from '../components/reactbits/RotatingText';
 import FAQ from '../components/FAQ';
 import { useLanguage } from '../context/LanguageContext';
+import { useInView } from '../hooks/useInView';
 
 // Lazy load heavy 3D component
 const Lanyard = lazy(() => import('../components/reactbits/Lanyard'));
@@ -18,6 +19,12 @@ import { TbApi } from 'react-icons/tb';
 
 export default function Home() {
     const { t } = useLanguage();
+
+    // Lazy load Lanyard only when section is in view
+    const [lanyardRef, isLanyardInView] = useInView<HTMLDivElement>({
+        rootMargin: '200px', // Start loading 200px before entering viewport
+        triggerOnce: true    // Only load once, don't unload
+    });
 
     // Parallax scroll effect for name
     const { scrollY } = useScroll();
@@ -169,11 +176,26 @@ export default function Home() {
 
                     </div>
 
-                    {/* Lanyard 3D - visible on all devices */}
-                    <div className="flex h-[400px] sm:h-[500px] lg:h-[600px] w-full relative bg-transparent justify-center items-center">
-                        <Suspense fallback={<div className="text-gray-400">Loading...</div>}>
-                            <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
-                        </Suspense>
+                    {/* Lanyard 3D - Lazy loaded when in view */}
+                    <div
+                        ref={lanyardRef}
+                        className="flex h-[400px] sm:h-[500px] lg:h-[600px] w-full relative bg-transparent justify-center items-center"
+                    >
+                        {isLanyardInView ? (
+                            <Suspense fallback={
+                                <div className="flex flex-col items-center gap-4 text-gray-400">
+                                    <div className="w-12 h-12 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+                                    <span className="text-sm">Loading 3D...</span>
+                                </div>
+                            }>
+                                <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
+                            </Suspense>
+                        ) : (
+                            <div className="flex flex-col items-center gap-4 text-gray-400">
+                                <div className="w-16 h-20 bg-gray-200 rounded-lg animate-pulse" />
+                                <span className="text-sm">Scroll to load</span>
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>

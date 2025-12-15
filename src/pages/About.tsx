@@ -29,27 +29,27 @@ export default function About() {
                 className="relative w-full"
             >
                 {/* Container with lines */}
-                <div className="relative border-t border-b border-black">
+                {/* <div className="relative border-t border-b border-black"> */}
                     {/* Vertical Line on Left */}
-                    <div className="absolute left-[60px] md:left-[100px] top-0 bottom-0 w-[1px] bg-black z-10" />
+                    {/* <div className="absolute left-[60px] md:left-[100px] top-0 bottom-0 w-[1px] bg-black z-10" /> */}
 
                     {/* Vertical Line on Right */}
-                    <div className="absolute right-[60px] md:right-[100px] top-0 bottom-0 w-[1px] bg-black z-10" />
+                    {/* <div className="absolute right-[60px] md:right-[100px] top-0 bottom-0 w-[1px] bg-black z-10" /> */}
 
                     {/* Empty Area - Photo will be added later */}
-                    <div className="relative h-[150px] md:h-[200px]">
+                    {/* <div className="relative h-[150px] md:h-[200px]"> */}
                         {/* Placeholder */}
-                    </div>
-                </div>
+                    {/* </div> */}
+                {/* </div> */}
             </motion.div>
 
             {/* Connecting Lines between sections */}
-            <div className="relative h-16">
+            {/* <div className="relative h-16">
                 {/* Left connecting line */}
-                <div className="absolute left-[60px] md:left-[100px] top-0 bottom-0 w-[1px] bg-black" />
+                {/* <div className="absolute left-[60px] md:left-[100px] top-0 bottom-0 w-[1px] bg-black" />
                 {/* Right connecting line */}
-                <div className="absolute right-[60px] md:right-[100px] top-0 bottom-0 w-[1px] bg-black" />
-            </div>
+                {/* <div className="absolute right-[60px] md:right-[100px] top-0 bottom-0 w-[1px] bg-black" />
+            </div> */}
 
             {/* Second Line Section - Connected */}
             <motion.div
