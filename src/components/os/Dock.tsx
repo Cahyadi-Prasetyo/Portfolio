@@ -18,16 +18,16 @@ export default function Dock({ onOpenApp }: DockProps) {
     const [hovered, setHovered] = useState<string | null>(null);
 
     return (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999]">
-            <div className="flex items-end gap-3 px-4 py-3 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
+        <div className="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-[9999] w-full max-w-fit px-4 md:px-0">
+            <div className="flex items-end gap-2 md:gap-3 px-3 py-2 md:px-4 md:py-3 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20 mx-auto overflow-x-auto no-scrollbar max-w-full">
                 {apps.map((app) => (
-                    <div key={app.id} className="relative flex flex-col items-center gap-2 group">
+                    <div key={app.id} className="relative flex flex-col items-center gap-2 group flex-shrink-0">
 
                         {/* Tooltip */}
                         <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: hovered === app.id ? 1 : 0, y: hovered === app.id ? -15 : 10 }}
-                            className="absolute -top-10 bg-gray-900/90 text-white text-[10px] font-medium px-2 py-1 rounded-md backdrop-blur-sm whitespace-nowrap pointer-events-none border border-white/10 shadow-lg"
+                            className="absolute -top-10 bg-gray-900/90 text-white text-[10px] font-medium px-2 py-1 rounded-md backdrop-blur-sm whitespace-nowrap pointer-events-none border border-white/10 shadow-lg hidden md:block"
                         >
                             {app.name}
                         </motion.div>
@@ -37,11 +37,11 @@ export default function Dock({ onOpenApp }: DockProps) {
                             onMouseEnter={() => setHovered(app.id)}
                             onMouseLeave={() => setHovered(null)}
                             onClick={() => onOpenApp(app.id)}
-                            whileHover={{ scale: 1.2, y: -10 }}
+                            whileHover={{ scale: 1.1, y: -5 }}
                             whileTap={{ scale: 0.9 }}
-                            className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center shadow-lg text-white ${app.color} transition-all duration-200 ring-1 ring-white/20`}
+                            className={`w-10 h-10 md:w-14 md:h-14 rounded-xl flex items-center justify-center shadow-lg text-white ${app.color} transition-all duration-200 ring-1 ring-white/20`}
                         >
-                            <app.icon size={24} strokeWidth={2} />
+                            <app.icon className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2} />
                         </motion.button>
 
                         {/* Active Dot (Placeholder) */}

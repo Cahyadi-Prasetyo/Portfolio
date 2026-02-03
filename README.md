@@ -1,54 +1,88 @@
-# Modern Portfolio Website
+# CahyadiOS 🖥️
 
-A high-performance, aesthetically pleasing portfolio website built with **Next.js 14**, **React**, **Tailwind CSS**, and **Supabase**.
+A personal portfolio website re-imagined as a functional, interactive Desktop Environment. Built with **React**, **Vite**, **TypeScript**, and **Framer Motion**, powered by **Bun**.
 
-## Features
+![CahyadiOS Preview](https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop)
 
-- **Soft/Minimalist Design**: Clean UI with glassmorphism and smooth animations.
-- **Dynamic Content**: Managed via a custom Admin Dashboard.
-- **Interactive Components**:
-    - **Decrypted Text** & **Typewriter** (Hero)
-    - **Logo Loop** & **Scroll Velocity** (Skills)
-    - **Stack Cards** (Experience/Education)
-    - **Project Grid** & **Detail Pages** (Projects)
-    - **Transforming Navbar** (Toggle on scroll)
-- **Tech Stack**:
-    - Framework: Next.js (App Router)
-    - Styling: Tailwind CSS
-    - Database: Supabase (PostgreSQL)
-    - ORM: Prisma
-    - Animations: Framer Motion
+## 🌟 Features
 
-## Getting Started
+-   **Desktop Environment**: A fully interactive desktop with a customizable wallpaper and top bar.
+-   **Window System**: Drag, minimize, close, and stack windows just like a real OS.
+-   **Dock**: A macOS-inspired dock with bouncy animations and tooltip indicators.
+-   **Apps**:
+    -   **About Me**: Profile, tech stack, and timeline-based experience tracking.
+    -   **Projects**: Grid gallery showcasing portfolio work with hover effects.
+    -   **Terminal**: Interactive shell with typing animations and custom commands.
+-   **Glassmorphism**: Premium UI design with blur effects, noise textures, and smooth spring animations.
 
-1.  **Install Dependencies**:
+## 🛠️ Tech Stack
+
+-   **Runtime**: [Bun](https://bun.sh) (Fast JavaScript runtime)
+-   **Framework**: [React](https://react.dev) + [Vite](https://vitejs.dev)
+-   **Language**: TypeScript
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com)
+-   **Animations**: [Framer Motion](https://www.framer.com/motion/)
+-   **Icons**: [Lucide React](https://lucide.dev)
+
+## 🏗️ Architecture
+
+The application is structured around a central **WindowManager** context that handles the state of the "Operating System".
+
+```mermaid
+graph TD
+    A[Desktop Entry] --> B[WindowManagerProvider]
+    B --> C[Desktop UI]
+    C --> D[TopBar]
+    C --> E[Window Layer]
+    C --> F[Dock]
+    
+    E --> G[Window Component]
+    G --> H[App Content]
+    
+    H --> I[AboutApp]
+    H --> J[ProjectsApp]
+    H --> K[TerminalApp]
+    
+    subgraph Context
+    B -- manages --> L{State}
+    L --> |activeWindow| E
+    L --> |z-index| E
+    L --> |minimized| F
+    end
+```
+
+## 🚀 Getting Started
+
+1.  **Clone the repository**:
     ```bash
-    npm install
+    git clone https://github.com/cahyadip/portfolio.git
+    cd portfolio
     ```
 
-2.  **Environment Variables**:
-    Create a `.env.local` file with your Supabase credentials:
-    ```env
-    NEXT_PUBLIC_SUPABASE_URL=your_url
-    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-    DATABASE_URL=your_postgres_connection_string
-    DIRECT_URL=your_direct_connection_string
-    ```
-
-3.  **Run Development Server**:
+2.  **Install dependencies**:
     ```bash
-    npm run dev
+    bun install
     ```
 
-## Project Structure
+3.  **Run development server**:
+    ```bash
+    bun run dev
+    ```
 
-- `app/`: Next.js App Router pages.
-- `components/`: Reusable UI components.
-- `lib/`: Utility functions.
-- `prisma/`: Database schema.
-- `utils/`: Supabase clients.
-- `docs/`: Project documentation and plans.
+4.  **Build for production**:
+    ```bash
+    bun run build
+    ```
 
-## Documentation
+## 🎨 Design System
 
-Check the `docs/` folder for detailed implementation plans and task lists.
+-   **Font**: San Francisco (Apple System Font) / Inter
+-   **Colors**: Slate & Zinc palettes with dynamic gradients.
+-   **Effects**:
+    -   `backdrop-blur-2xl` for glass panels.
+    -   `bg-noise` utility for texture.
+    -   `spring` transitions for natural movement.
+
+---
+
+© 2026 Cahyadi Prasetyo. Built with ❤️ and ☕.
