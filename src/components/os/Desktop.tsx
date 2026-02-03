@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import Dock from './Dock';
 import Window from './Window';
+import AboutApp from '../apps/AboutApp';
+import ProjectsApp from '../apps/ProjectsApp';
+import TerminalApp from '../apps/TerminalApp';
 import { motion, AnimatePresence } from 'framer-motion';
 import { WindowManagerProvider, useWindowManager } from '../../context/WindowManagerContext';
 
@@ -46,32 +49,17 @@ function DesktopContent() {
             {/* 3. Windows Layer */}
             <div className="absolute inset-0 z-10 pointer-events-none">
                 <div className="relative w-full h-full pointer-events-auto">
-                    {/* EXAMPLE WINDOWS - Logic connected to Dock */}
+                    {/* APP WINDOWS - Logic connected to Dock */}
                     <Window id="about" title="About Me - Profile">
-                        <div className="p-4">
-                            <h2 className="text-2xl font-bold mb-4">Cahyadi Prasetyo</h2>
-                            <p>Welcome to my OS-style portfolio! This window is draggable.</p>
-                            <p className="mt-4 text-gray-400">Try opening other apps from the dock.</p>
-                        </div>
+                        <AboutApp />
                     </Window>
 
                     <Window id="projects" title="My Projects" initialPosition={{ x: 150, y: 100 }}>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="h-32 bg-white/10 rounded-lg animate-pulse"></div>
-                            <div className="h-32 bg-white/10 rounded-lg animate-pulse"></div>
-                            <div className="h-32 bg-white/10 rounded-lg animate-pulse"></div>
-                            <div className="h-32 bg-white/10 rounded-lg animate-pulse"></div>
-                        </div>
+                        <ProjectsApp />
                     </Window>
 
                     <Window id="terminal" title="Terminal - zsh" initialPosition={{ x: 200, y: 150 }}>
-                        <div className="font-mono text-xs md:text-sm">
-                            <p className="text-green-400">➜  ~  <span className="text-white">whoami</span></p>
-                            <p className="mb-2">cahyadi_dev</p>
-                            <p className="text-green-400">➜  ~  <span className="text-white">echo "Hello World"</span></p>
-                            <p>Hello World</p>
-                            <p className="text-green-400 animate-pulse">➜  ~  <span className="inline-block w-2 h-4 bg-gray-500 ml-1 align-middle"></span></p>
-                        </div>
+                        <TerminalApp />
                     </Window>
 
                 </div>
