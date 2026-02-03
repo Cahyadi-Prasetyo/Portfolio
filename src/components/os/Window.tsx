@@ -25,9 +25,9 @@ export default function Window({ id, title, children, initialPosition = { x: 100
                 <motion.div
                     drag
                     dragMomentum={false}
-                    initial={{ scale: 0.8, opacity: 0, y: 50 }}
-                    animate={{ scale: 1, opacity: 1, y: 0, zIndex: windowState.zIndex }}
-                    exit={{ scale: 0.8, opacity: 0, y: 50, transition: { duration: 0.2 } }}
+                    initial={{ scale: 0.9, opacity: 0, x: initialPosition.x, y: initialPosition.y }}
+                    animate={{ scale: 1, opacity: 1, zIndex: windowState.zIndex }}
+                    exit={{ scale: 0.9, opacity: 0 }}
                     transition={{ type: "spring", damping: 25, stiffness: 300 }}
                     onDragStart={() => focusWindow(id)}
                     onClick={() => focusWindow(id)}

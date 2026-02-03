@@ -42,9 +42,13 @@ export default function TerminalApp() {
         };
 
         // Simpler approach: Show lines with delay
-        setTimeout(() => setHistory(["Welcome to Cahyadi Term v1.0.0"]), 100);
-        setTimeout(() => setHistory(prev => [...prev, "Type 'help' to see available commands."]), 800);
+        const t1 = setTimeout(() => setHistory(["Welcome to Cahyadi Term v1.0.0"]), 100);
+        const t2 = setTimeout(() => setHistory(prev => [...prev, "Type 'help' to see available commands."]), 800);
 
+        return () => {
+            clearTimeout(t1);
+            clearTimeout(t2);
+        };
     }, []);
 
     useEffect(() => {

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Command } from "lucide-react";
 import Dock from './Dock';
 import Window from './Window';
 import AboutApp from '../apps/AboutApp';
@@ -33,7 +34,7 @@ function DesktopContent() {
             {/* 2. Top Bar */}
             <div className="absolute top-0 left-0 w-full h-8 bg-black/20 backdrop-blur-md flex items-center justify-between px-4 z-50 border-b border-white/5 text-white shadow-sm">
                 <div className="flex items-center gap-4 font-medium">
-                    <span className="font-bold text-base"></span>
+                    <Command size={18} />
                     <span className="hidden sm:inline font-bold">CahyadiOS</span>
                     <span className="cursor-default opacity-80 hover:opacity-100 transition-opacity">File</span>
                     <span className="cursor-default opacity-80 hover:opacity-100 transition-opacity">View</span>
