@@ -1,265 +1,65 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
-import TextType from '../components/reactbits/TextType';
-import ScrollReveal from '../components/reactbits/ScrollReveal';
-import RotatingText from '../components/reactbits/RotatingText';
-import FAQ from '../components/FAQ';
-import { useLanguage } from '../context/LanguageContext';
-import { useInView } from '../hooks/useInView';
-
-// Lazy load heavy 3D component
-const Lanyard = lazy(() => import('../components/reactbits/Lanyard'));
-import {
-    SiPhp, SiLaravel, SiCodeigniter, SiMysql, SiPostgresql,
-    SiJavascript, SiTypescript, SiTailwindcss, SiReact, SiDocker, SiGit, SiRedis
-} from 'react-icons/si';
-import { TbApi } from 'react-icons/tb';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Dock from '../components/os/Dock';
 
 export default function Home() {
-    const { t } = useLanguage();
+    // Wallpaper Image - Using a dark, moody gradient or abstract image
+    // You can replace this URL with a local asset later
+    const wallpaperUrl = "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop";
 
-    // Lazy load Lanyard only when section is in view
-    const [lanyardRef, isLanyardInView] = useInView<HTMLDivElement>({
-        rootMargin: '200px', // Start loading 200px before entering viewport
-        triggerOnce: true    // Only load once, don't unload
-    });
+    const [activeApp, setActiveApp] = useState<string | null>(null);
 
-    // Parallax scroll effect for name
-    const { scrollY } = useScroll();
-    const cahyadiX = useTransform(scrollY, [0, 500], [0, -150]);
-    const prasetyoX = useTransform(scrollY, [0, 500], [0, 150]);
-
-    // Select specific projects to feature on Home (IDs: 1, 4, 6, 9)
-    const featuredProjectIds = [1, 4, 6, 2];
-    const projects = t.projectsList.filter((p: any) => featuredProjectIds.includes(p.id));
+    const handleOpenApp = (appName: string) => {
+        console.log("Opening app:", appName);
+        setActiveApp(appName);
+    };
 
     return (
-        <div className="bg-[#fafafa] min-h-screen relative">
-            <div className="grain-overlay" />
+        <div className="h-screen w-full overflow-hidden relative bg-black selection:bg-pink-500 selection:text-white">
 
-            {/* 1. HERO SECTION (Dark Grid Editorial) */}
-            <section className="min-h-screen bg-black text-white relative flex flex-col justify-center px-6 pt-32 pb-20 overflow-hidden isolate">
-                {/* ... (Hero content remains same, not touching this part in this chunk) ... */}
-                {/* Grid Background */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none z-0" />
+            {/* 1. BACKGROUND WALLPAPER */}
+            <div
+                className="absolute inset-0 z-0 bg-cover bg-center transition-all duration-700"
+                style={{ backgroundImage: `url(${wallpaperUrl})` }}
+            >
+                {/* Overlay to dim background for readability */}
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-[0px]" />
+            </div>
 
-                <div className="max-w-7xl mx-auto w-full z-10 relative grid lg:grid-cols-12 gap-12 items-center">
-                    {/* ... Hero Left ... */}
-                    <div className="lg:col-span-7 flex flex-col gap-6">
-                        <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                            <h1 className="text-[13vw] xs:text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.85] font-black tracking-tighter font-display uppercase flex flex-col">
-                                <motion.span style={{ x: cahyadiX }} className="block">CAHYADI</motion.span>
-                                <motion.span style={{ x: prasetyoX }} className="block text-gray-500">PRASETYO</motion.span>
-                            </h1>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.4, duration: 0.8 }}
-                            className="flex flex-col gap-8 mt-6"
-                        >
-                            {/* Tech Stack Icons Row */}
-                            <div className="flex flex-wrap gap-4 sm:gap-6 text-3xl sm:text-4xl md:text-3xl">
-                                <SiCodeigniter className="text-gray-400 grayscale hover:grayscale-0 hover:text-orange-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="CodeIgniter" />
-                                <SiLaravel className="text-gray-400 grayscale hover:grayscale-0 hover:text-red-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="Laravel" />
-                                <SiPhp className="text-gray-400 grayscale hover:grayscale-0 hover:text-indigo-400 hover:scale-110 transition-all duration-300 cursor-pointer" title="PHP" />
-                                <SiMysql className="text-gray-400 grayscale hover:grayscale-0 hover:text-blue-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="MySQL" />
-                                <SiPostgresql className="text-gray-400 grayscale hover:grayscale-0 hover:text-blue-400 hover:scale-110 transition-all duration-300 cursor-pointer" title="PostgreSQL" />
-                                <SiJavascript className="text-gray-400 grayscale hover:grayscale-0 hover:text-yellow-400 hover:scale-110 transition-all duration-300 cursor-pointer" title="JavaScript" />
-                                <SiTypescript className="text-gray-400 grayscale hover:grayscale-0 hover:text-blue-600 hover:scale-110 transition-all duration-300 cursor-pointer" title="TypeScript" />
-                                <SiReact className="text-gray-400 grayscale hover:grayscale-0 hover:text-cyan-400 hover:scale-110 transition-all duration-300 cursor-pointer" title="React" />
-                                <SiTailwindcss className="text-gray-400 grayscale hover:grayscale-0 hover:text-cyan-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="Tailwind CSS" />
-                                <SiDocker className="text-gray-400 grayscale hover:grayscale-0 hover:text-blue-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="Docker" />
-                                <SiGit className="text-gray-400 grayscale hover:grayscale-0 hover:text-orange-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="Git" />
-                                <SiRedis className="text-gray-400 grayscale hover:grayscale-0 hover:text-red-600 hover:scale-110 transition-all duration-300 cursor-pointer" title="Redis" />
-                                <TbApi className="text-gray-400 grayscale hover:grayscale-0 hover:text-green-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="REST API" />
-                            </div>
-
-                            {/* Animated Role with RotatingText */}
-                            <div className="text-lg sm:text-xl md:text-2xl text-gray-400 font-medium leading-tight flex flex-wrap gap-2 items-center">
-                                {t.hero.iAmA}
-                                <RotatingText
-                                    texts={t.hero.roles}
-                                    mainClassName="px-3 text-white overflow-hidden py-1 justify-center rounded-lg inline-flex"
-                                    staggerFrom="last"
-                                    initial={{ y: "100%" }}
-                                    animate={{ y: 0 }}
-                                    exit={{ y: "-120%" }}
-                                    staggerDuration={0.025}
-                                    splitLevelClassName="overflow-hidden pb-0.5"
-                                    transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                                    rotationInterval={2500}
-                                />
-                            </div>
-
-                            {/* Animated Tagline with TextType */}
-                            <TextType
-                                text={t.hero.taglines}
-                                typingSpeed={50}
-                                deletingSpeed={30}
-                                pauseDuration={2000}
-                                className="text-base sm:text-lg md:text-xl text-gray-500 h-8 sm:h-10"
-                                showCursor={true}
-                                cursorClassName="bg-green-500 w-0.5 h-6 inline-block ml-1"
-                            />
-
-                            <div className="flex items-center gap-3 text-green-400 font-bold bg-green-900/20 w-fit px-5 py-2.5 rounded-full border border-green-900/50 text-base sm:text-lg">
-                                <span className="relative flex h-3 w-3">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                                </span>
-                                {t.hero.available}
-                            </div>
-
-                            <div className="flex gap-4">
-                                <Link to="/contact" className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors flex items-center gap-2 text-lg">
-                                    {t.hero.contactMe} <ArrowUpRight size={24} />
-                                </Link>
-                            </div>
-                        </motion.div>
+            {/* 2. DESKTOP AREA (Icons, Windows go here) */}
+            <div className="relative z-10 w-full h-full p-8 pointer-events-none">
+                {/* Header / Top Bar */}
+                <div className="absolute top-0 left-0 w-full h-8 bg-black/20 backdrop-blur-md flex items-center justify-between px-4 text-white text-xs font-medium pointer-events-auto">
+                    <div className="flex items-center gap-4">
+                        <span className="font-bold"> CahyadiOS</span>
+                        <span>File</span>
+                        <span>Edit</span>
+                        <span>View</span>
                     </div>
-
-                    {/* RIGHT: Image (Actual Photo) */}
-                    <div className="lg:col-span-5 relative aspect-[3/4] sm:aspect-[4/5] lg:h-[600px] lg:aspect-auto bg-[#111] rounded-2xl overflow-hidden border border-white/10 group">
-                        <img
-                            src="/assets/my-self.png"
-                            alt="Cahyadi Prasetyo"
-                            className="w-full h-full object-cover object-left-top grayscale group-hover:grayscale-0 transition-all duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-50 group-hover:opacity-0 transition-opacity duration-700" />
+                    <div className="flex items-center gap-4">
+                        <span>100% 🔋</span>
+                        <span>{new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}</span>
                     </div>
                 </div>
-            </section>
 
-            {/* 2. WHO AM I + LANYARD */}
-            <section className="py-32 px-6 overflow-hidden bg-[#fafafa] text-gray-900">
-                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <h2 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{t.whoAmI.title}</h2>
-                        <div className="mb-8">
-                            <ScrollReveal
-                                baseOpacity={0.2}
-                                enableBlur={false}
-                                baseRotation={2}
-                                textClassName="text-2xl md:text-4xl font-bold leading-relaxed font-display text-gray-900 text-justify"
-                            >
-                                {t.whoAmI.paragraph1}
-                            </ScrollReveal>
-                        </div>
-                        <div className="mb-8">
-                            <ScrollReveal
-                                baseOpacity={0.2}
-                                enableBlur={false}
-                                baseRotation={1}
-                                textClassName="text-xl text-gray-600 leading-relaxed text-justify"
-                            >
-                                {t.whoAmI.paragraph2}
-                            </ScrollReveal>
-                        </div>
-                        <div className="mb-12">
-                            <ScrollReveal
-                                baseOpacity={0.2}
-                                enableBlur={false}
-                                baseRotation={1}
-                                textClassName="text-xl text-gray-600 leading-relaxed text-justify"
-                            >
-                                {t.whoAmI.paragraph3}
-                            </ScrollReveal>
-                        </div>
-
-                    </div>
-
-                    {/* Lanyard 3D - Lazy loaded when in view */}
-                    <div
-                        ref={lanyardRef}
-                        className="flex h-[400px] sm:h-[500px] lg:h-[600px] w-full relative bg-transparent justify-center items-center"
+                {/* Desktop Greetings (Optional) */}
+                {!activeApp && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white pointer-events-none"
                     >
-                        {isLanyardInView ? (
-                            <Suspense fallback={
-                                <div className="flex flex-col items-center gap-4 text-gray-400">
-                                    <div className="w-12 h-12 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
-                                    <span className="text-sm">Loading 3D...</span>
-                                </div>
-                            }>
-                                <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
-                            </Suspense>
-                        ) : (
-                            <div className="flex flex-col items-center gap-4 text-gray-400">
-                                <div className="w-16 h-20 bg-gray-200 rounded-lg animate-pulse" />
-                                <span className="text-sm">Scroll to load</span>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </section>
+                        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-4 mix-blend-overlay">CAHYADI</h1>
+                        <p className="text-xl md:text-2xl font-light text-white/70">Full Stack Developer • OS v1.0</p>
+                    </motion.div>
+                )}
+            </div>
 
-            {/* 3. SELECTED PROJECTS */}
-            <section className="py-20 md:py-32 px-6 bg-[#fafafa]">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex justify-between items-end mb-16">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
-                            className="text-4xl md:text-6xl font-bold font-display whitespace-pre-line"
-                        >
-                            {t.projects.title}
-                        </motion.h2>
-                        <Link to="/projects" className="hidden md:flex items-center gap-2 font-bold hover:text-gray-600 transition-colors">
-                            {t.projects.viewAll} <ArrowUpRight size={20} />
-                        </Link>
-                    </div>
+            {/* 3. WINDOWS (Placeholder) */}
+            {/* <AnimatePresence> ... Windows will be rendered here ... </AnimatePresence> */}
 
-                    <div className="grid md:grid-cols-2 gap-8 md:gap-x-12 md:gap-y-20">
-                        {projects.map((project: any, index: number) => (
-                            <div key={index}>
-                                <motion.div
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                >
-                                    <Link to={`/projects/${project.slug}`} className="group cursor-pointer block">
-                                        <div className="overflow-hidden rounded-2xl mb-6 aspect-[4/3]">
-                                            <img
-                                                src={project.image}
-                                                alt={project.title}
-                                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                                            />
-                                        </div>
-                                        <div className="flex justify-between items-start border-b border-gray-200 pb-6 group-hover:border-black transition-colors duration-300">
-                                            <div>
-                                                <span className="text-sm font-bold text-gray-400 mb-2 block">DEV.00{project.id}</span>
-                                                <h3 className="text-2xl font-bold">{project.title}</h3>
-                                            </div>
-                                            <span className="text-gray-500 font-medium uppercase tracking-wider">{project.category}</span>
-                                        </div>
-                                    </Link>
-                                </motion.div>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="mt-12 text-center md:hidden">
-                        <Link to="/projects" className="inline-flex items-center gap-2 font-bold hover:text-gray-600 transition-colors">
-                            {t.projects.viewAllProjects} <ArrowUpRight size={20} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* 4. FAQ SECTION */}
-            <section className="py-32 px-6">
-                <FAQ />
-            </section>
+            {/* 4. DOCK NAVIGATION */}
+            <Dock onOpenApp={handleOpenApp} />
 
         </div>
     );
