@@ -30,25 +30,25 @@ export default function About() {
             >
                 {/* Container with lines */}
                 {/* <div className="relative border-t border-b border-black"> */}
-                    {/* Vertical Line on Left */}
-                    {/* <div className="absolute left-[60px] md:left-[100px] top-0 bottom-0 w-[1px] bg-black z-10" /> */}
+                {/* Vertical Line on Left */}
+                {/* <div className="absolute left-[60px] md:left-[100px] top-0 bottom-0 w-[1px] bg-black z-10" /> */}
 
-                    {/* Vertical Line on Right */}
-                    {/* <div className="absolute right-[60px] md:right-[100px] top-0 bottom-0 w-[1px] bg-black z-10" /> */}
+                {/* Vertical Line on Right */}
+                {/* <div className="absolute right-[60px] md:right-[100px] top-0 bottom-0 w-[1px] bg-black z-10" /> */}
 
-                    {/* Empty Area - Photo will be added later */}
-                    {/* <div className="relative h-[150px] md:h-[200px]"> */}
-                        {/* Placeholder */}
-                    {/* </div> */}
+                {/* Empty Area - Photo will be added later */}
+                {/* <div className="relative h-[150px] md:h-[200px]"> */}
+                {/* Placeholder */}
+                {/* </div> */}
                 {/* </div> */}
             </motion.div>
 
             {/* Connecting Lines between sections */}
             {/* <div className="relative h-16">
                 {/* Left connecting line */}
-                {/* <div className="absolute left-[60px] md:left-[100px] top-0 bottom-0 w-[1px] bg-black" />
+            {/* <div className="absolute left-[60px] md:left-[100px] top-0 bottom-0 w-[1px] bg-black" />
                 {/* Right connecting line */}
-                {/* <div className="absolute right-[60px] md:right-[100px] top-0 bottom-0 w-[1px] bg-black" />
+            {/* <div className="absolute right-[60px] md:right-[100px] top-0 bottom-0 w-[1px] bg-black" />
             </div> */}
 
             {/* Second Line Section - Connected */}
@@ -157,7 +157,7 @@ export default function About() {
                                 whileInView={{ height: "100%" }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 1.5, ease: "easeInOut" }}
-                                className="absolute left-[113px] md:left-[169px] top-2 bottom-0 w-[2px] bg-black"
+                                className="absolute left-[101px] md:left-[169px] top-2 bottom-0 w-[2px] bg-black"
                             />
 
                             {t.about.experienceData.map((item: any, index: number) => (
@@ -167,7 +167,7 @@ export default function About() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-50px" }}
                                     transition={{ duration: 0.5, delay: index * 0.2 }}
-                                    className="relative flex gap-6 md:gap-10 mb-12 last:mb-0 group"
+                                    className="relative flex gap-3 md:gap-10 mb-12 last:mb-0 group"
                                 >
                                     {/* Left Side (Stacked Years) */}
                                     <div className="w-[80px] md:w-[120px] text-right shrink-0 pt-1">
@@ -223,7 +223,7 @@ export default function About() {
                                 whileInView={{ height: "100%" }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 1.5, ease: "easeInOut" }}
-                                className="absolute left-[113px] md:left-[169px] top-2 bottom-0 w-[2px] bg-black"
+                                className="absolute left-[101px] md:left-[169px] top-2 bottom-0 w-[2px] bg-black"
                             />
 
                             {t.about.educationData.map((item: any, index: number) => (
@@ -233,7 +233,7 @@ export default function About() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-50px" }}
                                     transition={{ duration: 0.5, delay: index * 0.2 }}
-                                    className="relative flex gap-6 md:gap-10 mb-12 last:mb-0 group"
+                                    className="relative flex gap-3 md:gap-10 mb-12 last:mb-0 group"
                                 >
                                     {/* Left Side (Stacked Years) */}
                                     <div className="w-[80px] md:w-[120px] text-right shrink-0 pt-1">

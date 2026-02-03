@@ -103,7 +103,7 @@ export default function Projects() {
         : t.projectsList.filter((p: any) => p.category === activeFilter);
 
     return (
-        <div className="pt-32 pb-20 min-h-screen bg-white">
+        <div className="pt-24 md:pt-32 pb-20 min-h-screen bg-white">
             {/* Title */}
             <div className="px-6">
                 <div className="max-w-7xl mx-auto">

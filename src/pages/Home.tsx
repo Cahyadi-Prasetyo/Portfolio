@@ -53,7 +53,7 @@ export default function Home() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            <h1 className="text-[10vw] xs:text-[9vw] sm:text-[8vw] md:text-[7vw] lg:text-[6vw] leading-[0.85] font-black tracking-tighter font-display uppercase flex flex-col">
+                            <h1 className="text-[13vw] xs:text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.85] font-black tracking-tighter font-display uppercase flex flex-col">
                                 <motion.span style={{ x: cahyadiX }} className="block">CAHYADI</motion.span>
                                 <motion.span style={{ x: prasetyoX }} className="block text-gray-500">PRASETYO</motion.span>
                             </h1>
@@ -63,27 +63,27 @@ export default function Home() {
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
-                            className="flex flex-col gap-6 mt-4"
+                            className="flex flex-col gap-8 mt-6"
                         >
                             {/* Tech Stack Icons Row */}
-                            <div className="flex flex-wrap gap-3 sm:gap-4 text-xl sm:text-2xl md:text-3xl">
-                                <SiPhp className="text-indigo-400 hover:scale-110 transition-transform cursor-pointer" title="PHP" />
-                                <SiLaravel className="text-red-500 hover:scale-110 transition-transform cursor-pointer" title="Laravel" />
-                                <SiCodeigniter className="text-orange-500 hover:scale-110 transition-transform cursor-pointer" title="CodeIgniter" />
-                                <SiMysql className="text-blue-500 hover:scale-110 transition-transform cursor-pointer" title="MySQL" />
-                                <SiPostgresql className="text-blue-400 hover:scale-110 transition-transform cursor-pointer" title="PostgreSQL" />
-                                <SiJavascript className="text-yellow-400 hover:scale-110 transition-transform cursor-pointer" title="JavaScript" />
-                                <SiTypescript className="text-blue-600 hover:scale-110 transition-transform cursor-pointer" title="TypeScript" />
-                                <SiReact className="text-cyan-400 hover:scale-110 transition-transform cursor-pointer" title="React" />
-                                <SiTailwindcss className="text-cyan-500 hover:scale-110 transition-transform cursor-pointer" title="Tailwind CSS" />
-                                <SiDocker className="text-blue-500 hover:scale-110 transition-transform cursor-pointer" title="Docker" />
-                                <SiGit className="text-orange-500 hover:scale-110 transition-transform cursor-pointer" title="Git" />
-                                <SiRedis className="text-red-600 hover:scale-110 transition-transform cursor-pointer" title="Redis" />
-                                <TbApi className="text-green-500 hover:scale-110 transition-transform cursor-pointer" title="REST API" />
+                            <div className="flex flex-wrap gap-4 sm:gap-6 text-3xl sm:text-4xl md:text-3xl">
+                                <SiCodeigniter className="text-gray-400 grayscale hover:grayscale-0 hover:text-orange-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="CodeIgniter" />
+                                <SiLaravel className="text-gray-400 grayscale hover:grayscale-0 hover:text-red-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="Laravel" />
+                                <SiPhp className="text-gray-400 grayscale hover:grayscale-0 hover:text-indigo-400 hover:scale-110 transition-all duration-300 cursor-pointer" title="PHP" />
+                                <SiMysql className="text-gray-400 grayscale hover:grayscale-0 hover:text-blue-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="MySQL" />
+                                <SiPostgresql className="text-gray-400 grayscale hover:grayscale-0 hover:text-blue-400 hover:scale-110 transition-all duration-300 cursor-pointer" title="PostgreSQL" />
+                                <SiJavascript className="text-gray-400 grayscale hover:grayscale-0 hover:text-yellow-400 hover:scale-110 transition-all duration-300 cursor-pointer" title="JavaScript" />
+                                <SiTypescript className="text-gray-400 grayscale hover:grayscale-0 hover:text-blue-600 hover:scale-110 transition-all duration-300 cursor-pointer" title="TypeScript" />
+                                <SiReact className="text-gray-400 grayscale hover:grayscale-0 hover:text-cyan-400 hover:scale-110 transition-all duration-300 cursor-pointer" title="React" />
+                                <SiTailwindcss className="text-gray-400 grayscale hover:grayscale-0 hover:text-cyan-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="Tailwind CSS" />
+                                <SiDocker className="text-gray-400 grayscale hover:grayscale-0 hover:text-blue-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="Docker" />
+                                <SiGit className="text-gray-400 grayscale hover:grayscale-0 hover:text-orange-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="Git" />
+                                <SiRedis className="text-gray-400 grayscale hover:grayscale-0 hover:text-red-600 hover:scale-110 transition-all duration-300 cursor-pointer" title="Redis" />
+                                <TbApi className="text-gray-400 grayscale hover:grayscale-0 hover:text-green-500 hover:scale-110 transition-all duration-300 cursor-pointer" title="REST API" />
                             </div>
 
                             {/* Animated Role with RotatingText */}
-                            <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 font-medium leading-tight flex flex-wrap gap-2 items-center">
+                            <div className="text-lg sm:text-xl md:text-2xl text-gray-400 font-medium leading-tight flex flex-wrap gap-2 items-center">
                                 {t.hero.iAmA}
                                 <RotatingText
                                     texts={t.hero.roles}
@@ -105,12 +105,12 @@ export default function Home() {
                                 typingSpeed={50}
                                 deletingSpeed={30}
                                 pauseDuration={2000}
-                                className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 h-6 sm:h-8 md:h-10"
+                                className="text-base sm:text-lg md:text-xl text-gray-500 h-8 sm:h-10"
                                 showCursor={true}
                                 cursorClassName="bg-green-500 w-0.5 h-6 inline-block ml-1"
                             />
 
-                            <div className="flex items-center gap-3 text-green-400 font-bold bg-green-900/20 w-fit px-4 py-2 rounded-full border border-green-900/50">
+                            <div className="flex items-center gap-3 text-green-400 font-bold bg-green-900/20 w-fit px-5 py-2.5 rounded-full border border-green-900/50 text-base sm:text-lg">
                                 <span className="relative flex h-3 w-3">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
@@ -119,7 +119,7 @@ export default function Home() {
                             </div>
 
                             <div className="flex gap-4">
-                                <Link to="/contact" className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors flex items-center gap-2 text-sm sm:text-base md:text-lg">
+                                <Link to="/contact" className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors flex items-center gap-2 text-lg">
                                     {t.hero.contactMe} <ArrowUpRight size={24} />
                                 </Link>
                             </div>
@@ -201,7 +201,7 @@ export default function Home() {
             </section>
 
             {/* 3. SELECTED PROJECTS */}
-            <section className="py-20 px-6 bg-[#fafafa]">
+            <section className="py-20 md:py-32 px-6 bg-[#fafafa]">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex justify-between items-end mb-16">
                         <motion.h2
