@@ -30,16 +30,19 @@ export default function Window({ id, title, children, initialPosition = { x: 100
                     exit={{ scale: 0.9, opacity: 0 }}
                     onDragStart={() => focusWindow(id)}
                     onClick={() => focusWindow(id)}
-                    className="absolute rounded-xl overflow-hidden shadow-2xl border border-white/20 bg-gray-900/80 backdrop-blur-xl flex flex-col min-w-[300px] min-h-[200px]"
+                    className="absolute rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-gray-900/60 backdrop-blur-2xl flex flex-col min-w-[300px] min-h-[200px] ring-1 ring-white/5"
                     style={{
                         width: 'min(800px, 90vw)',
                         height: 'min(600px, 80vh)',
-                        boxShadow: isActive ? '0 25px 50px -12px rgba(0, 0, 0, 0.5)' : '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
+                        boxShadow: isActive ? '0 0 0 1px rgba(255,255,255,0.1), 0 25px 50px -12px rgba(0, 0, 0, 0.5)' : '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
                     }}
                 >
+                    {/* Noise Overlay */}
+                    <div className="absolute inset-0 bg-noise pointer-events-none opacity-50 z-0" />
+
                     {/* Title Bar */}
                     <div
-                        className={`h-10 flex items-center justify-between px-4 select-none cursor-grab active:cursor-grabbing border-b border-white/10 ${isActive ? 'bg-white/10' : 'bg-white/5'}`}
+                        className={`h-11 flex items-center justify-between px-4 select-none cursor-grab active:cursor-grabbing border-b border-white/5 relative z-10 transition-colors duration-200 ${isActive ? 'bg-white/5' : 'bg-transparent'}`}
                         onPointerDown={() => focusWindow(id)}
                     >
                         <div className="flex items-center gap-2">

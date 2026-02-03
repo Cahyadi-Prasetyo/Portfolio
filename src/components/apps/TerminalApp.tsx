@@ -1,12 +1,51 @@
 import { useState, useEffect, useRef } from "react";
 
 export default function TerminalApp() {
-    const [history, setHistory] = useState<string[]>([
-        "Welcome to Cahyadi Term v1.0.0",
-        "Type 'help' to see available commands."
-    ]);
+    const [history, setHistory] = useState<string[]>([]);
     const [input, setInput] = useState("");
+    const [isTyping, setIsTyping] = useState(false);
     const endRef = useRef<HTMLDivElement>(null);
+
+    // Initial greeting with typing effect
+    useEffect(() => {
+        const greeting = [
+            "Welcome to Cahyadi Term v1.0.0",
+            "Type 'help' to see available commands."
+        ];
+
+        let lineIndex = 0;
+        let charIndex = 0;
+        let currentHistory: string[] = [];
+
+        const typeLine = () => {
+            if (lineIndex < greeting.length) {
+                if (charIndex < greeting[lineIndex].length) {
+                    // This logic is a bit complex for a simple state update in React, 
+                    // simplifying to just showing lines one by one for stability
+                    setHistory(prev => {
+                        const newHistory = [...prev];
+                        if (newHistory.length <= lineIndex) {
+                            newHistory.push(greeting[lineIndex][charIndex]);
+                        } else {
+                            newHistory[lineIndex] += greeting[lineIndex][charIndex];
+                        }
+                        return newHistory;
+                    });
+                    charIndex++;
+                    setTimeout(typeLine, 30);
+                } else {
+                    lineIndex++;
+                    charIndex = 0;
+                    setTimeout(typeLine, 100);
+                }
+            }
+        };
+
+        // Simpler approach: Show lines with delay
+        setTimeout(() => setHistory(["Welcome to Cahyadi Term v1.0.0"]), 100);
+        setTimeout(() => setHistory(prev => [...prev, "Type 'help' to see available commands."]), 800);
+
+    }, []);
 
     useEffect(() => {
         endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -15,26 +54,36 @@ export default function TerminalApp() {
     const handleCommand = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') {
             const cmd = input.trim().toLowerCase();
-            const newLines = [`➜ ~ ${input}`];
-
-            if (cmd === 'help') {
-                newLines.push("Available commands:", "  help     - Show this menu", "  about    - Who is this guy?", "  clear    - Clear screen", "  skills   - List technical skills");
-            } else if (cmd === 'clear') {
-                setHistory([]);
-                setInput("");
-                return;
-            } else if (cmd === 'about') {
-                newLines.push("Cahyadi Prasetyo | Full Stack Dev", "Loves building things with code.");
-            } else if (cmd === 'skills') {
-                newLines.push("React, Laravel, Node.js, TypeScript, Docker");
-            } else if (cmd === '') {
-                // do nothing
-            } else {
-                newLines.push(`command not found: ${cmd}`);
-            }
+            const newLines = [`➜ ~ ${input}`]; // Command line immediately
 
             setHistory(prev => [...prev, ...newLines]);
             setInput("");
+
+            // Process response
+            let responseLines: string[] = [];
+            if (cmd === 'help') {
+                responseLines = ["Available commands:", "  help     - Show this menu", "  about    - Who is this guy?", "  clear    - Clear screen", "  skills   - List technical skills"];
+            } else if (cmd === 'clear') {
+                setHistory([]);
+                return;
+            } else if (cmd === 'about') {
+                responseLines = ["Cahyadi Prasetyo | Full Stack Dev", "Loves building things with code."];
+            } else if (cmd === 'skills') {
+                responseLines = ["React, Laravel, Node.js, TypeScript, Docker"];
+            } else if (cmd === '') {
+                // do nothing
+            } else {
+                responseLines = [`command not found: ${cmd}`];
+            }
+
+            // Simulate processing delay
+            if (responseLines.length > 0) {
+                setIsTyping(true);
+                setTimeout(() => {
+                    setHistory(prev => [...prev, ...responseLines]);
+                    setIsTyping(false);
+                }, 300);
+            }
         }
     };
 
