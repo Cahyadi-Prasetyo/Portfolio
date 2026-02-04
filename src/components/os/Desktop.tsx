@@ -12,8 +12,16 @@ import { WindowManagerProvider, useWindowManager } from '../../context/WindowMan
 
 // Inner component to use the context
 function DesktopContent() {
-    const { openApp } = useWindowManager();
+    const { openWindow } = useWindowManager();
     const [currentTime, setCurrentTime] = useState(new Date());
+
+    // Auto-open About window
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            openWindow('about');
+        }, 500);
+        return () => clearTimeout(timer);
+    }, []);
 
     useEffect(() => {
         const timer = setInterval(() => setCurrentTime(new Date()), 1000);
