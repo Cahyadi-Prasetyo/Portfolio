@@ -5,6 +5,7 @@ import Window from './Window';
 import AboutApp from '../apps/AboutApp';
 import ProjectsApp from '../apps/ProjectsApp';
 import TerminalApp from '../apps/TerminalApp';
+import TechApp from '../apps/TechApp';
 import { motion, AnimatePresence } from 'framer-motion';
 import { WindowManagerProvider, useWindowManager } from '../../context/WindowManagerContext';
 
@@ -61,6 +62,10 @@ function DesktopContent() {
 
                     <Window id="terminal" title="Terminal - zsh" initialPosition={{ x: 200, y: 150 }}>
                         <TerminalApp />
+                    </Window>
+
+                    <Window id="stack" title="System Architecture" initialPosition={{ x: 250, y: 50 }}>
+                        <TechApp />
                     </Window>
 
                 </div>
