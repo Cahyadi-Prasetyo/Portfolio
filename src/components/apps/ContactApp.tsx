@@ -51,7 +51,7 @@ export default function ContactApp() {
                 </a>
             </div>
 
-            <div className="mt-8 pt-8 border-t border-white/10 w-full max-w-sm text-center">
+            <div className="mt-8 pt-8 border-t border-white/10 w-full max-w-sm text-center pb-8">
                 <p className="text-xs text-gray-500 mb-4">Or send a direct message</p>
                 <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
                     <input type="text" placeholder="Subject" className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-orange-500/50 transition-colors" />
