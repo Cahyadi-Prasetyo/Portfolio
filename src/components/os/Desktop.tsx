@@ -15,13 +15,13 @@ function DesktopContent() {
     const { openApp } = useWindowManager();
     const [currentTime, setCurrentTime] = useState(new Date());
 
-    // Auto-open About window
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            openApp('about');
-        }, 500);
-        return () => clearTimeout(timer);
-    }, []);
+    // Auto-open removed for cleaner OS experience
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         openApp('about');
+    //     }, 500);
+    //     return () => clearTimeout(timer);
+    // }, []);
 
     useEffect(() => {
         const timer = setInterval(() => setCurrentTime(new Date()), 1000);
@@ -99,9 +99,67 @@ function DesktopContent() {
 
 // Main Wrapper with Provider
 export default function Desktop() {
+    const [isBooting, setIsBooting] = useState(true);
+
     return (
         <WindowManagerProvider>
-            <DesktopContent />
+            <AnimatePresence mode="wait">
+                {isBooting ? (
+                    <BootSequence onComplete={() => setIsBooting(false)} key="boot" />
+                ) : (
+                    <DesktopContent key="desktop" />
+                )}
+            </AnimatePresence>
         </WindowManagerProvider>
+    );
+}
+
+function BootSequence({ onComplete }: { onComplete: () => void }) {
+    const [lines, setLines] = useState<string[]>([]);
+
+    const bootLines = [
+        "Initializing CAHYADI_OS_KERNEL v2.6.0...",
+        "Loading system extensions...",
+        "Mounting file system (Read-Only)...",
+        "[OK] React Runtime Environment verified.",
+        "[OK] Framer Motion physics engine ready.",
+        "Allocating virtual memory for 'Tech Stack'...",
+        "Establishing secure connection to 'Contact App'...",
+        "User profile 'About Me' found.",
+        "Starting Window Manager Service...",
+        "Boot sequence complete. Launching GUI..."
+    ];
+
+    useEffect(() => {
+        let delay = 0;
+        bootLines.forEach((line, index) => {
+            delay += Math.random() * 300 + 100; // Random delay for realism
+            setTimeout(() => {
+                setLines(prev => [...prev, line]);
+                // Scroll to bottom logic if needed, but list is short
+            }, delay);
+        });
+
+        // Finish boot
+        setTimeout(onComplete, delay + 800);
+    }, []);
+
+    return (
+        <motion.div
+            className="h-screen w-full bg-black flex flex-col items-start justify-end p-8 md:p-16 font-mono text-sm md:text-base cursor-wait"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+            transition={{ duration: 0.8 }}
+        >
+            <div className="w-full max-w-2xl">
+                {lines.map((line, i) => (
+                    <div key={i} className="mb-1 text-green-500/80">
+                        <span className="text-blue-500 mr-2">root@system:~#</span>
+                        {line}
+                    </div>
+                ))}
+                <span className="animate-pulse text-green-500">_</span>
+            </div>
+        </motion.div>
     );
 }
