@@ -8,12 +8,13 @@ interface WindowProps {
     title: string;
     children: React.ReactNode;
     initialPosition?: { x: number; y: number };
+    initialSize?: { width: number | string; height: number | string };
 }
 
-export default function Window({ id, title, children, initialPosition = { x: 100, y: 50 } }: WindowProps) {
+export default function Window({ id, title, children, initialPosition = { x: 100, y: 50 }, initialSize = { width: 'min(800px, 90vw)', height: 'min(600px, 80vh)' } }: WindowProps) {
     const { windows, closeApp, focusWindow, minimizeWindow, activeWindowId } = useWindowManager();
     const windowState = windows[id];
-    const constraintsRef = useRef(null); // Can be used to constrain drag to desktop
+    const constraintsRef = useRef(null);
 
     if (!windowState || !windowState.isOpen) return null;
 
@@ -33,8 +34,8 @@ export default function Window({ id, title, children, initialPosition = { x: 100
                     onClick={() => focusWindow(id)}
                     className="absolute rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-gray-900/60 backdrop-blur-2xl flex flex-col min-w-[300px] min-h-[200px] ring-1 ring-white/5"
                     style={{
-                        width: 'min(800px, 90vw)',
-                        height: 'min(600px, 80vh)',
+                        width: initialSize.width,
+                        height: initialSize.height,
                         boxShadow: isActive ? '0 0 0 1px rgba(255,255,255,0.1), 0 25px 50px -12px rgba(0, 0, 0, 0.5)' : '0 10px 15px -3px rgba(0, 0, 0, 0.3)'
                     }}
                 >
