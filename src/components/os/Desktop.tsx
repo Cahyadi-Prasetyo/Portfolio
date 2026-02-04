@@ -6,6 +6,7 @@ import AboutApp from '../apps/AboutApp';
 import ProjectsApp from '../apps/ProjectsApp';
 import TerminalApp from '../apps/TerminalApp';
 import TechApp from '../apps/TechApp';
+import ContactApp from '../apps/ContactApp';
 import { motion, AnimatePresence } from 'framer-motion';
 import { WindowManagerProvider, useWindowManager } from '../../context/WindowManagerContext';
 
@@ -66,6 +67,10 @@ function DesktopContent() {
 
                     <Window id="stack" title="System Architecture" initialPosition={{ x: 250, y: 50 }}>
                         <TechApp />
+                    </Window>
+
+                    <Window id="contact" title="Contact" initialPosition={{ x: 300, y: 100 }}>
+                        <ContactApp />
                     </Window>
 
                 </div>
