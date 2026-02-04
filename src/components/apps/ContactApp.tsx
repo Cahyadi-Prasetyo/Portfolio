@@ -12,7 +12,7 @@ export default function ContactApp() {
     };
 
     return (
-        <div className="h-full p-8 flex flex-col items-center justify-center text-white select-none">
+        <div className="h-full w-full p-8 pt-16 flex flex-col items-center justify-start text-white select-none overflow-y-auto custom-scrollbar">
 
             <div className="text-center mb-8">
                 <div className="w-16 h-16 bg-orange-500 rounded-2xl mx-auto flex items-center justify-center mb-4 shadow-lg shadow-orange-500/20">
@@ -39,12 +39,12 @@ export default function ContactApp() {
 
             {/* Social Links */}
             <div className="flex gap-4 w-full max-w-sm">
-                <a href="https://github.com/cahyadip" target="_blank" rel="noopener noreferrer"
+                <a href="https://github.com/cahyadi-prasetyo" target="_blank" rel="noopener noreferrer"
                     className="flex-1 p-3 bg-gray-900 border border-white/10 rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-transform text-sm font-medium">
                     <Github size={18} />
                     GitHub
                 </a>
-                <a href="https://linkedin.com/in/cahyadip" target="_blank" rel="noopener noreferrer"
+                <a href="https://linkedin.com/in/cahyadiprasetyo" target="_blank" rel="noopener noreferrer"
                     className="flex-1 p-3 bg-[#0A66C2] border border-white/10 rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-transform text-sm font-medium">
                     <Linkedin size={18} />
                     LinkedIn
