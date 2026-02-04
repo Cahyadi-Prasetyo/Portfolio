@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Command } from "lucide-react";
 import Dock from './Dock';
 import Window from './Window';
-import AboutApp from '../apps/AboutApp';
+import AboutApp from '../apps/AboutApp'
 import ProjectsApp from '../apps/ProjectsApp';
 import TerminalApp from '../apps/TerminalApp';
 import TechApp from '../apps/TechApp';
@@ -12,13 +12,13 @@ import { WindowManagerProvider, useWindowManager } from '../../context/WindowMan
 
 // Inner component to use the context
 function DesktopContent() {
-    const { openWindow } = useWindowManager();
+    const { openApp } = useWindowManager();
     const [currentTime, setCurrentTime] = useState(new Date());
 
     // Auto-open About window
     useEffect(() => {
         const timer = setTimeout(() => {
-            openWindow('about');
+            openApp('about');
         }, 500);
         return () => clearTimeout(timer);
     }, []);
