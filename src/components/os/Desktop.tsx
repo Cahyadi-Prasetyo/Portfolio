@@ -46,9 +46,32 @@ function DesktopContent() {
                 <div className="flex items-center gap-4 font-medium">
                     <Command size={18} />
                     <span className="hidden sm:inline font-bold">CahyadiOS</span>
-                    <span className="cursor-default opacity-80 hover:opacity-100 transition-opacity">File</span>
-                    <span className="cursor-default opacity-80 hover:opacity-100 transition-opacity">View</span>
-                    <span className="cursor-default opacity-80 hover:opacity-100 transition-opacity">Go</span>
+
+                    {/* Functional Menu Items */}
+                    <button
+                        onClick={() => window.open('/resume.pdf', '_blank')}
+                        className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity hover:bg-white/10 px-2 py-0.5 rounded"
+                    >
+                        File
+                    </button>
+                    <button
+                        onClick={() => {
+                            if (!document.fullscreenElement) {
+                                document.documentElement.requestFullscreen();
+                            } else {
+                                document.exitFullscreen();
+                            }
+                        }}
+                        className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity hover:bg-white/10 px-2 py-0.5 rounded"
+                    >
+                        View
+                    </button>
+                    <button
+                        onClick={() => window.open('https://github.com/cahyadi-prasetyo', '_blank')}
+                        className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity hover:bg-white/10 px-2 py-0.5 rounded"
+                    >
+                        Go
+                    </button>
                 </div>
                 <div className="flex items-center gap-4 font-medium">
                     <span className="hidden sm:inline opacity-80">100% 🔋</span>

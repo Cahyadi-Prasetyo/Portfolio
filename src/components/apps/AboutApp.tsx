@@ -5,10 +5,9 @@ export default function AboutApp() {
         <div className="h-full p-8 text-white select-none overflow-y-auto custom-scrollbar">
 
             <div className="flex flex-col items-center mb-8">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 p-1 mb-4 shadow-xl shadow-blue-500/20">
-                    <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center overflow-hidden">
-                        <User size={40} className="text-gray-400" />
-                        {/* <img src="/avatar.jpg" alt="Profile" className="w-full h-full object-cover" /> */}
+                <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 p-1 mb-4 shadow-xl shadow-blue-500/20 overflow-hidden">
+                    <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center overflow-hidden relative">
+                        <img src="/assets/my-self.png" alt="Cahyadi Prasetyo" className="w-full h-full object-cover object-top scale-150 translate-y-2" />
                     </div>
                 </div>
                 <h2 className="text-2xl font-bold">Cahyadi Prasetyo</h2>
