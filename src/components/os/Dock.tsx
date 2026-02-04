@@ -23,14 +23,7 @@ export default function Dock({ onOpenApp }: DockProps) {
                 {apps.map((app) => (
                     <div key={app.id} className="relative flex flex-col items-center gap-2 group flex-shrink-0">
 
-                        {/* Tooltip */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: hovered === app.id ? 1 : 0, y: hovered === app.id ? -15 : 10 }}
-                            className="absolute -top-10 bg-gray-900/90 text-white text-[10px] font-medium px-2 py-1 rounded-md backdrop-blur-sm whitespace-nowrap pointer-events-none border border-white/10 shadow-lg hidden md:block"
-                        >
-                            {app.name}
-                        </motion.div>
+
 
                         {/* Icon */}
                         <motion.button
@@ -44,8 +37,12 @@ export default function Dock({ onOpenApp }: DockProps) {
                             <app.icon className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2} />
                         </motion.button>
 
-                        {/* Active Dot (Placeholder) */}
-                        <div className="w-1 h-1 bg-white/60 rounded-full opacity-0 group-active:opacity-100 transition-opacity" />
+                        {/* Sub-line / Label */}
+                        <div className="mt-1">
+                            <span className="text-[10px] text-white/50 bg-black/50 px-1.5 py-0.5 rounded-full backdrop-blur-sm border border-white/5">
+                                {app.name}
+                            </span>
+                        </div>
                     </div>
                 ))}
             </div>
