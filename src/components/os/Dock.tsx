@@ -32,13 +32,13 @@ export default function Dock({ onOpenApp }: DockProps) {
                             onClick={() => onOpenApp(app.id)}
                             whileHover={{ scale: 1.1, y: -5 }}
                             whileTap={{ scale: 0.9 }}
-                            className={`w-10 h-10 md:w-14 md:h-14 rounded-xl flex items-center justify-center shadow-lg text-white ${app.color} transition-all duration-200 ring-1 ring-white/20`}
+                            className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center shadow-lg text-white ${app.color} transition-all duration-200 ring-1 ring-white/20`}
                         >
-                            <app.icon className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2} />
+                            <app.icon className="w-6 h-6 md:w-6 md:h-6" strokeWidth={2} />
                         </motion.button>
 
-                        {/* Sub-line / Label */}
-                        <div className="mt-1">
+                        {/* Sub-line / Label - Desktop Only */}
+                        <div className="mt-1 hidden md:block">
                             <span className="text-[10px] text-white/50 bg-black/50 px-1.5 py-0.5 rounded-full backdrop-blur-sm border border-white/5">
                                 {app.name}
                             </span>

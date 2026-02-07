@@ -47,35 +47,37 @@ function DesktopContent() {
                     <Command size={18} />
                     <span className="hidden sm:inline font-bold">CahyadiOS</span>
 
-                    {/* Functional Menu Items */}
-                    <button
-                        onClick={() => window.open('/resume.pdf', '_blank')}
-                        className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity hover:bg-white/10 px-2 py-0.5 rounded"
-                    >
-                        File
-                    </button>
-                    <button
-                        onClick={() => {
-                            if (!document.fullscreenElement) {
-                                document.documentElement.requestFullscreen();
-                            } else {
-                                document.exitFullscreen();
-                            }
-                        }}
-                        className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity hover:bg-white/10 px-2 py-0.5 rounded"
-                    >
-                        View
-                    </button>
-                    <button
-                        onClick={() => window.open('https://github.com/cahyadi-prasetyo', '_blank')}
-                        className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity hover:bg-white/10 px-2 py-0.5 rounded"
-                    >
-                        Go
-                    </button>
+                    {/* Functional Menu Items - Desktop Only */}
+                    <div className="hidden md:flex items-center gap-2">
+                        <button
+                            onClick={() => window.open('/resume.pdf', '_blank')}
+                            className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity hover:bg-white/10 px-2 py-0.5 rounded"
+                        >
+                            File
+                        </button>
+                        <button
+                            onClick={() => {
+                                if (!document.fullscreenElement) {
+                                    document.documentElement.requestFullscreen();
+                                } else {
+                                    document.exitFullscreen();
+                                }
+                            }}
+                            className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity hover:bg-white/10 px-2 py-0.5 rounded"
+                        >
+                            View
+                        </button>
+                        <button
+                            onClick={() => window.open('https://github.com/cahyadi-prasetyo', '_blank')}
+                            className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity hover:bg-white/10 px-2 py-0.5 rounded"
+                        >
+                            Go
+                        </button>
+                    </div>
                 </div>
                 <div className="flex items-center gap-4 font-medium">
                     <span className="hidden sm:inline opacity-80">100% 🔋</span>
-                    <span>{currentTime.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</span>
+                    <span className="hidden sm:inline">{currentTime.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</span>
                     <span>{currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</span>
                 </div>
             </div>

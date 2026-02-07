@@ -6,6 +6,7 @@ interface WindowState {
     id: AppId;
     isOpen: boolean;
     isMinimized: boolean;
+    isMaximized: boolean;
     zIndex: number;
 }
 
@@ -16,6 +17,7 @@ interface WindowManagerContextType {
     closeApp: (id: AppId) => void;
     focusWindow: (id: AppId) => void;
     minimizeWindow: (id: AppId) => void;
+    toggleMaximizeWindow: (id: AppId) => void;
 }
 
 const WindowManagerContext = createContext<WindowManagerContextType | undefined>(undefined);
@@ -38,11 +40,17 @@ export function WindowManagerProvider({ children }: { children: ReactNode }) {
         setWindows(prev => {
             if (prev[id]?.isOpen) {
                 // Already open, just focus it
+                if (prev[id].isMinimized) {
+                    return {
+                        ...prev,
+                        [id]: { ...prev[id], isMinimized: false, zIndex: maxZIndex + 1 }
+                    };
+                }
                 return prev;
             }
             return {
                 ...prev,
-                [id]: { id, isOpen: true, isMinimized: false, zIndex: maxZIndex + 1 }
+                [id]: { id, isOpen: true, isMinimized: false, isMaximized: false, zIndex: maxZIndex + 1 }
             };
         });
         setActiveWindowId(id);
@@ -52,7 +60,7 @@ export function WindowManagerProvider({ children }: { children: ReactNode }) {
     const closeApp = (id: AppId) => {
         setWindows(prev => ({
             ...prev,
-            [id]: { ...prev[id], isOpen: false }
+            [id]: { ...prev[id], isOpen: false, isMaximized: false }
         }));
         if (activeWindowId === id) setActiveWindowId(null);
     };
@@ -65,8 +73,17 @@ export function WindowManagerProvider({ children }: { children: ReactNode }) {
         setActiveWindowId(null);
     };
 
+    const toggleMaximizeWindow = (id: AppId) => {
+        setWindows(prev => ({
+            ...prev,
+            [id]: { ...prev[id], isMaximized: !prev[id].isMaximized }
+        }));
+        setActiveWindowId(id);
+        setMaxZIndex(prev => prev + 1);
+    };
+
     return (
-        <WindowManagerContext.Provider value={{ windows, activeWindowId, openApp, closeApp, focusWindow, minimizeWindow }}>
+        <WindowManagerContext.Provider value={{ windows, activeWindowId, openApp, closeApp, focusWindow, minimizeWindow, toggleMaximizeWindow }}>
             {children}
         </WindowManagerContext.Provider>
     );

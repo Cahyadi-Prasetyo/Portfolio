@@ -53,56 +53,56 @@ export default function LandingPage({ onEnterDesktop }: LandingPageProps) {
                         className="max-w-4xl mx-auto mt-20"
                     >
                         {/* Engineering Badge */}
-                        <div className="flex justify-center mb-6">
-                            <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-mono tracking-wider text-green-400 bg-green-900/10 rounded-full border border-green-500/20 shadow-[0_0_10px_rgba(74,222,128,0.1)]">
+                        <div className="flex justify-center mb-8">
+                            <span className="inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-mono tracking-wider text-green-400 bg-green-900/10 rounded-full border border-green-500/20 shadow-[0_0_10px_rgba(74,222,128,0.1)]">
                                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                                 SYSTEM ONLINE • v2.6.0
                             </span>
                         </div>
 
-                        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight bg-gradient-to-b from-white via-gray-200 to-gray-500 bg-clip-text text-transparent">
+                        <h1 className="text-6xl md:text-8xl font-bold mb-8 tracking-tight bg-gradient-to-b from-white via-gray-200 to-gray-500 bg-clip-text text-transparent leading-tight">
                             Cahyadi Prasetyo
                         </h1>
 
                         {/* Rotating Roles */}
-                        <div className="h-8 mb-8 flex justify-center items-center">
+                        <div className="min-h-[3rem] mb-10 flex justify-center items-center px-4">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={roleIndex}
-                                    initial={{ opacity: 0, y: 5 }}
+                                    initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -5 }}
+                                    exit={{ opacity: 0, y: -10 }}
                                     transition={{ duration: 0.5 }}
-                                    className="text-xl md:text-2xl text-gray-300 font-light"
+                                    className="text-xl md:text-3xl text-gray-300 font-light text-center leading-snug"
                                 >
                                     {roles[roleIndex]}
                                 </motion.div>
                             </AnimatePresence>
                         </div>
 
-                        <p className="text-sm md:text-base text-gray-500 mb-10 font-mono max-w-xl mx-auto border-t border-b border-white/5 py-4">
+                        <p className="text-base md:text-lg text-gray-400 mb-12 font-mono max-w-xl mx-auto border-t border-b border-white/10 py-6 px-4 leading-relaxed">
                             Building scalable web apps, operational dashboards, and API-driven systems.
-                            <br /> Focus on reliability, data integrity, and performance.
+                            <span className="hidden md:inline"><br /></span> Focus on reliability, data integrity, and performance.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-20">
-                            <div className="relative">
+                        <div className="flex flex-col gap-5 justify-center items-center relative z-20 w-full max-w-sm mx-auto">
+                            <div className="relative w-full">
                                 <button
                                     onClick={onEnterDesktop}
-                                    className="flex items-center gap-2 px-8 py-3 bg-white text-black hover:bg-gray-200 rounded-full font-medium transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-white text-black hover:bg-gray-200 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)] touch-manipulation"
                                 >
                                     <span>Enter Desktop Environment</span>
-                                    <ArrowRight size={18} />
+                                    <ArrowRight size={20} />
                                 </button>
-                                <span className="absolute -bottom-6 left-0 w-full text-center text-[10px] text-gray-500 font-mono tracking-wide opacity-80 whitespace-nowrap">
+                                <span className="absolute -bottom-8 left-0 w-full text-center text-xs text-gray-500 font-mono tracking-wide opacity-80 whitespace-nowrap">
                                     Explore projects & interactive systems
                                 </span>
                             </div>
                             <button
                                 onClick={() => window.open('/resume.pdf', '_blank')}
-                                className="flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all group text-sm"
+                                className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-all group text-base md:text-lg text-gray-300 font-medium touch-manipulation mt-4 md:mt-0"
                             >
-                                <FileText size={18} className="text-gray-300 group-hover:text-white" />
+                                <FileText size={20} className="text-gray-400 group-hover:text-white" />
                                 <span>Download Resume</span>
                             </button>
                         </div>
