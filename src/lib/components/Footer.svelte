@@ -2,19 +2,16 @@
     import { t } from "$lib/i18n";
 </script>
 
-<footer class="footer">
+<footer class="footer section-dark">
     <div class="container footer-content">
-        <p class="footer-copy">
-            {$t.footer.copyright} <span class="heart">♥</span> & Svelte. {$t
-                .footer.allRights}
-        </p>
+        <p class="footer-copy">{$t.footer.copyright}</p>
     </div>
 </footer>
 
 <style>
     .footer {
-        padding: var(--space-2xl) 0;
-        border-top: 1px solid var(--color-border-light);
+        padding: var(--space-xl) 0;
+        border-top: 1px solid var(--color-border-dark);
     }
 
     .footer-content {
@@ -23,10 +20,6 @@
 
     .footer-copy {
         font-size: var(--text-sm);
-        color: var(--color-text-light);
-    }
-
-    .heart {
-        color: #ef4444;
+        color: var(--color-muted-on-dark);
     }
 </style>

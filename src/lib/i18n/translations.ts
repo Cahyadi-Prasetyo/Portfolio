@@ -4,63 +4,85 @@ export const translations = {
             home: 'Beranda',
             about: 'Tentang',
             projects: 'Projek',
-            contact: 'Hubungi'
+            contact: 'Kontak'
         },
         hero: {
             greeting: 'Halo, saya',
-            name: 'Cahyadi Prasetyo',
-            role: 'Full-Stack Developer',
-            tagline: 'Saya membangun pengalaman digital yang bersih, modern, & berdampak.',
-            cta: 'Lihat Projek',
-            contact: 'Hubungi Saya'
+            firstName: 'CAHYADI',
+            lastName: 'PRASETYO',
+            role: 'FULL-STACK WEB DEVELOPER',
+            status: 'Siap untuk project baru 🚀',
+            cta: 'Hubungi Saya',
+            email: 'hello@cahyadiprasetyo.com'
         },
         about: {
-            label: 'Tentang Saya',
-            title: 'Sedikit tentang diri saya',
-            bio1: 'Saya seorang developer yang passionate dalam menciptakan solusi digital yang elegan dan fungsional. Dengan pengalaman di berbagai teknologi modern, saya selalu berusaha menghadirkan kode yang bersih dan produk yang memukau.',
-            bio2: 'Saat ini saya fokus mengembangkan aplikasi web full-stack dengan pendekatan yang mengutamakan pengalaman pengguna dan performa.',
-            techTitle: 'Tech Stack'
+            label: 'Siapa Aku?',
+            bio: 'Saya seorang developer yang passionate dalam menciptakan solusi digital yang elegan dan fungsional. Dengan pengalaman di berbagai teknologi modern, saya selalu berusaha menghadirkan kode yang bersih dan produk yang memukau. Saat ini saya fokus mengembangkan aplikasi web full-stack dengan pendekatan yang mengutamakan pengalaman pengguna dan performa. Saya terbuka untuk kesempatan dan kolaborasi baru! 🚀'
         },
         projects: {
             label: 'Projek',
-            title: 'Karya pilihan saya',
-            description: 'Beberapa project yang pernah saya kerjakan.',
-            viewProject: 'Lihat Projek',
-            viewCode: 'Lihat Kode',
+            viewProject: 'Lihat',
+            more: 'Lihat Semua',
             items: [
                 {
                     title: 'E-Commerce Platform',
-                    description: 'Platform e-commerce modern dengan fitur keranjang belanja, pembayaran, dan manajemen produk. Dibangun dengan fokus pada performa dan pengalaman pengguna.',
-                    tech: ['SvelteKit', 'TypeScript', 'PostgreSQL', 'Tailwind'],
+                    description: 'Platform e-commerce modern dengan fitur keranjang belanja, pembayaran, dan manajemen produk.',
+                    tech: ['SvelteKit', 'TypeScript', 'PostgreSQL'],
                     liveUrl: '#',
                     githubUrl: '#'
                 },
                 {
                     title: 'Dashboard Analytics',
-                    description: 'Dashboard interaktif untuk visualisasi data bisnis secara real-time. Menampilkan grafik, statistik, dan laporan yang mudah dipahami.',
-                    tech: ['React', 'Node.js', 'D3.js', 'MongoDB'],
+                    description: 'Dashboard interaktif untuk visualisasi data bisnis secara real-time.',
+                    tech: ['React', 'Node.js', 'D3.js'],
                     liveUrl: '#',
                     githubUrl: '#'
                 },
                 {
-                    title: 'Task Management App',
-                    description: 'Aplikasi manajemen tugas kolaboratif dengan fitur real-time sync, drag & drop, dan notifikasi. Desain minimalis yang intuitif.',
-                    tech: ['Vue.js', 'Firebase', 'Sass', 'PWA'],
+                    title: 'Task Management',
+                    description: 'Aplikasi manajemen tugas kolaboratif dengan real-time sync dan drag & drop.',
+                    tech: ['Vue.js', 'Firebase', 'PWA'],
+                    liveUrl: '#',
+                    githubUrl: '#'
+                },
+                {
+                    title: 'Portfolio Website',
+                    description: 'Website portfolio personal dengan desain cyber-minimalist dan bilingual.',
+                    tech: ['SvelteKit', 'TypeScript', 'CSS'],
                     liveUrl: '#',
                     githubUrl: '#'
                 }
             ]
         },
+        faq: {
+            label: 'Pertanyaan',
+            items: [
+                {
+                    question: 'Apakah kamu bekerja dengan klien internasional?',
+                    answer: 'Ya, saya bekerja dengan klien dari seluruh dunia. Saya berpengalaman dalam kolaborasi remote dan menggunakan tools yang membuat kerja lintas zona waktu menjadi seamless.'
+                },
+                {
+                    question: 'Teknologi apa yang kamu kuasai?',
+                    answer: 'Front-end: Svelte, React, Next.js, TailwindCSS. Back-end: Node.js, Python, PostgreSQL, Supabase. Lainnya: Git, Figma, Docker.'
+                },
+                {
+                    question: 'Layanan apa yang kamu tawarkan?',
+                    answer: 'Saya menawarkan berbagai layanan digital termasuk web design, pengembangan web app full-stack, dan konsultasi teknologi.'
+                },
+                {
+                    question: 'Berapa lama waktu pengerjaan project?',
+                    answer: 'Timeline project bervariasi tergantung kompleksitas. Website sederhana membutuhkan 2-4 minggu, sementara aplikasi kompleks bisa memakan waktu 2-3 bulan.'
+                }
+            ]
+        },
         contact: {
-            label: 'Hubungi',
-            title: 'Mari bekerja sama',
-            description: 'Tertarik untuk berkolaborasi atau punya project yang ingin didiskusikan? Jangan ragu untuk menghubungi saya.',
-            email: 'Kirim Email',
-            or: 'atau temukan saya di'
+            label: 'Kontak',
+            title: 'YUK DISKUSIKAN\nPROJECTMU!',
+            cta: 'Hubungi Saya',
+            email: 'hello@cahyadiprasetyo.com'
         },
         footer: {
-            copyright: '© 2026 Cahyadi Prasetyo. Dibuat dengan',
-            allRights: 'Semua hak dilindungi.'
+            copyright: 'Coding with Cahyadi © 2026'
         }
     },
     en: {
@@ -72,59 +94,81 @@ export const translations = {
         },
         hero: {
             greeting: "Hi, I'm",
-            name: 'Cahyadi Prasetyo',
-            role: 'Full-Stack Developer',
-            tagline: 'I build clean, modern, & impactful digital experiences.',
-            cta: 'View Projects',
-            contact: 'Contact Me'
+            firstName: 'CAHYADI',
+            lastName: 'PRASETYO',
+            role: 'FULL-STACK WEB DEVELOPER',
+            status: 'Available for new projects 🚀',
+            cta: 'Contact Me',
+            email: 'hello@cahyadiprasetyo.com'
         },
         about: {
-            label: 'About Me',
-            title: 'A little bit about myself',
-            bio1: "I'm a developer passionate about crafting elegant and functional digital solutions. With experience across various modern technologies, I always strive to deliver clean code and stunning products.",
-            bio2: "Currently, I'm focused on building full-stack web applications with a user experience and performance-first approach.",
-            techTitle: 'Tech Stack'
+            label: 'Who am I?',
+            bio: "I'm a developer passionate about crafting elegant and functional digital solutions. With experience across various modern technologies, I always strive to deliver clean code and stunning products. Currently focused on building full-stack web applications with a user experience and performance-first approach. I'm open to new opportunities and collaborations! 🚀"
         },
         projects: {
             label: 'Projects',
-            title: 'Selected works',
-            description: 'Some projects I have worked on.',
-            viewProject: 'View Project',
-            viewCode: 'View Code',
+            viewProject: 'View',
+            more: 'View All',
             items: [
                 {
                     title: 'E-Commerce Platform',
-                    description: 'A modern e-commerce platform with shopping cart, payment, and product management features. Built with a focus on performance and user experience.',
-                    tech: ['SvelteKit', 'TypeScript', 'PostgreSQL', 'Tailwind'],
+                    description: 'A modern e-commerce platform with shopping cart, payment, and product management.',
+                    tech: ['SvelteKit', 'TypeScript', 'PostgreSQL'],
                     liveUrl: '#',
                     githubUrl: '#'
                 },
                 {
                     title: 'Analytics Dashboard',
-                    description: 'An interactive dashboard for real-time business data visualization. Displays charts, statistics, and easy-to-understand reports.',
-                    tech: ['React', 'Node.js', 'D3.js', 'MongoDB'],
+                    description: 'An interactive dashboard for real-time business data visualization.',
+                    tech: ['React', 'Node.js', 'D3.js'],
                     liveUrl: '#',
                     githubUrl: '#'
                 },
                 {
-                    title: 'Task Management App',
-                    description: 'A collaborative task management app with real-time sync, drag & drop, and notifications. Minimalist and intuitive design.',
-                    tech: ['Vue.js', 'Firebase', 'Sass', 'PWA'],
+                    title: 'Task Management',
+                    description: 'A collaborative task management app with real-time sync and drag & drop.',
+                    tech: ['Vue.js', 'Firebase', 'PWA'],
+                    liveUrl: '#',
+                    githubUrl: '#'
+                },
+                {
+                    title: 'Portfolio Website',
+                    description: 'A personal portfolio website with cyber-minimalist design and bilingual support.',
+                    tech: ['SvelteKit', 'TypeScript', 'CSS'],
                     liveUrl: '#',
                     githubUrl: '#'
                 }
             ]
         },
+        faq: {
+            label: 'Questions',
+            items: [
+                {
+                    question: 'Do you work with clients internationally?',
+                    answer: 'Yes, I work with clients from all over the world. I am experienced in remote collaboration and use tools that make working across time zones seamless.'
+                },
+                {
+                    question: 'What technologies do you master?',
+                    answer: 'Front-end: Svelte, React, Next.js, TailwindCSS. Back-end: Node.js, Python, PostgreSQL, Supabase. Others: Git, Figma, Docker.'
+                },
+                {
+                    question: 'What services do you offer?',
+                    answer: 'I offer a wide range of digital services including web design, full-stack web app development, and tech consulting.'
+                },
+                {
+                    question: 'How long does a typical project take?',
+                    answer: 'Project timelines vary depending on complexity. A simple website might take 2-4 weeks, while a complex application could take 2-3 months.'
+                }
+            ]
+        },
         contact: {
             label: 'Contact',
-            title: "Let's work together",
-            description: "Interested in collaborating or have a project you'd like to discuss? Don't hesitate to reach out.",
-            email: 'Send Email',
-            or: 'or find me on'
+            title: "LET'S DISCUSS\nYOUR PROJECT!",
+            cta: 'Contact Me',
+            email: 'hello@cahyadiprasetyo.com'
         },
         footer: {
-            copyright: '© 2026 Cahyadi Prasetyo. Built with',
-            allRights: 'All rights reserved.'
+            copyright: 'Coding with Cahyadi © 2026'
         }
     }
 } as const;

@@ -2,46 +2,40 @@
     import { t } from "$lib/i18n";
 </script>
 
-<section id="contact" class="contact section">
+<section id="contact" class="contact section-dark section-padding glow-effect">
     <div class="container">
         <div class="contact-content reveal">
-            <span class="section-label">{$t.contact.label}</span>
-            <h2 class="contact-title">{$t.contact.title}</h2>
-            <p class="contact-description">{$t.contact.description}</p>
+            <span class="section-label section-label-dark"
+                >{$t.contact.label}</span
+            >
 
-            <a href="mailto:hello@cahyadiprasetyo.com" class="email-btn">
-                <span class="email-icon">
+            <h2 class="contact-title">
+                {#each $t.contact.title.split("\n") as line}
+                    <span class="title-line">{line}</span>
+                {/each}
+            </h2>
+
+            <div class="contact-actions">
+                <a href="mailto:{$t.contact.email}" class="btn btn-white">
+                    {$t.contact.cta}
                     <svg
-                        width="20"
-                        height="20"
+                        width="14"
+                        height="14"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
+                        stroke-width="2.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        ><path
-                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                        /><polyline points="22,6 12,13 2,6" /></svg
+                        ><line x1="7" y1="17" x2="17" y2="7" /><polyline
+                            points="7 7 17 7 17 17"
+                        /></svg
                     >
-                </span>
-                {$t.contact.email}
-                <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    ><line x1="5" y1="12" x2="19" y2="12" /><polyline
-                        points="12 5 19 12 12 19"
-                    /></svg
+                </a>
+                <a href="mailto:{$t.contact.email}" class="contact-email"
+                    >{$t.contact.email}</a
                 >
-            </a>
-
-            <p class="contact-or">{$t.contact.or}</p>
+            </div>
 
             <div class="social-links">
                 <a
@@ -52,8 +46,8 @@
                     aria-label="GitHub"
                 >
                     <svg
-                        width="22"
-                        height="22"
+                        width="20"
+                        height="20"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -73,8 +67,8 @@
                     aria-label="LinkedIn"
                 >
                     <svg
-                        width="22"
-                        height="22"
+                        width="20"
+                        height="20"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -98,8 +92,8 @@
                     aria-label="Instagram"
                 >
                     <svg
-                        width="22"
-                        height="22"
+                        width="20"
+                        height="20"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -125,85 +119,82 @@
 
 <style>
     .contact {
-        background: var(--color-bg-alt);
+        overflow: hidden;
+        border-top: 1px solid var(--color-border-dark);
+    }
+
+    .contact::before {
+        top: 40% !important;
+        left: 60% !important;
+        width: 700px !important;
+        height: 700px !important;
     }
 
     .contact-content {
-        text-align: center;
-        max-width: 600px;
-        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        text-align: left;
     }
 
     .contact-title {
-        font-size: var(--text-4xl);
-        margin-bottom: var(--space-lg);
-    }
-
-    .contact-description {
-        font-size: var(--text-lg);
-        color: var(--color-text-muted);
-        line-height: 1.8;
+        font-size: clamp(2.5rem, 7vw, 5.5rem);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+        color: var(--color-white);
         margin-bottom: var(--space-2xl);
     }
 
-    .email-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: var(--space-sm);
-        padding: 0.9rem 2rem;
-        font-size: var(--text-base);
-        font-weight: 500;
-        color: #fff;
-        background: var(--color-text);
-        border-radius: var(--radius-full);
-        transition: all var(--transition-base);
+    .title-line {
+        display: block;
     }
 
-    .email-btn:hover {
-        background: #333;
-        color: #fff;
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-    }
-
-    .email-icon {
+    .contact-actions {
         display: flex;
+        align-items: center;
+        gap: var(--space-xl);
+        margin-bottom: var(--space-3xl);
     }
 
-    .contact-or {
+    .contact-email {
         font-size: var(--text-sm);
-        color: var(--color-text-light);
-        margin: var(--space-xl) 0;
+        color: var(--color-muted-on-dark);
+        transition: color var(--transition-fast);
+    }
+
+    .contact-email:hover {
+        color: var(--color-white);
     }
 
     .social-links {
         display: flex;
-        justify-content: center;
-        gap: var(--space-lg);
+        gap: var(--space-md);
+        padding-top: var(--space-2xl);
+        border-top: 1px solid var(--color-border-dark);
     }
 
     .social-link {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 48px;
-        height: 48px;
-        border-radius: var(--radius-full);
-        border: 1.5px solid var(--color-border);
-        color: var(--color-text-muted);
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--color-border-dark);
+        border-radius: var(--radius-sm);
+        color: var(--color-muted-on-dark);
         transition: all var(--transition-base);
     }
 
     .social-link:hover {
-        color: var(--color-text);
-        border-color: var(--color-text);
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
+        color: var(--color-white);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
     }
 
     @media (max-width: 768px) {
-        .contact-title {
-            font-size: var(--text-3xl);
+        .contact-actions {
+            flex-direction: column;
+            align-items: flex-start;
         }
     }
 </style>

@@ -2,86 +2,55 @@
     import { t } from "$lib/i18n";
 </script>
 
-<section id="projects" class="projects section">
+<section id="projects" class="projects section-light section-padding">
     <div class="container">
         <div class="projects-header reveal">
-            <span class="section-label">{$t.projects.label}</span>
-            <h2 class="section-title">{$t.projects.title}</h2>
-            <p class="section-description">{$t.projects.description}</p>
+            <span class="section-label section-label-light"
+                >{$t.projects.label}</span
+            >
         </div>
 
-        <div class="projects-list">
+        <div class="projects-grid reveal-stagger">
             {#each $t.projects.items as project, i}
-                <div class="project-card reveal" class:reverse={i % 2 !== 0}>
-                    <!-- Project Image -->
-                    <div class="project-image">
-                        <div class="project-image-placeholder">
-                            <span class="project-number">0{i + 1}</span>
-                        </div>
+                <a href={project.liveUrl} class="project-card reveal">
+                    <!-- Card Header -->
+                    <div class="card-header">
+                        <span class="card-name">{project.title}</span>
+                        <span class="card-tag">DEV.</span>
                     </div>
 
-                    <!-- Project Info -->
-                    <div class="project-info">
-                        <h3 class="project-title">{project.title}</h3>
-                        <p class="project-description">{project.description}</p>
+                    <!-- Card Image Area -->
+                    <div class="card-image">
+                        <span class="card-number"
+                            >{String(i + 1).padStart(3, "0")}</span
+                        >
+                    </div>
 
-                        <div class="project-tech">
+                    <!-- Card Footer -->
+                    <div class="card-footer">
+                        <div class="card-tech">
                             {#each project.tech as tech}
-                                <span class="tag">{tech}</span>
+                                <span class="tech-tag">{tech}</span>
                             {/each}
                         </div>
-
-                        <div class="project-links">
-                            <a
-                                href={project.liveUrl}
-                                class="btn btn-primary btn-sm"
-                                target="_blank"
-                                rel="noopener"
+                        <span class="card-view">
+                            {$t.projects.viewProject}
+                            <svg
+                                width="12"
+                                height="12"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><line x1="7" y1="17" x2="17" y2="7" /><polyline
+                                    points="7 7 17 7 17 17"
+                                /></svg
                             >
-                                {$t.projects.viewProject}
-                                <svg
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    ><path
-                                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                                    /><polyline points="15 3 21 3 21 9" /><line
-                                        x1="10"
-                                        y1="14"
-                                        x2="21"
-                                        y2="3"
-                                    /></svg
-                                >
-                            </a>
-                            <a
-                                href={project.githubUrl}
-                                class="btn btn-outline btn-sm"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                {$t.projects.viewCode}
-                                <svg
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    ><path
-                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                                    /></svg
-                                >
-                            </a>
-                        </div>
+                        </span>
                     </div>
-                </div>
+                </a>
             {/each}
         </div>
     </div>
@@ -89,100 +58,121 @@
 
 <style>
     .projects-header {
-        margin-bottom: var(--space-4xl);
+        margin-bottom: var(--space-2xl);
     }
 
-    .projects-list {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-5xl);
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        border: 1px solid var(--color-border-light);
     }
 
     .project-card {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-3xl);
-        align-items: center;
-    }
-
-    .project-card.reverse {
-        direction: rtl;
-    }
-
-    .project-card.reverse > * {
-        direction: ltr;
-    }
-
-    .project-image-placeholder {
-        aspect-ratio: 16 / 10;
-        background: linear-gradient(
-            135deg,
-            var(--color-bg-alt),
-            var(--color-border-light)
-        );
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--color-border-light);
         display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
+        flex-direction: column;
+        border: 0.5px solid var(--color-border-light);
+        padding: var(--space-xl);
         transition: all var(--transition-base);
+        color: var(--color-text-on-light);
+        text-decoration: none;
+        background: var(--color-bg-light);
     }
 
-    .project-card:hover .project-image-placeholder {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-lg);
+    .project-card:hover {
+        background: #f9f9f9;
     }
 
-    .project-number {
-        font-family: var(--font-heading);
-        font-size: var(--text-6xl);
-        font-weight: 700;
-        color: var(--color-border);
-        letter-spacing: -0.04em;
+    .project-card:hover .card-view {
+        color: var(--color-black);
     }
 
-    .project-title {
-        font-size: var(--text-2xl);
-        margin-bottom: var(--space-md);
-    }
-
-    .project-description {
-        font-size: var(--text-base);
-        color: var(--color-text-muted);
-        line-height: 1.8;
-        margin-bottom: var(--space-lg);
-    }
-
-    .project-tech {
+    .card-header {
         display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-sm);
+        justify-content: space-between;
+        align-items: flex-start;
         margin-bottom: var(--space-xl);
     }
 
-    .project-links {
-        display: flex;
-        gap: var(--space-md);
+    .card-name {
+        font-family: var(--font-heading);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
 
-    .btn-sm {
-        padding: 0.5rem 1.2rem;
+    .card-tag {
+        font-family: var(--font-heading);
         font-size: var(--text-xs);
+        font-weight: 700;
+        color: var(--color-muted-on-light);
+        letter-spacing: 0.05em;
+    }
+
+    .card-image {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 200px;
+        margin-bottom: var(--space-xl);
+        background: linear-gradient(135deg, #f5f5f5, #ebebeb);
+        border-radius: var(--radius-sm);
+    }
+
+    .card-number {
+        font-family: var(--font-heading);
+        font-size: 5rem;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.06);
+        letter-spacing: -0.04em;
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .card-tech {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .tech-tag {
+        font-size: 10px;
+        font-weight: 500;
+        color: var(--color-muted-on-light);
+        padding: 2px 8px;
+        border: 1px solid var(--color-border-light);
+        border-radius: var(--radius-sm);
+    }
+
+    .card-view {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: var(--text-xs);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-muted-on-light);
+        transition: color var(--transition-fast);
     }
 
     @media (max-width: 768px) {
-        .project-card {
+        .projects-grid {
             grid-template-columns: 1fr;
-            gap: var(--space-xl);
         }
 
-        .project-card.reverse {
-            direction: ltr;
+        .card-image {
+            min-height: 160px;
         }
 
-        .projects-list {
-            gap: var(--space-3xl);
+        .card-number {
+            font-size: 3.5rem;
         }
     }
 </style>

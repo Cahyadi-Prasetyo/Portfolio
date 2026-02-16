@@ -1,47 +1,79 @@
 <script lang="ts">
     import { t } from "$lib/i18n";
 
+    const techStack = [
+        "JavaScript",
+        "TypeScript",
+        "Svelte",
+        "React",
+        "Node.js",
+        "Python",
+        "PostgreSQL",
+        "Git",
+        "TailwindCSS",
+        "Docker",
+        "Supabase",
+        "Figma",
+    ];
+
     function scrollTo(id: string) {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: "smooth" });
     }
 </script>
 
-<section id="home" class="hero">
+<section id="home" class="hero section-dark glow-effect">
     <div class="container hero-content">
-        <p class="hero-greeting reveal">{$t.hero.greeting}</p>
-        <h1 class="hero-name reveal">{$t.hero.name}</h1>
-        <p class="hero-role reveal">{$t.hero.role}</p>
-        <p class="hero-tagline reveal">{$t.hero.tagline}</p>
-
-        <div class="hero-actions reveal">
-            <button
-                class="btn btn-primary"
-                onclick={() => scrollTo("projects")}
-            >
-                {$t.hero.cta}
-                <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    ><line x1="5" y1="12" x2="19" y2="12" /><polyline
-                        points="12 5 19 12 12 19"
-                    /></svg
-                >
-            </button>
-            <button class="btn btn-outline" onclick={() => scrollTo("contact")}>
-                {$t.hero.contact}
-            </button>
+        <!-- Top row: status badge -->
+        <div class="hero-top reveal">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                {$t.hero.status}
+            </div>
         </div>
 
-        <!-- Scroll indicator -->
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
+        <!-- Big Name -->
+        <div class="hero-name-wrapper reveal">
+            <h1 class="hero-name">{$t.hero.firstName}</h1>
+            <h1 class="hero-name">{$t.hero.lastName}</h1>
+        </div>
+
+        <!-- Role -->
+        <p class="hero-role reveal">{$t.hero.role}</p>
+
+        <!-- Bottom row: email left, tech right -->
+        <div class="hero-bottom reveal">
+            <div class="hero-bottom-left">
+                <button
+                    class="btn btn-white"
+                    onclick={() => scrollTo("contact")}
+                >
+                    {$t.hero.cta}
+                    <!-- Arrow icon -->
+                    <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><line x1="7" y1="17" x2="17" y2="7" /><polyline
+                            points="7 7 17 7 17 17"
+                        /></svg
+                    >
+                </button>
+                <a href="mailto:{$t.hero.email}" class="hero-email"
+                    >{$t.hero.email}</a
+                >
+            </div>
+
+            <div class="hero-tech">
+                {#each techStack as tech}
+                    <span class="tag tag-dark">{tech}</span>
+                {/each}
+            </div>
         </div>
     </div>
 </section>
@@ -51,107 +83,128 @@
         min-height: 100vh;
         display: flex;
         align-items: center;
-        justify-content: center;
-        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        top: 70% !important;
+        left: 30% !important;
+        width: 800px !important;
+        height: 800px !important;
     }
 
     .hero-content {
-        text-align: center;
-        padding-top: var(--nav-height);
+        position: relative;
+        z-index: 1;
+        padding-top: calc(var(--nav-height) + var(--space-3xl));
+        padding-bottom: var(--space-3xl);
+        width: 100%;
     }
 
-    .hero-greeting {
-        font-size: var(--text-lg);
-        color: var(--color-text-muted);
-        margin-bottom: var(--space-sm);
-        font-weight: 400;
+    .hero-top {
+        margin-bottom: var(--space-3xl);
+    }
+
+    .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: 8px 18px;
+        font-size: var(--text-sm);
+        font-weight: 500;
+        color: var(--color-green);
+        border: 1px solid rgba(34, 197, 94, 0.25);
+        border-radius: var(--radius-full);
+        background: rgba(34, 197, 94, 0.06);
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--color-green);
+        animation: pulse-green 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-green {
+        0%,
+        100% {
+            opacity: 1;
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+        }
+        50% {
+            opacity: 0.8;
+            box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+        }
+    }
+
+    .hero-name-wrapper {
+        margin-bottom: var(--space-lg);
     }
 
     .hero-name {
         font-size: var(--text-hero);
         font-weight: 700;
+        line-height: 0.95;
         letter-spacing: -0.04em;
-        margin-bottom: var(--space-sm);
-        background: linear-gradient(
-            135deg,
-            var(--color-text) 0%,
-            var(--color-text-muted) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--color-white);
     }
 
     .hero-role {
-        font-family: var(--font-heading);
-        font-size: var(--text-xl);
-        font-weight: 500;
-        color: var(--color-accent);
-        margin-bottom: var(--space-lg);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--color-muted-on-dark);
+        margin-bottom: var(--space-4xl);
     }
 
-    .hero-tagline {
-        font-size: var(--text-lg);
-        color: var(--color-text-muted);
-        max-width: 520px;
-        margin: 0 auto var(--space-2xl);
-        line-height: 1.8;
-    }
-
-    .hero-actions {
+    .hero-bottom {
         display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: var(--space-2xl);
+        padding-top: var(--space-2xl);
+        border-top: 1px solid var(--color-border-dark);
+    }
+
+    .hero-bottom-left {
+        display: flex;
+        flex-direction: column;
         gap: var(--space-md);
-        justify-content: center;
+    }
+
+    .hero-email {
+        font-size: var(--text-sm);
+        color: var(--color-muted-on-dark);
+        transition: color var(--transition-fast);
+    }
+
+    .hero-email:hover {
+        color: var(--color-white);
+    }
+
+    .hero-tech {
+        display: flex;
         flex-wrap: wrap;
-    }
-
-    /* Scroll Indicator */
-    .scroll-indicator {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .scroll-line {
-        width: 1px;
-        height: 48px;
-        background: linear-gradient(
-            to bottom,
-            var(--color-border),
-            transparent
-        );
-        position: relative;
-        overflow: hidden;
-    }
-
-    .scroll-line::after {
-        content: "";
-        position: absolute;
-        top: -48px;
-        left: 0;
-        width: 100%;
-        height: 48px;
-        background: var(--color-accent);
-        animation: scrollDown 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollDown {
-        0% {
-            transform: translateY(0);
-        }
-        100% {
-            transform: translateY(96px);
-        }
+        gap: 6px;
+        max-width: 450px;
+        justify-content: flex-end;
     }
 
     @media (max-width: 768px) {
-        .hero-tagline {
-            font-size: var(--text-base);
+        .hero-name {
+            font-size: clamp(2.5rem, 12vw, 5rem);
         }
 
-        .scroll-indicator {
-            bottom: 24px;
+        .hero-bottom {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-tech {
+            justify-content: flex-start;
+            max-width: 100%;
         }
     }
 </style>

@@ -3,10 +3,10 @@
     import Hero from "$lib/components/Hero.svelte";
     import About from "$lib/components/About.svelte";
     import Projects from "$lib/components/Projects.svelte";
+    import FAQ from "$lib/components/FAQ.svelte";
     import Contact from "$lib/components/Contact.svelte";
 
     onMount(() => {
-        // Scroll reveal animation
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -27,14 +27,15 @@
 </script>
 
 <svelte:head>
-    <title>Cahyadi Prasetyo — Full-Stack Developer</title>
+    <title>Cahyadi Prasetyo • Full-Stack Web Developer 🚀</title>
     <meta
         name="description"
-        content="Portfolio of Cahyadi Prasetyo — Full-Stack Developer building clean, modern, & impactful digital experiences."
+        content="A full-stack web developer building clean, modern, & impactful digital experiences."
     />
 </svelte:head>
 
 <Hero />
 <About />
 <Projects />
+<FAQ />
 <Contact />

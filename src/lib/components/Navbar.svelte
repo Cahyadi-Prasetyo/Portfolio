@@ -37,20 +37,28 @@
         </a>
 
         <!-- Desktop Nav -->
-        <ul class="nav-links">
-            {#each navItems as item}
-                <li>
-                    <button class="nav-link" onclick={() => scrollTo(item)}>
-                        {$t.nav[item]}
-                    </button>
-                </li>
-            {/each}
-        </ul>
+        <div class="nav-center">
+            <ul class="nav-links">
+                {#each navItems as item}
+                    <li>
+                        <button class="nav-link" onclick={() => scrollTo(item)}>
+                            {$t.nav[item]}
+                        </button>
+                    </li>
+                {/each}
+            </ul>
+        </div>
 
         <!-- Right side: Lang toggle -->
         <div class="nav-right">
             <button class="lang-toggle" onclick={toggleLanguage}>
-                {$currentLang === "id" ? "EN" : "ID"}
+                <span class="lang-option" class:active={$currentLang === "id"}
+                    >ID</span
+                >
+                <span class="lang-divider">/</span>
+                <span class="lang-option" class:active={$currentLang === "en"}
+                    >EN</span
+                >
             </button>
 
             <!-- Mobile hamburger -->
@@ -62,7 +70,6 @@
             >
                 <span></span>
                 <span></span>
-                <span></span>
             </button>
         </div>
     </div>
@@ -70,18 +77,20 @@
     <!-- Mobile Menu -->
     {#if mobileOpen}
         <div class="mobile-menu">
-            <ul>
-                {#each navItems as item}
-                    <li>
-                        <button
-                            class="mobile-link"
-                            onclick={() => scrollTo(item)}
-                        >
-                            {$t.nav[item]}
-                        </button>
-                    </li>
-                {/each}
-            </ul>
+            <div class="mobile-menu-inner">
+                <ul>
+                    {#each navItems as item}
+                        <li>
+                            <button
+                                class="mobile-link"
+                                onclick={() => scrollTo(item)}
+                            >
+                                {$t.nav[item]}
+                            </button>
+                        </li>
+                    {/each}
+                </ul>
+            </div>
         </div>
     {/if}
 </nav>
@@ -101,10 +110,10 @@
     }
 
     .navbar.scrolled {
-        background: rgba(255, 255, 255, 0.92);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--color-border-light);
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--color-border-dark);
     }
 
     .nav-container {
@@ -118,49 +127,41 @@
         font-family: var(--font-heading);
         font-size: var(--text-xl);
         font-weight: 700;
-        color: var(--color-text);
+        color: var(--color-white);
         letter-spacing: -0.03em;
-    }
-
-    .nav-logo:hover {
-        color: var(--color-text);
     }
 
     .logo-dot {
         color: var(--color-accent);
     }
 
+    .nav-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     .nav-links {
         display: flex;
-        gap: var(--space-xl);
+        gap: var(--space-xs);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--color-border-dark);
+        border-radius: var(--radius-full);
+        padding: 4px;
     }
 
     .nav-link {
         font-size: var(--text-sm);
         font-weight: 450;
-        color: var(--color-text-muted);
-        transition: color var(--transition-fast);
-        padding: var(--space-xs) 0;
-        position: relative;
-    }
-
-    .nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 1.5px;
-        background: var(--color-accent);
-        transition: width var(--transition-base);
+        color: var(--color-muted-on-dark);
+        padding: 6px 16px;
+        border-radius: var(--radius-full);
+        transition: all var(--transition-fast);
     }
 
     .nav-link:hover {
-        color: var(--color-text);
-    }
-
-    .nav-link:hover::after {
-        width: 100%;
+        color: var(--color-white);
+        background: rgba(255, 255, 255, 0.08);
     }
 
     .nav-right {
@@ -173,46 +174,57 @@
         font-size: var(--text-xs);
         font-weight: 600;
         letter-spacing: 0.08em;
-        color: var(--color-text-muted);
+        display: flex;
+        align-items: center;
+        gap: 4px;
         padding: 6px 14px;
-        border: 1.5px solid var(--color-border);
-        border-radius: var(--radius-full);
+        border: 1px solid var(--color-border-dark);
+        border-radius: var(--radius-sm);
         transition: all var(--transition-fast);
     }
 
-    .lang-toggle:hover {
-        color: var(--color-text);
-        border-color: var(--color-text);
+    .lang-option {
+        color: var(--color-muted-on-dark);
+        transition: color var(--transition-fast);
     }
 
-    /* Hamburger */
+    .lang-option.active {
+        color: var(--color-white);
+    }
+
+    .lang-divider {
+        color: var(--color-border-dark);
+    }
+
+    .lang-toggle:hover {
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Hamburger — two lines */
     .hamburger {
         display: none;
         flex-direction: column;
-        gap: 5px;
-        padding: 4px;
+        gap: 6px;
+        padding: 8px;
+        border: 1px solid var(--color-border-dark);
+        border-radius: var(--radius-sm);
     }
 
     .hamburger span {
         display: block;
-        width: 22px;
-        height: 2px;
-        background: var(--color-text);
-        border-radius: 2px;
+        width: 18px;
+        height: 1.5px;
+        background: var(--color-white);
         transition: all var(--transition-base);
         transform-origin: center;
     }
 
     .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(2.5px, 2.5px);
     }
 
     .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+        transform: rotate(-45deg) translate(2.5px, -2.5px);
     }
 
     /* Mobile Menu */
@@ -222,33 +234,38 @@
         top: var(--nav-height);
         left: 0;
         right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--color-border-light);
-        padding: var(--space-lg) 0;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--color-border-dark);
+    }
+
+    .mobile-menu-inner {
+        padding: var(--space-xl);
     }
 
     .mobile-menu ul {
         display: flex;
         flex-direction: column;
-        align-items: center;
         gap: var(--space-sm);
     }
 
     .mobile-link {
         font-size: var(--text-lg);
-        font-weight: 450;
-        color: var(--color-text-muted);
-        padding: var(--space-sm) var(--space-xl);
+        font-weight: 500;
+        color: var(--color-muted-on-dark);
+        padding: var(--space-sm) 0;
         transition: color var(--transition-fast);
+        text-align: left;
+        width: 100%;
+        border-bottom: 1px solid var(--color-border-dark);
     }
 
     .mobile-link:hover {
-        color: var(--color-text);
+        color: var(--color-white);
     }
 
     @media (max-width: 768px) {
-        .nav-links {
+        .nav-center {
             display: none;
         }
 
