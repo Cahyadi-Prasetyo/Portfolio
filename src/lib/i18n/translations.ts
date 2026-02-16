@@ -3,86 +3,123 @@ export const translations = {
         nav: {
             home: 'Beranda',
             about: 'Tentang',
-            projects: 'Projek',
+            projects: 'Proyek',
             contact: 'Kontak'
         },
         hero: {
             greeting: 'Halo, saya',
-            firstName: 'CAHYADI',
-            lastName: 'PRASETYO',
-            role: 'FULL-STACK WEB DEVELOPER',
-            status: 'Siap untuk project baru 🚀',
+            name: 'Cahyadi Prasetyo',
+            role: 'Full-Stack Web Developer',
+            bio: 'Saya membangun pengalaman digital yang bersih, modern, dan berdampak.',
             cta: 'Hubungi Saya',
-            email: 'hello@cahyadiprasetyo.com'
+            tags: ['JavaScript', 'TypeScript', 'Svelte', 'React', 'Node.js', 'PostgreSQL']
+        },
+        aboutPreview: {
+            label: 'Tentang Saya',
+            title: 'Tentang Saya',
+            text: 'Seorang developer yang passionate dalam menciptakan solusi digital yang elegan dan fungsional. Saya selalu berusaha menghadirkan kode yang bersih dan produk yang memukau.',
+            readMore: 'Selengkapnya'
+        },
+        featured: {
+            label: 'Proyek Pilihan',
+            title: 'Proyek Pilihan',
+            viewAll: 'Lihat Semua Proyek'
         },
         about: {
-            label: 'Siapa Aku?',
-            bio: 'Saya seorang developer yang passionate dalam menciptakan solusi digital yang elegan dan fungsional. Dengan pengalaman di berbagai teknologi modern, saya selalu berusaha menghadirkan kode yang bersih dan produk yang memukau. Saat ini saya fokus mengembangkan aplikasi web full-stack dengan pendekatan yang mengutamakan pengalaman pengguna dan performa. Saya terbuka untuk kesempatan dan kolaborasi baru! 🚀'
-        },
-        projects: {
-            label: 'Projek',
-            viewProject: 'Lihat',
-            more: 'Lihat Semua',
-            items: [
+            label: 'Tentang Saya',
+            title: 'Kenalan Yuk!',
+            bio: 'Halo! Saya Cahyadi Prasetyo, seorang Full-Stack Web Developer yang passionate dalam menciptakan solusi digital yang elegan dan fungsional. Dengan pengalaman di berbagai teknologi modern, saya selalu berusaha menghadirkan kode yang bersih dan produk yang memukau.\n\nSaat ini saya fokus mengembangkan aplikasi web full-stack dengan pendekatan yang mengutamakan pengalaman pengguna dan performa. Saya percaya bahwa teknologi terbaik adalah yang tidak terlihat — ia hanya bekerja dengan sempurna.\n\nSaya terbuka untuk kesempatan dan kolaborasi baru!',
+            experienceLabel: 'Pengalaman',
+            educationLabel: 'Pendidikan',
+            experience: [
                 {
-                    title: 'E-Commerce Platform',
-                    description: 'Platform e-commerce modern dengan fitur keranjang belanja, pembayaran, dan manajemen produk.',
-                    tech: ['SvelteKit', 'TypeScript', 'PostgreSQL'],
-                    liveUrl: '#',
-                    githubUrl: '#'
+                    period: '2024 - Sekarang',
+                    role: 'Software Engineer',
+                    company: 'PT Contoh Teknologi',
+                    desc: 'Mengembangkan dan memelihara aplikasi web full-stack menggunakan React, Node.js, dan PostgreSQL.'
                 },
                 {
-                    title: 'Dashboard Analytics',
-                    description: 'Dashboard interaktif untuk visualisasi data bisnis secara real-time.',
-                    tech: ['React', 'Node.js', 'D3.js'],
-                    liveUrl: '#',
-                    githubUrl: '#'
+                    period: '2023 - 2024',
+                    role: 'Frontend Developer',
+                    company: 'Freelance',
+                    desc: 'Membangun website dan aplikasi web responsif untuk berbagai klien.'
                 },
                 {
-                    title: 'Task Management',
-                    description: 'Aplikasi manajemen tugas kolaboratif dengan real-time sync dan drag & drop.',
-                    tech: ['Vue.js', 'Firebase', 'PWA'],
-                    liveUrl: '#',
-                    githubUrl: '#'
-                },
+                    period: '2022 - 2023',
+                    role: 'Junior Developer',
+                    company: 'PT Startup Digital',
+                    desc: 'Berkontribusi dalam pengembangan fitur baru dan perbaikan bug pada platform web.'
+                }
+            ],
+            education: [
                 {
-                    title: 'Portfolio Website',
-                    description: 'Website portfolio personal dengan desain cyber-minimalist dan bilingual.',
-                    tech: ['SvelteKit', 'TypeScript', 'CSS'],
-                    liveUrl: '#',
-                    githubUrl: '#'
+                    period: '2020 - 2024',
+                    degree: 'S1 Teknik Informatika',
+                    school: 'Universitas Contoh',
+                    desc: 'Fokus pada pengembangan perangkat lunak dan machine learning.'
                 }
             ]
         },
+        projects: {
+            label: 'Proyek',
+            title: 'Proyek Saya',
+            desc: 'Beberapa project yang pernah saya kerjakan',
+            viewAll: 'Lihat Semua Proyek',
+            viewProject: 'Lihat Proyek',
+            backToProjects: 'Kembali ke Proyek',
+            liveDemo: 'Live Demo',
+            sourceCode: 'Source Code',
+            description: 'Deskripsi',
+            techStack: 'Tech Stack',
+            filterAll: 'Semua',
+            filterWeb: 'Website',
+            filterMobile: 'Mobile'
+        },
         faq: {
             label: 'Pertanyaan',
+            title: 'Pertanyaan',
             items: [
                 {
-                    question: 'Apakah kamu bekerja dengan klien internasional?',
-                    answer: 'Ya, saya bekerja dengan klien dari seluruh dunia. Saya berpengalaman dalam kolaborasi remote dan menggunakan tools yang membuat kerja lintas zona waktu menjadi seamless.'
+                    q: 'Teknologi apa yang kamu kuasai?',
+                    a: 'Front-end: Svelte, React, Next.js, Vue.js, TailwindCSS. Back-end: Node.js, Python, Express, PostgreSQL, Supabase. Mobile: React Native, Flutter. Lainnya: Git, Docker, Figma.'
                 },
                 {
-                    question: 'Teknologi apa yang kamu kuasai?',
-                    answer: 'Front-end: Svelte, React, Next.js, TailwindCSS. Back-end: Node.js, Python, PostgreSQL, Supabase. Lainnya: Git, Figma, Docker.'
+                    q: 'Apakah kamu menerima project freelance?',
+                    a: 'Ya! Saya terbuka untuk project freelance, baik dari klien lokal maupun internasional. Saya berpengalaman dalam kolaborasi remote.'
                 },
                 {
-                    question: 'Layanan apa yang kamu tawarkan?',
-                    answer: 'Saya menawarkan berbagai layanan digital termasuk web design, pengembangan web app full-stack, dan konsultasi teknologi.'
+                    q: 'Berapa lama waktu pengerjaan project?',
+                    a: 'Timeline bervariasi tergantung kompleksitas. Website sederhana 2-4 minggu, aplikasi web medium 1-2 bulan, dan aplikasi kompleks bisa 2-3 bulan.'
                 },
                 {
-                    question: 'Berapa lama waktu pengerjaan project?',
-                    answer: 'Timeline project bervariasi tergantung kompleksitas. Website sederhana membutuhkan 2-4 minggu, sementara aplikasi kompleks bisa memakan waktu 2-3 bulan.'
+                    q: 'Bagaimana cara menghubungi kamu?',
+                    a: 'Kamu bisa menghubungi saya melalui halaman kontak, atau langsung kirim email ke hello@cahyadiprasetyo.com. Saya akan merespons dalam 24 jam.'
                 }
             ]
         },
         contact: {
             label: 'Kontak',
-            title: 'YUK DISKUSIKAN\nPROJECTMU!',
-            cta: 'Hubungi Saya',
+            title: 'Hubungi Saya',
+            desc: 'Punya pertanyaan atau project yang ingin didiskusikan? Kirim pesan!',
+            nameLabel: 'Nama',
+            namePlaceholder: 'Nama lengkap kamu',
+            emailLabel: 'Email',
+            emailPlaceholder: 'email@contoh.com',
+            subjectLabel: 'Subject',
+            subjectPlaceholder: 'Tentang apa?',
+            messageLabel: 'Pesan',
+            messagePlaceholder: 'Ceritakan tentang project atau pertanyaan kamu...',
+            send: 'Kirim Pesan',
+            orEmail: 'atau kirim email langsung ke',
             email: 'hello@cahyadiprasetyo.com'
         },
+        footerCta: {
+            title: 'Punya project yang ingin didiskusikan?',
+            desc: 'Mari diskusikan ide Anda dan wujudkan menjadi kenyataan.',
+            button: 'Mulai Obrolan'
+        },
         footer: {
-            copyright: 'Coding with Cahyadi © 2026'
+            copy: '© 2026 Cahyadi Prasetyo. All rights reserved.'
         }
     },
     en: {
@@ -94,81 +131,118 @@ export const translations = {
         },
         hero: {
             greeting: "Hi, I'm",
-            firstName: 'CAHYADI',
-            lastName: 'PRASETYO',
-            role: 'FULL-STACK WEB DEVELOPER',
-            status: 'Available for new projects 🚀',
+            name: 'Cahyadi Prasetyo',
+            role: 'Full-Stack Web Developer',
+            bio: 'I build clean, modern, and impactful digital experiences.',
             cta: 'Contact Me',
-            email: 'hello@cahyadiprasetyo.com'
+            tags: ['JavaScript', 'TypeScript', 'Svelte', 'React', 'Node.js', 'PostgreSQL']
+        },
+        aboutPreview: {
+            label: 'About Me',
+            title: 'About Me',
+            text: 'A developer passionate about crafting elegant and functional digital solutions. I always strive to deliver clean code and stunning products.',
+            readMore: 'Read More'
+        },
+        featured: {
+            label: 'Featured Projects',
+            title: 'Featured Projects',
+            viewAll: 'View All Projects'
         },
         about: {
-            label: 'Who am I?',
-            bio: "I'm a developer passionate about crafting elegant and functional digital solutions. With experience across various modern technologies, I always strive to deliver clean code and stunning products. Currently focused on building full-stack web applications with a user experience and performance-first approach. I'm open to new opportunities and collaborations! 🚀"
-        },
-        projects: {
-            label: 'Projects',
-            viewProject: 'View',
-            more: 'View All',
-            items: [
+            label: 'About Me',
+            title: "Let's Get to Know!",
+            bio: "Hi! I'm Cahyadi Prasetyo, a Full-Stack Web Developer passionate about crafting elegant and functional digital solutions. With experience across various modern technologies, I always strive to deliver clean code and stunning products.\n\nCurrently focused on building full-stack web applications with a user experience and performance-first approach. I believe the best technology is invisible — it just works perfectly.\n\nI'm open to new opportunities and collaborations!",
+            experienceLabel: 'Experience',
+            educationLabel: 'Education',
+            experience: [
                 {
-                    title: 'E-Commerce Platform',
-                    description: 'A modern e-commerce platform with shopping cart, payment, and product management.',
-                    tech: ['SvelteKit', 'TypeScript', 'PostgreSQL'],
-                    liveUrl: '#',
-                    githubUrl: '#'
+                    period: '2024 - Present',
+                    role: 'Software Engineer',
+                    company: 'PT Contoh Teknologi',
+                    desc: 'Developing and maintaining full-stack web applications using React, Node.js, and PostgreSQL.'
                 },
                 {
-                    title: 'Analytics Dashboard',
-                    description: 'An interactive dashboard for real-time business data visualization.',
-                    tech: ['React', 'Node.js', 'D3.js'],
-                    liveUrl: '#',
-                    githubUrl: '#'
+                    period: '2023 - 2024',
+                    role: 'Frontend Developer',
+                    company: 'Freelance',
+                    desc: 'Building responsive websites and web applications for various clients.'
                 },
                 {
-                    title: 'Task Management',
-                    description: 'A collaborative task management app with real-time sync and drag & drop.',
-                    tech: ['Vue.js', 'Firebase', 'PWA'],
-                    liveUrl: '#',
-                    githubUrl: '#'
-                },
+                    period: '2022 - 2023',
+                    role: 'Junior Developer',
+                    company: 'PT Startup Digital',
+                    desc: 'Contributing to new feature development and bug fixes on the web platform.'
+                }
+            ],
+            education: [
                 {
-                    title: 'Portfolio Website',
-                    description: 'A personal portfolio website with cyber-minimalist design and bilingual support.',
-                    tech: ['SvelteKit', 'TypeScript', 'CSS'],
-                    liveUrl: '#',
-                    githubUrl: '#'
+                    period: '2020 - 2024',
+                    degree: 'B.Sc. in Computer Science',
+                    school: 'University Example',
+                    desc: 'Focused on software development and machine learning.'
                 }
             ]
         },
+        projects: {
+            label: 'Projects',
+            title: 'My Projects',
+            desc: 'Some projects I have worked on',
+            viewAll: 'View All Projects',
+            viewProject: 'View Project',
+            backToProjects: 'Back to Projects',
+            liveDemo: 'Live Demo',
+            sourceCode: 'Source Code',
+            description: 'Description',
+            techStack: 'Tech Stack',
+            filterAll: 'All',
+            filterWeb: 'Website',
+            filterMobile: 'Mobile'
+        },
         faq: {
             label: 'Questions',
+            title: 'Questions',
             items: [
                 {
-                    question: 'Do you work with clients internationally?',
-                    answer: 'Yes, I work with clients from all over the world. I am experienced in remote collaboration and use tools that make working across time zones seamless.'
+                    q: 'What technologies do you master?',
+                    a: 'Front-end: Svelte, React, Next.js, Vue.js, TailwindCSS. Back-end: Node.js, Python, Express, PostgreSQL, Supabase. Mobile: React Native, Flutter. Others: Git, Docker, Figma.'
                 },
                 {
-                    question: 'What technologies do you master?',
-                    answer: 'Front-end: Svelte, React, Next.js, TailwindCSS. Back-end: Node.js, Python, PostgreSQL, Supabase. Others: Git, Figma, Docker.'
+                    q: 'Do you accept freelance projects?',
+                    a: 'Yes! I am open to freelance projects, from both local and international clients. I am experienced in remote collaboration.'
                 },
                 {
-                    question: 'What services do you offer?',
-                    answer: 'I offer a wide range of digital services including web design, full-stack web app development, and tech consulting.'
+                    q: 'How long does a typical project take?',
+                    a: 'Timelines vary depending on complexity. A simple website takes 2-4 weeks, a medium web app 1-2 months, and complex applications can take 2-3 months.'
                 },
                 {
-                    question: 'How long does a typical project take?',
-                    answer: 'Project timelines vary depending on complexity. A simple website might take 2-4 weeks, while a complex application could take 2-3 months.'
+                    q: 'How can I contact you?',
+                    a: 'You can reach me through the contact page, or send an email directly to hello@cahyadiprasetyo.com. I will respond within 24 hours.'
                 }
             ]
         },
         contact: {
             label: 'Contact',
-            title: "LET'S DISCUSS\nYOUR PROJECT!",
-            cta: 'Contact Me',
+            title: 'Contact Me',
+            desc: 'Have a question or a project to discuss? Send me a message!',
+            nameLabel: 'Name',
+            namePlaceholder: 'Your full name',
+            emailLabel: 'Email',
+            emailPlaceholder: 'email@example.com',
+            subjectLabel: 'Subject',
+            subjectPlaceholder: 'What is it about?',
+            messageLabel: 'Message',
+            messagePlaceholder: 'Tell me about your project or question...',
+            send: 'Send Message',
+            orEmail: 'or send an email directly to',
             email: 'hello@cahyadiprasetyo.com'
         },
+        footerCta: {
+            title: 'Have a project to discuss?',
+            desc: "Let's discuss your ideas and bring them to life.",
+            button: 'Start a Chat'
+        },
         footer: {
-            copyright: 'Coding with Cahyadi © 2026'
+            copy: '© 2026 Cahyadi Prasetyo. All rights reserved.'
         }
     }
 } as const;

@@ -1,41 +1,21 @@
 <script lang="ts">
-    import { onMount } from "svelte";
     import Hero from "$lib/components/Hero.svelte";
-    import About from "$lib/components/About.svelte";
-    import Projects from "$lib/components/Projects.svelte";
+    import AboutPreview from "$lib/components/AboutPreview.svelte";
+    import FeaturedProjects from "$lib/components/FeaturedProjects.svelte";
     import FAQ from "$lib/components/FAQ.svelte";
-    import Contact from "$lib/components/Contact.svelte";
-
-    onMount(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-        );
-
-        document.querySelectorAll(".reveal").forEach((el) => {
-            observer.observe(el);
-        });
-
-        return () => observer.disconnect();
-    });
+    import FooterCTA from "$lib/components/FooterCTA.svelte";
 </script>
 
 <svelte:head>
-    <title>Cahyadi Prasetyo • Full-Stack Web Developer 🚀</title>
+    <title>Cahyadi Prasetyo • Full-Stack Developer</title>
     <meta
         name="description"
-        content="A full-stack web developer building clean, modern, & impactful digital experiences."
+        content="Portfolio of Cahyadi Prasetyo — Full-Stack Web Developer building clean, modern, and impactful digital experiences."
     />
 </svelte:head>
 
 <Hero />
-<About />
-<Projects />
+<AboutPreview />
+<FeaturedProjects />
 <FAQ />
-<Contact />
+<FooterCTA />

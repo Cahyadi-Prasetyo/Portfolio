@@ -1,19 +1,30 @@
 <script lang="ts">
-    import { t, currentLang, toggleLanguage } from "$lib/i18n";
+    import { page } from "$app/state";
+    import {
+        getTranslations,
+        getCurrentLang,
+        toggleLanguage,
+    } from "$lib/i18n/index.svelte";
 
-    let scrolled = $state(false);
     let mobileOpen = $state(false);
+    let scrolled = $state(false);
 
-    const navItems = ["home", "about", "projects", "contact"] as const;
+    const t = $derived(getTranslations());
+    const currentLang = $derived(getCurrentLang());
+
+    const navItems = [
+        { key: "home" as const, href: "/" },
+        { key: "about" as const, href: "/about" },
+        { key: "projects" as const, href: "/projects" },
+        { key: "contact" as const, href: "/contact" },
+    ];
 
     function handleScroll() {
         scrolled = window.scrollY > 20;
     }
 
-    function scrollTo(id: string) {
+    function closeMobile() {
         mobileOpen = false;
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
     }
 
     $effect(() => {
@@ -23,53 +34,52 @@
 </script>
 
 <nav class="navbar" class:scrolled>
-    <div class="nav-container container">
+    <div class="nav-inner container">
         <!-- Logo -->
-        <a
-            href="/"
-            class="nav-logo"
-            onclick={(e) => {
-                e.preventDefault();
-                scrollTo("home");
-            }}
-        >
-            CP<span class="logo-dot">.</span>
+        <a href="/" class="logo">
+            CP<span class="logo-slash">/&gt;</span>
         </a>
 
-        <!-- Desktop Nav -->
-        <div class="nav-center">
-            <ul class="nav-links">
-                {#each navItems as item}
-                    <li>
-                        <button class="nav-link" onclick={() => scrollTo(item)}>
-                            {$t.nav[item]}
-                        </button>
-                    </li>
-                {/each}
-            </ul>
-        </div>
+        <!-- Desktop Links -->
+        <ul class="nav-links">
+            {#each navItems as item}
+                {@const isActive =
+                    page.url.pathname === item.href ||
+                    (item.href !== "/" &&
+                        page.url.pathname.startsWith(item.href))}
+                <li>
+                    <a
+                        href={item.href}
+                        class="nav-link"
+                        class:active={isActive}
+                    >
+                        {t.nav[item.key]}
+                    </a>
+                </li>
+            {/each}
+        </ul>
 
-        <!-- Right side: Lang toggle -->
+        <!-- Right -->
         <div class="nav-right">
-            <button class="lang-toggle" onclick={toggleLanguage}>
-                <span class="lang-option" class:active={$currentLang === "id"}
+            <button class="lang-btn" onclick={toggleLanguage}>
+                <span class="lang-opt" class:active={currentLang === "id"}
                     >ID</span
                 >
-                <span class="lang-divider">/</span>
-                <span class="lang-option" class:active={$currentLang === "en"}
+                <span class="lang-sep">/</span>
+                <span class="lang-opt" class:active={currentLang === "en"}
                     >EN</span
                 >
             </button>
 
-            <!-- Mobile hamburger -->
             <button
                 class="hamburger"
-                class:active={mobileOpen}
+                class:open={mobileOpen}
                 onclick={() => (mobileOpen = !mobileOpen)}
-                aria-label="Toggle menu"
+                aria-label="Menu"
             >
-                <span></span>
-                <span></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </button>
         </div>
     </div>
@@ -77,20 +87,24 @@
     <!-- Mobile Menu -->
     {#if mobileOpen}
         <div class="mobile-menu">
-            <div class="mobile-menu-inner">
-                <ul>
-                    {#each navItems as item}
-                        <li>
-                            <button
-                                class="mobile-link"
-                                onclick={() => scrollTo(item)}
-                            >
-                                {$t.nav[item]}
-                            </button>
-                        </li>
-                    {/each}
-                </ul>
-            </div>
+            <ul>
+                {#each navItems as item}
+                    {@const isActive =
+                        page.url.pathname === item.href ||
+                        (item.href !== "/" &&
+                            page.url.pathname.startsWith(item.href))}
+                    <li>
+                        <a
+                            href={item.href}
+                            class="mobile-link"
+                            class:active={isActive}
+                            onclick={closeMobile}
+                        >
+                            {t.nav[item.key]}
+                        </a>
+                    </li>
+                {/each}
+            </ul>
         </div>
     {/if}
 </nav>
@@ -105,126 +119,131 @@
         height: var(--nav-height);
         display: flex;
         align-items: center;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         transition: all var(--transition-base);
-        background: transparent;
     }
 
     .navbar.scrolled {
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--color-border-dark);
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 1px 0 var(--color-border);
     }
 
-    .nav-container {
+    .nav-inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 100%;
+        width: 100%;
     }
 
-    .nav-logo {
+    /* Logo */
+    .logo {
         font-family: var(--font-heading);
         font-size: var(--text-xl);
         font-weight: 700;
-        color: var(--color-white);
+        color: var(--color-text);
         letter-spacing: -0.03em;
     }
 
-    .logo-dot {
+    .logo-slash {
         color: var(--color-accent);
+        font-weight: 700;
     }
 
-    .nav-center {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
+    /* Nav Links */
     .nav-links {
         display: flex;
         gap: var(--space-xs);
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid var(--color-border-dark);
-        border-radius: var(--radius-full);
-        padding: 4px;
     }
 
     .nav-link {
         font-size: var(--text-sm);
-        font-weight: 450;
-        color: var(--color-muted-on-dark);
-        padding: 6px 16px;
-        border-radius: var(--radius-full);
+        font-weight: 500;
+        color: var(--color-text-muted);
+        padding: 6px 14px;
+        border-radius: var(--radius-md);
         transition: all var(--transition-fast);
+        position: relative;
     }
 
     .nav-link:hover {
-        color: var(--color-white);
-        background: rgba(255, 255, 255, 0.08);
+        color: var(--color-text);
     }
 
+    .nav-link.active {
+        color: var(--color-accent);
+        background: var(--color-accent-light);
+    }
+
+    /* Right side */
     .nav-right {
         display: flex;
         align-items: center;
         gap: var(--space-md);
     }
 
-    .lang-toggle {
+    .lang-btn {
         font-size: var(--text-xs);
         font-weight: 600;
         letter-spacing: 0.08em;
         display: flex;
         align-items: center;
-        gap: 4px;
-        padding: 6px 14px;
-        border: 1px solid var(--color-border-dark);
+        gap: 3px;
+        padding: 5px 12px;
+        border: 1px solid var(--color-border);
         border-radius: var(--radius-sm);
-        transition: all var(--transition-fast);
+        transition: border-color var(--transition-fast);
     }
 
-    .lang-option {
-        color: var(--color-muted-on-dark);
+    .lang-btn:hover {
+        border-color: var(--color-accent);
+    }
+
+    .lang-opt {
+        color: var(--color-text-light);
         transition: color var(--transition-fast);
     }
 
-    .lang-option.active {
-        color: var(--color-white);
+    .lang-opt.active {
+        color: var(--color-accent);
     }
 
-    .lang-divider {
-        color: var(--color-border-dark);
+    .lang-sep {
+        color: var(--color-border);
     }
 
-    .lang-toggle:hover {
-        border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    /* Hamburger — two lines */
+    /* Hamburger */
     .hamburger {
         display: none;
         flex-direction: column;
-        gap: 6px;
-        padding: 8px;
-        border: 1px solid var(--color-border-dark);
+        justify-content: center;
+        gap: 5px;
+        width: 36px;
+        height: 36px;
+        padding: 6px;
+        border: 1px solid var(--color-border);
         border-radius: var(--radius-sm);
     }
 
-    .hamburger span {
+    .bar {
         display: block;
-        width: 18px;
-        height: 1.5px;
-        background: var(--color-white);
+        width: 100%;
+        height: 2px;
+        background: var(--color-text);
+        border-radius: 2px;
         transition: all var(--transition-base);
         transform-origin: center;
     }
 
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(2.5px, 2.5px);
+    .hamburger.open .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
     }
-
-    .hamburger.active span:nth-child(2) {
-        transform: rotate(-45deg) translate(2.5px, -2.5px);
+    .hamburger.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.open .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
     }
 
     /* Mobile Menu */
@@ -234,38 +253,47 @@
         top: var(--nav-height);
         left: 0;
         right: 0;
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--color-border-dark);
+        border-bottom: 1px solid var(--color-border);
+        padding: var(--space-lg) var(--space-xl);
+        animation: slideDown 0.25s ease;
     }
 
-    .mobile-menu-inner {
-        padding: var(--space-xl);
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .mobile-menu ul {
         display: flex;
         flex-direction: column;
-        gap: var(--space-sm);
+        gap: var(--space-xs);
     }
 
     .mobile-link {
-        font-size: var(--text-lg);
+        display: block;
+        font-size: var(--text-base);
         font-weight: 500;
-        color: var(--color-muted-on-dark);
+        color: var(--color-text-muted);
         padding: var(--space-sm) 0;
+        border-bottom: 1px solid var(--color-border);
         transition: color var(--transition-fast);
-        text-align: left;
-        width: 100%;
-        border-bottom: 1px solid var(--color-border-dark);
     }
 
-    .mobile-link:hover {
-        color: var(--color-white);
+    .mobile-link:hover,
+    .mobile-link.active {
+        color: var(--color-accent);
     }
 
     @media (max-width: 768px) {
-        .nav-center {
+        .nav-links {
             display: none;
         }
 
