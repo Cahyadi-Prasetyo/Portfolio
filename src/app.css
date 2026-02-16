@@ -1,6 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-slate-50: #F8FAFC;
+  --color-slate-900: #0F172A;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
 
 @layer base {
   body {
