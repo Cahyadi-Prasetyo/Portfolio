@@ -11,8 +11,7 @@ export const translations = {
             name: 'Cahyadi Prasetyo',
             role: 'Full-Stack Web Developer',
             bio: 'Saya membangun pengalaman digital yang bersih, modern, dan berdampak.',
-            cta: 'Hubungi Saya',
-            tags: ['JavaScript', 'TypeScript', 'Svelte', 'React', 'Node.js', 'PostgreSQL']
+            cta: 'Hubungi Saya'
         },
         aboutPreview: {
             label: 'Tentang Saya',
@@ -31,6 +30,25 @@ export const translations = {
             bio: 'Halo! Saya Cahyadi Prasetyo, seorang Full-Stack Web Developer yang passionate dalam menciptakan solusi digital yang elegan dan fungsional. Dengan pengalaman di berbagai teknologi modern, saya selalu berusaha menghadirkan kode yang bersih dan produk yang memukau.\n\nSaat ini saya fokus mengembangkan aplikasi web full-stack dengan pendekatan yang mengutamakan pengalaman pengguna dan performa. Saya percaya bahwa teknologi terbaik adalah yang tidak terlihat — ia hanya bekerja dengan sempurna.\n\nSaya terbuka untuk kesempatan dan kolaborasi baru!',
             experienceLabel: 'Pengalaman',
             educationLabel: 'Pendidikan',
+            techStackLabel: 'Teknologi',
+            techStack: {
+                frontend: {
+                    label: 'Front-End',
+                    items: ['Tailwind CSS', 'Bootstrap', 'TypeScript', 'React', 'Vue.js', 'Svelte', 'JavaScript', 'HTML5', 'CSS3']
+                },
+                backend: {
+                    label: 'Back-End',
+                    items: ['PHP', 'Laravel', 'CodeIgniter', 'Node.js', 'Python']
+                },
+                database: {
+                    label: 'Database',
+                    items: ['MySQL', 'PostgreSQL']
+                },
+                tools: {
+                    label: 'Tools & Others',
+                    items: ['Git', 'GitHub', 'Docker', 'Nginx', 'Redis', 'VS Code', 'C++', 'C']
+                }
+            },
             experience: [
                 {
                     period: '2024 - Sekarang',
@@ -134,8 +152,7 @@ export const translations = {
             name: 'Cahyadi Prasetyo',
             role: 'Full-Stack Web Developer',
             bio: 'I build clean, modern, and impactful digital experiences.',
-            cta: 'Contact Me',
-            tags: ['JavaScript', 'TypeScript', 'Svelte', 'React', 'Node.js', 'PostgreSQL']
+            cta: 'Contact Me'
         },
         aboutPreview: {
             label: 'About Me',
@@ -154,6 +171,25 @@ export const translations = {
             bio: "Hi! I'm Cahyadi Prasetyo, a Full-Stack Web Developer passionate about crafting elegant and functional digital solutions. With experience across various modern technologies, I always strive to deliver clean code and stunning products.\n\nCurrently focused on building full-stack web applications with a user experience and performance-first approach. I believe the best technology is invisible — it just works perfectly.\n\nI'm open to new opportunities and collaborations!",
             experienceLabel: 'Experience',
             educationLabel: 'Education',
+            techStackLabel: 'Technologies',
+            techStack: {
+                frontend: {
+                    label: 'Front-End',
+                    items: ['Tailwind CSS', 'Bootstrap', 'TypeScript', 'React', 'Vue.js', 'Svelte', 'JavaScript', 'HTML5', 'CSS3']
+                },
+                backend: {
+                    label: 'Back-End',
+                    items: ['PHP', 'Laravel', 'CodeIgniter', 'Node.js', 'Python']
+                },
+                database: {
+                    label: 'Database',
+                    items: ['MySQL', 'PostgreSQL']
+                },
+                tools: {
+                    label: 'Tools & Others',
+                    items: ['Git', 'GitHub', 'Docker', 'Nginx', 'Redis', 'VS Code', 'C++', 'C']
+                }
+            },
             experience: [
                 {
                     period: '2024 - Present',

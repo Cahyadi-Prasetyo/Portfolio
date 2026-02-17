@@ -8,22 +8,12 @@
     <hr class="section-divider" />
     <div class="container preview-inner">
         <span class="section-label">// {t.aboutPreview.label}</span>
-        <div class="preview-layout">
-            <p class="about-text">{t.aboutPreview.text}</p>
-            <a href="/about" class="read-more-link">
-                {t.aboutPreview.readMore}
-                <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    ><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg
-                >
-            </a>
+
+        <div class="preview-content">
+            <h2 class="preview-title">{t.aboutPreview.title}</h2>
+            {#each t.about.bio.split("\n\n") as paragraph}
+                <p class="about-paragraph">{paragraph}</p>
+            {/each}
         </div>
     </div>
 </section>
@@ -33,52 +23,21 @@
         padding-top: var(--space-3xl);
     }
 
-    .preview-layout {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: var(--space-3xl);
+    .preview-title {
+        font-size: var(--text-3xl);
+        font-weight: 800;
+        margin-bottom: var(--space-xl);
+        letter-spacing: -0.03em;
     }
 
-    .about-text {
-        font-size: var(--text-2xl);
-        font-weight: 500;
-        color: var(--color-text);
-        line-height: 1.5;
-        max-width: 700px;
-        letter-spacing: -0.02em;
+    .preview-content {
+        max-width: 800px;
     }
 
-    .read-more-link {
-        display: inline-flex;
-        align-items: center;
-        gap: var(--space-sm);
-        font-size: var(--text-sm);
-        font-weight: 600;
-        color: var(--color-text);
-        white-space: nowrap;
-        padding: 10px 20px;
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-full);
-        background: var(--color-white);
-        transition: all var(--transition-base);
-        flex-shrink: 0;
-    }
-
-    .read-more-link:hover {
-        border-color: var(--color-text);
-        transform: translateY(-1px);
-        box-shadow: var(--shadow-sm);
-    }
-
-    @media (max-width: 768px) {
-        .preview-layout {
-            flex-direction: column;
-            gap: var(--space-xl);
-        }
-
-        .about-text {
-            font-size: var(--text-xl);
-        }
+    .about-paragraph {
+        font-size: var(--text-lg);
+        color: var(--color-text-secondary);
+        line-height: 1.8;
+        margin-bottom: var(--space-lg);
     }
 </style>

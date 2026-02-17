@@ -21,7 +21,9 @@
 
 		// Observe existing elements
 		function observeAll() {
-			document.querySelectorAll(".reveal:not(.visible)").forEach((el) => {
+			const selector =
+				".reveal:not(.visible), .reveal-left:not(.visible), .reveal-right:not(.visible), .reveal-scale:not(.visible)";
+			document.querySelectorAll(selector).forEach((el) => {
 				observer.observe(el);
 			});
 		}

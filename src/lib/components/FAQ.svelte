@@ -105,9 +105,10 @@
     }
 
     .faq-question span:not(.faq-num):not(.faq-icon) {
-        font-size: var(--text-base);
-        font-weight: 500;
+        font-size: var(--text-xl);
+        font-weight: 600;
         color: var(--color-text);
+        letter-spacing: -0.01em;
     }
 
     .faq-icon {

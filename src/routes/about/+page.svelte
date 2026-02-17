@@ -2,6 +2,7 @@
     import { getTranslations } from "$lib/i18n/index.svelte";
     import FAQ from "$lib/components/FAQ.svelte";
     import FooterCTA from "$lib/components/FooterCTA.svelte";
+    import TechStack from "$lib/components/TechStack.svelte";
 
     const t = $derived(getTranslations());
 </script>
@@ -25,6 +26,8 @@
             </div>
         </div>
     </div>
+
+    <TechStack />
 
     <!-- Experience -->
     <div class="timeline-section section">

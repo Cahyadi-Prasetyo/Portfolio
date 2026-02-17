@@ -39,15 +39,11 @@
                     hello@cahyadiprasetyo.com
                 </a>
             </div>
-
-            <div class="hero-tags reveal">
-                {#each t.hero.tags as tag}
-                    <span class="tag">{tag}</span>
-                {/each}
-            </div>
         </div>
 
         <div class="hero-visual reveal-right">
+            <div class="photo-glow"></div>
+            <div class="photo-ring"></div>
             <div class="photo-wrapper">
                 <img src="/my-self.png" alt="Cahyadi Prasetyo" />
             </div>
@@ -113,24 +109,81 @@
         margin-bottom: var(--space-2xl);
     }
 
-    .hero-tags {
+    /* Premium Photo Styling */
+    .hero-visual {
+        position: relative;
         display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+        justify-content: center;
+        align-items: center;
     }
 
-    /* Photo */
     .photo-wrapper {
         position: relative;
+        z-index: 2;
+        border-radius: var(--radius-2xl);
+        overflow: hidden;
+        border: 1px solid var(--color-white);
+        box-shadow: var(--shadow-xl);
     }
 
     .photo-wrapper img {
         width: 100%;
-        max-width: 420px;
-        border-radius: var(--radius-2xl);
+        max-width: 400px;
+        display: block;
         object-fit: cover;
         aspect-ratio: 3/4;
+        transition: transform var(--transition-slow);
+    }
+
+    .photo-wrapper:hover img {
+        transform: scale(1.03);
+    }
+
+    /* Animated Ring */
+    .photo-ring {
+        position: absolute;
+        width: 110%;
+        height: 105%;
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
         border: 1px solid var(--color-border);
+        z-index: 1;
+        animation: spin-slow 20s linear infinite;
+    }
+
+    .photo-ring::before {
+        content: "";
+        position: absolute;
+        inset: -10px;
+        border-radius: inherit;
+        border: 1px solid var(--color-accent-light);
+        opacity: 0.3;
+        animation: spin-slow 25s linear infinite reverse;
+    }
+
+    /* Back Glow */
+    .photo-glow {
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        background: radial-gradient(
+            circle,
+            var(--color-accent-light) 0%,
+            transparent 70%
+        );
+        filter: blur(60px);
+        opacity: 0.2;
+        z-index: 0;
+        top: 10%;
+        right: 10%;
+    }
+
+    @keyframes spin-slow {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
     }
 
     @media (max-width: 768px) {
@@ -145,21 +198,11 @@
 
         .hero-visual {
             order: -1;
-            display: flex;
-            justify-content: center;
+            margin-bottom: var(--space-xl);
         }
 
         .photo-wrapper img {
             max-width: 280px;
-        }
-
-        .hero-name {
-            font-size: clamp(2.5rem, 10vw, 4rem);
-        }
-
-        .hero-actions {
-            flex-direction: column;
-            align-items: flex-start;
         }
     }
 </style>
