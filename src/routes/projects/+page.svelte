@@ -56,6 +56,13 @@
                     href="/projects/{project.slug}"
                     class="project-card card reveal"
                 >
+                    <div class="card-image">
+                        <img
+                            src={project.imageUrl}
+                            alt={project.title}
+                            loading="lazy"
+                        />
+                    </div>
                     <div class="card-header">
                         <span class="card-number"
                             >DEV.{String(i + 1).padStart(3, "0")}</span
@@ -137,7 +144,7 @@
 
     .projects-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: var(--space-lg);
     }
 
@@ -145,6 +152,25 @@
         text-decoration: none;
         display: flex;
         flex-direction: column;
+        overflow: hidden;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 220px; /* Increased height */
+        overflow: hidden;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-slow);
+    }
+
+    .project-card:hover .card-image img {
+        transform: scale(1.05);
     }
 
     .card-header {
@@ -197,6 +223,12 @@
         display: flex;
         gap: 6px;
         flex-wrap: wrap;
+    }
+
+    @media (max-width: 1024px) {
+        .projects-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     @media (max-width: 768px) {

@@ -14,9 +14,28 @@ export interface Project {
     liveUrl?: string;
     githubUrl?: string;
     featured: boolean;
+    imageUrl: string;
 }
 
 export const projects: Project[] = [
+    {
+        slug: 'umkm-video-platform',
+        title: 'UMKM Video Platform',
+        description: {
+            id: 'Platform promosi digital inovatif untuk UMKM yang mengadopsi antarmuka video pendek vertikal (seperti TikTok). Memungkinkan penjual membuat konten video menarik untuk produk mereka, meningkatkan engagement pembeli, dan integrasi langsung ke marketplace.',
+            en: 'An innovative digital promotion platform for MSMEs adopting a vertical short-video interface (TikTok-style). Enables sellers to create engaging video content for their products, boosting buyer engagement, and direct integration with marketplaces.'
+        },
+        shortDesc: {
+            id: 'Platform promosi digital berbasis video pendek (TikTok-style) untuk UMKM.',
+            en: 'Digital promotion platform based on short videos (TikTok-style) for MSMEs.'
+        },
+        tech: ['SvelteKit', 'Supabase', 'Tailwind CSS', 'Framer Motion'],
+        category: 'web',
+        liveUrl: '#',
+        githubUrl: '#',
+        featured: true,
+        imageUrl: 'https://placehold.co/1200x800/0d9488/ffffff?text=TokTi+UMKM+Platform'
+    },
     {
         slug: 'e-commerce-platform',
         title: 'E-Commerce Platform',
@@ -32,7 +51,8 @@ export const projects: Project[] = [
         category: 'web',
         liveUrl: '#',
         githubUrl: '#',
-        featured: true
+        featured: true,
+        imageUrl: 'https://placehold.co/800x600/1e293b/ffffff?text=E-Commerce'
     },
     {
         slug: 'dashboard-analytics',
@@ -49,7 +69,8 @@ export const projects: Project[] = [
         category: 'web',
         liveUrl: '#',
         githubUrl: '#',
-        featured: true
+        featured: true,
+        imageUrl: 'https://placehold.co/800x600/1e1e2e/ffffff?text=Analytics+Dashboard'
     },
     {
         slug: 'task-management',
@@ -66,7 +87,8 @@ export const projects: Project[] = [
         category: 'web',
         liveUrl: '#',
         githubUrl: '#',
-        featured: true
+        featured: true,
+        imageUrl: 'https://placehold.co/800x600/3b82f6/ffffff?text=Task+Manager'
     },
     {
         slug: 'fitness-tracker',
@@ -83,7 +105,8 @@ export const projects: Project[] = [
         category: 'mobile',
         liveUrl: '#',
         githubUrl: '#',
-        featured: true
+        featured: true,
+        imageUrl: 'https://placehold.co/800x600/10b981/ffffff?text=Fitness+App'
     },
     {
         slug: 'recipe-app',
@@ -100,7 +123,8 @@ export const projects: Project[] = [
         category: 'mobile',
         liveUrl: '#',
         githubUrl: '#',
-        featured: false
+        featured: false,
+        imageUrl: 'https://placehold.co/800x600/f59e0b/ffffff?text=Recipe+Finder'
     },
     {
         slug: 'portfolio-website',
@@ -117,7 +141,8 @@ export const projects: Project[] = [
         category: 'web',
         liveUrl: '#',
         githubUrl: '#',
-        featured: true
+        featured: true,
+        imageUrl: 'https://placehold.co/800x600/2563eb/ffffff?text=Portfolio'
     }
 ];
 

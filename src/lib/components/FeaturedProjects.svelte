@@ -37,6 +37,13 @@
                     href="/projects/{project.slug}"
                     class="project-card card reveal"
                 >
+                    <div class="card-image">
+                        <img
+                            src={project.imageUrl}
+                            alt={project.title}
+                            loading="lazy"
+                        />
+                    </div>
                     <div class="card-header">
                         <span class="card-number"
                             >DEV.{String(i + 1).padStart(3, "0")}</span
@@ -156,6 +163,29 @@
     .project-card:hover .card-arrow {
         color: var(--color-text);
         transform: translate(2px, -2px);
+    }
+    .card-image {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-slow);
+    }
+
+    .project-card:hover .card-image img {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 1024px) {
+        .featured-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     @media (max-width: 768px) {

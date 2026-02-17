@@ -35,20 +35,24 @@ export const translations = {
             techStackLabel: 'Teknologi',
             techStack: {
                 frontend: {
-                    label: 'Front-End',
-                    items: ['Tailwind CSS', 'Bootstrap', 'TypeScript', 'React', 'Vue.js', 'Svelte', 'JavaScript', 'HTML5', 'CSS3']
+                    label: 'Frontend:',
+                    items: ['React', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Svelte', 'Vue.js']
                 },
                 backend: {
-                    label: 'Back-End',
-                    items: ['PHP', 'Laravel', 'CodeIgniter', 'Node.js', 'Python']
+                    label: 'Backend:',
+                    items: ['Node.js', 'Laravel', 'PHP', 'CodeIgniter', 'Python']
                 },
                 database: {
-                    label: 'Database',
-                    items: ['MySQL', 'PostgreSQL', 'Prisma']
+                    label: 'Database:',
+                    items: ['PostgreSQL', 'MySQL', 'Prisma']
                 },
-                tools: {
-                    label: 'Tools & Others',
-                    items: ['Git', 'GitHub', 'Docker', 'Nginx', 'Redis', 'VS Code', 'C++', 'C']
+                devops: {
+                    label: 'DevOps:',
+                    items: ['Docker', 'Nginx', 'Git', 'GitHub', 'Redis']
+                },
+                data_ai: {
+                    label: 'Data & AI:',
+                    items: ['Pandas', 'Matplotlib', 'Google Looker', 'Metabase', 'Microsoft Excel', 'Google Sheets']
                 }
             },
             experience: [
@@ -113,7 +117,7 @@ export const translations = {
             items: [
                 {
                     q: 'Teknologi apa yang kamu kuasai?',
-                    a: 'Front-end: Svelte, React, Next.js, Vue.js, TailwindCSS. Back-end: Node.js, Python, Express, PostgreSQL, Supabase. Mobile: React Native, Flutter. Lainnya: Git, Docker, Figma.'
+                    a: 'Front-end: Svelte, React, Next.js, Vue.js, TailwindCSS. Back-end: Node.js, Python, Express, PostgreSQL, Supabase. Mobile: React Native, Flutter. Lainnya: Git, Docker.'
                 },
                 {
                     q: 'Apakah kamu menerima project freelance?',
@@ -190,20 +194,28 @@ export const translations = {
             techStackLabel: 'Technologies',
             techStack: {
                 frontend: {
-                    label: 'Front-End',
-                    items: ['Tailwind CSS', 'Bootstrap', 'TypeScript', 'React', 'Vue.js', 'Svelte', 'JavaScript', 'HTML5', 'CSS3']
+                    label: 'Frontend:',
+                    items: ['React', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Svelte', 'Vue.js']
                 },
                 backend: {
-                    label: 'Back-End',
-                    items: ['PHP', 'Laravel', 'CodeIgniter', 'Node.js', 'Python']
+                    label: 'Backend:',
+                    items: ['Node.js', 'Laravel', 'PHP', 'CodeIgniter', 'Python']
                 },
                 database: {
-                    label: 'Database',
-                    items: ['MySQL', 'PostgreSQL', 'Prisma']
+                    label: 'Database:',
+                    items: ['PostgreSQL', 'MySQL', 'Prisma']
                 },
-                tools: {
-                    label: 'Tools & Others',
-                    items: ['Git', 'GitHub', 'Docker', 'Nginx', 'Redis', 'VS Code', 'C++', 'C']
+                devops: {
+                    label: 'DevOps:',
+                    items: ['Docker', 'Nginx', 'Git', 'GitHub', 'Redis']
+                },
+                data_ai: {
+                    label: 'Data & AI:',
+                    items: ['Pandas', 'Matplotlib', 'Google Looker', 'Metabase', 'Microsoft Excel', 'Google Sheets']
+                },
+                soft_skills: {
+                    label: 'Soft Skills:',
+                    items: ['Strong Communication', 'Problem-solving', 'Attention to Detail', 'Time Management', 'Critical Thinking']
                 }
             },
             experience: [
@@ -268,7 +280,7 @@ export const translations = {
             items: [
                 {
                     q: 'What technologies do you master?',
-                    a: 'Front-end: Svelte, React, Next.js, Vue.js, TailwindCSS. Back-end: Node.js, Python, Express, PostgreSQL, Supabase. Mobile: React Native, Flutter. Others: Git, Docker, Figma.'
+                    a: 'Front-end: Svelte, React, Next.js, Vue.js, TailwindCSS. Back-end: Node.js, Python, Express, PostgreSQL, Supabase. Mobile: React Native, Flutter. Others: Git, Docker.'
                 },
                 {
                     q: 'Do you accept freelance projects?',
