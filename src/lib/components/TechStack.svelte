@@ -11,54 +11,37 @@
     ] as const;
 </script>
 
-<section class="tech-stack section">
-    <hr class="section-divider" />
-    <div class="container">
-        <div class="tech-header">
-            <span class="section-label">// {t.about.techStackLabel}</span>
+<div class="tech-stack-list reveal">
+    {#each categories as cat, i}
+        <div class="tech-category" style="transition-delay: {i * 100}ms">
+            <div class="category-header">
+                <span class="category-icon">{cat.icon}</span>
+                <h3 class="category-title">
+                    {t.about.techStack[cat.key].label}
+                </h3>
+            </div>
+            <div class="category-items">
+                {#each t.about.techStack[cat.key].items as item}
+                    <span class="tech-tag">{item}</span>
+                {/each}
+            </div>
         </div>
-
-        <div class="tech-grid">
-            {#each categories as cat, i}
-                <div
-                    class="tech-category card reveal"
-                    style="transition-delay: {i * 100}ms"
-                >
-                    <div class="category-header">
-                        <span class="category-icon">{cat.icon}</span>
-                        <h3 class="category-title">
-                            {t.about.techStack[cat.key].label}
-                        </h3>
-                    </div>
-                    <div class="category-items">
-                        {#each t.about.techStack[cat.key].items as item}
-                            <span class="tech-tag">{item}</span>
-                        {/each}
-                    </div>
-                </div>
-            {/each}
-        </div>
-    </div>
-</section>
+    {/each}
+</div>
 
 <style>
-    .tech-header {
-        padding-top: var(--space-2xl);
-        margin-bottom: var(--space-xl);
-    }
-
-    .tech-grid {
+    .tech-stack-list {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: var(--space-lg);
+        gap: var(--space-3xl);
+        margin-bottom: var(--space-4xl);
+        margin-top: var(--space-xl);
     }
 
     .tech-category {
-        padding: var(--space-xl);
         display: flex;
         flex-direction: column;
-        gap: var(--space-lg);
-        height: 100%;
+        gap: var(--space-md);
     }
 
     .category-header {
@@ -66,7 +49,7 @@
         align-items: center;
         gap: var(--space-md);
         padding-bottom: var(--space-md);
-        border-bottom: 1px solid var(--color-border);
+        border-bottom: 2px solid var(--color-text); /* Bold line */
     }
 
     .category-icon {
@@ -82,35 +65,37 @@
     .category-items {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 10px;
+        padding-top: var(--space-sm);
     }
 
     .tech-tag {
         font-family: var(--font-mono);
         font-size: var(--text-xs);
-        font-weight: 500;
-        padding: 6px 14px;
-        border-radius: var(--radius-full);
-        background: var(--color-bg);
-        border: 1px solid var(--color-border);
+        font-weight: 600;
+        padding: 6px 0; /* Minimalist: no background, just text? Or minimal pill */
+        margin-right: var(--space-md);
         color: var(--color-text-secondary);
         transition: all var(--transition-fast);
         cursor: default;
     }
 
+    /* Option B: Minimalist Text Tags (like code) */
+    .tech-tag::before {
+        content: "#";
+        color: var(--color-accent);
+        margin-right: 2px;
+    }
+
     .tech-tag:hover {
-        border-color: var(--color-text);
         color: var(--color-text);
-        transform: translateY(-1px);
+        transform: translateX(2px);
     }
 
     @media (max-width: 640px) {
-        .tech-grid {
+        .tech-stack-list {
             grid-template-columns: 1fr;
-        }
-
-        .tech-category {
-            padding: var(--space-lg);
+            gap: var(--space-xl);
         }
     }
 </style>

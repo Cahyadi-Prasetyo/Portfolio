@@ -36,7 +36,7 @@
 <nav class="navbar" class:scrolled>
     <div class="nav-inner container">
         <a href="/" class="logo">
-            <span class="logo-mark">CP</span>
+            <span class="logo-mark">CP/></span>
         </a>
 
         <ul class="nav-links">

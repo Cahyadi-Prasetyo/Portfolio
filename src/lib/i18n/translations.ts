@@ -29,7 +29,9 @@ export const translations = {
             title: 'Kenalan Yuk!',
             bio: 'Halo! Saya Cahyadi Prasetyo, seorang Full-Stack Web Developer yang passionate dalam menciptakan solusi digital yang elegan dan fungsional. Dengan pengalaman di berbagai teknologi modern, saya selalu berusaha menghadirkan kode yang bersih dan produk yang memukau.\n\nSaat ini saya fokus mengembangkan aplikasi web full-stack dengan pendekatan yang mengutamakan pengalaman pengguna dan performa. Saya percaya bahwa teknologi terbaik adalah yang tidak terlihat — ia hanya bekerja dengan sempurna.\n\nSaya terbuka untuk kesempatan dan kolaborasi baru!',
             experienceLabel: 'Pengalaman',
+            titleExp: 'Pengalaman Kerja',
             educationLabel: 'Pendidikan',
+            titleEdu: 'Riwayat Pendidikan',
             techStackLabel: 'Teknologi',
             techStack: {
                 frontend: {
@@ -42,7 +44,7 @@ export const translations = {
                 },
                 database: {
                     label: 'Database',
-                    items: ['MySQL', 'PostgreSQL']
+                    items: ['MySQL', 'PostgreSQL', 'Prisma']
                 },
                 tools: {
                     label: 'Tools & Others',
@@ -51,30 +53,42 @@ export const translations = {
             },
             experience: [
                 {
+                    period: 'Jan 2026 - Sekarang',
+                    role: 'Full-Stack Developer & IT Intern',
+                    company: 'BPS Provinsi Kepri',
+                    desc: 'Mengembangkan solusi web, melakukan analisis data, pemeliharaan jaringan, dan dukungan teknis tim.'
+                },
+                {
+                    period: '2025 - 2026',
+                    role: 'Frontend Developer (PKM Dosen)',
+                    company: 'Proyek Pengabdian Masyarakat',
+                    desc: 'Mengembangkan platform web UMKM dengan antarmuka berbasis video (style TikTok) untuk promosi produk digital.'
+                },
+                {
                     period: '2024 - Sekarang',
-                    role: 'Software Engineer',
-                    company: 'PT Contoh Teknologi',
-                    desc: 'Mengembangkan dan memelihara aplikasi web full-stack menggunakan React, Node.js, dan PostgreSQL.'
+                    role: 'Data Analyst & Administrator',
+                    company: 'Posyandu Kemala Kasih',
+                    desc: 'Mengelola input data operasional dan melakukan analisis untuk memastikan keakuratan pelaporan administrasi.'
                 },
                 {
-                    period: '2023 - 2024',
-                    role: 'Frontend Developer',
-                    company: 'Freelance',
-                    desc: 'Membangun website dan aplikasi web responsif untuk berbagai klien.'
-                },
-                {
-                    period: '2022 - 2023',
-                    role: 'Junior Developer',
-                    company: 'PT Startup Digital',
-                    desc: 'Berkontribusi dalam pengembangan fitur baru dan perbaikan bug pada platform web.'
+                    period: 'Jan 2022 - Jun 2022',
+                    role: 'IT Support Intern',
+                    company: 'PT. Pelindo Regional 1 Tanjungpinang',
+                    desc: 'Memberikan dukungan teknis hardware/software dan memastikan kelancaran operasional sistem IT perusahaan.'
                 }
             ],
             education: [
                 {
-                    period: '2020 - 2024',
+                    period: '2023 - Sekarang',
                     degree: 'S1 Teknik Informatika',
-                    school: 'Universitas Contoh',
+                    school: 'Universitas Maritim Raja Ali Haji',
                     desc: 'Fokus pada pengembangan perangkat lunak dan machine learning.'
+                },
+                {
+                    period: '2019 - 2022',
+                    degree: 'Rekayasa Perangkat Lunak',
+                    school: 'SMKN 1 Bintan Timur',
+                    desc: 'Mempelajari dasar pemrograman, basis data, dan pengembangan aplikasi web & desktop.'
                 }
             ]
         },
@@ -170,7 +184,9 @@ export const translations = {
             title: "Let's Get to Know!",
             bio: "Hi! I'm Cahyadi Prasetyo, a Full-Stack Web Developer passionate about crafting elegant and functional digital solutions. With experience across various modern technologies, I always strive to deliver clean code and stunning products.\n\nCurrently focused on building full-stack web applications with a user experience and performance-first approach. I believe the best technology is invisible — it just works perfectly.\n\nI'm open to new opportunities and collaborations!",
             experienceLabel: 'Experience',
+            titleExp: 'Work Experience',
             educationLabel: 'Education',
+            titleEdu: 'Education',
             techStackLabel: 'Technologies',
             techStack: {
                 frontend: {
@@ -183,7 +199,7 @@ export const translations = {
                 },
                 database: {
                     label: 'Database',
-                    items: ['MySQL', 'PostgreSQL']
+                    items: ['MySQL', 'PostgreSQL', 'Prisma']
                 },
                 tools: {
                     label: 'Tools & Others',
@@ -192,30 +208,42 @@ export const translations = {
             },
             experience: [
                 {
+                    period: 'Jan 2026 - Present',
+                    role: 'Full-Stack Developer & IT Intern',
+                    company: 'BPS Kepri Province',
+                    desc: 'Developing web solutions, data analysis, network maintenance, and team technical support.'
+                },
+                {
+                    period: '2025 - 2026',
+                    role: 'Frontend Developer (Research Project)',
+                    company: 'University Community Service (PKM)',
+                    desc: 'Developed a TikTok-style video-based e-commerce platform for MSME digital promotion.'
+                },
+                {
                     period: '2024 - Present',
-                    role: 'Software Engineer',
-                    company: 'PT Contoh Teknologi',
-                    desc: 'Developing and maintaining full-stack web applications using React, Node.js, and PostgreSQL.'
+                    role: 'Data Analyst & Administrator',
+                    company: 'Posyandu Kemala Kasih',
+                    desc: 'Managing operational data input and analyzing it to ensure administrative reporting accuracy.'
                 },
                 {
-                    period: '2023 - 2024',
-                    role: 'Frontend Developer',
-                    company: 'Freelance',
-                    desc: 'Building responsive websites and web applications for various clients.'
-                },
-                {
-                    period: '2022 - 2023',
-                    role: 'Junior Developer',
-                    company: 'PT Startup Digital',
-                    desc: 'Contributing to new feature development and bug fixes on the web platform.'
+                    period: 'Jan 2022 - Jun 2022',
+                    role: 'IT Support Intern',
+                    company: 'PT. Pelindo Regional 1 Tanjungpinang',
+                    desc: 'Provided hardware/software technical support and ensured smooth corporate IT operations.'
                 }
             ],
             education: [
                 {
-                    period: '2020 - 2024',
+                    period: '2023 - Present',
                     degree: 'B.Sc. in Computer Science',
-                    school: 'University Example',
+                    school: 'Universitas Maritim Raja Ali Haji',
                     desc: 'Focused on software development and machine learning.'
+                },
+                {
+                    period: '2019 - 2022',
+                    degree: 'Software Engineering (RPL)',
+                    school: 'SMKN 1 Bintan Timur',
+                    desc: 'Learned programming basics, databases, and web & desktop application development.'
                 }
             ]
         },

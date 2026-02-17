@@ -65,7 +65,7 @@
     }
 
     .faq-list {
-        max-width: 750px;
+        width: 100%;
     }
 
     .faq-item {
