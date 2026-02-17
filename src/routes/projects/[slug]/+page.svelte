@@ -16,7 +16,6 @@
 <div class="page-wrapper">
     <div class="container">
         {#if project}
-            <!-- Back -->
             <a href="/projects" class="back-link reveal">
                 <svg
                     width="16"
@@ -32,83 +31,72 @@
                 {t.projects.backToProjects}
             </a>
 
-            <!-- Hero Image -->
-            <div class="project-hero reveal">
-                <span class="hero-initial">{project.title.charAt(0)}</span>
-            </div>
-
-            <!-- Title + Actions -->
             <div class="project-header reveal">
                 <h1 class="project-title">{project.title}</h1>
-                <div class="project-actions">
-                    {#if project.liveUrl}
-                        <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener"
-                            class="btn btn-primary"
-                        >
-                            {t.projects.liveDemo}
-                            <svg
-                                width="14"
-                                height="14"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                ><line x1="7" y1="17" x2="17" y2="7" /><polyline
-                                    points="7 7 17 7 17 17"
-                                /></svg
-                            >
-                        </a>
-                    {/if}
-                    {#if project.githubUrl}
-                        <a
-                            href={project.githubUrl}
-                            target="_blank"
-                            rel="noopener"
-                            class="btn btn-outline"
-                        >
-                            {t.projects.sourceCode}
-                            <svg
-                                width="14"
-                                height="14"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                ><path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                                /></svg
-                            >
-                        </a>
-                    {/if}
+                <div class="project-meta">
+                    <span class="meta-cat"
+                        >{project.category === "web"
+                            ? "Web App"
+                            : "Mobile App"}</span
+                    >
                 </div>
             </div>
 
-            <hr class="divider" />
-
-            <!-- Description first -->
-            <div class="project-section reveal">
-                <h2 class="detail-label">{t.projects.description}</h2>
-                <p class="detail-text">
-                    {currentLang === "id"
-                        ? project.description.id
-                        : project.description.en}
-                </p>
+            <div class="project-actions reveal">
+                {#if project.liveUrl}
+                    <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener"
+                        class="btn btn-primary"
+                    >
+                        {t.projects.liveDemo}
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            ><line x1="7" y1="17" x2="17" y2="7" /><polyline
+                                points="7 7 17 7 17 17"
+                            /></svg
+                        >
+                    </a>
+                {/if}
+                {#if project.githubUrl}
+                    <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener"
+                        class="btn btn-outline"
+                    >
+                        {t.projects.sourceCode}
+                    </a>
+                {/if}
             </div>
 
-            <!-- Tech Stack second -->
-            <div class="project-section reveal">
-                <h2 class="detail-label">{t.projects.techStack}</h2>
-                <div class="tech-grid">
-                    {#each project.tech as tech}
-                        <span class="tech-item">{tech}</span>
-                    {/each}
+            <hr class="section-divider" />
+
+            <div class="detail-grid">
+                <div class="detail-section reveal">
+                    <h2 class="detail-label">// {t.projects.description}</h2>
+                    <p class="detail-text">
+                        {currentLang === "id"
+                            ? project.description.id
+                            : project.description.en}
+                    </p>
+                </div>
+
+                <div class="detail-section reveal-right">
+                    <h2 class="detail-label">// {t.projects.techStack}</h2>
+                    <div class="tech-list">
+                        {#each project.tech as tech}
+                            <span class="tag">{tech}</span>
+                        {/each}
+                    </div>
                 </div>
             </div>
         {:else}
@@ -137,95 +125,67 @@
         font-weight: 500;
         color: var(--color-text-muted);
         margin-bottom: var(--space-2xl);
-        transition: color var(--transition-fast);
+        transition: all var(--transition-fast);
     }
 
     .back-link:hover {
-        color: var(--color-accent);
-    }
-
-    .project-hero {
-        width: 100%;
-        height: 350px;
-        border-radius: var(--radius-lg);
-        background: linear-gradient(
-            135deg,
-            var(--color-bg-alt),
-            var(--color-border)
-        );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: var(--space-2xl);
-        overflow: hidden;
-    }
-
-    .hero-initial {
-        font-family: var(--font-heading);
-        font-size: 6rem;
-        font-weight: 700;
-        color: var(--color-accent);
-        opacity: 0.15;
+        color: var(--color-text);
+        gap: var(--space-md);
     }
 
     .project-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: var(--space-xl);
         margin-bottom: var(--space-xl);
     }
 
     .project-title {
-        font-size: var(--text-4xl);
+        font-size: clamp(2.5rem, 5vw, var(--text-5xl));
+        font-weight: 800;
+        letter-spacing: -0.05em;
+        margin-bottom: var(--space-md);
+    }
+
+    .meta-cat {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        font-weight: 500;
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
     }
 
     .project-actions {
         display: flex;
-        gap: var(--space-sm);
-        flex-shrink: 0;
-    }
-
-    .divider {
+        gap: var(--space-md);
         margin-bottom: var(--space-2xl);
     }
 
-    .project-section {
-        margin-bottom: var(--space-2xl);
+    .detail-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: var(--space-4xl);
+        padding-top: var(--space-2xl);
     }
 
     .detail-label {
-        font-size: var(--text-sm);
-        font-weight: 600;
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        font-weight: 500;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.15em;
         color: var(--color-text-muted);
-        margin-bottom: var(--space-md);
+        margin-bottom: var(--space-lg);
     }
 
     .detail-text {
         font-size: var(--text-lg);
-        line-height: 1.9;
-        color: var(--color-text-muted);
-        max-width: 750px;
+        line-height: 1.8;
+        color: var(--color-text-secondary);
     }
 
-    .tech-grid {
+    .tech-list {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--space-sm);
-    }
-
-    .tech-item {
-        display: inline-flex;
-        align-items: center;
-        padding: 8px 18px;
-        font-size: var(--text-sm);
-        font-weight: 500;
-        color: var(--color-accent);
-        background: var(--color-accent-light);
-        border: 1px solid var(--color-accent-border);
-        border-radius: var(--radius-md);
+        gap: 8px;
     }
 
     .not-found {
@@ -238,16 +198,11 @@
     }
 
     @media (max-width: 768px) {
-        .project-header {
-            flex-direction: column;
-        }
-
         .project-title {
             font-size: var(--text-3xl);
         }
-
-        .project-hero {
-            height: 220px;
+        .detail-grid {
+            grid-template-columns: 1fr;
         }
     }
 </style>

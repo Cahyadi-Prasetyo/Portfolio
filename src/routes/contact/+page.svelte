@@ -24,7 +24,6 @@
             sending = false;
             sent = true;
             formData = { name: "", email: "", subject: "", message: "" };
-
             setTimeout(() => {
                 sent = false;
             }, 3000);
@@ -39,34 +38,34 @@
 <div class="page-wrapper">
     <div class="container">
         <div class="page-header reveal">
-            <span class="section-label">{t.contact.label}</span>
+            <span class="section-label">// {t.contact.label}</span>
             <h1 class="section-title">{t.contact.title}</h1>
             <p class="section-desc">{t.contact.desc}</p>
         </div>
 
         <div class="contact-layout">
-            <!-- Form -->
             <form class="contact-form reveal" onsubmit={handleSubmit}>
-                <div class="form-group">
-                    <label for="name">{t.contact.nameLabel}</label>
-                    <input
-                        type="text"
-                        id="name"
-                        bind:value={formData.name}
-                        placeholder={t.contact.namePlaceholder}
-                        required
-                    />
-                </div>
-
-                <div class="form-group">
-                    <label for="email">{t.contact.emailLabel}</label>
-                    <input
-                        type="email"
-                        id="email"
-                        bind:value={formData.email}
-                        placeholder={t.contact.emailPlaceholder}
-                        required
-                    />
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">{t.contact.nameLabel}</label>
+                        <input
+                            type="text"
+                            id="name"
+                            bind:value={formData.name}
+                            placeholder={t.contact.namePlaceholder}
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">{t.contact.emailLabel}</label>
+                        <input
+                            type="email"
+                            id="email"
+                            bind:value={formData.email}
+                            placeholder={t.contact.emailPlaceholder}
+                            required
+                        />
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -103,12 +102,12 @@
                     {:else}
                         {t.contact.send}
                         <svg
-                            width="16"
-                            height="16"
+                            width="14"
+                            height="14"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
-                            stroke-width="2"
+                            stroke-width="2.5"
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             ><path d="M5 12h14" /><path
@@ -119,10 +118,9 @@
                 </button>
             </form>
 
-            <!-- Aside -->
-            <div class="contact-aside reveal">
-                <div class="aside-block">
-                    <p class="aside-or">{t.contact.orEmail}</p>
+            <div class="contact-aside reveal-right">
+                <div class="aside-card card">
+                    <p class="aside-label">{t.contact.orEmail}</p>
                     <a href="mailto:{t.contact.email}" class="aside-email"
                         >{t.contact.email}</a
                     >
@@ -134,7 +132,6 @@
                         target="_blank"
                         rel="noopener"
                         class="social-link"
-                        aria-label="GitHub"
                     >
                         <svg
                             width="20"
@@ -149,14 +146,13 @@
                                 d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
                             /></svg
                         >
-                        GitHub
+                        <span>GitHub</span>
                     </a>
                     <a
                         href="https://linkedin.com/"
                         target="_blank"
                         rel="noopener"
                         class="social-link"
-                        aria-label="LinkedIn"
                     >
                         <svg
                             width="20"
@@ -175,14 +171,13 @@
                                 r="2"
                             /></svg
                         >
-                        LinkedIn
+                        <span>LinkedIn</span>
                     </a>
                     <a
                         href="https://instagram.com/"
                         target="_blank"
                         rel="noopener"
                         class="social-link"
-                        aria-label="Instagram"
                     >
                         <svg
                             width="20"
@@ -209,7 +204,7 @@
                                 y2="6.5"
                             /></svg
                         >
-                        Instagram
+                        <span>Instagram</span>
                     </a>
                 </div>
             </div>
@@ -230,27 +225,32 @@
 
     .contact-layout {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
+        grid-template-columns: 1.3fr 0.7fr;
         gap: var(--space-4xl);
         align-items: start;
     }
 
-    /* Form */
     .contact-form {
         display: flex;
         flex-direction: column;
         gap: var(--space-lg);
     }
 
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+    }
+
     .form-group {
         display: flex;
         flex-direction: column;
-        gap: var(--space-sm);
+        gap: 6px;
     }
 
     .form-group label {
         font-size: var(--text-sm);
-        font-weight: 600;
+        font-weight: 500;
         color: var(--color-text);
     }
 
@@ -259,23 +259,24 @@
         font-family: var(--font-body);
         font-size: var(--text-base);
         padding: 12px 16px;
-        border: 1.5px solid var(--color-border);
+        border: 1px solid var(--color-border);
         border-radius: var(--radius-md);
         background: var(--color-white);
         color: var(--color-text);
-        transition: border-color var(--transition-fast);
+        transition: all var(--transition-base);
         outline: none;
         resize: vertical;
     }
 
     .form-group input::placeholder,
     .form-group textarea::placeholder {
-        color: var(--color-text-light);
+        color: var(--color-text-muted);
     }
 
     .form-group input:focus,
     .form-group textarea:focus {
-        border-color: var(--color-accent);
+        border-color: var(--color-text);
+        box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.06);
     }
 
     :global(.btn-full) {
@@ -285,55 +286,65 @@
 
     /* Aside */
     .contact-aside {
-        padding-top: var(--space-xl);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xl);
     }
 
-    .aside-block {
-        margin-bottom: var(--space-2xl);
+    .aside-card {
+        padding: var(--space-xl);
     }
 
-    .aside-or {
+    .aside-label {
         font-size: var(--text-sm);
         color: var(--color-text-muted);
         margin-bottom: var(--space-sm);
     }
 
     .aside-email {
-        font-size: var(--text-lg);
+        font-size: var(--text-base);
         font-weight: 600;
-        color: var(--color-accent);
+        color: var(--color-text);
         word-break: break-all;
+        transition: opacity var(--transition-fast);
     }
 
     .aside-email:hover {
-        opacity: 0.8;
+        opacity: 0.7;
     }
 
     .aside-socials {
         display: flex;
         flex-direction: column;
-        gap: var(--space-sm);
+        gap: 8px;
     }
 
     .social-link {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        gap: var(--space-sm);
+        gap: var(--space-md);
+        padding: var(--space-md) var(--space-lg);
+        border-radius: var(--radius-md);
+        border: 1px solid var(--color-border);
+        background: var(--color-white);
+        color: var(--color-text-secondary);
         font-size: var(--text-sm);
         font-weight: 500;
-        color: var(--color-text-muted);
-        padding: var(--space-sm) 0;
-        transition: color var(--transition-fast);
+        transition: all var(--transition-base);
     }
 
     .social-link:hover {
-        color: var(--color-accent);
+        border-color: var(--color-text);
+        color: var(--color-text);
+        transform: translateX(4px);
     }
 
     @media (max-width: 768px) {
         .contact-layout {
             grid-template-columns: 1fr;
-            gap: var(--space-2xl);
+        }
+        .form-row {
+            grid-template-columns: 1fr;
         }
     }
 </style>

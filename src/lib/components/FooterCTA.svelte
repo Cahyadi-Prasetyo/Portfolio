@@ -4,20 +4,20 @@
     const t = $derived(getTranslations());
 </script>
 
-<section class="cta section reveal">
+<section class="cta-section reveal">
+    <hr class="section-divider" />
     <div class="container cta-inner">
         <h2 class="cta-title">{t.footerCta.title}</h2>
-        <p class="cta-desc">{t.footerCta.desc}</p>
         <div class="cta-actions">
-            <a href="/contact" class="btn btn-primary">
+            <a href="/contact" class="btn btn-primary btn-lg">
                 {t.footerCta.button}
                 <svg
-                    width="16"
-                    height="16"
+                    width="14"
+                    height="14"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
+                    stroke-width="2.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     ><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg
@@ -31,42 +31,56 @@
 </section>
 
 <style>
-    .cta {
-        border-top: 1px solid var(--color-border);
+    .cta-section {
+        padding: var(--space-5xl) 0;
     }
 
     .cta-inner {
         text-align: center;
-        max-width: 600px;
-        margin: 0 auto;
+        padding-top: var(--space-4xl);
     }
 
     .cta-title {
-        font-size: var(--text-3xl);
-        margin-bottom: var(--space-md);
-    }
-
-    .cta-desc {
-        font-size: var(--text-base);
-        color: var(--color-text-muted);
-        margin-bottom: var(--space-xl);
-        line-height: 1.7;
+        font-size: clamp(2rem, 5vw, var(--text-5xl));
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        margin-bottom: var(--space-2xl);
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .cta-actions {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: var(--space-md);
+        justify-content: center;
+        gap: var(--space-xl);
+    }
+
+    :global(.btn-lg) {
+        padding: 1rem 2.5rem;
+        font-size: var(--text-base);
     }
 
     .cta-email {
         font-size: var(--text-sm);
-        color: var(--color-accent);
         font-weight: 500;
+        color: var(--color-text-secondary);
+        padding: 1rem 2rem;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-full);
+        background: var(--color-white);
+        transition: all var(--transition-base);
     }
 
     .cta-email:hover {
-        opacity: 0.8;
+        border-color: var(--color-text);
+        color: var(--color-text);
+    }
+
+    @media (max-width: 768px) {
+        .cta-actions {
+            flex-direction: column;
+        }
     }
 </style>

@@ -28,19 +28,17 @@
     }
 
     $effect(() => {
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     });
 </script>
 
 <nav class="navbar" class:scrolled>
     <div class="nav-inner container">
-        <!-- Logo -->
         <a href="/" class="logo">
-            CP<span class="logo-slash">/&gt;</span>
+            <span class="logo-mark">CP</span>
         </a>
 
-        <!-- Desktop Links -->
         <ul class="nav-links">
             {#each navItems as item}
                 {@const isActive =
@@ -59,7 +57,6 @@
             {/each}
         </ul>
 
-        <!-- Right -->
         <div class="nav-right">
             <button class="lang-btn" onclick={toggleLanguage}>
                 <span class="lang-opt" class:active={currentLang === "id"}
@@ -84,7 +81,6 @@
         </div>
     </div>
 
-    <!-- Mobile Menu -->
     {#if mobileOpen}
         <div class="mobile-menu">
             <ul>
@@ -119,15 +115,14 @@
         height: var(--nav-height);
         display: flex;
         align-items: center;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
         transition: all var(--transition-base);
     }
 
     .navbar.scrolled {
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 1px 0 var(--color-border);
+        background: rgba(250, 250, 250, 0.8);
+        backdrop-filter: blur(16px) saturate(1.5);
+        -webkit-backdrop-filter: blur(16px) saturate(1.5);
+        border-bottom: 1px solid var(--color-border-light);
     }
 
     .nav-inner {
@@ -137,34 +132,30 @@
         width: 100%;
     }
 
-    /* Logo */
     .logo {
         font-family: var(--font-heading);
-        font-size: var(--text-xl);
-        font-weight: 700;
+        font-size: var(--text-lg);
+        font-weight: 800;
         color: var(--color-text);
-        letter-spacing: -0.03em;
+        letter-spacing: -0.04em;
     }
 
-    .logo-slash {
-        color: var(--color-accent);
-        font-weight: 700;
-    }
-
-    /* Nav Links */
     .nav-links {
         display: flex;
-        gap: var(--space-xs);
+        gap: 2px;
+        background: var(--color-white);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-full);
+        padding: 4px;
     }
 
     .nav-link {
         font-size: var(--text-sm);
         font-weight: 500;
-        color: var(--color-text-muted);
-        padding: 6px 14px;
-        border-radius: var(--radius-md);
-        transition: all var(--transition-fast);
-        position: relative;
+        color: var(--color-text-secondary);
+        padding: 8px 18px;
+        border-radius: var(--radius-full);
+        transition: all var(--transition-base);
     }
 
     .nav-link:hover {
@@ -172,11 +163,10 @@
     }
 
     .nav-link.active {
-        color: var(--color-accent);
-        background: var(--color-accent-light);
+        color: var(--color-white);
+        background: var(--color-text);
     }
 
-    /* Right side */
     .nav-right {
         display: flex;
         align-items: center;
@@ -186,34 +176,34 @@
     .lang-btn {
         font-size: var(--text-xs);
         font-weight: 600;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.05em;
         display: flex;
         align-items: center;
-        gap: 3px;
-        padding: 5px 12px;
+        gap: 4px;
+        padding: 8px 14px;
         border: 1px solid var(--color-border);
-        border-radius: var(--radius-sm);
-        transition: border-color var(--transition-fast);
+        border-radius: var(--radius-full);
+        background: var(--color-white);
+        transition: all var(--transition-fast);
     }
 
     .lang-btn:hover {
-        border-color: var(--color-accent);
+        border-color: var(--color-text);
     }
 
     .lang-opt {
-        color: var(--color-text-light);
+        color: var(--color-text-muted);
         transition: color var(--transition-fast);
     }
 
     .lang-opt.active {
-        color: var(--color-accent);
+        color: var(--color-text);
     }
 
     .lang-sep {
         color: var(--color-border);
     }
 
-    /* Hamburger */
     .hamburger {
         display: none;
         flex-direction: column;
@@ -222,8 +212,6 @@
         width: 36px;
         height: 36px;
         padding: 6px;
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-sm);
     }
 
     .bar {
@@ -246,29 +234,16 @@
         transform: rotate(-45deg) translate(5px, -5px);
     }
 
-    /* Mobile Menu */
     .mobile-menu {
         display: none;
         position: absolute;
         top: var(--nav-height);
         left: 0;
         right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
+        background: rgba(250, 250, 250, 0.95);
+        backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--color-border);
         padding: var(--space-lg) var(--space-xl);
-        animation: slideDown 0.25s ease;
-    }
-
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-8px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
 
     .mobile-menu ul {
@@ -281,26 +256,24 @@
         display: block;
         font-size: var(--text-base);
         font-weight: 500;
-        color: var(--color-text-muted);
-        padding: var(--space-sm) 0;
-        border-bottom: 1px solid var(--color-border);
+        color: var(--color-text-secondary);
+        padding: var(--space-md) 0;
+        border-bottom: 1px solid var(--color-border-light);
         transition: color var(--transition-fast);
     }
 
     .mobile-link:hover,
     .mobile-link.active {
-        color: var(--color-accent);
+        color: var(--color-text);
     }
 
     @media (max-width: 768px) {
         .nav-links {
             display: none;
         }
-
         .hamburger {
             display: flex;
         }
-
         .mobile-menu {
             display: block;
         }
