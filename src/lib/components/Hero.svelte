@@ -1,104 +1,96 @@
 <script lang="ts">
     import { getTranslations } from "$lib/i18n/index.svelte";
-
     const t = $derived(getTranslations());
 </script>
 
 <section class="hero">
-    <div class="container hero-inner">
-        <div class="hero-content">
-            <p class="hero-greeting reveal">{t.hero.greeting}</p>
-            <h1 class="hero-name reveal">
-                {t.hero.name.split(" ")[0]}<br />
-                <span class="hero-name-last"
-                    >{t.hero.name.split(" ").slice(1).join(" ")}</span
-                >
-            </h1>
-            <p class="hero-role reveal">{t.hero.role}</p>
-            <p class="hero-bio reveal">{t.hero.bio}</p>
-
-            <div class="hero-actions reveal">
-                <a href="/contact" class="btn btn-primary">
-                    {t.hero.cta}
-                    <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        ><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg
-                    >
-                </a>
-                <a
-                    href="mailto:hello@cahyadiprasetyo.com"
-                    class="btn btn-outline"
-                >
-                    hello@cahyadiprasetyo.com
-                </a>
+    <div class="container">
+        <div class="hero-top">
+            <div class="hero-content">
+                <div class="hero-intro">
+                    <span class="status-dot"></span>
+                    <p class="hero-greeting">{t.hero.greeting}</p>
+                </div>
+                <h1 class="hero-value">{t.hero.value}</h1>
+                <p class="hero-bio">{t.hero.bio}</p>
+                <div class="hero-actions">
+                    <a href="#work" class="btn btn-primary">
+                        {t.hero.cta}
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="/contact" class="btn btn-outline">{t.hero.ctaSecondary}</a>
+                </div>
             </div>
-        </div>
-
-        <div class="hero-visual reveal-right">
-            <div class="photo-glow"></div>
-            <div class="photo-ring"></div>
-            <div class="photo-wrapper">
+            <div class="hero-photo">
                 <img src="/my-self.png" alt="Cahyadi Prasetyo" />
             </div>
         </div>
     </div>
 </section>
 
+<!-- Trust Bar -->
+<section class="trust">
+    <div class="container">
+        <span class="trust-label">{t.trust.label}</span>
+        <div class="trust-list">
+            {#each t.trust.orgs as org}
+                <div class="trust-item">
+                    <span class="trust-name">{org.name}</span>
+                    <span class="trust-type">{org.type}</span>
+                </div>
+            {/each}
+        </div>
+    </div>
+</section>
+
 <style>
     .hero {
-        padding-top: calc(var(--nav-height) + var(--space-5xl));
-        padding-bottom: var(--space-5xl);
-        position: relative;
+        padding: calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-3xl);
     }
 
-    .hero-inner {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: var(--space-3xl);
+    .hero-top {
+        display: flex;
         align-items: center;
+        gap: var(--space-3xl);
     }
 
-    .hero-greeting {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        font-weight: 500;
-        color: var(--color-text-muted);
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: var(--space-lg);
+    .hero-content {
+        flex: 1;
     }
 
-    .hero-name {
-        font-size: clamp(3rem, 7vw, var(--text-7xl));
-        font-weight: 800;
-        line-height: 0.95;
-        letter-spacing: -0.05em;
-        margin-bottom: var(--space-xl);
-    }
-
-    .hero-name-last {
-        color: var(--color-text-secondary);
-    }
-
-    .hero-role {
-        font-size: var(--text-lg);
-        font-weight: 500;
-        color: var(--color-text-secondary);
+    .hero-intro {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
         margin-bottom: var(--space-md);
     }
 
-    .hero-bio {
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        background: #22c55e;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .hero-greeting {
         font-size: var(--text-base);
-        color: var(--color-text-muted);
+        font-weight: 500;
+        color: var(--text-secondary);
+    }
+
+    .hero-value {
+        font-size: clamp(1.75rem, 4vw, var(--text-4xl));
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.035em;
+        margin-bottom: var(--space-lg);
+    }
+
+    .hero-bio {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
         line-height: 1.7;
-        max-width: 460px;
         margin-bottom: var(--space-2xl);
     }
 
@@ -106,103 +98,82 @@
         display: flex;
         align-items: center;
         gap: var(--space-md);
-        margin-bottom: var(--space-2xl);
     }
 
-    /* Premium Photo Styling */
-    .hero-visual {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .photo-wrapper {
-        position: relative;
-        z-index: 2;
-        border-radius: var(--radius-2xl);
+    .hero-photo {
+        flex-shrink: 0;
+        width: 220px;
+        height: 280px;
+        border-radius: var(--radius-lg);
         overflow: hidden;
-        border: 1px solid var(--color-white);
-        box-shadow: var(--shadow-xl);
+        border: 1px solid var(--border);
     }
 
-    .photo-wrapper img {
+    .hero-photo img {
         width: 100%;
-        max-width: 400px;
-        display: block;
+        height: 100%;
         object-fit: cover;
-        aspect-ratio: 3/4;
-        transition: transform var(--transition-slow);
     }
 
-    .photo-wrapper:hover img {
-        transform: scale(1.03);
+    /* Trust Bar */
+    .trust {
+        padding: var(--space-xl) 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
     }
 
-    /* Animated Ring */
-    .photo-ring {
-        position: absolute;
-        width: 110%;
-        height: 105%;
-        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-        border: 1px solid var(--color-border);
-        z-index: 1;
-        animation: spin-slow 20s linear infinite;
+    .trust-label {
+        font-size: var(--text-xs);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        display: block;
+        margin-bottom: var(--space-md);
     }
 
-    .photo-ring::before {
-        content: "";
-        position: absolute;
-        inset: -10px;
-        border-radius: inherit;
-        border: 1px solid var(--color-accent-light);
-        opacity: 0.3;
-        animation: spin-slow 25s linear infinite reverse;
+    .trust-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2xl);
     }
 
-    /* Back Glow */
-    .photo-glow {
-        position: absolute;
-        width: 80%;
-        height: 80%;
-        background: radial-gradient(
-            circle,
-            var(--color-accent-light) 0%,
-            transparent 70%
-        );
-        filter: blur(60px);
-        opacity: 0.2;
-        z-index: 0;
-        top: 10%;
-        right: 10%;
+    .trust-item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
     }
 
-    @keyframes spin-slow {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
+    .trust-name {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--text);
+    }
+
+    .trust-type {
+        font-size: var(--text-xs);
+        color: var(--text-muted);
     }
 
     @media (max-width: 768px) {
-        .hero {
-            padding-top: calc(var(--nav-height) + var(--space-2xl));
-            padding-bottom: var(--space-3xl);
+        .hero-top {
+            flex-direction: column-reverse;
+            gap: var(--space-xl);
         }
 
-        .hero-inner {
-            grid-template-columns: 1fr;
+        .hero-photo {
+            width: 140px;
+            height: 180px;
+            align-self: flex-start;
         }
 
-        .hero-visual {
-            order: -1;
-            margin-bottom: var(--space-xl);
+        .hero-actions {
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .photo-wrapper img {
-            max-width: 280px;
+        .trust-list {
+            gap: var(--space-xl);
         }
     }
 </style>

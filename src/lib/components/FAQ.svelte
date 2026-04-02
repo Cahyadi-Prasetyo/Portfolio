@@ -9,11 +9,11 @@
     }
 </script>
 
-<section class="faq section reveal">
-    <hr class="section-divider" />
+<section class="faq reveal">
     <div class="container">
+        <hr class="section-divider" />
         <div class="faq-header">
-            <span class="section-label">// {t.faq.label}</span>
+            <span class="section-label">{t.faq.label}</span>
             <h2 class="section-title">{t.faq.title}</h2>
         </div>
 
@@ -25,27 +25,8 @@
                     onclick={() => toggle(i)}
                 >
                     <div class="faq-question">
-                        <div class="faq-q-left">
-                            <span class="faq-num"
-                                >{String(i + 1).padStart(2, "0")}</span
-                            >
-                            <span>{item.q}</span>
-                        </div>
-                        <span class="faq-icon">
-                            <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                            </svg>
-                        </span>
+                        <span class="faq-text">{item.q}</span>
+                        <span class="faq-icon">{openIndex === i ? '−' : '+'}</span>
                     </div>
                     {#if openIndex === i}
                         <div class="faq-answer">
@@ -59,13 +40,12 @@
 </section>
 
 <style>
-    .faq-header {
-        padding-top: var(--space-3xl);
-        margin-bottom: var(--space-2xl);
+    .faq {
+        padding: var(--space-3xl) 0;
     }
 
-    .faq-list {
-        width: 100%;
+    .faq-header {
+        margin: var(--space-2xl) 0;
     }
 
     .faq-item {
@@ -73,14 +53,13 @@
         text-align: left;
         padding: 0;
         border: none;
-        border-bottom: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--border);
         background: none;
         cursor: pointer;
-        transition: background var(--transition-fast);
     }
 
     .faq-item:first-child {
-        border-top: 1px solid var(--color-border);
+        border-top: 1px solid var(--border);
     }
 
     .faq-question {
@@ -91,56 +70,33 @@
         gap: var(--space-lg);
     }
 
-    .faq-q-left {
-        display: flex;
-        align-items: center;
-        gap: var(--space-lg);
-    }
-
-    .faq-num {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--color-text-muted);
-        flex-shrink: 0;
-    }
-
-    .faq-question span:not(.faq-num):not(.faq-icon) {
-        font-size: var(--text-xl);
+    .faq-text {
+        font-size: var(--text-base);
         font-weight: 600;
-        color: var(--color-text);
-        letter-spacing: -0.01em;
+        color: var(--text);
     }
 
     .faq-icon {
-        color: var(--color-text-muted);
+        font-size: var(--text-xl);
+        color: var(--text-muted);
         flex-shrink: 0;
-        transition: transform var(--transition-base);
-    }
-
-    .faq-item.open .faq-icon {
-        transform: rotate(45deg);
+        width: 24px;
+        text-align: center;
     }
 
     .faq-answer {
         padding: 0 0 var(--space-lg);
-        padding-left: calc(var(--text-xs) + var(--space-lg) + 1.5rem);
-        animation: fadeSlide 0.3s ease;
+        animation: fadeIn 0.2s ease;
     }
 
     .faq-answer p {
         font-size: var(--text-sm);
-        color: var(--color-text-secondary);
-        line-height: 1.8;
+        color: var(--text-secondary);
+        line-height: 1.7;
     }
 
-    @keyframes fadeSlide {
-        from {
-            opacity: 0;
-            transform: translateY(-6px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 </style>

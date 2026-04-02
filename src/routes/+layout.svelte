@@ -1,54 +1,47 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import "../app.css";
-	import Navbar from "$lib/components/Navbar.svelte";
-	import Footer from "$lib/components/Footer.svelte";
+    import { onMount } from "svelte";
+    import { afterNavigate } from "$app/navigation";
+    import Navbar from "$lib/components/Navbar.svelte";
+    import Footer from "$lib/components/Footer.svelte";
+    import "../app.css";
 
-	let { children } = $props();
+    let { children } = $props();
 
-	onMount(() => {
-		// Global scroll-reveal observer for all pages
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add("visible");
-					}
-				});
-			},
-			{ threshold: 0.1, rootMargin: "0px 0px -30px 0px" },
-		);
+    let observer: IntersectionObserver;
 
-		// Observe existing elements
-		function observeAll() {
-			const selector =
-				".reveal:not(.visible), .reveal-left:not(.visible), .reveal-right:not(.visible), .reveal-scale:not(.visible)";
-			document.querySelectorAll(selector).forEach((el) => {
-				observer.observe(el);
-			});
-		}
+    function observeRevealElements() {
+        document.querySelectorAll(".reveal:not(.visible)").forEach((el) => {
+            observer.observe(el);
+        });
+    }
 
-		observeAll();
+    onMount(() => {
+        observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            },
+            { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
+        );
 
-		// Re-observe on DOM changes (for navigation)
-		const mutationObserver = new MutationObserver(() => {
-			observeAll();
-		});
+        observeRevealElements();
 
-		mutationObserver.observe(document.body, {
-			childList: true,
-			subtree: true,
-		});
+        return () => observer.disconnect();
+    });
 
-		return () => {
-			observer.disconnect();
-			mutationObserver.disconnect();
-		};
-	});
+    afterNavigate(() => {
+        // Small delay to let new page DOM render
+        setTimeout(observeRevealElements, 50);
+        // Scroll to top on navigation
+        window.scrollTo(0, 0);
+    });
 </script>
 
 <Navbar />
 <main>
-	{@render children()}
+    {@render children()}
 </main>
 <Footer />

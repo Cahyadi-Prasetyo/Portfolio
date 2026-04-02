@@ -34,7 +34,7 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: 'https://placehold.co/1200x800/0d9488/ffffff?text=TokTi+UMKM+Platform'
+        imageUrl: '/project-umkm.png'
     },
     {
         slug: 'e-commerce-platform',
@@ -52,7 +52,7 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: 'https://placehold.co/800x600/1e293b/ffffff?text=E-Commerce'
+        imageUrl: '/project-ecommerce.png'
     },
     {
         slug: 'dashboard-analytics',
@@ -70,7 +70,7 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: 'https://placehold.co/800x600/1e1e2e/ffffff?text=Analytics+Dashboard'
+        imageUrl: '/project-dashboard.png'
     },
     {
         slug: 'task-management',
@@ -88,7 +88,7 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: 'https://placehold.co/800x600/3b82f6/ffffff?text=Task+Manager'
+        imageUrl: '/project-taskmanager.png'
     },
     {
         slug: 'fitness-tracker',
@@ -106,7 +106,7 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: 'https://placehold.co/800x600/10b981/ffffff?text=Fitness+App'
+        imageUrl: '/project-fitness.png'
     },
     {
         slug: 'recipe-app',
@@ -124,7 +124,7 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: false,
-        imageUrl: 'https://placehold.co/800x600/f59e0b/ffffff?text=Recipe+Finder'
+        imageUrl: '/project-recipe.png'
     },
     {
         slug: 'portfolio-website',
@@ -142,7 +142,7 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: 'https://placehold.co/800x600/2563eb/ffffff?text=Portfolio'
+        imageUrl: '/project-portfolio.png'
     }
 ];
 
