@@ -13,7 +13,6 @@
         { key: "data_ai" },
     ] as const;
 
-    // Simple colored dot icons for each tech
     const techColors: Record<string, string> = {
         'React': '#61DAFB',
         'Vue.js': '#4FC08D',
@@ -35,7 +34,6 @@
         'GitHub': '#181717',
         'Docker': '#2496ED',
         'Nginx': '#009639',
-        'VS Code': '#007ACC',
         'Linux Server': '#FCC624',
         'Figma': '#F24E1E',
         'Canva': '#00C4CC',
@@ -93,7 +91,6 @@
         font-size: var(--text-xs);
         font-weight: 500;
         color: var(--text-muted);
-        text-transform: capitalize;
     }
 
     .skill-items {

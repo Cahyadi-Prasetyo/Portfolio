@@ -10,7 +10,7 @@ export interface Project {
         en: string;
     };
     tech: string[];
-    category: 'web' | 'mobile';
+    category: 'web' | 'mobile' | 'ai';
     liveUrl?: string;
     githubUrl?: string;
     featured: boolean;
@@ -143,6 +143,24 @@ export const projects: Project[] = [
         githubUrl: '#',
         featured: true,
         imageUrl: '/project-portfolio.png'
+    },
+    {
+        slug: 'ai-chatbot-assistant',
+        title: 'AI Chatbot Assistant',
+        description: {
+            id: 'Asisten chatbot berbasis AI yang menggunakan model bahasa besar untuk menjawab pertanyaan pengguna secara kontekstual. Dilengkapi dengan antarmuka percakapan yang intuitif, riwayat chat, dan kemampuan multi-turn conversation.',
+            en: 'An AI-powered chatbot assistant using large language models to answer user questions contextually. Features an intuitive conversational interface, chat history, and multi-turn conversation capabilities.'
+        },
+        shortDesc: {
+            id: 'Asisten chatbot AI dengan antarmuka percakapan intuitif.',
+            en: 'AI chatbot assistant with an intuitive conversational interface.'
+        },
+        tech: ['Python', 'LangChain', 'React', 'FastAPI'],
+        category: 'ai',
+        liveUrl: '#',
+        githubUrl: '#',
+        featured: true,
+        imageUrl: '/project-ai-chatbot.png'
     }
 ];
 
@@ -154,7 +172,7 @@ export function getFeaturedProjects(): Project[] {
     return projects.filter((p) => p.featured);
 }
 
-export function getProjectsByCategory(category: 'all' | 'web' | 'mobile'): Project[] {
+export function getProjectsByCategory(category: 'all' | 'web' | 'mobile' | 'ai'): Project[] {
     if (category === 'all') return projects;
     return projects.filter((p) => p.category === category);
 }

@@ -63,14 +63,20 @@
                             <span class="exp-toggle">{expandedExp === i ? '−' : '+'}</span>
                         </button>
 
-                        {#if expandedExp === i && exp.highlights}
+                        {#if expandedExp === i}
                             <div class="exp-details">
-                                {#each exp.highlights as hl}
-                                    <div class="highlight">
-                                        <h4 class="hl-title">{hl.title}</h4>
-                                        <p class="hl-desc">{hl.desc}</p>
+                                {#if exp.points}
+                                    <ul class="exp-points">
+                                        {#each exp.points as point}
+                                            <li>{point}</li>
+                                        {/each}
+                                    </ul>
+                                {/if}
+                                {#if exp.skills}
+                                    <div class="exp-skills">
+                                        <strong>Skills:</strong> {exp.skills}
                                     </div>
-                                {/each}
+                                {/if}
                             </div>
                         {/if}
                     </div>
@@ -257,22 +263,40 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    .highlight {
-        padding-left: var(--space-md);
-        border-left: 2px solid var(--border);
+    .exp-points {
+        list-style-type: disc;
+        padding-left: var(--space-xl);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-lg);
     }
 
-    .hl-title {
-        font-size: var(--text-sm);
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 4px;
-    }
-
-    .hl-desc {
+    .exp-points li {
         font-size: var(--text-sm);
         color: var(--text-secondary);
         line-height: 1.7;
+    }
+
+    .exp-points li::marker {
+        color: var(--text-muted);
+    }
+
+    .exp-skills {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        background: var(--bg-alt);
+        padding: var(--space-md) var(--space-lg);
+        border-radius: var(--radius-md);
+        display: inline-block;
+        width: 100%;
+        line-height: 1.6;
+    }
+
+    .exp-skills strong {
+        color: var(--text);
+        font-weight: 600;
+        margin-right: 4px;
     }
 
     /* Education */

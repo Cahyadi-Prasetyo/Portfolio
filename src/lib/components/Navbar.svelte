@@ -13,8 +13,8 @@
 
     const navLinks = $derived([
         { href: "/", label: t.nav.home },
-        { href: "/about", label: t.nav.about },
         { href: "/projects", label: t.nav.projects },
+        { href: "/about", label: t.nav.about },
         { href: "/contact", label: t.nav.contact },
     ]);
 </script>
@@ -31,9 +31,11 @@
                 </a>
             {/each}
         </div>
+        <!-- 
         <button class="lang-toggle" onclick={() => toggleLanguage()}>
             {currentLang === "id" ? "EN" : "ID"}
-        </button>
+        </button> 
+        -->
     </div>
 </nav>
 

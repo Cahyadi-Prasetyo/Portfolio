@@ -9,9 +9,9 @@ export const translations: Record<Language, any> = {
             contact: 'Kontak'
         },
         hero: {
-            greeting: 'Halo, saya Cahyadi Prasetyo.',
-            value: 'Saya membangun solusi web yang memecahkan masalah bisnis nyata.',
-            bio: 'Full-Stack Developer yang fokus pada hasil. Berpengalaman membangun platform data untuk pemerintah, sistem monitoring untuk BUMN, dan aplikasi UMKM — bukan sekadar website yang cantik.',
+            greeting: 'Hai! Saya Cahyadi Prasetyo 👋',
+            value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
+            bio: 'Mahasiswa Teknik Informatika di UMRAH yang udah keburu nyemplung ke dunia industri sejak 2022. Dari bikin platform data buat BPS, ngurusin IT di Pelindo, sampai jadi asisten praktikum yang bantuin mahasiswa paham jaringan komputer — semua saya jalani sambil terus belajar.',
             cta: 'Lihat Hasil Kerja Saya',
             ctaSecondary: 'Hubungi Saya'
         },
@@ -31,7 +31,7 @@ export const translations: Record<Language, any> = {
         },
         about: {
             title: 'Tentang Saya',
-            bio: 'Saya Cahyadi Prasetyo, mahasiswa Teknik Informatika di Universitas Maritim Raja Ali Haji. Sejak 2022, saya sudah terlibat dalam berbagai proyek nyata — dari membangun platform data statistik untuk BPS, hingga sistem monitoring harga tiket pesawat.\n\nSaya bukan tipe developer yang hanya bisa coding. Saya memahami konteks bisnis, berkomunikasi dengan stakeholder, dan memastikan solusi yang saya bangun benar-benar dipakai dan berdampak.\n\nSaat ini saya terbuka untuk peluang freelance dan kolaborasi proyek.',
+            bio: 'Saya percaya teknologi itu harusnya menyelesaikan masalah, bukan bikin tambah ribet. Itulah yang jadi landasan saya di setiap proyek.\n\nSebagai Full-Stack Developer, saya terbiasa handle dari frontend sampai backend — React, Vue, Svelte di depan, Laravel & Node.js di belakang. Tapi saya nggak cuma berhenti di coding. Pengalaman sebagai IT & Web Mentor di kampus bikin saya terbiasa menjelaskan hal teknis ke non-teknis, dan pengalaman magang sebagai Data Analyst di BPS mengasah cara saya berpikir berbasis data.\n\nYang bikin saya semangat? Melihat solusi yang saya bangun benar-benar dipakai orang — bukan cuma jadi tugas kuliah atau proyek pajangan.\n\nKalau kamu punya ide proyek atau butuh partner kolaborasi, jangan sungkan buat hubungi saya. 🚀',
             techStackLabel: 'Tech Stack',
             titleExp: 'Pengalaman',
             titleEdu: 'Pendidikan',
@@ -49,95 +49,92 @@ export const translations: Record<Language, any> = {
                     items: ['PostgreSQL', 'MySQL', 'Prisma']
                 },
                 devops: {
-                    label: 'DevOps & Tools',
-                    items: ['Git', 'Docker', 'Nginx', 'VS Code']
+                    label: 'DevOps',
+                    items: ['Docker', 'Nginx']
+                },
+                design: {
+                    label: 'Design Tools',
+                    items: ['Figma', 'Canva']
+                },
+                vcs: {
+                    label: 'Version Control',
+                    items: ['Git', 'GitHub']
                 },
                 data_ai: {
-                    label: 'Data & Analytics',
+                    label: 'Data & AI',
                     items: ['Looker Studio', 'Pandas', 'Metabase', 'Google Sheets']
                 }
             },
             experience: [
                 {
-                    period: 'Feb 2026 – Jul 2026',
+                    period: 'Februari 2026 – Juli 2026',
                     role: 'Asisten Praktikum Jaringan Komputer',
                     company: 'Universitas Maritim Raja Ali Haji (UMRAH)',
                     logo: '/logo-umrah.png',
-                    desc: 'Mendampingi mahasiswa dalam konsep jaringan komputer terapan.',
-                    highlights: [
-                        {
-                            title: 'Laboratorium Jaringan & Infrastruktur',
-                            desc: 'Bertanggung jawab mendampingi mahasiswa dalam memahami konsep fundamental dan terapan jaringan komputer. Saya merancang skenario praktikum yang mencakup Subnetting, konfigurasi Routing (Statik & Dinamis), serta implementasi VLAN.'
-                        },
-                        {
-                            title: 'Analisis Protokol & Troubleshooting',
-                            desc: 'Mendemonstrasikan analisis paket data (TCP/UDP/HTTP) secara real-time menggunakan Wireshark. Menggunakan Cisco Packet Tracer untuk mensimulasikan topologi jaringan kompleks, membantu mahasiswa mengidentifikasi bottleneck dan memahami alur data pada OSI Layer.'
-                        }
-                    ]
+                    desc: 'Berkontribusi dalam program instruksional akademik untuk mendukung pemahaman mahasiswa pada mata kuliah Jaringan Komputer.',
+                    points: [
+                        'Berkontribusi dalam program instruksional akademik untuk mendukung pemahaman mahasiswa pada mata kuliah Jaringan Komputer dengan standar kurikulum teknik informatika.',
+                        'Merancang dan mensimulasikan arsitektur jaringan kompleks (VLAN, Static/Dynamic Routing, Subnetting) menggunakan Cisco Packet Tracer sebagai media pembelajaran interaktif.',
+                        'Melakukan analisis protokol mendalam dan troubleshooting lalu lintas data menggunakan Wireshark untuk memvalidasi keamanan dan efisiensi transmisi jaringan.',
+                        'Mengevaluasi performa teknis mahasiswa melalui sesi responsi praktikum untuk memastikan penguasaan konsep OSI Layer dan infrastruktur jaringan.'
+                    ],
+                    skills: 'Computer Networking · Cisco Packet Tracer · Wireshark · Technical Instruction · Troubleshooting'
                 },
                 {
-                    period: 'Jan 2026 – Mar 2026',
+                    period: 'Januari 2026 – Maret 2026',
                     role: 'IT Web Developer & Data Analyst (Internship)',
                     company: 'BPS Provinsi Kepulauan Riau',
                     logo: '/logo-bps.png',
-                    desc: 'Membangun platform data statistik regional dan dashboard analytics internal.',
-                    highlights: [
-                        {
-                            title: 'Ekosistem Platform Gurindam',
-                            desc: 'Merekayasa antarmuka pengguna (Frontend) untuk platform distribusi data statistik regional. Saya menggunakan React dan Vue.js untuk memastikan penyajian data yang kompleks tetap responsif dan mudah dinavigasi oleh publik.'
-                        },
-                        {
-                            title: 'Data Integration & PHP Embedding',
-                            desc: 'Mengembangkan sistem integrasi visualisasi data pada platform Tanjak menggunakan PHP. Saya mengimplementasikan teknik embedding dinamis untuk menyajikan laporan interaktif dari Looker Studio langsung ke dalam lingkungan website internal BPS.'
-                        },
-                        {
-                            title: 'Internal Analytics Dashboard',
-                            desc: 'Membangun dasbor pemantauan data internal yang terhubung dengan PostgreSQL dan Spreadsheet API. Mengoptimalkan visualisasi pada Looker Studio untuk mendukung pengambilan keputusan berbasis data oleh pimpinan BPS Kepri secara real-time.'
-                        },
-                        {
-                            title: 'Aeroprice Flight Monitoring',
-                            desc: 'Berkontribusi sebagai Frontend Developer dalam membangun platform pemantau harga tiket pesawat. Fokus pada optimasi performa rendering data dinamis untuk memberikan pengalaman pengguna yang cepat dalam memantau fluktuasi harga maskapai.'
-                        }
-                    ]
+                    desc: 'Berperan aktif dalam divisi IT dan Pengolahan untuk mendukung digitalisasi data statistik regional.',
+                    points: [
+                        'Berperan aktif dalam divisi IT dan Pengolahan untuk mendukung digitalisasi data statistik regional melalui pengembangan aplikasi web dan integrasi data.',
+                        'Membangun antarmuka pengguna (Frontend) yang responsif untuk platform kepri.gurind.am dan tanjak.gurind.am menggunakan React, Vue.js, dan Tailwind CSS.',
+                        'Merekayasa integrasi visualisasi laporan interaktif pada platform Tanjak dengan mengimplementasikan teknik embedding Looker Studio menggunakan PHP.',
+                        'Mengoptimalkan alur kerja data dari PostgreSQL dan Spreadsheet API ke dalam dasbor analitik untuk mendukung pengambilan keputusan berbasis data oleh pimpinan instansi.',
+                        'Berkontribusi dalam pengembangan Aeroprice, platform pemantau harga tiket pesawat, dengan fokus pada optimasi rendering data dinamis di sisi frontend.',
+                        'Memberikan dukungan infrastruktur (IT Support) untuk memastikan stabilitas operasional sistem informasi di lingkungan kantor BPS.'
+                    ],
+                    skills: 'React.js · Vue.js · PHP · PostgreSQL · Looker Studio · Data Visualization · IT Support'
                 },
                 {
-                    period: 'Nov 2025 – Jan 2026',
+                    period: 'November 2025 – Januari 2026',
                     role: 'Frontend Developer',
                     company: 'Tim PKM Dosen UMRAH',
                     logo: '/logo-umrah.png',
-                    desc: 'Membangun platform promosi UMKM berbasis video.',
-                    highlights: [
-                        {
-                            title: 'UMKM Video-Style Platform',
-                            desc: 'Merekayasa antarmuka web inovatif berbasis video-feed (serupa interaksi TikTok) untuk meningkatkan eksposur produk lokal. Saya menggunakan React.js dan Tailwind CSS untuk membangun komponen UI yang interaktif, memastikan transisi konten video yang mulus dan responsif di berbagai perangkat.'
-                        }
-                    ]
+                    desc: 'Berpartisipasi dalam Program Kreativitas Mahasiswa (PKM) untuk mengembangkan solusi digital inovatif.',
+                    points: [
+                        'Berpartisipasi dalam Program Kreativitas Mahasiswa (PKM) untuk mengembangkan solusi digital inovatif bagi sektor UMKM.',
+                        'Mengembangkan antarmuka website bertema video-style (serupa TikTok) menggunakan React.js untuk meningkatkan user engagement terhadap produk lokal.',
+                        'Mengimplementasikan prinsip User-Centric Design untuk memastikan navigasi dan interaksi video berjalan mulus pada berbagai perangkat (Responsive Design).',
+                        'Berkolaborasi dalam tim lintas fungsi untuk merumuskan arsitektur sistem dan solusi teknis yang aplikatif bagi pengguna akhir.'
+                    ],
+                    skills: 'React.js · Tailwind CSS · User Interface (UI) Design · Cross-team Collaboration'
                 },
                 {
                     period: '2024 – Sekarang',
                     role: 'Data Analyst & Administrator',
                     company: 'Posyandu Terintegrasi',
                     logo: '/logo-posyandu.png',
-                    desc: 'Mengelola sistem data kesehatan masyarakat.',
-                    highlights: [
-                        {
-                            title: 'Operational Data & Integrity Management',
-                            desc: 'Mengelola sistem administrasi data digital untuk operasional bulanan. Bertanggung jawab penuh atas validasi dan akurasi pelaporan data kesehatan masyarakat, melakukan analisis rutin untuk memastikan integritas informasi sebelum diserahkan dalam laporan administrasi resmi.'
-                        }
-                    ]
+                    desc: 'Mengelola ekosistem data operasional secara profesional untuk memastikan keakuratan pelaporan.',
+                    points: [
+                        'Mengelola ekosistem data operasional secara profesional untuk memastikan keakuratan pelaporan administrasi kesehatan masyarakat.',
+                        'Melakukan analisis data rutin dan pembersihan data (data cleaning) untuk meminimalisir anomali pada laporan operasional bulanan.',
+                        'Bertanggung jawab atas integritas pelaporan data yang menjadi acuan dalam peninjauan kebijakan kesehatan tingkat desa/kelurahan.'
+                    ],
+                    skills: 'Data Analysis · Administrative Management · Data Integrity · Operational Excellence'
                 },
                 {
-                    period: 'Jan 2022 – Jun 2022',
+                    period: 'Januari 2022 – Juni 2022',
                     role: 'IT Support (Internship)',
                     company: 'PT. Pelindo (Persero) Regional 1 Tanjungpinang',
                     logo: '/logo-pelindo.png',
-                    desc: 'Dukungan teknis IT di BUMN.',
-                    highlights: [
-                        {
-                            title: 'Infrastructure & Technical Support',
-                            desc: 'Memberikan dukungan teknis on-site untuk memastikan kelancaran operasional IT di lingkungan BUMN. Cakupan pekerjaan meliputi troubleshooting jaringan lokal (LAN), pemeliharaan perangkat keras (hardware maintenance), serta instalasi dan konfigurasi perangkat lunak pendukung staf perusahaan.'
-                        }
-                    ]
+                    desc: 'Menjalankan fungsi dukungan teknis di lingkungan BUMN untuk mendukung produktivitas operasional.',
+                    points: [
+                        'Menjalankan fungsi dukungan teknis di lingkungan Badan Usaha Milik Negara (BUMN) untuk mendukung produktivitas operasional perusahaan.',
+                        'Melakukan pemeliharaan rutin pada perangkat keras dan perangkat lunak serta memastikan stabilitas konektivitas jaringan lokal (LAN).',
+                        'Menyelesaikan kendala teknis harian pengguna (end-user support) terkait sistem operasi dan aplikasi perkantoran secara efektif.'
+                    ],
+                    skills: 'Hardware Maintenance · Network Troubleshooting · Technical Support · Corporate Environment'
                 }
             ],
             education: [
@@ -175,10 +172,10 @@ export const translations: Record<Language, any> = {
             label: 'FAQ',
             title: 'Pertanyaan Umum',
             items: [
-                { q: 'Teknologi apa yang kamu kuasai?', a: 'Saya bekerja dengan React, Vue.js, Svelte, Node.js, PHP (Laravel), PostgreSQL, dan tools data analytics seperti Looker Studio dan Power BI.' },
+                { q: 'Teknologi apa yang kamu kuasai?', a: 'Saya bekerja dengan React, Vue.js, Svelte, Node.js, PHP (Laravel), PostgreSQL, dan tools data analytics seperti Looker Studio dan Metabase.' },
                 { q: 'Apakah kamu menerima freelance?', a: 'Ya, saya terbuka untuk proyek freelance. Mari diskusikan kebutuhan Anda.' },
                 { q: 'Berapa lama pengalaman kerjamu?', a: 'Saya sudah terlibat dalam proyek profesional sejak 2022 — termasuk internship di BPS dan PT. Pelindo, serta proyek riset di universitas.' },
-                { q: 'Bagaimana cara menghubungi kamu?', a: 'Langsung melalui halaman kontak atau email ke hello@cahyadiprasetyo.com.' }
+                { q: 'Bagaimana cara menghubungi kamu?', a: 'Langsung melalui halaman kontak atau email ke chdprasetyo@gmail.com.' }
             ]
         },
         contact: {
@@ -194,7 +191,7 @@ export const translations: Record<Language, any> = {
             messageLabel: 'Pesan',
             messagePlaceholder: 'Ceritakan tentang proyek Anda...',
             send: 'Kirim Pesan',
-            email: 'hello@cahyadiprasetyo.com',
+            email: 'chdprasetyo@gmail.com',
             orEmail: 'Atau kirim email langsung ke'
         },
         footerCta: {
@@ -214,9 +211,9 @@ export const translations: Record<Language, any> = {
             contact: 'Contact'
         },
         hero: {
-            greeting: "Hi, I'm Cahyadi Prasetyo.",
-            value: 'I build web solutions that solve real business problems.',
-            bio: 'Results-driven Full-Stack Developer. Experienced building data platforms for government, monitoring systems for state-owned enterprises, and MSME applications — not just pretty websites.',
+            greeting: "Hi! I'm Cahyadi Prasetyo 👋",
+            value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
+            bio: "A Computer Science student at UMRAH who's been diving into the industry since 2022. From building data platforms for BPS, handling IT at Pelindo, to mentoring students in computer networking labs — I do it all while continuously learning.",
             cta: 'See My Work',
             ctaSecondary: 'Contact Me'
         },
@@ -236,8 +233,8 @@ export const translations: Record<Language, any> = {
         },
         about: {
             title: 'About Me',
-            bio: "I'm Cahyadi Prasetyo, a Computer Science student at Universitas Maritim Raja Ali Haji. Since 2022, I've been involved in real-world projects — from building statistical data platforms for BPS, to flight price monitoring systems.\n\nI'm not just a developer who codes. I understand business context, communicate with stakeholders, and make sure the solutions I build are actually used and create impact.\n\nCurrently open for freelance opportunities and project collaborations.",
-            techStackLabel: 'Tech Stack',
+            bio: "I believe technology should solve problems, not create more of them. That\'s the foundation of everything I build.\n\nAs a Full-Stack Developer, I\'m comfortable handling everything from frontend to backend — React, Vue, Svelte up front, Laravel & Node.js in the back. But I don\'t stop at coding. My experience as an IT & Web Mentor on campus taught me how to explain technical concepts to non-technical people, and my internship as a Data Analyst at BPS sharpened my data-driven thinking.\n\nWhat keeps me going? Seeing the solutions I build actually being used by real people — not just sitting as a college assignment or a portfolio showpiece.\n\nGot a project idea or need a collaboration partner? Don\'t hesitate to reach out. 🚀",
+             techStackLabel: 'Tech Stack',
             titleExp: 'Experience',
             titleEdu: 'Education',
             techStack: {
@@ -254,11 +251,19 @@ export const translations: Record<Language, any> = {
                     items: ['PostgreSQL', 'MySQL', 'Prisma']
                 },
                 devops: {
-                    label: 'DevOps & Tools',
-                    items: ['Git', 'Docker', 'Nginx', 'VS Code']
+                    label: 'DevOps',
+                    items: ['Docker', 'Nginx', 'Linux Server']
+                },
+                design: {
+                    label: 'Design Tools',
+                    items: ['Figma', 'Canva']
+                },
+                vcs: {
+                    label: 'Version Control',
+                    items: ['Git', 'GitHub']
                 },
                 data_ai: {
-                    label: 'Data & Analytics',
+                    label: 'Data & AI',
                     items: ['Looker Studio', 'Pandas', 'Metabase', 'Google Sheets']
                 }
             },
@@ -380,10 +385,10 @@ export const translations: Record<Language, any> = {
             label: 'FAQ',
             title: 'Frequently Asked',
             items: [
-                { q: 'What technologies do you work with?', a: 'I work with React, Vue.js, Svelte, Node.js, PHP (Laravel), PostgreSQL, and data analytics tools like Looker Studio and Power BI.' },
+                { q: 'What technologies do you work with?', a: 'I work with React, Vue.js, Svelte, Node.js, PHP (Laravel), PostgreSQL, and data analytics tools like Looker Studio and Metabase.' },
                 { q: 'Are you available for freelance?', a: "Yes, I'm open for freelance projects. Let's discuss your needs." },
                 { q: 'How much experience do you have?', a: "I've been involved in professional projects since 2022 — including internships at BPS and PT. Pelindo, as well as university research projects." },
-                { q: 'How can I reach you?', a: 'Through the contact page or email me directly at hello@cahyadiprasetyo.com.' }
+                { q: 'How can I reach you?', a: 'Through the contact page or email me directly at chdprasetyo@gmail.com .' }
             ]
         },
         contact: {
@@ -399,7 +404,7 @@ export const translations: Record<Language, any> = {
             messageLabel: 'Message',
             messagePlaceholder: 'Tell me about your project...',
             send: 'Send Message',
-            email: 'hello@cahyadiprasetyo.com',
+            email: 'chdprasetyo@gmail.com ' ,
             orEmail: 'Or email me directly at'
         },
         footerCta: {

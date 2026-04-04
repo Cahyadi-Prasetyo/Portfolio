@@ -43,8 +43,8 @@
   --space-4xl: 96px;
 
   /* Layout */
-  --max-width: 720px;
-  --max-width-wide: 1080px;
+  --max-width: 1100px;
+  --max-width-wide: 1280px;
   --nav-height: 64px;
 
   /* Radius */

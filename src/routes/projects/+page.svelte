@@ -6,12 +6,11 @@
     const t = $derived(getTranslations());
     const currentLang = $derived(getCurrentLang());
 
-    let activeFilter = $state<"all" | "web" | "mobile">("all");
-    let filteredProjects = $state<Project[]>(getProjectsByCategory("all"));
+    let activeFilter = $state<"all" | "web" | "mobile" | "ai">("all");
+    let filteredProjects = $derived(getProjectsByCategory(activeFilter));
 
-    function setFilter(filter: "all" | "web" | "mobile") {
+    function setFilter(filter: "all" | "web" | "mobile" | "ai") {
         activeFilter = filter;
-        filteredProjects = getProjectsByCategory(filter);
     }
 </script>
 
@@ -36,11 +35,14 @@
             <button class="filter" class:active={activeFilter === "mobile"} onclick={() => setFilter("mobile")}>
                 {t.projects.filterMobile}
             </button>
+            <button class="filter" class:active={activeFilter === "ai"} onclick={() => setFilter("ai")}>
+                {t.projects.filterAI}
+            </button>
         </div>
 
         <div class="projects-grid">
             {#each filteredProjects as project (project.slug)}
-                <a href="/projects/{project.slug}" class="project-card reveal">
+                <a href="/projects/{project.slug}" class="project-card fade-in">
                     <div class="project-image">
                         <img src={project.imageUrl} alt={project.title} loading="lazy" />
                         <div class="project-overlay">
@@ -64,6 +66,12 @@
                 </a>
             {/each}
         </div>
+
+        {#if filteredProjects.length === 0}
+            <div class="empty-state">
+                <p>Belum ada proyek di kategori ini.</p>
+            </div>
+        {/if}
     </div>
 
     <FooterCTA />
@@ -122,6 +130,22 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-xl);
+    }
+
+    /* Fade-in animation for filtered items — NOT using .reveal to avoid IntersectionObserver dependency */
+    .fade-in {
+        animation: cardFadeIn 0.35s ease both;
+    }
+
+    @keyframes cardFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .project-card {
@@ -222,9 +246,19 @@
         gap: 4px;
     }
 
+    .empty-state {
+        text-align: center;
+        padding: var(--space-4xl) 0;
+        color: var(--text-muted);
+    }
+
     @media (max-width: 768px) {
         .projects-grid {
             grid-template-columns: 1fr;
+        }
+
+        .filters {
+            flex-wrap: wrap;
         }
     }
 </style>
