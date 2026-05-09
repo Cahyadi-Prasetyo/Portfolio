@@ -7,19 +7,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Colors — neutral, professional */
-  --bg: #ffffff;
-  --bg-alt: #f7f7f7;
-  --surface: #ffffff;
-  --text: #111111;
-  --text-secondary: #555555;
-  --text-muted: #999999;
-  --accent: #111111;
-  --accent-hover: #333333;
-  --border: #e5e5e5;
-  --border-light: #f0f0f0;
+  /* Colors — Soft, Warm, Professional */
+  --bg: #FAFAF8;         /* Very soft off-white / pearl */
+  --bg-alt: #F0EFEA;     /* Soft warm gray for alternate sections */
+  --surface: #FFFFFF;    /* Pure white for cards */
+  --text: #2B2B28;       /* Soft charcoal, less harsh than pure black */
+  --text-secondary: #666560; /* Soft gray for descriptions */
+  --text-muted: #A1A09A; 
+  --accent: #3A3A36;     /* Dark muted tone for buttons */
+  --accent-hover: #50504B;
+  --border: #E8E6E1;     /* Soft border color */
+  --border-light: #F2F0EB;
   --white: #ffffff;
-  --green: #22c55e;
+  --green: #4ADE80;      /* Softer green */
 
   /* Type scale */
   --text-xs: 0.75rem;
