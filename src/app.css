@@ -43,8 +43,8 @@
   --space-4xl: 96px;
 
   /* Layout */
-  --max-width: 1100px;
-  --max-width-wide: 1280px;
+  --max-width: 1280px;
+  --max-width-wide: 1440px;
   --nav-height: 64px;
 
   /* Radius */
@@ -187,7 +187,7 @@ button {
   color: var(--text-secondary);
 }
 
-/* --- Card --- */
+/* --- Cards & General --- */
 .card {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -200,16 +200,61 @@ button {
   box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
 
-/* --- Simple Fade-in --- */
-.reveal {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+/* --- Utilities & Premium Effects --- */
+.premium-grid-bg {
+  position: relative;
+}
+.premium-grid-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.text-massive {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+/* --- Animations --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+@keyframes revealUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 /* --- Responsive --- */

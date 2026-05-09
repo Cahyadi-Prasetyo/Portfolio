@@ -44,6 +44,10 @@
         padding: var(--space-3xl) 0;
     }
 
+    .faq-list {
+        max-width: 900px;
+    }
+
     .faq-header {
         margin: var(--space-2xl) 0;
     }

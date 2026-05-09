@@ -59,7 +59,7 @@
     .work-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: var(--space-lg);
+        gap: var(--space-xl);
     }
 
     .work-card {
@@ -79,7 +79,7 @@
 
     .work-image {
         width: 100%;
-        aspect-ratio: 16 / 10;
+        aspect-ratio: 4 / 3;
         overflow: hidden;
         background: var(--bg-alt);
     }
@@ -96,7 +96,7 @@
     }
 
     .work-body {
-        padding: var(--space-md);
+        padding: var(--space-lg) var(--space-md);
     }
 
     .work-tags {

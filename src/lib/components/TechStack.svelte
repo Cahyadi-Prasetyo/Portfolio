@@ -1,5 +1,6 @@
 <script lang="ts">
     import { getTranslations } from "$lib/i18n/index.svelte";
+    import Icon from "@iconify/svelte";
 
     const t = $derived(getTranslations());
 
@@ -13,50 +14,61 @@
         { key: "data_ai" },
     ] as const;
 
-    const techColors: Record<string, string> = {
-        'React': '#61DAFB',
-        'Vue.js': '#4FC08D',
-        'Svelte': '#FF3E00',
-        'Next.js': '#000000',
-        'TypeScript': '#3178C6',
-        'Tailwind CSS': '#06B6D4',
-        'HTML/CSS': '#E34F26',
-        'JavaScript': '#F7DF1E',
-        'Node.js': '#339933',
-        'PHP': '#777BB4',
-        'Laravel': '#FF2D20',
-        'CodeIgniter': '#DD4814',
-        'Python': '#3776AB',
-        'PostgreSQL': '#4169E1',
-        'MySQL': '#4479A1',
-        'Prisma': '#2D3748',
-        'Git': '#F05032',
-        'GitHub': '#181717',
-        'Docker': '#2496ED',
-        'Nginx': '#009639',
-        'Linux Server': '#FCC624',
-        'Figma': '#F24E1E',
-        'Canva': '#00C4CC',
-        'Looker Studio': '#4285F4',
-        'Pandas': '#150458',
-        'Metabase': '#509EE3',
-        'Google Sheets': '#34A853',
+    const localIcons: Record<string, string> = {
+        React: "react",
+        "Next.js": "nextjs",
+        TypeScript: "typescript",
+        "Tailwind CSS": "tailwindcss",
+        JavaScript: "js",
+        "Node.js": "nodejs",
+        PHP: "php",
+        Laravel: "laravel",
+        PostgreSQL: "postgresql",
+        MySQL: "mysql",
+        Docker: "docker",
+        Nginx: "nginx",
+        "Linux Server": "linux",
+        Figma: "figma",
+        Canva: "canva",
+        Git: "git",
+        GitHub: "github",
+        Pandas: "pandas",
+    };
+
+    const techIcons: Record<string, string> = {
+        "Vue.js": "logos:vue",
+        Svelte: "logos:svelte-icon",
+        "HTML/CSS": "logos:html-5",
+        CodeIgniter: "logos:codeigniter-icon",
+        Python: "logos:python",
+        Prisma: "logos:prisma",
+        "Looker Studio": "logos:google-looker",
+        Metabase: "logos:metabase-icon",
+        "Google Sheets": "logos:google-sheets",
     };
 </script>
 
-<div class="skills">
+<div class="skills-list">
     {#each categories as cat}
         {@const data = (t.about.techStack as any)[cat.key]}
         {#if data}
             <div class="skill-row">
-                <span class="skill-label">{data.label}:</span>
+                <div class="skill-label">{data.label}:</div>
                 <div class="skill-items">
-                    {#each data.items as item}
+                    {#each data.items as item, idx}
                         <span class="skill-item">
-                            <span class="skill-dot" style="background: {techColors[item] || '#6b7280'}"></span>
-                            {item}
-                        </span>
-                    {/each}
+                            {#if localIcons[item]}
+                                <span class="icon-wrap local">
+                                    <img src="/tech-icons/{localIcons[item]}.svg" width="18" height="18" alt={item} />
+                                </span>
+                            {:else if techIcons[item]}
+                                <span class="icon-wrap iconify">
+                                    <Icon icon={techIcons[item]} width="18" />
+                                </span>
+                            {/if}
+                            <span class="item-text">{item}</span>
+                        </span>{#if idx < data.items.length - 1}<span class="comma">, </span>{/if}
+                  {/each}
                 </div>
             </div>
         {/if}
@@ -64,74 +76,59 @@
 </div>
 
 <style>
-    .skills {
+    .skills-list {
         display: flex;
         flex-direction: column;
-        gap: 0;
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-        overflow: hidden;
+        gap: var(--space-lg);
     }
 
     .skill-row {
-        display: flex;
-        align-items: baseline;
+        display: grid;
+        grid-template-columns: 160px 1fr;
         gap: var(--space-xl);
-        padding: var(--space-md) var(--space-lg);
-        border-bottom: 1px solid var(--border);
-    }
-
-    .skill-row:last-child {
-        border-bottom: none;
+        align-items: start;
     }
 
     .skill-label {
-        flex-shrink: 0;
-        width: 120px;
-        font-size: var(--text-xs);
-        font-weight: 500;
+        font-size: var(--text-base);
         color: var(--text-muted);
+        padding-top: 4px; /* Align visually with inline icons */
     }
 
     .skill-items {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        flex: 1;
+        line-height: 1.8;
+        font-size: var(--text-base);
+        color: var(--text-secondary);
     }
 
     .skill-item {
         display: inline-flex;
         align-items: center;
-        gap: 5px;
-        font-size: var(--text-sm);
-        font-weight: 500;
-        color: var(--text-secondary);
-        padding: 3px 10px;
-        border-radius: var(--radius-full);
-        background: var(--bg-alt);
-        transition: color var(--transition-fast);
-    }
-
-    .skill-item:hover {
+        gap: 6px;
         color: var(--text);
+        font-weight: 500;
+        white-space: nowrap;
     }
 
-    .skill-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        flex-shrink: 0;
+    .icon-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    .comma {
+        color: var(--text-secondary);
+        margin-right: 6px;
     }
 
     @media (max-width: 640px) {
         .skill-row {
-            flex-direction: column;
-            gap: var(--space-sm);
+            grid-template-columns: 1fr;
+            gap: var(--space-xs);
         }
 
         .skill-label {
-            width: auto;
+            padding-top: 0;
+            margin-bottom: var(--space-xs);
         }
     }
 </style>

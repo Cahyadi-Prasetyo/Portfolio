@@ -22,7 +22,7 @@
         <section class="bio-section reveal">
             <h1 class="page-title">{t.about.title}</h1>
             <div class="bio-layout">
-                <img src="/my-self.png" alt="Cahyadi Prasetyo" class="bio-photo" />
+                <img src="/My-self.png" alt="Cahyadi Prasetyo" />
                 <div class="bio-text">
                     {#each t.about.bio.split("\n\n") as paragraph}
                         <p>{paragraph}</p>
@@ -74,7 +74,7 @@
                                 {/if}
                                 {#if exp.skills}
                                     <div class="exp-skills">
-                                        <strong>Skills:</strong> {exp.skills}
+                                        <strong>Kemampuan</strong> {exp.skills}
                                     </div>
                                 {/if}
                             </div>
@@ -194,12 +194,12 @@
 
     .exp-logo-wrap {
         flex-shrink: 0;
-        width: 48px;
-        height: 48px;
+        width: 64px;
+        height: 64px;
         border-radius: var(--radius-md);
         overflow: hidden;
-        border: 1px solid var(--border);
-        background: var(--white);
+        border: none;
+        background: transparent;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -209,7 +209,7 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        padding: 4px;
+        padding: 2px;
     }
 
     .exp-logo-placeholder {
@@ -251,7 +251,7 @@
 
     .exp-details {
         padding: 0 0 var(--space-xl) 0;
-        padding-left: calc(48px + var(--space-lg));
+        padding-left: calc(64px + var(--space-lg));
         display: flex;
         flex-direction: column;
         gap: var(--space-lg);
@@ -319,12 +319,12 @@
 
     .edu-logo-wrap {
         flex-shrink: 0;
-        width: 48px;
-        height: 48px;
+        width: 64px;
+        height: 64px;
         border-radius: var(--radius-md);
         overflow: hidden;
-        border: 1px solid var(--border);
-        background: var(--white);
+        border: none;
+        background: transparent;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -334,7 +334,7 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        padding: 4px;
+        padding: 2px;
     }
 
     .edu-logo-placeholder {
