@@ -1,64 +1,85 @@
 /* ==========================================================
-   DESIGN SYSTEM — Content-First Portfolio
-   Clean. Fast. No distractions.
+   DESIGN SYSTEM — Vercel-Inspired Portfolio
+   Minimal. Precise. Engineered.
+   Ref: DESIGN.md (Vercel Design Language)
    ========================================================== */
 
 /* --- Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap');
 
 :root {
-  /* Colors — Soft, Warm, Professional */
-  --bg: #FAFAF8;         /* Very soft off-white / pearl */
-  --bg-alt: #F0EFEA;     /* Soft warm gray for alternate sections */
-  --surface: #FFFFFF;    /* Pure white for cards */
-  --text: #2B2B28;       /* Soft charcoal, less harsh than pure black */
-  --text-secondary: #666560; /* Soft gray for descriptions */
-  --text-muted: #A1A09A; 
-  --accent: #3A3A36;     /* Dark muted tone for buttons */
-  --accent-hover: #50504B;
-  --border: #E8E6E1;     /* Soft border color */
-  --border-light: #F2F0EB;
-  --white: #ffffff;
-  --green: #4ADE80;      /* Softer green */
+  /* ── Colors — Vercel Monochromatic Scale ── */
+  --color-ink: #171717;
+  --color-body: #4d4d4d;
+  --color-mute: #888888;
+  --color-hairline: #ebebeb;
+  --color-hairline-strong: #a1a1a1;
+  --color-canvas: #ffffff;
+  --color-canvas-soft: #fafafa;
+  --color-canvas-soft-2: #f5f5f5;
+  --color-on-primary: #ffffff;
+  --color-link: #0070f3;
+  --color-link-deep: #0761d1;
+  --color-success: #0070f3;
+  --color-error: #ee0000;
 
-  /* Type scale */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 2rem;
-  --text-4xl: 2.5rem;
-  --text-5xl: 3.25rem;
+  /* ── Typography — Vercel Scale ── */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
 
-  /* Spacing */
-  --space-xs: 4px;
-  --space-sm: 8px;
+  /* Display */
+  --display-xl: 48px;
+  --display-lg: 32px;
+  --display-md: 24px;
+  --display-sm: 20px;
+
+  /* Body */
+  --body-lg: 18px;
+  --body-md: 16px;
+  --body-sm: 14px;
+  --caption: 12px;
+  --code: 13px;
+
+  /* ── Spacing — 4px base unit ── */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
-  --space-2xl: 48px;
-  --space-3xl: 64px;
-  --space-4xl: 96px;
+  --space-2xl: 40px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+  --space-5xl: 96px;
+  --space-6xl: 128px;
+  --space-section: 192px;
 
-  /* Layout */
-  --max-width: 1280px;
-  --max-width-wide: 1440px;
-  --nav-height: 64px;
-
-  /* Radius */
-  --radius-sm: 4px;
+  /* ── Radius — Vercel Shape Scale ── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
-  --radius-full: 999px;
+  --radius-xl: 16px;
+  --radius-pill-sm: 64px;
+  --radius-pill: 100px;
+  --radius-full: 9999px;
 
-  /* Transitions */
+  /* ── Elevation — Stacked Shadows ── */
+  --shadow-level-1: inset 0 0 0 1px rgba(0,0,0,0.08);
+  --shadow-level-2: 0px 1px 1px rgba(0,0,0,0.02), 0px 2px 2px rgba(0,0,0,0.04), inset 0 0 0 1px rgba(0,0,0,0.08);
+  --shadow-level-3: 0px 2px 2px rgba(0,0,0,0.04), 0px 8px 8px -8px rgba(0,0,0,0.04), inset 0 0 0 1px rgba(0,0,0,0.08);
+  --shadow-level-4: 0px 2px 2px rgba(0,0,0,0.04), 0px 8px 16px -4px rgba(0,0,0,0.04), inset 0 0 0 1px rgba(0,0,0,0.08);
+
+  /* ── Layout ── */
+  --max-width: 1200px;
+  --nav-height: 64px;
+
+  /* ── Transitions ── */
   --transition-fast: 150ms ease;
-  --transition-base: 250ms ease;
+  --transition-base: 200ms ease;
 }
 
-/* --- Reset --- */
+/* ── Reset ── */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -72,18 +93,42 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: var(--text-base);
-  color: var(--text);
-  background-color: var(--bg);
-  line-height: 1.6;
+  font-family: var(--font-sans);
+  font-size: var(--body-md);
+  font-weight: 400;
+  color: var(--color-ink);
+  background-color: var(--color-canvas-soft);
+  line-height: 24px;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+/* ── Headings — Vercel: weight 600, negative tracking, sentence-case ── */
+h1 {
+  font-size: var(--display-xl);
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: -2.4px;
+}
+
+h2 {
+  font-size: var(--display-lg);
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: -1.28px;
+}
+
+h3 {
+  font-size: var(--display-md);
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.96px;
+}
+
+h4 {
+  font-size: var(--display-sm);
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.6px;
 }
 
 a {
@@ -101,7 +146,7 @@ button {
   cursor: pointer;
 }
 
-/* --- Layout --- */
+/* ── Layout ── */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -109,163 +154,161 @@ button {
   padding: 0 var(--space-lg);
 }
 
-.container-wide {
-  max-width: var(--max-width-wide);
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
-}
-
-/* --- Section --- */
-.section {
-  padding: var(--space-4xl) 0;
-}
-
+/* ── Section ── */
 .section-label {
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--caption);
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0;
+  color: var(--color-mute);
   margin-bottom: var(--space-sm);
   display: block;
 }
 
 .section-title {
-  font-size: var(--text-3xl);
-  font-weight: 800;
+  font-size: var(--display-lg);
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: -1.28px;
+  color: var(--color-ink);
   margin-bottom: var(--space-md);
 }
 
 .section-divider {
   border: none;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--color-hairline);
   margin: 0;
 }
 
-/* --- Buttons --- */
+/* ── Buttons — Vercel pill + square scales ── */
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  padding: 12px 28px;
-  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: var(--body-md);
+  font-weight: 500;
+  line-height: 24px;
+  padding: 0 var(--space-sm);
+  height: 40px;
+  border-radius: var(--radius-pill);
   border: none;
-  transition: all var(--transition-base);
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
   text-decoration: none;
   cursor: pointer;
 }
 
 .btn-primary {
-  background: var(--text);
-  color: var(--white);
+  background: var(--color-ink);
+  color: var(--color-on-primary);
 }
 
 .btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
+  background: #2b2b2b;
+}
+
+.btn-secondary {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-level-1);
+}
+
+.btn-secondary:hover {
+  box-shadow: var(--shadow-level-2);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--text);
-  border: 1.5px solid var(--border);
+  color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px var(--color-hairline);
 }
 
 .btn-outline:hover {
-  border-color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--color-hairline-strong);
 }
 
-/* --- Tags --- */
+/* ── Tags / Badges — badge-secondary ── */
 .tag {
-  font-size: var(--text-xs);
-  font-weight: 500;
-  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: var(--caption);
+  font-weight: 400;
+  line-height: 16px;
+  padding: 4px var(--space-xs);
   border-radius: var(--radius-full);
-  background: var(--bg-alt);
-  color: var(--text-secondary);
+  background: var(--color-canvas-soft);
+  color: var(--color-body);
 }
 
-/* --- Cards & General --- */
+/* ── Cards — Vercel stacked shadow elevation ── */
 .card {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  transition: all var(--transition-base);
+  background: var(--color-canvas);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-level-1);
+  transition: box-shadow var(--transition-base);
 }
 
 .card:hover {
-  border-color: #ccc;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  box-shadow: var(--shadow-level-3);
 }
 
-/* --- Utilities & Premium Effects --- */
-.premium-grid-bg {
-  position: relative;
-}
-.premium-grid-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-}
-
-.text-massive {
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-}
-
-/* --- Animations --- */
+/* ── Animations — Premium Reveal ── */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: opacity 0.7s cubic-bezier(0.2, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-@keyframes revealUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* ── Utilities for Visual Interest ── */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-ink) 0%, #4a4a4a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-grid {
+  background-image: linear-gradient(to right, var(--color-hairline) 1px, transparent 1px),
+                    linear-gradient(to bottom, var(--color-hairline) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: top center;
+  /* Fades out the grid towards the bottom and edges */
+  mask-image: radial-gradient(circle at center top, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center top, black 20%, transparent 80%);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -1.28px;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse-soft {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-/* --- Responsive --- */
-@media (max-width: 640px) {
-  :root {
-    --text-5xl: 2.25rem;
-    --text-4xl: 2rem;
-    --text-3xl: 1.75rem;
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.96px;
   }
 
   .container {
     padding: 0 var(--space-md);
   }
 }
+

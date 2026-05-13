@@ -3,38 +3,83 @@
     const t = $derived(getTranslations());
 </script>
 
-<section class="cta reveal">
+<!-- Showcase-band-dark — polarity flip to ink -->
+<section class="cta-band reveal">
     <div class="container">
-        <hr class="section-divider" />
         <div class="cta-inner">
+            <span class="cta-eyebrow">Let's connect</span>
             <h2 class="cta-title">{t.footerCta.title}</h2>
             <p class="cta-desc">{t.footerCta.desc}</p>
-            <a href="/contact" class="btn btn-primary">
+            <a href="/contact" class="cta-button">
                 {t.footerCta.button}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
         </div>
     </div>
 </section>
 
 <style>
+    /* Showcase-band-dark: polarity-flipped to ink primary */
+    .cta-band {
+        background: var(--color-ink);
+        padding: var(--space-5xl) 0;
+    }
+
     .cta-inner {
-        padding: var(--space-3xl) 0;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
+    .cta-eyebrow {
+        font-family: var(--font-mono);
+        font-size: var(--caption);
+        font-weight: 400;
+        line-height: 16px;
+        color: var(--color-mute);
+        margin-bottom: var(--space-lg);
+    }
+
     .cta-title {
-        font-size: var(--text-2xl);
-        font-weight: 800;
+        font-size: clamp(24px, 4vw, 32px);
+        font-weight: 600;
+        line-height: 40px;
+        letter-spacing: -1.28px;
+        color: var(--color-on-primary);
         margin-bottom: var(--space-sm);
     }
 
     .cta-desc {
-        font-size: var(--text-base);
-        color: var(--text-secondary);
+        font-size: var(--body-md);
+        font-weight: 400;
+        color: var(--color-mute);
+        line-height: 24px;
         margin-bottom: var(--space-xl);
+        max-width: 480px;
+    }
+
+    /* CTA button — button-secondary (white pill on dark band) */
+    .cta-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-family: var(--font-sans);
+        font-size: var(--body-md);
+        font-weight: 500;
+        line-height: 24px;
+        height: 40px;
+        padding: 0 var(--space-sm);
+        background: var(--color-canvas);
+        color: var(--color-ink);
+        border: none;
+        border-radius: var(--radius-pill);
+        text-decoration: none;
+        transition: background var(--transition-fast);
+    }
+
+    .cta-button:hover {
+        background: var(--color-canvas-soft-2);
     }
 </style>

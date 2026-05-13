@@ -48,27 +48,27 @@
     };
 </script>
 
-<div class="skills-list">
+<div class="tech-stack">
     {#each categories as cat}
         {@const data = (t.about.techStack as any)[cat.key]}
         {#if data}
-            <div class="skill-row">
-                <div class="skill-label">{data.label}:</div>
-                <div class="skill-items">
-                    {#each data.items as item, idx}
-                        <span class="skill-item">
+            <div class="stack-row">
+                <div class="stack-label">{data.label}</div>
+                <div class="stack-items">
+                    {#each data.items as item}
+                        <span class="stack-badge">
                             {#if localIcons[item]}
-                                <span class="icon-wrap local">
-                                    <img src="/tech-icons/{localIcons[item]}.svg" width="18" height="18" alt={item} />
+                                <span class="badge-icon">
+                                    <img src="/tech-icons/{localIcons[item]}.svg" width="14" height="14" alt={item} />
                                 </span>
                             {:else if techIcons[item]}
-                                <span class="icon-wrap iconify">
-                                    <Icon icon={techIcons[item]} width="18" />
+                                <span class="badge-icon">
+                                    <Icon icon={techIcons[item]} width="14" />
                                 </span>
                             {/if}
-                            <span class="item-text">{item}</span>
-                        </span>{#if idx < data.items.length - 1}<span class="comma">, </span>{/if}
-                  {/each}
+                            <span class="badge-text">{item}</span>
+                        </span>
+                    {/each}
                 </div>
             </div>
         {/if}
@@ -76,59 +76,69 @@
 </div>
 
 <style>
-    .skills-list {
+    .tech-stack {
         display: flex;
         flex-direction: column;
         gap: var(--space-lg);
     }
 
-    .skill-row {
+    .stack-row {
         display: grid;
-        grid-template-columns: 160px 1fr;
+        grid-template-columns: 140px 1fr;
         gap: var(--space-xl);
         align-items: start;
     }
 
-    .skill-label {
-        font-size: var(--text-base);
-        color: var(--text-muted);
-        padding-top: 4px; /* Align visually with inline icons */
+    /* Label — caption-mono: technical voice */
+    .stack-label {
+        font-family: var(--font-mono);
+        font-size: var(--caption);
+        font-weight: 400;
+        line-height: 16px;
+        color: var(--color-mute);
+        padding-top: 6px;
     }
 
-    .skill-items {
-        line-height: 1.8;
-        font-size: var(--text-base);
-        color: var(--text-secondary);
+    .stack-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-xs);
     }
 
-    .skill-item {
+    /* Badge — badge-secondary style */
+    .stack-badge {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        color: var(--text);
-        font-weight: 500;
+        gap: 5px;
+        font-size: var(--body-sm);
+        font-weight: 400;
+        color: var(--color-ink);
+        background: var(--color-canvas);
+        padding: var(--space-xxs) var(--space-xs);
+        border-radius: var(--radius-full);
+        box-shadow: var(--shadow-level-1);
+        letter-spacing: -0.28px;
+        line-height: 20px;
+    }
+
+    .badge-icon {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .badge-text {
         white-space: nowrap;
     }
 
-    .icon-wrap {
-        display: flex;
-        align-items: center;
-    }
-
-    .comma {
-        color: var(--text-secondary);
-        margin-right: 6px;
-    }
-
-    @media (max-width: 640px) {
-        .skill-row {
+    @media (max-width: 600px) {
+        .stack-row {
             grid-template-columns: 1fr;
             gap: var(--space-xs);
         }
 
-        .skill-label {
+        .stack-label {
             padding-top: 0;
-            margin-bottom: var(--space-xs);
         }
     }
 </style>

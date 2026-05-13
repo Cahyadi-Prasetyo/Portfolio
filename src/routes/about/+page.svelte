@@ -1,14 +1,13 @@
 <script lang="ts">
     import { getTranslations } from "$lib/i18n/index.svelte";
     import TechStack from "$lib/components/TechStack.svelte";
-    import FooterCTA from "$lib/components/FooterCTA.svelte";
 
     const t = $derived(getTranslations());
 
-    let expandedExp = $state<number>(-1);
+    let expandedExp = $state<number | null>(null);
 
-    function toggleExp(i: number) {
-        expandedExp = expandedExp === i ? -1 : i;
+    function toggleExp(id: number) {
+        expandedExp = expandedExp === id ? null : id;
     }
 </script>
 
@@ -17,12 +16,16 @@
 </svelte:head>
 
 <div class="page">
+    <div class="bg-grid"></div>
     <div class="container">
         <!-- Bio -->
         <section class="bio-section reveal">
-            <h1 class="page-title">{t.about.title}</h1>
+            <span class="page-eyebrow">About</span>
+            <h1 class="page-title text-gradient">{t.about.title}</h1>
             <div class="bio-layout">
-                <img src="/My-self.png" alt="Cahyadi Prasetyo" />
+                <div class="bio-photo-wrap">
+                    <img src="/my-self.png" alt="Cahyadi Prasetyo" class="bio-photo" />
+                </div>
                 <div class="bio-text">
                     {#each t.about.bio.split("\n\n") as paragraph}
                         <p>{paragraph}</p>
@@ -33,8 +36,9 @@
 
         <hr class="section-divider" />
 
-        <!-- Tech Stack (moved up) -->
+        <!-- Tech Stack -->
         <section class="stack-section reveal">
+            <span class="section-eyebrow">Stack</span>
             <h2 class="section-heading">{t.about.techStackLabel}</h2>
             <TechStack />
         </section>
@@ -43,6 +47,7 @@
 
         <!-- Experience -->
         <section class="exp-section reveal">
+            <span class="section-eyebrow">Career</span>
             <h2 class="section-heading">{t.about.titleExp}</h2>
             <div class="exp-list">
                 {#each t.about.experience as exp, i}
@@ -64,7 +69,7 @@
                         </button>
 
                         {#if expandedExp === i}
-                            <div class="exp-details">
+                            <div class="exp-details fade-in">
                                 {#if exp.points}
                                     <ul class="exp-points">
                                         {#each exp.points as point}
@@ -88,6 +93,7 @@
 
         <!-- Education -->
         <section class="edu-section reveal">
+            <span class="section-eyebrow">Education</span>
             <h2 class="section-heading">{t.about.titleEdu}</h2>
             <div class="edu-list">
                 {#each t.about.education as edu}
@@ -110,36 +116,52 @@
             </div>
         </section>
     </div>
-
-    <FooterCTA />
 </div>
 
 <style>
     .page {
-        padding-top: calc(var(--nav-height) + var(--space-3xl));
+        padding-top: calc(var(--nav-height) + var(--space-4xl));
         padding-bottom: var(--space-2xl);
     }
 
-    .page-title {
-        font-size: var(--text-4xl);
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        margin-bottom: var(--space-xl);
+    /* Page header — Vercel display-xl */
+    .page-eyebrow {
+        font-family: var(--font-mono);
+        font-size: var(--caption);
+        font-weight: 400;
+        line-height: 16px;
+        color: var(--color-mute);
+        display: block;
+        margin-bottom: var(--space-sm);
     }
 
+    .page-title {
+        font-size: clamp(32px, 5vw, 48px);
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: -2.4px;
+        margin-bottom: var(--space-3xl);
+    }
+
+    /* Bio layout */
     .bio-layout {
         display: grid;
-        grid-template-columns: 160px 1fr;
-        gap: var(--space-2xl);
+        grid-template-columns: 180px 1fr;
+        gap: var(--space-3xl);
         align-items: start;
     }
 
+    .bio-photo-wrap {
+        position: sticky;
+        top: calc(var(--nav-height) + var(--space-lg));
+    }
+
     .bio-photo {
-        width: 160px;
-        height: 200px;
+        width: 180px;
+        height: 220px;
         object-fit: cover;
         border-radius: var(--radius-lg);
-        border: 1px solid var(--border);
+        box-shadow: var(--shadow-level-2);
     }
 
     .bio-text {
@@ -149,14 +171,28 @@
     }
 
     .bio-text p {
-        font-size: var(--text-base);
-        color: var(--text-secondary);
-        line-height: 1.8;
+        font-size: var(--body-md);
+        color: var(--color-body);
+        line-height: 24px;
+    }
+
+    /* Section headings */
+    .section-eyebrow {
+        font-family: var(--font-mono);
+        font-size: var(--caption);
+        font-weight: 400;
+        line-height: 16px;
+        color: var(--color-mute);
+        display: block;
+        margin-bottom: var(--space-xs);
     }
 
     .section-heading {
-        font-size: var(--text-xl);
-        font-weight: 700;
+        font-size: var(--display-md);
+        font-weight: 600;
+        line-height: 32px;
+        letter-spacing: -0.96px;
+        color: var(--color-ink);
         margin-bottom: var(--space-xl);
         padding-top: var(--space-xl);
     }
@@ -168,11 +204,11 @@
     }
 
     .exp-item {
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--color-hairline);
     }
 
     .exp-item:first-child {
-        border-top: 1px solid var(--border);
+        border-top: 1px solid var(--color-hairline);
     }
 
     .exp-header {
@@ -186,20 +222,21 @@
         border: none;
         cursor: pointer;
         transition: background var(--transition-fast);
+        border-radius: var(--radius-sm);
     }
 
     .exp-header:hover {
-        background: var(--bg-alt);
+        background: var(--color-canvas-soft-2);
     }
 
     .exp-logo-wrap {
         flex-shrink: 0;
-        width: 64px;
-        height: 64px;
+        width: 48px;
+        height: 48px;
         border-radius: var(--radius-md);
         overflow: hidden;
-        border: none;
-        background: transparent;
+        background: var(--color-canvas);
+        box-shadow: var(--shadow-level-1);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -209,13 +246,13 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        padding: 2px;
+        padding: 4px;
     }
 
     .exp-logo-placeholder {
         width: 100%;
         height: 100%;
-        background: var(--bg-alt);
+        background: var(--color-canvas-soft-2);
     }
 
     .exp-info {
@@ -224,43 +261,56 @@
     }
 
     .exp-role {
-        font-size: var(--text-base);
-        font-weight: 600;
-        color: var(--text);
+        font-size: var(--body-md);
+        font-weight: 500;
+        color: var(--color-ink);
+        line-height: 24px;
         margin-bottom: 2px;
     }
 
     .exp-company {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
+        font-size: var(--body-sm);
+        color: var(--color-body);
+        letter-spacing: -0.28px;
         margin-bottom: 2px;
     }
 
     .exp-period {
-        font-size: var(--text-xs);
-        color: var(--text-muted);
+        font-family: var(--font-mono);
+        font-size: var(--caption);
+        color: var(--color-mute);
     }
 
     .exp-toggle {
-        font-size: var(--text-xl);
-        color: var(--text-muted);
+        font-size: var(--display-sm);
+        color: var(--color-mute);
         width: 24px;
         text-align: center;
         flex-shrink: 0;
+        font-weight: 300;
     }
 
     .exp-details {
         padding: 0 0 var(--space-xl) 0;
-        padding-left: calc(64px + var(--space-lg));
+        padding-left: calc(48px + var(--space-lg));
         display: flex;
         flex-direction: column;
         gap: var(--space-lg);
-        animation: fadeIn 0.25s ease;
+    }
+
+    .fade-in {
+        animation: fadeIn 0.3s cubic-bezier(0.2, 1, 0.3, 1) both;
     }
 
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-4px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .exp-points {
@@ -269,33 +319,35 @@
         display: flex;
         flex-direction: column;
         gap: var(--space-sm);
-        margin-bottom: var(--space-lg);
+        margin-bottom: var(--space-sm);
     }
 
     .exp-points li {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        line-height: 1.7;
+        font-size: var(--body-sm);
+        color: var(--color-body);
+        line-height: 20px;
+        letter-spacing: -0.28px;
     }
 
     .exp-points li::marker {
-        color: var(--text-muted);
+        color: var(--color-mute);
     }
 
     .exp-skills {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        background: var(--bg-alt);
+        font-size: var(--body-sm);
+        color: var(--color-body);
+        background: var(--color-canvas-soft-2);
         padding: var(--space-md) var(--space-lg);
         border-radius: var(--radius-md);
         display: inline-block;
         width: 100%;
-        line-height: 1.6;
+        line-height: 20px;
+        letter-spacing: -0.28px;
     }
 
     .exp-skills strong {
-        color: var(--text);
-        font-weight: 600;
+        color: var(--color-ink);
+        font-weight: 500;
         margin-right: 4px;
     }
 
@@ -310,21 +362,21 @@
         align-items: center;
         gap: var(--space-lg);
         padding: var(--space-lg) 0;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--color-hairline);
     }
 
     .edu-item:first-child {
-        border-top: 1px solid var(--border);
+        border-top: 1px solid var(--color-hairline);
     }
 
     .edu-logo-wrap {
         flex-shrink: 0;
-        width: 64px;
-        height: 64px;
+        width: 48px;
+        height: 48px;
         border-radius: var(--radius-md);
         overflow: hidden;
-        border: none;
-        background: transparent;
+        background: var(--color-canvas);
+        box-shadow: var(--shadow-level-1);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -334,13 +386,13 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        padding: 2px;
+        padding: 4px;
     }
 
     .edu-logo-placeholder {
         width: 100%;
         height: 100%;
-        background: var(--bg-alt);
+        background: var(--color-canvas-soft-2);
     }
 
     .edu-info {
@@ -349,27 +401,31 @@
     }
 
     .edu-degree {
-        font-size: var(--text-base);
-        font-weight: 600;
-        color: var(--text);
+        font-size: var(--body-md);
+        font-weight: 500;
+        color: var(--color-ink);
+        line-height: 24px;
         margin-bottom: 2px;
     }
 
     .edu-school {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
+        font-size: var(--body-sm);
+        color: var(--color-body);
+        letter-spacing: -0.28px;
         margin-bottom: 2px;
     }
 
     .edu-period {
-        font-size: var(--text-xs);
-        color: var(--text-muted);
+        font-family: var(--font-mono);
+        font-size: var(--caption);
+        color: var(--color-mute);
         margin-bottom: var(--space-xs);
     }
 
     .edu-desc {
-        font-size: var(--text-sm);
-        color: var(--text-muted);
+        font-size: var(--body-sm);
+        color: var(--color-mute);
+        letter-spacing: -0.28px;
     }
 
     /* Responsive */
@@ -378,9 +434,14 @@
             grid-template-columns: 1fr;
         }
 
+        .bio-photo-wrap {
+            position: relative;
+            top: 0;
+        }
+
         .bio-photo {
-            width: 120px;
-            height: 150px;
+            width: 140px;
+            height: 170px;
         }
 
         .exp-details {

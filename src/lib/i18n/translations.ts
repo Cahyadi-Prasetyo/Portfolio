@@ -11,7 +11,7 @@ export const translations: Record<Language, any> = {
         hero: {
             greeting: 'Hai! Saya Cahyadi Prasetyo 👋',
             value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
-            bio: 'Mahasiswa Teknik Informatika di UMRAH yang udah keburu nyemplung ke dunia industri sejak 2022. Dari bikin platform data buat BPS, ngurusin IT di Pelindo, sampai jadi asisten praktikum yang bantuin mahasiswa paham jaringan komputer — semua saya jalani sambil terus belajar.',
+            bio: 'Seorang Full-Stack Developer yang memadukan latar belakang akademis dengan pengalaman nyata di industri sejak 2022. Mulai dari merancang platform data strategis untuk BPS hingga mengoptimalkan infrastruktur IT korporasi di Pelindo, saya berfokus menciptakan solusi teknologi yang efisien dan berdampak.',
             cta: 'Lihat Hasil Kerja Saya',
             ctaSecondary: 'Hubungi Saya'
         },
@@ -31,7 +31,7 @@ export const translations: Record<Language, any> = {
         },
         about: {
             title: 'Tentang Saya',
-            bio: 'Saya percaya teknologi itu harusnya menyelesaikan masalah, bukan bikin tambah ribet. Itulah yang jadi landasan saya di setiap proyek.\n\nSebagai Full-Stack Developer, saya terbiasa handle dari frontend sampai backend — React, Vue, Svelte di depan, Laravel & Node.js di belakang. Tapi saya nggak cuma berhenti di coding. Pengalaman sebagai IT & Web Mentor di kampus bikin saya terbiasa menjelaskan hal teknis ke non-teknis, dan pengalaman magang sebagai Data Analyst di BPS mengasah cara saya berpikir berbasis data.\n\nYang bikin saya semangat? Melihat solusi yang saya bangun benar-benar dipakai orang — bukan cuma jadi tugas kuliah atau proyek pajangan.\n\nKalau kamu punya ide proyek atau butuh partner kolaborasi, jangan sungkan buat hubungi saya. 🚀',
+            bio: 'Rekam jejak saya di industri dimulai pada 2022. Alih-alih hanya mempelajari teori, saya langsung terjun membangun arsitektur data berskala regional untuk Badan Pusat Statistik (BPS) dan memastikan keandalan infrastruktur jaringan di Pelindo.\n\nDengan fondasi kuat di Web Development dan Sistem Terdistribusi, saya melihat kode sebagai jembatan untuk memecahkan masalah bisnis yang nyata. Saya terbiasa mengelola sistem dari sisi frontend (React, Vue, Svelte) hingga backend (Laravel, Node.js).\n\nSaat ini, saya mengeksplorasi bagaimana AI dapat diintegrasikan untuk menciptakan aplikasi generasi berikutnya yang lebih pintar. Jika Anda memiliki ide proyek atau membutuhkan mitra teknis yang andal, mari berdiskusi. 🚀',
             techStackLabel: 'Tech Stack',
             titleExp: 'Pengalaman',
             titleEdu: 'Pendidikan',
@@ -85,12 +85,11 @@ export const translations: Record<Language, any> = {
                     company: 'BPS Provinsi Kepulauan Riau',
                     logo: '/logo_bps.png',
                     points: [
-                        'Berperan aktif dalam divisi IT dan Pengolahan untuk mendukung digitalisasi data statistik regional melalui pengembangan aplikasi web dan integrasi data.',
-                        'Membangun antarmuka pengguna (Frontend) yang responsif untuk platform kepri.gurind.am dan tanjak.gurind.am menggunakan React, Vue.js, dan Tailwind CSS.',
-                        'Merekayasa integrasi visualisasi laporan interaktif pada platform Tanjak dengan mengimplementasikan teknik embedding Looker Studio menggunakan PHP.',
-                        'Mengoptimalkan alur kerja data dari PostgreSQL dan Spreadsheet API ke dalam dasbor analitik untuk mendukung pengambilan keputusan berbasis data oleh pimpinan instansi.',
-                        'Berkontribusi dalam pengembangan Aeroprice, platform pemantau harga tiket pesawat, dengan fokus pada optimasi rendering data dinamis di sisi frontend.',
-                        'Memberikan dukungan infrastruktur (IT Support) untuk memastikan stabilitas operasional sistem informasi di lingkungan kantor BPS.'
+                        'Mendigitalisasi distribusi data statistik regional dengan merekayasa antarmuka (React/Vue.js) platform Gurindam & Tanjak, memastikan navigasi data kompleks menjadi intuitif bagi masyarakat luas.',
+                        'Mengintegrasikan visualisasi analitik Looker Studio menggunakan PHP, memberdayakan pimpinan BPS Kepri untuk mengambil keputusan secara real-time dan berbasis data.',
+                        'Mempercepat alur kerja pengolahan data melalui optimasi jalur integrasi antara PostgreSQL dan Spreadsheet API langsung ke dalam dasbor analitik.',
+                        'Mendongkrak performa rendering data dinamis pada platform pemantau harga tiket (Aeroprice), memberikan pengalaman pengguna yang lebih mulus dan responsif.',
+                        'Menjamin stabilitas operasional sistem informasi internal melalui dukungan infrastruktur (IT Support) harian secara proaktif.'
                     ],
                     skills: 'React.js · Vue.js · PHP · PostgreSQL · Looker Studio · Data Visualization · IT Support'
                 },
@@ -100,10 +99,10 @@ export const translations: Record<Language, any> = {
                     company: 'Tim PKM Dosen UMRAH',
                     logo: '/logo_umrah.png',
                     points: [
-                        'Berpartisipasi dalam Program Pengabdian Kepada Masyarakat (PKM) Dosen UMRAH untuk mengembangkan solusi digital inovatif bagi sektor UMKM.',
-                        'Mengembangkan antarmuka website bertema video-style (serupa TikTok) menggunakan React.js untuk meningkatkan user engagement terhadap produk lokal.',
-                        'Mengimplementasikan prinsip User-Centric Design untuk memastikan navigasi dan interaksi video berjalan mulus pada berbagai perangkat (Responsive Design).',
-                        'Berkolaborasi dalam tim lintas fungsi untuk merumuskan arsitektur sistem dan solusi teknis yang aplikatif bagi pengguna akhir.'
+                        'Merancang antarmuka inovatif bergaya interaksi video (TikTok-style) dengan React.js untuk mendongkrak visibilitas produk UMKM lokal.',
+                        'Meningkatkan retensi pengguna (user engagement) melalui implementasi transisi video yang mulus berlandaskan prinsip User-Centric Design.',
+                        'Merekayasa arsitektur komponen UI yang responsif sempurna, memastikan performa dan tata letak optimal dari layar desktop hingga mobile.',
+                        'Bersinergi dalam tim lintas fungsi guna mentransformasi konsep akademis menjadi produk digital yang berdaya guna bagi pengguna akhir.'
                     ],
                     skills: 'React.js · Tailwind CSS · User Interface (UI) Design · Cross-team Collaboration'
                 },
@@ -138,14 +137,14 @@ export const translations: Record<Language, any> = {
                     degree: 'S1 Teknik Informatika',
                     school: 'Universitas Maritim Raja Ali Haji',
                     logo: '/logo_umrah.png',
-                    desc: 'Fokus pada pengembangan perangkat lunak dan data analytics.'
+                    desc: 'Fokus pada pengembangan perangkat lunak dan data analytics. IPK Saat Ini: 3.43'
                 },
                 {
-                    period: '2019 – 2022',
+                    period: '2020 – 2023',
                     degree: 'Rekayasa Perangkat Lunak',
                     school: 'SMKN 1 Bintan Timur',
                     logo: '/logo_smk.jpg',
-                    desc: 'Mempelajari dasar pemrograman, basis data, dan pengembangan aplikasi.'
+                    desc: 'Mempelajari dasar pemrograman, basis data, dan pengembangan aplikasi. Nilai Rata-rata: 88.18'
                 }
             ]
         },
@@ -167,10 +166,10 @@ export const translations: Record<Language, any> = {
             label: 'FAQ',
             title: 'Pertanyaan Umum',
             items: [
-                { q: 'Teknologi apa yang kamu kuasai?', a: 'Saya bekerja dengan React, Vue.js, Svelte, Node.js, PHP (Laravel), PostgreSQL, dan tools data analytics seperti Looker Studio dan Metabase.' },
-                { q: 'Apakah kamu menerima freelance?', a: 'Ya, saya terbuka untuk proyek freelance. Mari diskusikan kebutuhan Anda.' },
-                { q: 'Berapa lama pengalaman kerjamu?', a: 'Saya sudah terlibat dalam proyek profesional sejak 2022 — termasuk internship di BPS dan PT. Pelindo, serta proyek riset di universitas.' },
-                { q: 'Bagaimana cara menghubungi kamu?', a: 'Langsung melalui halaman kontak atau email ke chdprasetyo@gmail.com.' }
+                { q: 'Teknologi apa yang menjadi fokus utama Anda?', a: 'Sebagai Full-Stack Developer, saya menguasai ekosistem modern seperti React, Svelte, dan Node.js, dipadukan dengan keandalan backend tradisional (Laravel/PHP). Saya juga merancang arsitektur database (PostgreSQL) yang berfokus pada skalabilitas dan keamanan data.' },
+                { q: 'Apakah Anda menerima kerja sama proyek freelance?', a: 'Sangat terbuka. Mulai dari pengembangan aplikasi web end-to-end, integrasi sistem, hingga pembuatan dashboard analitik data tingkat korporasi (seperti pengalaman saya di BPS). Saya memprioritaskan komunikasi transparan dan pengiriman tepat waktu.' },
+                { q: 'Sejauh apa pengalaman Anda di industri?', a: 'Saya mulai terlibat secara profesional sejak awal 2022. Portofolio saya mencakup proyek infrastruktur IT di BUMN (Pelindo) hingga digitalisasi platform pemerintahan (BPS Kepri). Saya terbiasa dengan standar dan tekanan industri nyata.' },
+                { q: 'Bagaimana alur kerja jika saya ingin menyewa jasa Anda?', a: 'Kita akan mulai dengan sesi konsultasi gratis untuk memahami masalah bisnis Anda. Selanjutnya, saya akan menyusun rancangan sistem dan estimasi waktu. Hubungi saya melalui form kontak atau email untuk memulai diskusi.' }
             ]
         },
         contact: {
@@ -208,7 +207,7 @@ export const translations: Record<Language, any> = {
         hero: {
             greeting: "Hi! I'm Cahyadi Prasetyo 👋",
             value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
-            bio: "A Computer Science student at UMRAH who's been diving into the industry since 2022. From building data platforms for BPS, handling IT at Pelindo, to mentoring students in computer networking labs — I do it all while continuously learning.",
+            bio: "A Full-Stack Developer blending an academic background with real-world industry experience since 2022. From engineering strategic data platforms for BPS to optimizing corporate IT infrastructure at Pelindo, my focus is on delivering efficient and impactful technological solutions.",
             cta: 'See My Work',
             ctaSecondary: 'Contact Me'
         },
@@ -228,7 +227,7 @@ export const translations: Record<Language, any> = {
         },
         about: {
             title: 'About Me',
-            bio: "I believe technology should solve problems, not create more of them. That\'s the foundation of everything I build.\n\nAs a Full-Stack Developer, I\'m comfortable handling everything from frontend to backend — React, Vue, Svelte up front, Laravel & Node.js in the back. But I don\'t stop at coding. My experience as an IT & Web Mentor on campus taught me how to explain technical concepts to non-technical people, and my internship as a Data Analyst at BPS sharpened my data-driven thinking.\n\nWhat keeps me going? Seeing the solutions I build actually being used by real people — not just sitting as a college assignment or a portfolio showpiece.\n\nGot a project idea or need a collaboration partner? Don\'t hesitate to reach out. 🚀",
+            bio: "My industry track record began in 2022. Rather than just studying theory, I dove straight into engineering regional-scale data architectures for Statistics Indonesia (BPS) and ensuring network infrastructure reliability at Pelindo.\n\nWith a strong foundation in Web Development and Distributed Systems, I view code as a bridge to solve real-world business problems. I am accustomed to managing systems from the frontend (React, Vue, Svelte) to the backend (Laravel, Node.js).\n\nCurrently, I am exploring how AI can be integrated to build smarter, next-generation applications. If you have a project idea or need a reliable technical partner, let's discuss. 🚀",
              techStackLabel: 'Tech Stack',
             titleExp: 'Experience',
             titleEdu: 'Education',
@@ -351,7 +350,7 @@ export const translations: Record<Language, any> = {
                     degree: 'Bachelor of Computer Science',
                     school: 'Universitas Maritim Raja Ali Haji',
                     logo: '/logo_umrah.png',
-                    desc: 'Focusing on software engineering and data analytics.'
+                    desc: 'Focusing on software engineering and data analytics. Current GPA: 3.43'
                 },
                 {
                     period: '2019 – 2022',
@@ -380,10 +379,10 @@ export const translations: Record<Language, any> = {
             label: 'FAQ',
             title: 'Frequently Asked',
             items: [
-                { q: 'What technologies do you work with?', a: 'I work with React, Vue.js, Svelte, Node.js, PHP (Laravel), PostgreSQL, and data analytics tools like Looker Studio and Metabase.' },
-                { q: 'Are you available for freelance?', a: "Yes, I'm open for freelance projects. Let's discuss your needs." },
-                { q: 'How much experience do you have?', a: "I've been involved in professional projects since 2022 — including internships at BPS and PT. Pelindo, as well as university research projects." },
-                { q: 'How can I reach you?', a: 'Through the contact page or email me directly at chdprasetyo@gmail.com .' }
+                { q: 'What is your primary technology stack?', a: 'As a Full-Stack Developer, I specialize in modern ecosystems like React, Svelte, and Node.js, paired with reliable traditional backends (Laravel/PHP). I also design highly scalable and secure database architectures (PostgreSQL).' },
+                { q: 'Are you available for freelance projects?', a: 'Absolutely. Whether it\'s end-to-end web app development, system integration, or corporate-grade data analytics dashboards (similar to my work at Statistics Indonesia). I prioritize transparent communication and timely delivery.' },
+                { q: 'How extensive is your industry experience?', a: 'I began my professional involvement in early 2022. My portfolio spans from IT infrastructure in state-owned enterprises (Pelindo) to governmental platform digitalization (BPS). I am highly accustomed to real-world industry standards and pressures.' },
+                { q: 'What is your workflow if I want to hire you?', a: 'We start with a free consultation to understand your business problem. Then, I will provide a system design proposal and timeline. Reach out via the contact form or email to start the conversation.' }
             ]
         },
         contact: {

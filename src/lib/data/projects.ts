@@ -15,6 +15,16 @@ export interface Project {
     githubUrl?: string;
     featured: boolean;
     imageUrl: string;
+    images?: string[];
+    status: 'concept' | 'in-progress' | 'shipped';
+    role: {
+        id: string;
+        en: string;
+    };
+    duration: {
+        id: string;
+        en: string;
+    };
 }
 
 export const projects: Project[] = [
@@ -34,7 +44,11 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: '/project-umkm.png'
+        imageUrl: '/project-umkm.png',
+        images: ['/project-umkm.png', '/project-ecommerce.png', '/project-dashboard.png'],
+        status: 'in-progress',
+        role: { id: 'Full-Stack Developer', en: 'Full-Stack Developer' },
+        duration: { id: '3 Bulan', en: '3 Months' }
     },
     {
         slug: 'e-commerce-platform',
@@ -52,7 +66,11 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: '/project-ecommerce.png'
+        imageUrl: '/project-ecommerce.png',
+        images: ['/project-ecommerce.png'],
+        status: 'shipped',
+        role: { id: 'Backend Developer', en: 'Backend Developer' },
+        duration: { id: '4 Bulan', en: '4 Months' }
     },
     {
         slug: 'dashboard-analytics',
@@ -70,7 +88,10 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: '/project-dashboard.png'
+        imageUrl: '/project-dashboard.png',
+        status: 'shipped',
+        role: { id: 'Frontend Developer', en: 'Frontend Developer' },
+        duration: { id: '2 Bulan', en: '2 Months' }
     },
     {
         slug: 'task-management',
@@ -88,7 +109,10 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: '/project-taskmanager.png'
+        imageUrl: '/project-taskmanager.png',
+        status: 'concept',
+        role: { id: 'Lead Developer', en: 'Lead Developer' },
+        duration: { id: '5 Bulan', en: '5 Months' }
     },
     {
         slug: 'fitness-tracker',
@@ -106,7 +130,10 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: '/project-fitness.png'
+        imageUrl: '/project-fitness.png',
+        status: 'shipped',
+        role: { id: 'Mobile Developer', en: 'Mobile Developer' },
+        duration: { id: '3 Bulan', en: '3 Months' }
     },
     {
         slug: 'recipe-app',
@@ -124,7 +151,10 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: false,
-        imageUrl: '/project-recipe.png'
+        imageUrl: '/project-recipe.png',
+        status: 'in-progress',
+        role: { id: 'Full-Stack Developer', en: 'Full-Stack Developer' },
+        duration: { id: '1.5 Bulan', en: '1.5 Months' }
     },
     {
         slug: 'portfolio-website',
@@ -142,7 +172,10 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: '/project-portfolio.png'
+        imageUrl: '/project-portfolio.png',
+        status: 'shipped',
+        role: { id: 'UI/UX Designer & Developer', en: 'UI/UX Designer & Developer' },
+        duration: { id: '1 Bulan', en: '1 Month' }
     },
     {
         slug: 'ai-chatbot-assistant',
@@ -160,7 +193,10 @@ export const projects: Project[] = [
         liveUrl: '#',
         githubUrl: '#',
         featured: true,
-        imageUrl: '/project-ai-chatbot.png'
+        imageUrl: '/project-ai-chatbot.png',
+        status: 'concept',
+        role: { id: 'AI Engineer', en: 'AI Engineer' },
+        duration: { id: '2.5 Bulan', en: '2.5 Months' }
     }
 ];
 
