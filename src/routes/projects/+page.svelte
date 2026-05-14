@@ -7,7 +7,7 @@
     const currentLang = $derived(getCurrentLang());
 
     let activeFilter = $state<"all" | "web" | "mobile" | "ai">("all");
-    let viewMode = $state<"list" | "kanban">("list");
+    let viewMode = $state<"list" | "kanban">("kanban");
     let filteredProjects = $derived(getProjectsByCategory(activeFilter));
 
     onMount(() => {
@@ -102,30 +102,33 @@
             {:else}
                 <!-- Kanban View -->
                 <div class="kanban-board fade-in">
-                    {#each filteredProjects as project}
-                        <div class="kanban-col">
-                            <div class="col-header">
-                                <h3 class="col-title status-{project.status}">
-                                    {project.status.replace('-', ' ')}
-                                </h3>
+                    {#each filteredProjects as project, i}
+                        <a href="/projects/{project.slug}" class="kanban-card" style="animation-delay: {i * 0.07}s">
+                            <div class="k-card-image">
+                                <img src={project.imageUrl} alt={project.title} loading="lazy" />
+                                <span class="k-status status-{project.status}">{project.status.replace('-', ' ')}</span>
                             </div>
-                            <div class="col-content">
-                                <a href="/projects/{project.slug}" class="kanban-card">
-                                    {#if project.imageUrl}
-                                        <div class="k-card-image">
-                                            <img src={project.imageUrl} alt={project.title} loading="lazy" />
-                                        </div>
+                            <div class="k-card-body">
+                                <div class="k-card-meta">
+                                    <span class="k-cat">{project.category === 'web' ? 'Web App' : project.category === 'mobile' ? 'Mobile App' : 'AI Project'}</span>
+                                    <span class="k-role">{currentLang === 'id' ? project.role.id : project.role.en}</span>
+                                </div>
+                                <h4 class="k-title">{project.title}</h4>
+                                <p class="k-desc">{currentLang === "id" ? project.shortDesc.id : project.shortDesc.en}</p>
+                                <div class="k-tech">
+                                    {#each project.tech.slice(0, 4) as tech}
+                                        <span class="tag">{tech}</span>
+                                    {/each}
+                                    {#if project.tech.length > 4}
+                                        <span class="tag tag-more">+{project.tech.length - 4}</span>
                                     {/if}
-                                    <div class="k-card-body">
-                                        <div class="k-card-meta">
-                                            <span class="k-cat">{project.category}</span>
-                                        </div>
-                                        <h4 class="k-title">{project.title}</h4>
-                                        <p class="k-desc">{currentLang === "id" ? project.shortDesc.id : project.shortDesc.en}</p>
-                                    </div>
-                                </a>
+                                </div>
+                                <div class="k-footer">
+                                    <span class="k-duration">{currentLang === 'id' ? project.duration.id : project.duration.en}</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="k-arrow"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     {/each}
                 </div>
             {/if}
@@ -288,6 +291,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top center;
     }
 
     .row-content {
@@ -387,111 +391,147 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: var(--space-xl);
-        align-items: start;
-    }
-
-    .kanban-col {
-        background: var(--color-canvas-soft-2);
-        border-radius: var(--radius-lg);
-        padding: var(--space-md);
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-md);
-        /* removed min-height to fit individual projects */
-    }
-
-    .col-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: var(--space-xs) var(--space-xs) 0;
-    }
-
-    .col-title {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        font-weight: 500;
-        text-transform: capitalize;
-        padding: 2px 6px;
-        border-radius: 4px;
-        border: 1px solid transparent;
-        display: inline-block;
-    }
-
-    .col-count {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        color: var(--color-mute);
-        background: var(--color-canvas);
-        padding: 2px 6px;
-        border-radius: 12px;
-        border: 1px solid var(--color-hairline);
-    }
-
-    .col-content {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-sm);
     }
 
     .kanban-card {
         background: var(--color-canvas);
         border: 1px solid var(--color-hairline);
-        border-radius: var(--radius-md);
+        border-radius: var(--radius-lg);
         overflow: hidden;
         box-shadow: var(--shadow-level-1);
         text-decoration: none;
         transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
     }
 
     .kanban-card:hover {
-        transform: translateY(-2px);
+        transform: translateY(-4px);
         box-shadow: var(--shadow-level-2);
+        border-color: var(--color-mute);
     }
 
     .k-card-image {
         width: 100%;
-        height: 100px;
         background: var(--color-canvas-soft-2);
         overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .k-card-image img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
+        display: block;
+        transition: transform var(--transition-base);
+    }
+
+    .kanban-card:hover .k-card-image img {
+        transform: scale(1.04);
+    }
+
+    .k-status {
+        position: absolute;
+        top: var(--space-md);
+        right: var(--space-md);
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: capitalize;
+        padding: 3px 8px;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        backdrop-filter: blur(8px);
     }
 
     .k-card-body {
-        padding: var(--space-sm) var(--space-md);
+        padding: var(--space-lg) var(--space-lg) var(--space-md);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+        flex: 1;
     }
 
     .k-card-meta {
-        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-sm);
     }
 
     .k-cat {
         font-family: var(--font-mono);
-        font-size: 10px;
+        font-size: 11px;
         color: var(--color-mute);
         text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: var(--color-canvas-soft-2);
+        border: 1px solid var(--color-hairline);
+        padding: 2px 8px;
+        border-radius: 4px;
+    }
+
+    .k-role {
+        font-size: 11px;
+        color: var(--color-mute);
     }
 
     .k-title {
-        font-size: var(--body-sm);
-        font-weight: 500;
+        font-size: var(--body-md, 1rem);
+        font-weight: 600;
         color: var(--color-ink);
-        margin-bottom: 4px;
+        letter-spacing: -0.3px;
+        line-height: 1.3;
     }
 
     .k-desc {
         font-size: 12px;
         color: var(--color-body);
+        line-height: 20px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        line-height: 18px;
+        flex: 1;
+    }
+
+    .k-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+        margin-top: var(--space-xs);
+    }
+
+    .tag-more {
+        color: var(--color-mute);
+    }
+
+    .k-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        padding-top: var(--space-md);
+        border-top: 1px solid var(--color-hairline);
+    }
+
+    .k-duration {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--color-mute);
+    }
+
+    .k-arrow {
+        color: var(--color-mute);
+        transition: transform var(--transition-fast), color var(--transition-fast);
+    }
+
+    .kanban-card:hover .k-arrow {
+        color: var(--color-ink);
+        transform: translateX(3px);
     }
 
     .fade-in {

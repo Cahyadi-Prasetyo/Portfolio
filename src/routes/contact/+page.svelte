@@ -1,5 +1,6 @@
 <script lang="ts">
     import { getTranslations } from "$lib/i18n/index.svelte";
+    import emailjs from '@emailjs/browser';
 
     const t = $derived(getTranslations());
 
@@ -12,20 +13,37 @@
 
     let sending = $state(false);
     let sent = $state(false);
+    let error = $state(false);
 
-    function handleSubmit(e: Event) {
+    async function handleSubmit(e: Event) {
         e.preventDefault();
         sending = true;
+        error = false;
 
-        const mailto = `mailto:${t.contact.email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
-        window.open(mailto, "_blank");
-
-        setTimeout(() => {
-            sending = false;
+        try {
+            await emailjs.send(
+                'service_fl7u44p',
+                'template_rirdhx8',
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message,
+                    to_name: "Cahyadi Prasetyo"
+                },
+                'KXoqgAMa8sSw9FOWr'
+            );
+            
             sent = true;
             formData = { name: "", email: "", subject: "", message: "" };
-            setTimeout(() => { sent = false; }, 3000);
-        }, 500);
+            setTimeout(() => { sent = false; }, 5000);
+        } catch (err) {
+            console.error("Failed to send email:", err);
+            error = true;
+            setTimeout(() => { error = false; }, 5000);
+        } finally {
+            sending = false;
+        }
     }
 </script>
 
@@ -71,7 +89,9 @@
                         {#if sending}
                             Sending...
                         {:else if sent}
-                            ✓ Sent!
+                            ✓ Sent Successfully!
+                        {:else if error}
+                            ✕ Failed to send
                         {:else}
                             {t.contact.send}
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>

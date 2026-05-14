@@ -29,6 +29,72 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        slug: 'smartask',
+        title: 'SmarTask',
+        description: {
+            id: 'SMARTASK adalah aplikasi mobile berbasis Android yang dirancang untuk membantu mahasiswa mengelola tugas akademik secara lebih efektif. Aplikasi ini dikembangkan sebagai bagian dari Tugas Akhir dengan fokus yang berat pada implementasi kinerja tinggi (High-Performance Engineering). Berbeda dengan aplikasi to-do list konvensional, SMARTASK mengimplementasikan kecerdasan adaptif yang mampu menganalisis pola perilaku pengguna untuk memberikan dukungan pengelolaan tugas yang lebih progresif, didukung oleh infrastruktur backend Golang yang sangat cepat secara native.',
+            en: 'SMARTASK is an Android-based mobile application designed to help students manage academic tasks more effectively. Developed as a final year project with a heavy focus on High-Performance Engineering. Unlike conventional to-do list apps, SMARTASK implements adaptive intelligence that analyzes user behavior patterns to provide progressive task management support, backed by natively fast Golang backend infrastructure.'
+        },
+        shortDesc: {
+            id: 'Aplikasi manajemen tugas cerdas dengan adaptif AI dan backend Golang berkinerja tinggi.',
+            en: 'Smart task management app with adaptive AI and high-performance Golang backend.'
+        },
+        tech: ['Flutter', 'Go', 'PostgreSQL', 'Redis', 'Firebase','Google'],
+        category: 'mobile',
+        liveUrl: '',
+        githubUrl: '',
+        featured: true,
+        imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop',
+        images: ['https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop'],
+        status: 'in-progress',
+        role: { id: 'Team Lead & Frontend Developer', en: 'Team Lead & Frontend Developer' },
+        duration: { id: '3 Bulan', en: '3 Month' }
+    },
+    {
+        slug: 'dashboard-kepri',
+        title: 'Dashboard Kepri BPS',
+        description: {
+            id: 'Dashboard ini merupakan website statis yang menyajikan data indikator strategis ekonomi dan pembangunan untuk Provinsi Kepulauan Riau beserta 7 kabupaten/kota-nya. Dibuat untuk keperluan presentasi di Badan Pusat Statistik (BPS) dalam rangka Sensus Ekonomi 2026. Menampilkan 8 indikator utama termasuk Pertumbuhan Ekonomi, IPM, IPG, Pengangguran Terbuka, APS, Kemiskinan, dan Gini Ratio.',
+            en: 'A static dashboard presenting strategic economic and development indicators for the Riau Islands Province and its 7 districts/cities. Built for presentation purposes at Statistics Indonesia (BPS) for the 2026 Economic Census. Displays 8 key indicators including Economic Growth, HDI, GDI, Unemployment Rate, School Participation, Poverty, and Gini Ratio.'
+        },
+        shortDesc: {
+            id: 'Dashboard indikator strategis ekonomi BPS Kepulauan Riau untuk Sensus 2026.',
+            en: 'Strategic economic indicators dashboard for BPS Riau Islands (2026 Census).'
+        },
+        tech: ['HTML5', 'CSS3', 'JavaScript'],
+        category: 'web',
+        liveUrl: 'https://kepri.gurind.am/',
+        githubUrl: 'https://github.com/Cahyadi-Prasetyo/dashboard-map.git',
+        featured: true,
+        imageUrl: '/dashboard-kepri.webp',
+        images: ['/dashboard-kepri.webp'],
+        status: 'shipped',
+        role: { id: 'Full Stack Developer', en: 'Full Stack Developer' },
+        duration: { id: '1 Minggu', en: '1 Week' }
+    },
+    {
+        slug: 'dashboard-tanjak',
+        title: 'Dashboard Tanjak SAKERNAS',
+        description: {
+            id: 'Dasbor interaktif untuk visualisasi data BPS yang terintegrasi langsung dengan Google Looker Studio. Menyediakan visualisasi data yang interaktif dan responsif, dibungkus dengan antarmuka bersih dan modern bergaya glassmorphism. Menampilkan indikator pemuatan dan keamanan iframe sandbox, dikembangkan murni menggunakan HTML/CSS dan JavaScript Vanilla tanpa framework berat.',
+            en: 'An interactive dashboard for BPS data visualization integrated directly with Google Looker Studio. Provides interactive and responsive data visualization wrapped in a clean, modern glassmorphism interface. Features loading indicators and iframe sandbox security, developed purely using HTML/CSS and Vanilla JavaScript without heavy frameworks.'
+        },
+        shortDesc: {
+            id: 'Dasbor visualisasi data BPS yang terintegrasi dengan Google Looker Studio.',
+            en: 'BPS data visualization dashboard integrated with Google Looker Studio.'
+        },
+        tech: ['HTML5', 'CSS3', 'JavaScript', 'Looker Studio', 'PHP'],
+        category: 'web',
+        liveUrl: 'https://tanjak.gurind.am/',
+        githubUrl: 'https://github.com/Cahyadi-Prasetyo/BPS-Tanjak.git',
+        featured: true,
+        imageUrl: '/Tanjak.webp',
+        images: ['/Tanjak.webp'],
+        status: 'shipped',
+        role: { id: 'Data Analyst & Looker Studio Designer', en: 'Data Analyst & Looker Studio Designer' },
+        duration: { id: '2 Bulan', en: '2 Month' }
+    },
+    {
         slug: 'umkm-video-platform',
         title: 'UMKM Video Platform',
         description: {
@@ -39,164 +105,38 @@ export const projects: Project[] = [
             id: 'Platform promosi digital berbasis video pendek (TikTok-style) untuk UMKM.',
             en: 'Digital promotion platform based on short videos (TikTok-style) for MSMEs.'
         },
-        tech: ['SvelteKit', 'Supabase', 'Tailwind CSS', 'Framer Motion'],
+        tech: ['React.js', 'Tailwind CSS','Next.js'],
         category: 'web',
-        liveUrl: '#',
-        githubUrl: '#',
-        featured: true,
-        imageUrl: '/project-umkm.png',
-        images: ['/project-umkm.png', '/project-ecommerce.png', '/project-dashboard.png'],
-        status: 'in-progress',
-        role: { id: 'Full-Stack Developer', en: 'Full-Stack Developer' },
-        duration: { id: '3 Bulan', en: '3 Months' }
-    },
-    {
-        slug: 'e-commerce-platform',
-        title: 'E-Commerce Platform',
-        description: {
-            id: 'Platform e-commerce modern yang dibangun dengan SvelteKit dan PostgreSQL. Dilengkapi fitur keranjang belanja, sistem pembayaran terintegrasi, manajemen produk, dan dashboard admin. Menggunakan autentikasi berbasis JWT dan responsive design untuk pengalaman berbelanja yang optimal di semua perangkat.',
-            en: 'A modern e-commerce platform built with SvelteKit and PostgreSQL. Features shopping cart, integrated payment system, product management, and admin dashboard. Uses JWT-based authentication and responsive design for an optimal shopping experience across all devices.'
-        },
-        shortDesc: {
-            id: 'Platform e-commerce modern dengan fitur keranjang, pembayaran, dan manajemen produk.',
-            en: 'A modern e-commerce platform with cart, payment, and product management features.'
-        },
-        tech: ['SvelteKit', 'TypeScript', 'PostgreSQL', 'Prisma', 'TailwindCSS'],
-        category: 'web',
-        liveUrl: '#',
-        githubUrl: '#',
-        featured: true,
-        imageUrl: '/project-ecommerce.png',
-        images: ['/project-ecommerce.png'],
-        status: 'shipped',
-        role: { id: 'Backend Developer', en: 'Backend Developer' },
-        duration: { id: '4 Bulan', en: '4 Months' }
-    },
-    {
-        slug: 'dashboard-analytics',
-        title: 'Dashboard Analytics',
-        description: {
-            id: 'Dashboard analitik interaktif untuk visualisasi data bisnis secara real-time. Menampilkan grafik dinamis, tabel data yang bisa difilter, dan laporan yang bisa diunduh. Dibangun dengan React dan D3.js untuk memberikan insight bisnis yang mendalam.',
-            en: 'An interactive analytics dashboard for real-time business data visualization. Features dynamic charts, filterable data tables, and downloadable reports. Built with React and D3.js to provide deep business insights.'
-        },
-        shortDesc: {
-            id: 'Dashboard interaktif untuk visualisasi data bisnis secara real-time.',
-            en: 'An interactive dashboard for real-time business data visualization.'
-        },
-        tech: ['React', 'Node.js', 'D3.js', 'Express', 'MongoDB'],
-        category: 'web',
-        liveUrl: '#',
-        githubUrl: '#',
-        featured: true,
-        imageUrl: '/project-dashboard.png',
+        liveUrl: '',
+        githubUrl: '',
+        featured: false,
+        imageUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop',
+        images: ['https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop'],
         status: 'shipped',
         role: { id: 'Frontend Developer', en: 'Frontend Developer' },
-        duration: { id: '2 Bulan', en: '2 Months' }
-    },
-    {
-        slug: 'task-management',
-        title: 'Task Management App',
-        description: {
-            id: 'Aplikasi manajemen tugas kolaboratif dengan fitur real-time sync dan drag & drop. Tim bisa membuat board, menambahkan task, dan melacak progress secara bersamaan. Menggunakan Firebase untuk real-time database dan PWA untuk akses offline.',
-            en: 'A collaborative task management app with real-time sync and drag & drop features. Teams can create boards, add tasks, and track progress simultaneously. Uses Firebase for real-time database and PWA for offline access.'
-        },
-        shortDesc: {
-            id: 'Aplikasi manajemen tugas kolaboratif dengan real-time sync dan drag & drop.',
-            en: 'A collaborative task management app with real-time sync and drag & drop.'
-        },
-        tech: ['Vue.js', 'Firebase', 'Vuetify', 'PWA'],
-        category: 'web',
-        liveUrl: '#',
-        githubUrl: '#',
-        featured: true,
-        imageUrl: '/project-taskmanager.png',
-        status: 'concept',
-        role: { id: 'Lead Developer', en: 'Lead Developer' },
-        duration: { id: '5 Bulan', en: '5 Months' }
-    },
-    {
-        slug: 'fitness-tracker',
-        title: 'Fitness Tracker',
-        description: {
-            id: 'Aplikasi mobile untuk melacak aktivitas fitness dan kesehatan harian. Dilengkapi tracking workout, kalori, dan progress chart. UI yang intuitif dengan animasi smooth.',
-            en: 'A mobile app for tracking daily fitness activities and health. Features workout tracking, calories, and progress charts. Intuitive UI with smooth animations.'
-        },
-        shortDesc: {
-            id: 'Aplikasi mobile untuk tracking aktivitas fitness dan kesehatan.',
-            en: 'A mobile app for tracking fitness activities and health.'
-        },
-        tech: ['React Native', 'TypeScript', 'Redux', 'Firebase'],
-        category: 'mobile',
-        liveUrl: '#',
-        githubUrl: '#',
-        featured: true,
-        imageUrl: '/project-fitness.png',
-        status: 'shipped',
-        role: { id: 'Mobile Developer', en: 'Mobile Developer' },
         duration: { id: '3 Bulan', en: '3 Months' }
-    },
-    {
-        slug: 'recipe-app',
-        title: 'Recipe Finder',
-        description: {
-            id: 'Aplikasi pencarian resep makanan dengan fitur filter berdasarkan bahan, waktu masak, dan kategori. Pengguna bisa menyimpan resep favorit dan membuat rencana makan mingguan.',
-            en: 'A recipe finder app with filter features by ingredients, cooking time, and category. Users can save favorite recipes and create weekly meal plans.'
-        },
-        shortDesc: {
-            id: 'Aplikasi pencarian resep dengan filter bahan dan waktu masak.',
-            en: 'A recipe finder app with ingredient and cooking time filters.'
-        },
-        tech: ['Flutter', 'Dart', 'Supabase', 'REST API'],
-        category: 'mobile',
-        liveUrl: '#',
-        githubUrl: '#',
-        featured: false,
-        imageUrl: '/project-recipe.png',
-        status: 'in-progress',
-        role: { id: 'Full-Stack Developer', en: 'Full-Stack Developer' },
-        duration: { id: '1.5 Bulan', en: '1.5 Months' }
     },
     {
         slug: 'portfolio-website',
         title: 'Portfolio Website',
         description: {
-            id: 'Website portfolio personal yang sedang kamu lihat sekarang! Dibangun dengan SvelteKit dan TypeScript, menampilkan desain clean & minimalist, multi-page routing, dan dukungan bilingual.',
-            en: "The personal portfolio website you're looking at right now! Built with SvelteKit and TypeScript, featuring a clean & minimalist design, multi-page routing, and bilingual support."
+            id: 'Website portfolio personal yang sedang kamu lihat sekarang! Dibangun dengan SvelteKit dan TypeScript, menampilkan desain hyper-minimalist, multi-page routing, dan dukungan bilingual.',
+            en: "The personal portfolio website you're looking at right now! Built with SvelteKit and TypeScript, featuring a hyper-minimalist design, multi-page routing, and bilingual support."
         },
         shortDesc: {
-            id: 'Website portfolio personal dengan desain minimalist dan bilingual.',
-            en: 'A personal portfolio website with minimalist design and bilingual support.'
+            id: 'Website portfolio personal dengan desain hyper-minimalist dan bilingual.',
+            en: 'A personal portfolio website with hyper-minimalist design and bilingual support.'
         },
         tech: ['SvelteKit', 'TypeScript', 'CSS'],
         category: 'web',
-        liveUrl: '#',
-        githubUrl: '#',
-        featured: true,
-        imageUrl: '/project-portfolio.png',
+        liveUrl: '',
+        githubUrl: 'https://github.com/Cahyadi-Prasetyo/portfolio',
+        featured: false,
+        imageUrl: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?q=80&w=800&auto=format&fit=crop',
+        images: ['https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?q=80&w=800&auto=format&fit=crop'],
         status: 'shipped',
-        role: { id: 'UI/UX Designer & Developer', en: 'UI/UX Designer & Developer' },
+        role: { id: 'Full-Stack Developer', en: 'Full-Stack Developer' },
         duration: { id: '1 Bulan', en: '1 Month' }
-    },
-    {
-        slug: 'ai-chatbot-assistant',
-        title: 'AI Chatbot Assistant',
-        description: {
-            id: 'Asisten chatbot berbasis AI yang menggunakan model bahasa besar untuk menjawab pertanyaan pengguna secara kontekstual. Dilengkapi dengan antarmuka percakapan yang intuitif, riwayat chat, dan kemampuan multi-turn conversation.',
-            en: 'An AI-powered chatbot assistant using large language models to answer user questions contextually. Features an intuitive conversational interface, chat history, and multi-turn conversation capabilities.'
-        },
-        shortDesc: {
-            id: 'Asisten chatbot AI dengan antarmuka percakapan intuitif.',
-            en: 'AI chatbot assistant with an intuitive conversational interface.'
-        },
-        tech: ['Python', 'LangChain', 'React', 'FastAPI'],
-        category: 'ai',
-        liveUrl: '#',
-        githubUrl: '#',
-        featured: true,
-        imageUrl: '/project-ai-chatbot.png',
-        status: 'concept',
-        role: { id: 'AI Engineer', en: 'AI Engineer' },
-        duration: { id: '2.5 Bulan', en: '2.5 Months' }
     }
 ];
 

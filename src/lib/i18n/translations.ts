@@ -70,7 +70,7 @@ export const translations: Record<Language, any> = {
                     period: 'Februari 2026 – Juli 2026',
                     role: 'Asisten Praktikum Jaringan Komputer',
                     company: 'Universitas Maritim Raja Ali Haji (UMRAH)',
-                    logo: '/logo_umrah.png',
+                    logo: '/logo_umrah.webp',
                     points: [
                         'Berkontribusi dalam program instruksional akademik untuk mendukung pemahaman mahasiswa pada mata kuliah Jaringan Komputer dengan standar kurikulum teknik informatika.',
                         'Merancang dan mensimulasikan arsitektur jaringan kompleks (VLAN, Static/Dynamic Routing, Subnetting) menggunakan Cisco Packet Tracer sebagai media pembelajaran interaktif.',
@@ -83,7 +83,7 @@ export const translations: Record<Language, any> = {
                     period: 'Januari 2026 – Maret 2026',
                     role: 'IT Web Developer & Data Analyst (Internship)',
                     company: 'BPS Provinsi Kepulauan Riau',
-                    logo: '/logo_bps.png',
+                    logo: '/logo_bps.webp',
                     points: [
                         'Mendigitalisasi distribusi data statistik regional dengan merekayasa antarmuka (React/Vue.js) platform Gurindam & Tanjak, memastikan navigasi data kompleks menjadi intuitif bagi masyarakat luas.',
                         'Mengintegrasikan visualisasi analitik Looker Studio menggunakan PHP, memberdayakan pimpinan BPS Kepri untuk mengambil keputusan secara real-time dan berbasis data.',
@@ -97,7 +97,7 @@ export const translations: Record<Language, any> = {
                     period: 'November 2025 – Januari 2026',
                     role: 'Frontend Developer',
                     company: 'Tim PKM Dosen UMRAH',
-                    logo: '/logo_umrah.png',
+                    logo: '/logo_umrah.webp',
                     points: [
                         'Merancang antarmuka inovatif bergaya interaksi video (TikTok-style) dengan React.js untuk mendongkrak visibilitas produk UMKM lokal.',
                         'Meningkatkan retensi pengguna (user engagement) melalui implementasi transisi video yang mulus berlandaskan prinsip User-Centric Design.',
@@ -110,7 +110,7 @@ export const translations: Record<Language, any> = {
                     period: '2024 – Sekarang',
                     role: 'Data Analyst & Administrator',
                     company: 'Posyandu Terintegrasi',
-                    logo: '/logo_posyandu.png',
+                    logo: '/logo_posyandu.webp',
                     points: [
                         'Mengelola ekosistem data operasional secara profesional untuk memastikan keakuratan pelaporan administrasi kesehatan masyarakat.',
                         'Melakukan analisis data rutin dan pembersihan data (data cleaning) untuk meminimalisir anomali pada laporan operasional bulanan.',
@@ -122,7 +122,7 @@ export const translations: Record<Language, any> = {
                     period: 'Januari 2022 – Juni 2022',
                     role: 'IT Support (Internship)',
                     company: 'PT. Pelindo (Persero) Regional 1 Tanjungpinang',
-                    logo: '/logo_pelindo.png',
+                    logo: '/logo_pelindo.webp',
                     points: [
                         'Menjalankan fungsi dukungan teknis di lingkungan Badan Usaha Milik Negara (BUMN) untuk mendukung produktivitas operasional perusahaan.',
                         'Melakukan pemeliharaan rutin pada perangkat keras dan perangkat lunak serta memastikan stabilitas konektivitas jaringan lokal (LAN).',
@@ -136,14 +136,14 @@ export const translations: Record<Language, any> = {
                     period: '2023 – Sekarang',
                     degree: 'S1 Teknik Informatika',
                     school: 'Universitas Maritim Raja Ali Haji',
-                    logo: '/logo_umrah.png',
+                    logo: '/logo_umrah.webp',
                     desc: 'Fokus pada pengembangan perangkat lunak dan data analytics. IPK Saat Ini: 3.43'
                 },
                 {
                     period: '2020 – 2023',
                     degree: 'Rekayasa Perangkat Lunak',
                     school: 'SMKN 1 Bintan Timur',
-                    logo: '/logo_smk.jpg',
+                    logo: '/logo_smk.webp',
                     desc: 'Mempelajari dasar pemrograman, basis data, dan pengembangan aplikasi. Nilai Rata-rata: 88.18'
                 }
             ]
@@ -155,7 +155,10 @@ export const translations: Record<Language, any> = {
             filterAll: 'Semua',
             filterWeb: 'Website',
             filterMobile: 'Mobile',
-            filterAI: 'AI'
+            filterAI: 'AI',
+            liveDemo: 'Lihat Demo',
+            sourceCode: 'Source Code',
+            backToProjects: 'Kembali ke Proyek'
         },
         featured: {
             label: 'Proyek Pilihan',
@@ -266,7 +269,7 @@ export const translations: Record<Language, any> = {
                     period: 'Feb 2026 – Jul 2026',
                     role: 'Computer Network Lab Assistant',
                     company: 'Universitas Maritim Raja Ali Haji (UMRAH)',
-                    logo: '/logo_umrah.png',
+                    logo: '/logo_umrah.webp',
                     desc: 'Guiding students through applied computer networking concepts.',
                     highlights: [
                         {
@@ -283,7 +286,7 @@ export const translations: Record<Language, any> = {
                     period: 'Jan 2026 – Mar 2026',
                     role: 'IT Web Developer & Data Analyst (Internship)',
                     company: 'BPS Kepulauan Riau Province',
-                    logo: '/logo_bps.png',
+                    logo: '/logo_bps.webp',
                     desc: 'Built regional statistical data platform and internal analytics dashboards.',
                     highlights: [
                         {
@@ -308,7 +311,7 @@ export const translations: Record<Language, any> = {
                     period: 'Nov 2025 – Jan 2026',
                     role: 'Frontend Developer',
                     company: 'PKM Dosen Team, UMRAH',
-                    logo: '/logo_umrah.png',
+                    logo: '/logo_umrah.webp',
                     desc: 'Built MSME promotion platform with video-based interface.',
                     highlights: [
                         {
@@ -321,7 +324,7 @@ export const translations: Record<Language, any> = {
                     period: '2024 – Present',
                     role: 'Data Analyst & Administrator',
                     company: 'Posyandu Terintegrasi',
-                    logo: '/logo-posyandu.png',
+                    logo: '/logo_posyandu.webp',
                     desc: 'Managing public health data systems.',
                     highlights: [
                         {
@@ -334,7 +337,7 @@ export const translations: Record<Language, any> = {
                     period: 'Jan 2022 – Jun 2022',
                     role: 'IT Support (Internship)',
                     company: 'PT. Pelindo (Persero) Regional 1 Tanjungpinang',
-                    logo: '/logo_pelindo.png',
+                    logo: '/logo_pelindo.webp',
                     desc: 'IT technical support in state-owned enterprise.',
                     highlights: [
                         {
@@ -349,14 +352,14 @@ export const translations: Record<Language, any> = {
                     period: '2023 – Present',
                     degree: 'Bachelor of Computer Science',
                     school: 'Universitas Maritim Raja Ali Haji',
-                    logo: '/logo_umrah.png',
+                    logo: '/logo_umrah.webp',
                     desc: 'Focusing on software engineering and data analytics. Current GPA: 3.43'
                 },
                 {
                     period: '2019 – 2022',
                     degree: 'Software Engineering',
                     school: 'SMKN 1 Bintan Timur',
-                    logo: '/logo_smk.jpg',
+                    logo: '/logo_smk.webp',
                     desc: 'Studied programming fundamentals, databases, and application development.'
                 }
             ]
@@ -368,7 +371,10 @@ export const translations: Record<Language, any> = {
             filterAll: 'All',
             filterWeb: 'Website',
             filterMobile: 'Mobile',
-            filterAI: 'AI'
+            filterAI: 'AI',
+            liveDemo: 'Live Demo',
+            sourceCode: 'Source Code',
+            backToProjects: 'Back to Projects'
         },
         featured: {
             label: 'Selected Work',

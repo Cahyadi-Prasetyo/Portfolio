@@ -111,12 +111,13 @@
     .carousel-container {
         position: relative;
         width: 100%;
-        aspect-ratio: 16 / 9;
-        max-height: 60vh;
         border-radius: var(--radius-lg);
         overflow: hidden;
         background: var(--color-canvas-soft-2);
         box-shadow: var(--shadow-level-2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .carousel-container::after {
@@ -138,13 +139,13 @@
     .carousel-slide {
         flex: 0 0 100%;
         width: 100%;
-        height: 100%;
+        height: auto;
     }
 
     .carousel-slide img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
+        display: block;
     }
 
     /* Navigation Buttons */
