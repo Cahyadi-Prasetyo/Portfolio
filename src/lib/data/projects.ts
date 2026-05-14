@@ -29,11 +29,11 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        slug: 'smartask',
-        title: 'SmarTask',
+        slug: 'smart-task',
+        title: 'Smart Task',
         description: {
-            id: 'SMARTASK adalah aplikasi mobile berbasis Android yang dirancang untuk membantu mahasiswa mengelola tugas akademik secara lebih efektif. Aplikasi ini dikembangkan sebagai bagian dari Tugas Akhir dengan fokus yang berat pada implementasi kinerja tinggi (High-Performance Engineering). Berbeda dengan aplikasi to-do list konvensional, SMARTASK mengimplementasikan kecerdasan adaptif yang mampu menganalisis pola perilaku pengguna untuk memberikan dukungan pengelolaan tugas yang lebih progresif, didukung oleh infrastruktur backend Golang yang sangat cepat secara native.',
-            en: 'SMARTASK is an Android-based mobile application designed to help students manage academic tasks more effectively. Developed as a final year project with a heavy focus on High-Performance Engineering. Unlike conventional to-do list apps, SMARTASK implements adaptive intelligence that analyzes user behavior patterns to provide progressive task management support, backed by natively fast Golang backend infrastructure.'
+            id: 'SMART-TASK adalah aplikasi mobile berbasis Android yang dirancang untuk membantu mahasiswa mengelola tugas akademik secara lebih efektif. Aplikasi ini dikembangkan sebagai bagian dari Tugas Akhir dengan fokus yang berat pada implementasi kinerja tinggi (High-Performance Engineering). Berbeda dengan aplikasi to-do list konvensional, SMART-TASK mengimplementasikan kecerdasan adaptif yang mampu menganalisis pola perilaku pengguna untuk memberikan dukungan pengelolaan tugas yang lebih progresif, didukung oleh infrastruktur backend Golang yang sangat cepat secara native.',
+            en: 'SMART-TASK is an Android-based mobile application designed to help students manage academic tasks more effectively. Developed as a final year project with a heavy focus on High-Performance Engineering. Unlike conventional to-do list apps, SMART-TASK implements adaptive intelligence that analyzes user behavior patterns to provide progressive task management support, backed by natively fast Golang backend infrastructure.'
         },
         shortDesc: {
             id: 'Aplikasi manajemen tugas cerdas dengan adaptif AI dan backend Golang berkinerja tinggi.',
@@ -105,39 +105,18 @@ export const projects: Project[] = [
             id: 'Platform promosi digital berbasis video pendek (TikTok-style) untuk UMKM.',
             en: 'Digital promotion platform based on short videos (TikTok-style) for MSMEs.'
         },
-        tech: ['React.js', 'Tailwind CSS','Next.js'],
+        tech: ['React.js', 'Tailwind CSS','Laravel','MySQL'],
         category: 'web',
         liveUrl: '',
-        githubUrl: '',
-        featured: false,
-        imageUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop',
-        images: ['https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop'],
+        githubUrl: 'https://github.com/aidilbaihaqi/pkm-project.git',
+        featured: true,
+        imageUrl: '/umkm.webp',
+        images: ['/umkm.webp'],
         status: 'shipped',
         role: { id: 'Frontend Developer', en: 'Frontend Developer' },
         duration: { id: '3 Bulan', en: '3 Months' }
     },
-    {
-        slug: 'portfolio-website',
-        title: 'Portfolio Website',
-        description: {
-            id: 'Website portfolio personal yang sedang kamu lihat sekarang! Dibangun dengan SvelteKit dan TypeScript, menampilkan desain hyper-minimalist, multi-page routing, dan dukungan bilingual.',
-            en: "The personal portfolio website you're looking at right now! Built with SvelteKit and TypeScript, featuring a hyper-minimalist design, multi-page routing, and bilingual support."
-        },
-        shortDesc: {
-            id: 'Website portfolio personal dengan desain hyper-minimalist dan bilingual.',
-            en: 'A personal portfolio website with hyper-minimalist design and bilingual support.'
-        },
-        tech: ['SvelteKit', 'TypeScript', 'CSS'],
-        category: 'web',
-        liveUrl: '',
-        githubUrl: 'https://github.com/Cahyadi-Prasetyo/portfolio',
-        featured: false,
-        imageUrl: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?q=80&w=800&auto=format&fit=crop',
-        images: ['https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?q=80&w=800&auto=format&fit=crop'],
-        status: 'shipped',
-        role: { id: 'Full-Stack Developer', en: 'Full-Stack Developer' },
-        duration: { id: '1 Bulan', en: '1 Month' }
-    }
+    
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
