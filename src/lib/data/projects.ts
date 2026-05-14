@@ -10,7 +10,7 @@ export interface Project {
         en: string;
     };
     tech: string[];
-    category: 'web' | 'mobile' | 'ai';
+    category: 'web' | 'mobile' | 'ai' | 'game';
     liveUrl?: string;
     githubUrl?: string;
     featured: boolean;
@@ -44,8 +44,8 @@ export const projects: Project[] = [
         liveUrl: '',
         githubUrl: '',
         featured: true,
-        imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop',
-        images: ['https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop'],
+        imageUrl: '/smart-task.webp',
+        images: ['/smart-task.webp'],
         status: 'in-progress',
         role: { id: 'Team Lead & Frontend Developer', en: 'Team Lead & Frontend Developer' },
         duration: { id: '3 Bulan', en: '3 Month' }
@@ -70,7 +70,7 @@ export const projects: Project[] = [
         images: ['/dashboard-kepri.webp'],
         status: 'shipped',
         role: { id: 'Full Stack Developer', en: 'Full Stack Developer' },
-        duration: { id: '1 Minggu', en: '1 Week' }
+        duration: { id: '1 Minggu', en: '1 Weeks' }
     },
     {
         slug: 'dashboard-tanjak',
@@ -116,7 +116,50 @@ export const projects: Project[] = [
         role: { id: 'Frontend Developer', en: 'Frontend Developer' },
         duration: { id: '3 Bulan', en: '3 Months' }
     },
-    
+    {
+        slug: 'aero-price-monitoring',
+        title: 'Aero Price Monitoring Platform',
+        description: {
+            id: 'Platform pemantauan harga tiket pesawat berbasis rute tetap, time-series, dan data historis untuk analisis tren harga, evaluasi strategi pembelian, serta kebutuhan monitoring harga menjelang periode tertentu (mis. Hari Raya).\n\nPlatform ini melakukan scraping harga tiket terjadwal maupun manual, menyimpan histori harga harian, dan menyajikan data dalam dashboard web serta spreadsheet terstruktur.',
+            en: 'A flight ticket price monitoring platform based on fixed routes, time-series, and historical data for price trend analysis, purchasing strategy evaluation, and price monitoring needs approaching specific periods (e.g., holidays).\n\nThe platform performs scheduled and manual ticket price scraping, stores daily price history, and presents data in a web dashboard and structured spreadsheets.'
+        },
+        shortDesc: {
+            id: 'Platform pemantauan harga tiket pesawat berbasis rute tetap, time-series, dan data historis.',
+            en: 'Flight ticket price monitoring platform based on fixed routes, time-series, and historical data.'
+        },
+        tech: ['React.js', 'Vite', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Docker'],
+        category: 'web',
+        liveUrl: '',
+        githubUrl: 'https://github.com/aidilbaihaqi/Aero.git',
+        featured: true,
+        imageUrl: '/aero.webp',
+        images: ['/aero.webp'],
+        status: 'shipped',
+        role: { id: 'Frontend Developer', en: 'Frontend Developer' },
+        duration: { id: '3 Bulan', en: '3 Months' }
+    },
+    {
+        slug: 'courier-game',
+        title: 'Simple Courier Game',
+        description: {
+            id: 'Sebuah game kurir sederhana yang dikembangkan menggunakan bahasa C dan library grafis Raylib. Pemain bertugas mengantarkan paket dengan menavigasi rintangan dasar, dirancang khusus untuk mempraktikkan pemahaman logika algoritma dan struktur data secara interaktif.',
+            en: 'A simple courier game developed using C and the Raylib graphics library. Players are tasked with delivering packages by navigating through basic obstacles, specifically designed to interactively practice algorithmic logic and data structures.'
+        },
+        shortDesc: {
+            id: 'Game kurir sederhana yang dibangun menggunakan bahasa C dan Raylib.',
+            en: 'A simple courier game built using C and Raylib.'
+        },
+        tech: ['C', 'Raylib'],
+        category: 'game',
+        liveUrl: '',
+        githubUrl: 'https://github.com/rajaaizin123/PAA-project-game.git',
+        featured: true,
+        imageUrl: '/game.webp',
+        images: ['/game.webp'],
+        status: 'shipped',
+        role: { id: 'Game Developer', en: 'Game Developer' },
+        duration: { id: '2 Minggu', en: '2 Weeks' }
+    }
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
@@ -127,7 +170,7 @@ export function getFeaturedProjects(): Project[] {
     return projects.filter((p) => p.featured);
 }
 
-export function getProjectsByCategory(category: 'all' | 'web' | 'mobile' | 'ai'): Project[] {
+export function getProjectsByCategory(category: 'all' | 'web' | 'mobile' | 'ai' | 'game'): Project[] {
     if (category === 'all') return projects;
     return projects.filter((p) => p.category === category);
 }

@@ -13,7 +13,9 @@ export const translations: Record<Language, any> = {
             value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
             bio: 'Seorang Full-Stack Developer yang memadukan latar belakang akademis dengan pengalaman nyata di industri sejak 2022. Mulai dari merancang platform data strategis untuk BPS hingga mengoptimalkan infrastruktur IT korporasi di Pelindo, saya berfokus menciptakan solusi teknologi yang efisien dan berdampak.',
             cta: 'Lihat Hasil Kerja Saya',
-            ctaSecondary: 'Hubungi Saya'
+            ctaSecondary: 'Hubungi Saya',
+            cvAts: 'Download CV ATS',
+            cvVisual: 'Download CV Visual'
         },
         trust: {
             label: 'Dipercaya oleh',
@@ -156,6 +158,7 @@ export const translations: Record<Language, any> = {
             filterWeb: 'Website',
             filterMobile: 'Mobile',
             filterAI: 'AI',
+            filterGame: 'Game',
             liveDemo: 'Lihat Demo',
             sourceCode: 'Source Code',
             backToProjects: 'Kembali ke Proyek'
@@ -212,7 +215,9 @@ export const translations: Record<Language, any> = {
             value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
             bio: "A Full-Stack Developer blending an academic background with real-world industry experience since 2022. From engineering strategic data platforms for BPS to optimizing corporate IT infrastructure at Pelindo, my focus is on delivering efficient and impactful technological solutions.",
             cta: 'See My Work',
-            ctaSecondary: 'Contact Me'
+            ctaSecondary: 'Contact Me',
+            cvAts: 'Download ATS CV',
+            cvVisual: 'Download Visual CV'
         },
         trust: {
             label: 'Trusted by',
@@ -372,6 +377,7 @@ export const translations: Record<Language, any> = {
             filterWeb: 'Website',
             filterMobile: 'Mobile',
             filterAI: 'AI',
+            filterGame: 'Game',
             liveDemo: 'Live Demo',
             sourceCode: 'Source Code',
             backToProjects: 'Back to Projects'

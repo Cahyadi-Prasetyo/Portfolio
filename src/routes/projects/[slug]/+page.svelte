@@ -24,7 +24,7 @@
 
             <div class="project-header reveal">
                 <span class="project-eyebrow">
-                    {project.category === "web" ? "Web App" : project.category === "mobile" ? "Mobile App" : "AI Project"}
+                    {project.category === "web" ? "Web App" : project.category === "mobile" ? "Mobile App" : project.category === "game" ? "Game Project" : "AI Project"}
                 </span>
                 <h1 class="project-title text-gradient">{project.title}</h1>
             </div>
@@ -177,6 +177,8 @@
         font-size: var(--body-lg);
         line-height: 28px;
         color: var(--color-body);
+        text-align: justify;
+        white-space: pre-line;
     }
 
     .detail-sidebar {

@@ -6,7 +6,7 @@
     const t = $derived(getTranslations());
     const currentLang = $derived(getCurrentLang());
 
-    let activeFilter = $state<"all" | "web" | "mobile" | "ai">("all");
+    let activeFilter = $state<"all" | "web" | "mobile" | "ai" | "game">("all");
     let viewMode = $state<"list" | "kanban">("kanban");
     let filteredProjects = $derived(getProjectsByCategory(activeFilter));
 
@@ -21,7 +21,7 @@
         localStorage.setItem('portfolio-view-mode', viewMode);
     });
 
-    function setFilter(filter: "all" | "web" | "mobile" | "ai") {
+    function setFilter(filter: "all" | "web" | "mobile" | "ai" | "game") {
         activeFilter = filter;
     }
 </script>
@@ -62,6 +62,9 @@
             </button>
             <button class="filter-tab" class:active={activeFilter === "ai"} onclick={() => setFilter("ai")}>
                 {t.projects.filterAI}
+            </button>
+            <button class="filter-tab" class:active={activeFilter === "game"} onclick={() => setFilter("game")}>
+                {t.projects.filterGame}
             </button>
         </div>
 
@@ -110,7 +113,7 @@
                             </div>
                             <div class="k-card-body">
                                 <div class="k-card-meta">
-                                    <span class="k-cat">{project.category === 'web' ? 'Web App' : project.category === 'mobile' ? 'Mobile App' : 'AI Project'}</span>
+                                    <span class="k-cat">{project.category === 'web' ? 'Web App' : project.category === 'mobile' ? 'Mobile App' : project.category === 'game' ? 'Game' : 'AI Project'}</span>
                                     <span class="k-role">{currentLang === 'id' ? project.role.id : project.role.en}</span>
                                 </div>
                                 <h4 class="k-title">{project.title}</h4>
@@ -133,6 +136,13 @@
                 </div>
             {/if}
         {/if}
+
+        <div class="more-projects-wrapper reveal delay-2">
+            <a href="https://github.com/Cahyadi-Prasetyo" target="_blank" rel="noopener noreferrer" class="btn btn-outline more-btn">
+                {currentLang === 'id' ? 'Lihat Proyek Lainnya' : 'See More Projects'}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.15-.38 6.47-1.4 6.47-7.05 0-1.5-.5-2.75-1.4-3.7.1-.2.6-1.7-.1-3.6 0 0-1.2-.4-3.9 1.4a13.3 13.3 0 0 0-7 0c-2.7-1.8-3.9-1.4-3.9-1.4-.7 1.9-.2 3.4-.1 3.6-.9.9-1.4 2.2-1.4 3.7 0 5.65 3.32 6.67 6.47 7.05a4.8 4.8 0 0 0-1 3.03V22"/><path d="M9 20c-5 1.5-5-2.5-7-3"/></svg>
+            </a>
+        </div>
     </div>
 </div>
 
@@ -554,6 +564,30 @@
         padding: var(--space-5xl) 0;
         color: var(--color-mute);
         font-size: var(--body-md);
+    }
+
+    .more-projects-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: var(--space-4xl);
+        padding-top: var(--space-4xl);
+        border-top: 1px dashed var(--color-hairline);
+    }
+    
+    .more-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-sm) var(--space-xl);
+        font-size: var(--body-md);
+        border-radius: var(--radius-pill);
+        transition: all var(--transition-base);
+        font-weight: 500;
+    }
+
+    .more-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     @media (max-width: 960px) {
