@@ -127,7 +127,7 @@ export const projects: Project[] = [
             id: 'Platform pemantauan harga tiket pesawat berbasis rute tetap, time-series, dan data historis.',
             en: 'Flight ticket price monitoring platform based on fixed routes, time-series, and historical data.'
         },
-        tech: ['React.js', 'Vite', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Docker'],
+        tech: ['Next.js', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Docker'],
         category: 'web',
         liveUrl: '',
         githubUrl: 'https://github.com/aidilbaihaqi/Aero.git',

@@ -13,8 +13,18 @@ export interface Experience {
     highlights: ExperienceHighlight[];
 }
 
+const LANG_KEY = 'portfolio-lang';
+
 // Svelte 5 runes-based reactive state
 let lang = $state<Language>('id');
+
+export function initLang() {
+    if (typeof window === 'undefined') return;
+    const saved = localStorage.getItem(LANG_KEY);
+    if (saved === 'id' || saved === 'en') {
+        lang = saved;
+    }
+}
 
 export function getCurrentLang(): Language {
     return lang;
@@ -22,10 +32,13 @@ export function getCurrentLang(): Language {
 
 export function setLang(newLang: Language) {
     lang = newLang;
+    if (typeof window !== 'undefined') {
+        localStorage.setItem(LANG_KEY, newLang);
+    }
 }
 
 export function toggleLanguage() {
-    lang = lang === 'id' ? 'en' : 'id';
+    setLang(lang === 'id' ? 'en' : 'id');
 }
 
 export function getTranslations() {

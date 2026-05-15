@@ -1,12 +1,20 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import { page } from "$app/stores";
-    import { getTranslations, getCurrentLang, toggleLanguage } from "$lib/i18n/index.svelte";
+    import { getTranslations, getCurrentLang, toggleLanguage, initLang } from "$lib/i18n/index.svelte";
+    import { getTheme, toggleTheme, initTheme } from "$lib/theme.svelte";
 
     const t = $derived(getTranslations());
     const currentLang = $derived(getCurrentLang());
+    const currentTheme = $derived(getTheme());
 
     let scrolled = $state(false);
     let mobileOpen = $state(false);
+
+    onMount(() => {
+        initLang();
+        initTheme();
+    });
 
     function handleScroll() {
         scrolled = window.scrollY > 20;
@@ -38,9 +46,16 @@
         </div>
 
         <div class="nav-right">
-            <!-- <a href="/contact" class="nav-cta">
-                {t.nav.contact}
-            </a> -->
+            <button class="nav-icon-btn" onclick={toggleTheme} aria-label="Toggle theme">
+                {#if currentTheme === 'dark'}
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                {:else}
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                {/if}
+            </button>
+            <button class="nav-lang-btn" onclick={toggleLanguage}>
+                {currentLang.toUpperCase()}
+            </button>
         </div>
 
         <!-- Mobile hamburger -->
@@ -60,6 +75,18 @@
                     {link.label}
                 </a>
             {/each}
+            
+            <div class="mobile-toggles">
+                <button class="mobile-link toggle-btn" onclick={toggleTheme}>
+                    <span>Theme</span>
+                    <span>{currentTheme === 'dark' ? 'Dark' : 'Light'}</span>
+                </button>
+                <button class="mobile-link toggle-btn" onclick={toggleLanguage}>
+                    <span>Language</span>
+                    <span>{currentLang.toUpperCase()}</span>
+                </button>
+            </div>
+            
             <a href="/contact" class="btn btn-primary mobile-cta" onclick={() => mobileOpen = false}>
                 {t.nav.contact}
             </a>
@@ -77,10 +104,10 @@
         height: var(--nav-height);
         display: flex;
         align-items: center;
-        background: rgba(250, 250, 250, 0.8);
+        background: var(--color-nav-bg);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        transition: border-color var(--transition-base);
+        transition: border-color var(--transition-base), background var(--transition-base);
         border-bottom: 1px solid transparent;
     }
 
@@ -255,5 +282,56 @@
         .mobile-toggle {
             display: block;
         }
+    }
+
+    /* Toggles Styles */
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+    }
+
+    .nav-icon-btn, .nav-lang-btn {
+        background: transparent;
+        border: none;
+        color: var(--color-mute);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 32px;
+        min-width: 32px;
+        border-radius: var(--radius-sm);
+        transition: color var(--transition-fast), background var(--transition-fast);
+        cursor: pointer;
+    }
+
+    .nav-lang-btn {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 0 var(--space-xs);
+    }
+
+    .nav-icon-btn:hover, .nav-lang-btn:hover {
+        color: var(--color-ink);
+        background: var(--color-canvas-soft-2);
+    }
+
+    .mobile-toggles {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid var(--color-hairline);
+        margin-top: var(--space-md);
+        padding-top: var(--space-md);
+    }
+
+    .toggle-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background: transparent;
+        border: none;
+        cursor: pointer;
     }
 </style>

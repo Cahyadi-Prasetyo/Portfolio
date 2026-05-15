@@ -17,12 +17,12 @@
         </div>
     </div>
 </section>
-
 <style>
     /* Showcase-band-dark: polarity-flipped to ink primary */
     .cta-band {
         background: var(--color-ink);
         padding: var(--space-5xl) 0;
+        border-top: 1px solid var(--color-hairline);
     }
 
     .cta-inner {
@@ -37,7 +37,8 @@
         font-size: var(--caption);
         font-weight: 400;
         line-height: 16px;
-        color: var(--color-mute);
+        color: var(--color-canvas);
+        opacity: 0.7;
         margin-bottom: var(--space-lg);
     }
 
@@ -46,20 +47,21 @@
         font-weight: 600;
         line-height: 40px;
         letter-spacing: -1.28px;
-        color: var(--color-on-primary);
+        color: var(--color-canvas);
         margin-bottom: var(--space-sm);
     }
 
     .cta-desc {
         font-size: var(--body-md);
         font-weight: 400;
-        color: var(--color-mute);
+        color: var(--color-canvas);
+        opacity: 0.8;
         line-height: 24px;
         margin-bottom: var(--space-xl);
         max-width: 480px;
     }
 
-    /* CTA button — button-secondary (white pill on dark band) */
+    /* CTA button — inverted pill */
     .cta-button {
         display: inline-flex;
         align-items: center;
@@ -70,16 +72,18 @@
         font-weight: 500;
         line-height: 24px;
         height: 40px;
-        padding: 0 var(--space-sm);
+        padding: 0 var(--space-lg);
         background: var(--color-canvas);
         color: var(--color-ink);
         border: none;
         border-radius: var(--radius-pill);
         text-decoration: none;
-        transition: background var(--transition-fast);
+        transition: transform var(--transition-fast), background var(--transition-fast);
     }
 
     .cta-button:hover {
-        background: var(--color-canvas-soft-2);
+        background: var(--color-canvas);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-level-2);
     }
 </style>
