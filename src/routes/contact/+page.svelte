@@ -115,11 +115,11 @@
                                 GitHub
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
                             </a>
-                            <a href="https://linkedin.com/" target="_blank" rel="noopener">
+                            <a href="https://www.linkedin.com/in/cahyadiprasetyo/" target="_blank" rel="noopener">
                                 LinkedIn
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
                             </a>
-                            <a href="https://instagram.com/" target="_blank" rel="noopener">
+                            <a href="https://instagram.com/cahyadi_p24" target="_blank" rel="noopener">
                                 Instagram
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
                             </a>
@@ -128,7 +128,7 @@
                     <hr class="aside-divider" />
                     <div class="aside-block">
                         <span class="aside-label">Location</span>
-                        <p class="aside-text">Tanjungpinang, Kepulauan Riau</p>
+                        <p class="aside-text">Kijang Kota, Kepulauan Riau</p>
                     </div>
                 </div>
             </div>

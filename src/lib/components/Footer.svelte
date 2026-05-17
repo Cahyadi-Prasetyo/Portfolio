@@ -14,8 +14,8 @@
                 <div class="footer-column">
                     <span class="footer-column-label">Social</span>
                     <a href="https://github.com/Cahyadi-Prasetyo" target="_blank" rel="noopener">GitHub</a>
-                    <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.linkedin.com/in/cahyadiprasetyo/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://instagram.com/cahyadi_p24" target="_blank" rel="noopener">Instagram</a>
                 </div>
                 <div class="footer-column">
                     <span class="footer-column-label">Pages</span>
