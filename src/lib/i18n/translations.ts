@@ -253,7 +253,7 @@ export const translations: Record<Language, any> = {
                 },
                 devops: {
                     label: 'DevOps',
-                    items: ['Docker', 'Nginx', 'Linux Server']
+                    items: ['Docker', 'Nginx']
                 },
                 design: {
                     label: 'Design Tools',
