@@ -14,8 +14,7 @@ export const translations: Record<Language, any> = {
             bio: 'Seorang Full-Stack Developer yang memadukan latar belakang akademis dengan pengalaman nyata di industri sejak 2022. Mulai dari merancang platform data strategis untuk BPS hingga mengoptimalkan infrastruktur IT korporasi di Pelindo, saya berfokus menciptakan solusi teknologi yang efisien dan berdampak.',
             cta: 'Lihat Hasil Kerja Saya',
             ctaSecondary: 'Hubungi Saya',
-            cvAts: 'Download CV ATS',
-            cvVisual: 'Download CV Visual'
+            cvVisual: 'Download CV'
         },
         trust: {
             label: 'Dipercaya oleh',

@@ -90,19 +90,15 @@
                     <a href="/contact" class="btn btn-outline"
                         >{t.hero.ctaSecondary}</a
                     >
-                    <a href="/cv-ats.pdf" download="CV-ATS-Cahyadi-Prasetyo.pdf" class="btn btn-outline" title={t.hero.cvAts}>
+                    <a href="/cv-visual.pdf" download="CV-Cahyadi-Prasetyo.pdf" class="btn btn-outline" title={t.hero.cvVisual}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        CV ATS
-                    </a>
-                    <a href="/cv-visual.pdf" download="CV-Visual-Cahyadi-Prasetyo.pdf" class="btn btn-outline" title={t.hero.cvVisual}>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        CV Visual
+                        Download CV
                     </a>
                 </div>
             </div>
 
             <div class="hero-photo reveal delay-1">
-                <img src="/my-self.webp" alt="Cahyadi Prasetyo" />
+                <img src="/my.webp" alt="Cahyadi Prasetyo" />
             </div>
         </div>
     </div>
@@ -311,6 +307,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: 30% 25%;
     }
 
     /* Trust bar */

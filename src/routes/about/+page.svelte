@@ -24,7 +24,7 @@
             <h1 class="page-title text-gradient">{t.about.title}</h1>
             <div class="bio-layout">
                 <div class="bio-photo-wrap">
-                    <img src="/my-self.webp" alt="Cahyadi Prasetyo" class="bio-photo" />
+                    <img src="/my.webp" alt="Cahyadi Prasetyo" class="bio-photo" />
                 </div>
                 <div class="bio-text">
                     {#each t.about.bio.split("\n\n") as paragraph}
@@ -160,6 +160,7 @@
         width: 180px;
         height: 220px;
         object-fit: cover;
+        object-position: 30% 25%;
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-level-2);
     }
