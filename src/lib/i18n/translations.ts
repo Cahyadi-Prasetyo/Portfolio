@@ -36,6 +36,7 @@ export const translations: Record<Language, any> = {
             techStackLabel: 'Tech Stack',
             titleExp: 'Pengalaman',
             titleEdu: 'Pendidikan',
+            titleCert: 'Sertifikasi',
             techStack: {
                 frontend: {
                     label: 'Frontend',
@@ -146,6 +147,22 @@ export const translations: Record<Language, any> = {
                     school: 'SMKN 1 Bintan Timur',
                     logo: '/logo_smk.webp',
                     desc: 'Mempelajari dasar pemrograman, basis data, dan pengembangan aplikasi. Nilai Rata-rata: 88.18'
+                }
+            ],
+            certifications: [
+                {
+                    year: '2023',
+                    title: 'Sertifikat Kompetensi',
+                    issuer: 'Lembaga Sertifikasi',
+                    logo: '/Sertifikat-Kompetensi.webp',
+                    desc: 'Sertifikat kompetensi keahlian.'
+                },
+                {
+                    year: '2022',
+                    title: 'Sertifikat Praktik Kerja Lapangan',
+                    issuer: 'Instansi PKL',
+                    logo: '/Sertifikat-PKL.webp',
+                    desc: 'Sertifikat penyelesaian Praktik Kerja Lapangan (PKL).'
                 }
             ]
         },
