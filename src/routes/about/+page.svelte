@@ -115,6 +115,42 @@
                 {/each}
             </div>
         </section>
+
+        <hr class="section-divider" />
+
+        <!-- Certifications -->
+        {#if t.about.certifications && t.about.certifications.length > 0}
+            <section class="cert-section reveal">
+                <span class="section-eyebrow">Certifications</span>
+                <h2 class="section-heading">{t.about.titleCert}</h2>
+                <div class="edu-list">
+                    {#each t.about.certifications as cert}
+                        <div class="edu-item">
+                            <div class="edu-logo-wrap">
+                                {#if cert.logo}
+                                    <a href={cert.logo} target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; height: 100%;">
+                                        <img src={cert.logo} alt={cert.issuer} class="edu-logo" style="object-fit: cover;" />
+                                    </a>
+                                {:else}
+                                    <div class="edu-logo-placeholder" style="background: var(--bg-alt); display:flex; align-items:center; justify-content:center; color: var(--text-muted); font-size: 10px; font-weight: bold; text-align: center;">CERT</div>
+                                {/if}
+                            </div>
+                            <div class="edu-info">
+                                <h3 class="edu-degree">{cert.title}</h3>
+                                <p class="edu-school">{cert.issuer}</p>
+                                <p class="edu-period">{cert.year}</p>
+                                {#if cert.desc}
+                                    <p class="edu-desc">{cert.desc}</p>
+                                {/if}
+                                {#if cert.logo}
+                                    <a href={cert.logo} target="_blank" rel="noopener noreferrer" style="font-size: var(--body-sm); color: var(--color-ink); text-decoration: underline; margin-top: 4px; display: inline-block;">Lihat Sertifikat &rarr;</a>
+                                {/if}
+                            </div>
+                        </div>
+                    {/each}
+                </div>
+            </section>
+        {/if}
     </div>
 </div>
 
