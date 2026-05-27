@@ -9,14 +9,14 @@
         <div class="preview-layout">
             <div class="preview-left reveal delay-1">
                 <span class="section-label">{t.nav.about}</span>
-                <h2 class="preview-heading">Siapa saya.</h2>
+                <h2 class="preview-heading">{t.about.whoAmI}</h2>
             </div>
             <div class="preview-right reveal delay-2">
                 <p class="preview-text">
                     {t.about.bio.split("\n\n")[0]}
                 </p>
                 <a href="/about" class="preview-link">
-                    Selengkapnya
+                    {t.about.readMore}
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </a>
             </div>

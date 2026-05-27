@@ -3,9 +3,9 @@
     const t = $derived(getTranslations());
 
     let roles = [
-        "Full-Stack Developer.",
+        "Frontend Developer.",
         "Svelte Enthusiast.",
-        "UI/UX Designer.",
+        "Data Enthusiast.",
         "Problem Solver.",
     ];
     let currentRoleIndex = $state(0);

@@ -10,8 +10,8 @@ export const translations: Record<Language, any> = {
         },
         hero: {
             greeting: 'Hai! Saya Cahyadi Prasetyo 👋',
-            value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
-            bio: 'Seorang Full-Stack Developer yang memadukan latar belakang akademis dengan pengalaman nyata di industri sejak 2022. Mulai dari merancang platform data strategis untuk BPS hingga mengoptimalkan infrastruktur IT korporasi di Pelindo, saya berfokus menciptakan solusi teknologi yang efisien dan berdampak.',
+            value: 'Frontend Developer, IT Mentor, & Data Enthusiast.',
+            bio: 'Mahasiswa Teknik Informatika yang aktif di industri sejak 2022. Saya lebih sering terlibat dalam proyek tim sebagai Frontend Developer membangun antarmuka yang responsif dan fungsional menggunakan React, Vue.js, dan Svelte. Meski fokus utama di frontend, saya juga memahami kebutuhan full-stack dan terbiasa berkolaborasi lintas tim untuk menghasilkan produk yang solid.',
             cta: 'Lihat Hasil Kerja Saya',
             ctaSecondary: 'Hubungi Saya',
             cvVisual: 'Download CV'
@@ -32,6 +32,8 @@ export const translations: Record<Language, any> = {
         },
         about: {
             title: 'Tentang Saya',
+            whoAmI: 'Siapa saya.',
+            readMore: 'Selengkapnya',
             bio: 'Rekam jejak saya di industri dimulai pada 2022. Alih-alih hanya mempelajari teori, saya langsung terjun membangun arsitektur data berskala regional untuk Badan Pusat Statistik (BPS) dan memastikan keandalan infrastruktur jaringan di Pelindo.\n\nDengan fondasi kuat di Web Development dan Sistem Terdistribusi, saya melihat kode sebagai jembatan untuk memecahkan masalah bisnis yang nyata. Saya terbiasa mengelola sistem dari sisi frontend (React, Vue, Svelte) hingga backend (Laravel, Node.js).\n\nSaat ini, saya mengeksplorasi bagaimana AI dapat diintegrasikan untuk menciptakan aplikasi generasi berikutnya yang lebih pintar. Jika Anda memiliki ide proyek atau membutuhkan mitra teknis yang andal, mari berdiskusi. 🚀',
             techStackLabel: 'Tech Stack',
             titleExp: 'Pengalaman',
@@ -102,11 +104,11 @@ export const translations: Record<Language, any> = {
                     logo: '/logo_umrah.webp',
                     points: [
                         'Merancang antarmuka inovatif bergaya interaksi video (TikTok-style) dengan React.js untuk mendongkrak visibilitas produk UMKM lokal.',
-                        'Meningkatkan retensi pengguna (user engagement) melalui implementasi transisi video yang mulus berlandaskan prinsip User-Centric Design.',
+                        'Meningkatkan retensi pengguna (user engagement) melalui implementasi transisi video yang mulus dan interaktif.',
                         'Merekayasa arsitektur komponen UI yang responsif sempurna, memastikan performa dan tata letak optimal dari layar desktop hingga mobile.',
                         'Bersinergi dalam tim lintas fungsi guna mentransformasi konsep akademis menjadi produk digital yang berdaya guna bagi pengguna akhir.'
                     ],
-                    skills: 'React.js · Tailwind CSS · User Interface (UI) Design · Cross-team Collaboration'
+                    skills: 'React.js · Tailwind CSS · Responsive Web Development · Cross-team Collaboration'
                 },
                 {
                     period: '2024 – Sekarang',
@@ -188,7 +190,7 @@ export const translations: Record<Language, any> = {
             label: 'FAQ',
             title: 'Pertanyaan Umum',
             items: [
-                { q: 'Teknologi apa yang menjadi fokus utama Anda?', a: 'Sebagai Full-Stack Developer, saya menguasai ekosistem modern seperti React, Svelte, dan Node.js, dipadukan dengan keandalan backend tradisional (Laravel/PHP). Saya juga merancang arsitektur database (PostgreSQL) yang berfokus pada skalabilitas dan keamanan data.' },
+                { q: 'Teknologi apa yang menjadi fokus utama Anda?', a: 'Fokus utama saya adalah Frontend Development menggunakan React, Svelte, dan Vue.js. Namun, saya juga memiliki pemahaman kuat tentang Backend (Node.js, PHP, Laravel) serta perancangan basis data (PostgreSQL/MySQL), sehingga saya mampu berkolaborasi dengan sangat baik di berbagai sisi pengembangan aplikasi.' },
                 { q: 'Apakah Anda menerima kerja sama proyek freelance?', a: 'Sangat terbuka. Mulai dari pengembangan aplikasi web end-to-end, integrasi sistem, hingga pembuatan dashboard analitik data tingkat korporasi (seperti pengalaman saya di BPS). Saya memprioritaskan komunikasi transparan dan pengiriman tepat waktu.' },
                 { q: 'Sejauh apa pengalaman Anda di industri?', a: 'Saya mulai terlibat secara profesional sejak awal 2022. Portofolio saya mencakup proyek infrastruktur IT di BUMN (Pelindo) hingga digitalisasi platform pemerintahan (BPS Kepri). Saya terbiasa dengan standar dan tekanan industri nyata.' },
                 { q: 'Bagaimana alur kerja jika saya ingin menyewa jasa Anda?', a: 'Kita akan mulai dengan sesi konsultasi gratis untuk memahami masalah bisnis Anda. Selanjutnya, saya akan menyusun rancangan sistem dan estimasi waktu. Hubungi saya melalui form kontak atau email untuk memulai diskusi.' }
@@ -228,8 +230,8 @@ export const translations: Record<Language, any> = {
         },
         hero: {
             greeting: "Hi! I'm Cahyadi Prasetyo 👋",
-            value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
-            bio: "A Full-Stack Developer blending an academic background with real-world industry experience since 2022. From engineering strategic data platforms for BPS to optimizing corporate IT infrastructure at Pelindo, my focus is on delivering efficient and impactful technological solutions.",
+            value: 'Frontend Developer, IT Mentor, & Data Enthusiast.',
+            bio: "A Computer Science student active in the industry since 2022. I am most frequently involved in team projects as a Frontend Developer building responsive and functional interfaces using React, Vue.js, and Svelte. While my main focus is on the frontend, I also understand backend requirements and collaborate closely with cross-functional teams.",
             cta: 'See My Work',
             ctaSecondary: 'Contact Me',
             cvAts: 'Download ATS CV',
@@ -251,6 +253,8 @@ export const translations: Record<Language, any> = {
         },
         about: {
             title: 'About Me',
+            whoAmI: 'Who I am.',
+            readMore: 'Read more',
             bio: "My industry track record began in 2022. Rather than just studying theory, I dove straight into engineering regional-scale data architectures for Statistics Indonesia (BPS) and ensuring network infrastructure reliability at Pelindo.\n\nWith a strong foundation in Web Development and Distributed Systems, I view code as a bridge to solve real-world business problems. I am accustomed to managing systems from the frontend (React, Vue, Svelte) to the backend (Laravel, Node.js).\n\nCurrently, I am exploring how AI can be integrated to build smarter, next-generation applications. If you have a project idea or need a reliable technical partner, let's discuss. 🚀",
              techStackLabel: 'Tech Stack',
             titleExp: 'Experience',
@@ -407,7 +411,7 @@ export const translations: Record<Language, any> = {
             label: 'FAQ',
             title: 'Frequently Asked',
             items: [
-                { q: 'What is your primary technology stack?', a: 'As a Full-Stack Developer, I specialize in modern ecosystems like React, Svelte, and Node.js, paired with reliable traditional backends (Laravel/PHP). I also design highly scalable and secure database architectures (PostgreSQL).' },
+                { q: 'What is your primary technology stack?', a: 'My primary focus is Frontend Development using React, Svelte, and Vue.js. However, I also possess a solid understanding of Backend (Node.js, PHP, Laravel) and database design (PostgreSQL/MySQL), allowing me to collaborate effectively across all stages of application development.' },
                 { q: 'Are you available for freelance projects?', a: 'Absolutely. Whether it\'s end-to-end web app development, system integration, or corporate-grade data analytics dashboards (similar to my work at Statistics Indonesia). I prioritize transparent communication and timely delivery.' },
                 { q: 'How extensive is your industry experience?', a: 'I began my professional involvement in early 2022. My portfolio spans from IT infrastructure in state-owned enterprises (Pelindo) to governmental platform digitalization (BPS). I am highly accustomed to real-world industry standards and pressures.' },
                 { q: 'What is your workflow if I want to hire you?', a: 'We start with a free consultation to understand your business problem. Then, I will provide a system design proposal and timeline. Reach out via the contact form or email to start the conversation.' }
