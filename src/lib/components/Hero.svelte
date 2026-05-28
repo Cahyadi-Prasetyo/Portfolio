@@ -4,7 +4,6 @@
 
     let roles = [
         "Full-Stack Developer.",
-        "Svelte Enthusiast.",
         "IT Mentor & Lab Assistant.",
         "Data Enthusiast.",
     ];
