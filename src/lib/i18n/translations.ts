@@ -11,7 +11,7 @@ export const translations: Record<Language, any> = {
         hero: {
             greeting: 'Hai! Saya Cahyadi Prasetyo 👋',
             value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
-            bio: 'Seorang Full-Stack Developer yang memadukan latar belakang akademis dengan pengalaman nyata di industri sejak 2022. Mulai dari merancang platform data strategis untuk BPS hingga mengoptimalkan infrastruktur IT korporasi di Pelindo, saya berfokus menciptakan solusi teknologi yang efisien dan berdampak.',
+            bio: 'Mahasiswa Teknik Informatika (UMRAH) yang aktif belajar dan membangun proyek web sejak 2022. Saya berpengalaman mengembangkan aplikasi dari sisi frontend (React, Vue, Svelte) hingga backend (Laravel, Node.js), serta membuat visualisasi data. Melalui magang di BPS Kepri dan Pelindo, saya belajar bekerja dalam tim dan menyelesaikan masalah teknis secara nyata.',
             cta: 'Lihat Hasil Kerja Saya',
             ctaSecondary: 'Hubungi Saya',
             cvVisual: 'Download CV'
@@ -34,7 +34,7 @@ export const translations: Record<Language, any> = {
             title: 'Tentang Saya',
             whoAmI: 'Siapa saya.',
             readMore: 'Selengkapnya',
-            bio: 'Rekam jejak saya di industri dimulai pada 2022. Alih-alih hanya mempelajari teori, saya langsung terjun membangun arsitektur data berskala regional untuk Badan Pusat Statistik (BPS) dan memastikan keandalan infrastruktur jaringan di Pelindo.\n\nDengan fondasi kuat di Web Development dan Sistem Terdistribusi, saya melihat kode sebagai jembatan untuk memecahkan masalah bisnis yang nyata. Saya terbiasa mengelola sistem dari sisi frontend (React, Vue, Svelte) hingga backend (Laravel, Node.js).\n\nSaat ini, saya mengeksplorasi bagaimana AI dapat diintegrasikan untuk menciptakan aplikasi generasi berikutnya yang lebih pintar. Jika Anda memiliki ide proyek atau membutuhkan mitra teknis yang andal, mari berdiskusi. 🚀',
+            bio: 'Ketertarikan saya di dunia IT dimulai dari bangku SMK hingga kini melanjutkan studi S1 Teknik Informatika di UMRAH. Sejak 2022, saya mulai mempraktikkan teori dengan terjun langsung ke lapangan, seperti membantu digitalisasi data di BPS Provinsi Kepulauan Riau dan mendukung operasional IT di PT. Pelindo.\n\nSaya fokus mendalami Web Development baik dari sisi Frontend (React, Vue, Svelte) maupun Backend (Laravel, Node.js), serta memiliki ketertarikan kuat pada analisis data dan jaringan komputer. Bagi saya, coding adalah alat untuk membuat sistem bermanfaat yang mempermudah pekerjaan sehari-hari.\n\nSaya selalu terbuka untuk belajar hal baru, berkolaborasi dalam tim, atau membantu mewujudkan proyek digital Anda. Mari terhubung! 🚀',
             techStackLabel: 'Tech Stack',
             titleExp: 'Pengalaman',
             titleEdu: 'Pendidikan',
@@ -231,7 +231,7 @@ export const translations: Record<Language, any> = {
         hero: {
             greeting: "Hi! I'm Cahyadi Prasetyo 👋",
             value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
-            bio: "A Full-Stack Developer blending an academic background with real-world industry experience since 2022. From engineering strategic data platforms for BPS to optimizing corporate IT infrastructure at Pelindo, my focus is on delivering efficient and impactful technological solutions.",
+            bio: "An Informatics Engineering student (UMRAH) active in web development and IT since 2022. I have hands-on experience building applications from frontend (React, Vue, Svelte) to backend (Laravel, Node.js), as well as creating data visualizations. Through internships at BPS Kepri and Pelindo, I have learned to collaborate in team environments and solve practical technical problems.",
             cta: 'See My Work',
             ctaSecondary: 'Contact Me',
             cvAts: 'Download ATS CV',
@@ -255,7 +255,7 @@ export const translations: Record<Language, any> = {
             title: 'About Me',
             whoAmI: 'Who I am.',
             readMore: 'Read more',
-            bio: "My industry track record began in 2022. Rather than just studying theory, I dove straight into engineering regional-scale data architectures for Statistics Indonesia (BPS) and ensuring network infrastructure reliability at Pelindo.\n\nWith a strong foundation in Web Development and Distributed Systems, I view code as a bridge to solve real-world business problems. I am accustomed to managing systems from the frontend (React, Vue, Svelte) to the backend (Laravel, Node.js).\n\nCurrently, I am exploring how AI can be integrated to build smarter, next-generation applications. If you have a project idea or need a reliable technical partner, let's discuss. 🚀",
+            bio: "My journey in IT started during vocational high school (SMK) and continues as I pursue a Bachelor's degree in Informatics Engineering at UMRAH. Since 2022, I have been putting theory into practice through hands-on roles, such as assisting with data digitalization at BPS Kepulauan Riau and supporting IT operations at PT. Pelindo.\n\nI focus on Web Development from both Frontend (React, Vue, Svelte) and Backend (Laravel, Node.js) perspectives, and have a keen interest in data analysis and computer networking. For me, coding is a tool to build useful systems that simplify daily tasks.\n\nI am always open to learning new things, collaborating in teams, or helping bring your digital projects to life. Let's connect! 🚀",
              techStackLabel: 'Tech Stack',
             titleExp: 'Experience',
             titleEdu: 'Education',
