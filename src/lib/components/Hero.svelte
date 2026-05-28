@@ -5,8 +5,8 @@
     let roles = [
         "Full-Stack Developer.",
         "Svelte Enthusiast.",
+        "IT Mentor & Lab Assistant.",
         "Data Enthusiast.",
-        "Problem Solver.",
     ];
     let currentRoleIndex = $state(0);
     let currentText = $state("");
