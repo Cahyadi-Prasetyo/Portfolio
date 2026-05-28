@@ -34,6 +34,7 @@ export const translations: Record<Language, any> = {
             title: 'Tentang Saya',
             whoAmI: 'Siapa saya.',
             readMore: 'Selengkapnya',
+            skillsLabel: 'Kemampuan',
             bio: 'Ketertarikan saya di dunia IT dimulai dari bangku SMK hingga kini melanjutkan studi S1 Teknik Informatika di UMRAH. Sejak 2022, saya mulai mempraktikkan teori dengan terjun langsung ke lapangan, seperti membantu digitalisasi data di BPS Provinsi Kepulauan Riau dan mendukung operasional IT di PT. Pelindo.\n\nSaya fokus mendalami Web Development baik dari sisi Frontend (React, Vue, Svelte) maupun Backend (Laravel, Node.js), serta memiliki ketertarikan kuat pada analisis data dan jaringan komputer. Bagi saya, coding adalah alat untuk membuat sistem bermanfaat yang mempermudah pekerjaan sehari-hari.\n\nSaya selalu terbuka untuk belajar hal baru, berkolaborasi dalam tim, atau membantu mewujudkan proyek digital Anda. Mari terhubung! 🚀',
             techStackLabel: 'Tech Stack',
             titleExp: 'Pengalaman',
@@ -255,6 +256,7 @@ export const translations: Record<Language, any> = {
             title: 'About Me',
             whoAmI: 'Who I am.',
             readMore: 'Read more',
+            skillsLabel: 'Skills',
             bio: "My journey in IT started during vocational high school (SMK) and continues as I pursue a Bachelor's degree in Informatics Engineering at UMRAH. Since 2022, I have been putting theory into practice through hands-on roles, such as assisting with data digitalization at BPS Kepulauan Riau and supporting IT operations at PT. Pelindo.\n\nI focus on Web Development from both Frontend (React, Vue, Svelte) and Backend (Laravel, Node.js) perspectives, and have a keen interest in data analysis and computer networking. For me, coding is a tool to build useful systems that simplify daily tasks.\n\nI am always open to learning new things, collaborating in teams, or helping bring your digital projects to life. Let's connect! 🚀",
              techStackLabel: 'Tech Stack',
             titleExp: 'Experience',
@@ -291,85 +293,68 @@ export const translations: Record<Language, any> = {
             },
             experience: [
                 {
-                    period: 'Feb 2026 – Sekarang',
+                    period: 'Feb 2026 – Present',
                     role: 'Computer Network Lab Assistant',
                     company: 'Universitas Maritim Raja Ali Haji (UMRAH)',
                     logo: '/logo_umrah.webp',
-                    desc: 'Guiding students through applied computer networking concepts.',
-                    highlights: [
-                        {
-                            title: 'Network Lab & Infrastructure',
-                            desc: 'Responsible for guiding students in understanding fundamental and applied computer networking concepts. Designed lab scenarios covering Subnetting, Routing configuration (Static & Dynamic), and VLAN implementation.'
-                        },
-                        {
-                            title: 'Protocol Analysis & Troubleshooting',
-                            desc: 'Demonstrated real-time packet data analysis (TCP/UDP/HTTP) using Wireshark. Used Cisco Packet Tracer to simulate complex network topologies, helping students identify bottlenecks and understand data flow across the OSI Layer.'
-                        }
-                    ]
+                    points: [
+                        'Contributed to academic instructional programs to support student understanding of Computer Networks courses aligned with standard computer science curriculum.',
+                        'Designed and simulated complex network architectures (VLAN, Static/Dynamic Routing, Subnetting) using Cisco Packet Tracer as an interactive learning medium.',
+                        'Performed deep protocol analysis and data traffic troubleshooting using Wireshark to validate network transmission security and efficiency.',
+                        'Evaluated student technical performance through practical exam sessions to ensure mastery of OSI Layer concepts and network infrastructure.',
+                    ],
+                    skills: 'Computer Networking · Cisco Packet Tracer · Wireshark · Technical Instruction · Troubleshooting'
                 },
                 {
                     period: 'Jan 2026 – Mar 2026',
                     role: 'IT Web Developer & Data Analyst (Internship)',
-                    company: 'BPS Kepulauan Riau Province',
+                    company: 'Statistics Indonesia (BPS) Kepulauan Riau Province',
                     logo: '/logo_bps.webp',
-                    desc: 'Built regional statistical data platform and internal analytics dashboards.',
-                    highlights: [
-                        {
-                            title: 'Gurindam Platform Ecosystem',
-                            desc: 'Engineered the user interface (Frontend) for the regional statistical data distribution platform. Used React and Vue.js to ensure complex data presentation remained responsive and navigable by the public.'
-                        },
-                        {
-                            title: 'Data Integration & PHP Embedding',
-                            desc: 'Developed data visualization integration system on the Tanjak platform using PHP. Implemented dynamic embedding techniques to serve interactive reports from Looker Studio directly into the internal BPS website environment.'
-                        },
-                        {
-                            title: 'Internal Analytics Dashboard',
-                            desc: 'Built an internal data monitoring dashboard connected to PostgreSQL and Spreadsheet API. Optimized Looker Studio visualizations to support real-time data-driven decision making by BPS Kepri leadership.'
-                        },
-                        {
-                            title: 'Aeroprice Flight Monitoring',
-                            desc: 'Contributed as Frontend Developer in building a flight price monitoring platform. Focused on dynamic data rendering performance optimization to provide fast user experience in monitoring airline price fluctuations.'
-                        }
-                    ]
+                    points: [
+                        'Digitalized regional statistical data distribution by engineering web interfaces (React/Vue.js) for the Gurindam & Tanjak platforms, ensuring intuitive navigation for complex data.',
+                        'Integrated Looker Studio analytics visualizations using PHP, enabling leadership to make real-time, data-driven decisions.',
+                        'Accelerated data processing workflows by optimizing the integration pathways between PostgreSQL, Google Sheets API, and analytic dashboards.',
+                        'Enhanced dynamic data rendering performance for the flight ticket price monitoring platform (Aeroprice), delivering a seamless and responsive user experience.',
+                        'Ensured operational stability of internal information systems by proactively providing daily IT support.'
+                    ],
+                    skills: 'React.js · Vue.js · PHP · PostgreSQL · Looker Studio · Data Visualization · IT Support'
                 },
                 {
                     period: 'Nov 2025 – Jan 2026',
                     role: 'Frontend Developer',
-                    company: 'PKM Dosen Team, UMRAH',
+                    company: 'UMRAH Lecturer PKM Team',
                     logo: '/logo_umrah.webp',
-                    desc: 'Built MSME promotion platform with video-based interface.',
-                    highlights: [
-                        {
-                            title: 'UMKM Video-Style Platform',
-                            desc: 'Engineered an innovative video-feed based web interface (similar to TikTok interaction) to boost local product exposure. Used React.js and Tailwind CSS to build interactive UI components, ensuring smooth video content transitions responsive across various devices.'
-                        }
-                    ]
+                    points: [
+                        'Designed an innovative video-feed web interface (TikTok-style) using React.js to boost exposure for local MSME products.',
+                        'Improved user retention (user engagement) by implementing smooth and interactive video transitions.',
+                        'Engineered fully responsive UI component architectures, ensuring optimal layout and performance across desktop and mobile screens.',
+                        'Collaborated within cross-functional teams to transform academic research concepts into practical digital products for end-users.'
+                    ],
+                    skills: 'React.js · Tailwind CSS · Responsive Web Development · Cross-team Collaboration'
                 },
                 {
                     period: '2024 – Present',
                     role: 'Data Analyst & Administrator',
                     company: 'Posyandu Terintegrasi',
                     logo: '/logo_posyandu.webp',
-                    desc: 'Managing public health data systems.',
-                    highlights: [
-                        {
-                            title: 'Operational Data & Integrity Management',
-                            desc: 'Managing digital data administration system for monthly operations. Fully responsible for validation and accuracy of public health data reporting, conducting routine analysis to ensure information integrity before submission in official administrative reports.'
-                        }
-                    ]
+                    points: [
+                        'Managed the public health operational data ecosystem professionally to ensure the accuracy of administrative reporting.',
+                        'Conducted routine data analysis and cleaning procedures to minimize anomalies in monthly operational reports.',
+                        'Held responsibility for reporting integrity of data used for village-level health policy review and decision making.'
+                    ],
+                    skills: 'Data Analysis · Administrative Management · Data Integrity · Operational Excellence'
                 },
                 {
                     period: 'Jan 2022 – Jun 2022',
                     role: 'IT Support (Internship)',
                     company: 'PT. Pelindo (Persero) Regional 1 Tanjungpinang',
                     logo: '/logo_pelindo.webp',
-                    desc: 'IT technical support in state-owned enterprise.',
-                    highlights: [
-                        {
-                            title: 'Infrastructure & Technical Support',
-                            desc: 'Provided on-site technical support to ensure smooth IT operations in a state-owned enterprise environment. Work scope included local network (LAN) troubleshooting, hardware maintenance, and installation and configuration of supporting software for company staff.'
-                        }
-                    ]
+                    points: [
+                        'Performed IT technical support duties in a state-owned enterprise (BUMN) environment to maintain daily operational productivity.',
+                        'Conducted routine maintenance on hardware and software and ensured local area network (LAN) connectivity stability.',
+                        'Resolved daily technical user issues (end-user support) regarding operating systems and office software efficiently.'
+                    ],
+                    skills: 'Hardware Maintenance · Network Troubleshooting · Technical Support · Corporate Environment'
                 }
             ],
             education: [

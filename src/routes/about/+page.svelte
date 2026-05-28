@@ -79,7 +79,7 @@
                                 {/if}
                                 {#if exp.skills}
                                     <div class="exp-skills">
-                                        <strong>Kemampuan</strong> {exp.skills}
+                                        <strong>{t.about.skillsLabel || 'Kemampuan'}</strong> {exp.skills}
                                     </div>
                                 {/if}
                             </div>
