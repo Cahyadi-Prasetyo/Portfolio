@@ -10,8 +10,8 @@ export const translations: Record<Language, any> = {
         },
         hero: {
             greeting: 'Hai! Saya Cahyadi Prasetyo 👋',
-            value: 'Frontend Developer, IT Mentor, & Data Enthusiast.',
-            bio: 'Mahasiswa Teknik Informatika yang aktif di industri sejak 2022. Saya lebih sering terlibat dalam proyek tim sebagai Frontend Developer membangun antarmuka yang responsif dan fungsional menggunakan React, Vue.js, dan Svelte. Meski fokus utama di frontend, saya juga memahami kebutuhan full-stack dan terbiasa berkolaborasi lintas tim untuk menghasilkan produk yang solid.',
+            value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
+            bio: 'Seorang Full-Stack Developer yang memadukan latar belakang akademis dengan pengalaman nyata di industri sejak 2022. Mulai dari merancang platform data strategis untuk BPS hingga mengoptimalkan infrastruktur IT korporasi di Pelindo, saya berfokus menciptakan solusi teknologi yang efisien dan berdampak.',
             cta: 'Lihat Hasil Kerja Saya',
             ctaSecondary: 'Hubungi Saya',
             cvVisual: 'Download CV'
@@ -42,7 +42,7 @@ export const translations: Record<Language, any> = {
             techStack: {
                 frontend: {
                     label: 'Frontend',
-                    items: ['React', 'Vue.js', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML/CSS']
+                    items: ['React', 'Vue.js', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS']
                 },
                 backend: {
                     label: 'Backend',
@@ -190,7 +190,7 @@ export const translations: Record<Language, any> = {
             label: 'FAQ',
             title: 'Pertanyaan Umum',
             items: [
-                { q: 'Teknologi apa yang menjadi fokus utama Anda?', a: 'Fokus utama saya adalah Frontend Development menggunakan React, Svelte, dan Vue.js. Namun, saya juga memiliki pemahaman kuat tentang Backend (Node.js, PHP, Laravel) serta perancangan basis data (PostgreSQL/MySQL), sehingga saya mampu berkolaborasi dengan sangat baik di berbagai sisi pengembangan aplikasi.' },
+                { q: 'Teknologi apa yang menjadi fokus utama Anda?', a: 'Sebagai Full-Stack Developer, saya menguasai ekosistem modern seperti React, Svelte, dan Node.js, dipadukan dengan keandalan backend tradisional (Laravel/PHP). Saya juga merancang arsitektur database (PostgreSQL) yang berfokus pada skalabilitas dan keamanan data.' },
                 { q: 'Apakah Anda menerima kerja sama proyek freelance?', a: 'Sangat terbuka. Mulai dari pengembangan aplikasi web end-to-end, integrasi sistem, hingga pembuatan dashboard analitik data tingkat korporasi (seperti pengalaman saya di BPS). Saya memprioritaskan komunikasi transparan dan pengiriman tepat waktu.' },
                 { q: 'Sejauh apa pengalaman Anda di industri?', a: 'Saya mulai terlibat secara profesional sejak awal 2022. Portofolio saya mencakup proyek infrastruktur IT di BUMN (Pelindo) hingga digitalisasi platform pemerintahan (BPS Kepri). Saya terbiasa dengan standar dan tekanan industri nyata.' },
                 { q: 'Bagaimana alur kerja jika saya ingin menyewa jasa Anda?', a: 'Kita akan mulai dengan sesi konsultasi gratis untuk memahami masalah bisnis Anda. Selanjutnya, saya akan menyusun rancangan sistem dan estimasi waktu. Hubungi saya melalui form kontak atau email untuk memulai diskusi.' }
@@ -230,8 +230,8 @@ export const translations: Record<Language, any> = {
         },
         hero: {
             greeting: "Hi! I'm Cahyadi Prasetyo 👋",
-            value: 'Frontend Developer, IT Mentor, & Data Enthusiast.',
-            bio: "A Computer Science student active in the industry since 2022. I am most frequently involved in team projects as a Frontend Developer building responsive and functional interfaces using React, Vue.js, and Svelte. While my main focus is on the frontend, I also understand backend requirements and collaborate closely with cross-functional teams.",
+            value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
+            bio: "A Full-Stack Developer blending an academic background with real-world industry experience since 2022. From engineering strategic data platforms for BPS to optimizing corporate IT infrastructure at Pelindo, my focus is on delivering efficient and impactful technological solutions.",
             cta: 'See My Work',
             ctaSecondary: 'Contact Me',
             cvAts: 'Download ATS CV',
@@ -411,7 +411,7 @@ export const translations: Record<Language, any> = {
             label: 'FAQ',
             title: 'Frequently Asked',
             items: [
-                { q: 'What is your primary technology stack?', a: 'My primary focus is Frontend Development using React, Svelte, and Vue.js. However, I also possess a solid understanding of Backend (Node.js, PHP, Laravel) and database design (PostgreSQL/MySQL), allowing me to collaborate effectively across all stages of application development.' },
+                { q: 'What is your primary technology stack?', a: 'As a Full-Stack Developer, I specialize in modern ecosystems like React, Svelte, and Node.js, paired with reliable traditional backends (Laravel/PHP). I also design highly scalable and secure database architectures (PostgreSQL).' },
                 { q: 'Are you available for freelance projects?', a: 'Absolutely. Whether it\'s end-to-end web app development, system integration, or corporate-grade data analytics dashboards (similar to my work at Statistics Indonesia). I prioritize transparent communication and timely delivery.' },
                 { q: 'How extensive is your industry experience?', a: 'I began my professional involvement in early 2022. My portfolio spans from IT infrastructure in state-owned enterprises (Pelindo) to governmental platform digitalization (BPS). I am highly accustomed to real-world industry standards and pressures.' },
                 { q: 'What is your workflow if I want to hire you?', a: 'We start with a free consultation to understand your business problem. Then, I will provide a system design proposal and timeline. Reach out via the contact form or email to start the conversation.' }

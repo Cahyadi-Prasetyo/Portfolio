@@ -3,7 +3,7 @@
     const t = $derived(getTranslations());
 
     let roles = [
-        "Frontend Developer.",
+        "Full-Stack Developer.",
         "Svelte Enthusiast.",
         "Data Enthusiast.",
         "Problem Solver.",

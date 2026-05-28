@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-    <title>Cahyadi Prasetyo — Frontend Developer</title>
+    <title>Cahyadi Prasetyo — Full-Stack Developer</title>
 </svelte:head>
 
 <Hero />
