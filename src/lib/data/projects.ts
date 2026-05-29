@@ -41,7 +41,7 @@ export const projects: Project[] = [
         },
         tech: ['Flutter', 'Go', 'PostgreSQL', 'Redis', 'Firebase','Google'],
         category: 'mobile',
-        liveUrl: 'https://ssmartask.netlify.app/',
+        liveUrl: 'https://smartask-omega.vercel.app/',
         githubUrl: '',
         featured: true,
         imageUrl: '/smart-task.webp',
