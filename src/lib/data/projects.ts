@@ -46,7 +46,7 @@ export const projects: Project[] = [
         featured: true,
         imageUrl: '/smart-task.webp',
         images: ['/smart-task.webp'],
-        status: 'in-progress',
+        status: 'shipped',
         role: { id: 'Team Lead & Frontend Developer', en: 'Team Lead & Frontend Developer' },
         duration: { id: '3 Bulan', en: '3 Month' }
     },
