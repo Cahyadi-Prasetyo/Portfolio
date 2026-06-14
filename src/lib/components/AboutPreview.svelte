@@ -58,6 +58,7 @@
         color: var(--color-body);
         line-height: 28px;
         margin-bottom: var(--space-xl);
+        text-align: justify;
     }
 
     .preview-link {

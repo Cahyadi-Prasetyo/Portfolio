@@ -211,6 +211,7 @@
         font-size: var(--body-md);
         color: var(--color-body);
         line-height: 24px;
+        text-align: justify;
     }
 
     /* Section headings */
