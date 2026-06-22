@@ -317,6 +317,19 @@
     }
 
     @media (max-width: 768px) {
+        .page {
+            padding-top: calc(var(--nav-height) + var(--space-3xl));
+        }
+
+        .page-title {
+            font-size: clamp(28px, 6vw, 36px);
+        }
+
+        .page-desc {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
         .contact-layout {
             grid-template-columns: 1fr;
             gap: var(--space-xl);
@@ -324,6 +337,19 @@
 
         .form-row {
             grid-template-columns: 1fr;
+        }
+
+        .form-card {
+            padding: var(--space-lg);
+        }
+
+        .submit-btn {
+            width: 100%;
+            height: 44px;
+        }
+
+        .aside-card {
+            padding: var(--space-lg);
         }
     }
 </style>

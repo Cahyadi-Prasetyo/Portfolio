@@ -169,30 +169,6 @@
         font-weight: 500;
     }
 
-    /* Right CTA — nav-cta-signup style */
-    .nav-right {
-        display: flex;
-        align-items: center;
-    }
-
-    .nav-cta {
-        font-size: var(--body-sm);
-        font-weight: 500;
-        color: var(--color-on-primary);
-        background: var(--color-ink);
-        padding: 0 var(--space-xs);
-        height: 28px;
-        display: inline-flex;
-        align-items: center;
-        border-radius: var(--radius-sm);
-        letter-spacing: -0.28px;
-        transition: background var(--transition-fast);
-    }
-
-    .nav-cta:hover {
-        background: #2b2b2b;
-    }
-
     /* Mobile toggle */
     .mobile-toggle {
         display: none;
@@ -273,18 +249,7 @@
         justify-content: center;
     }
 
-    @media (max-width: 600px) {
-        .nav-center,
-        .nav-right {
-            display: none;
-        }
-
-        .mobile-toggle {
-            display: block;
-        }
-    }
-
-    /* Toggles Styles */
+    /* Right — toggle buttons */
     .nav-right {
         display: flex;
         align-items: center;
@@ -333,5 +298,30 @@
         background: transparent;
         border: none;
         cursor: pointer;
+        color: var(--color-body);
+        font-size: var(--body-lg);
+        font-family: var(--font-sans);
+        padding: var(--space-sm) 0;
+    }
+
+    .toggle-btn span:last-child {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        color: var(--color-mute);
+        background: var(--color-canvas-soft-2);
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+    }
+
+    /* Media query MUST be last to properly override */
+    @media (max-width: 768px) {
+        .nav-center,
+        .nav-right {
+            display: none !important;
+        }
+
+        .mobile-toggle {
+            display: block;
+        }
     }
 </style>

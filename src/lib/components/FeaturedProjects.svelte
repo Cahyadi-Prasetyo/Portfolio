@@ -215,23 +215,44 @@
         .project-row {
             flex-direction: column;
             align-items: flex-start;
-            gap: var(--space-lg);
+            gap: var(--space-md);
+            padding: var(--space-xl) 0;
         }
 
         .project-row:hover {
             margin: 0;
-            padding: var(--space-2xl) 0;
+            padding: var(--space-xl) 0;
             background: transparent;
             border-bottom-color: var(--color-hairline);
+            border-radius: 0;
         }
 
         .row-thumb {
             width: 100%;
-            height: 200px;
+            height: 180px;
+            border-radius: var(--radius-md);
+        }
+
+        .row-header {
+            gap: var(--space-xs);
+        }
+
+        .row-title {
+            font-size: var(--body-md);
+        }
+
+        .row-desc {
+            font-size: 13px;
+            line-height: 20px;
+            -webkit-line-clamp: 3;
         }
 
         .row-action {
             display: none;
+        }
+
+        .work-footer {
+            margin-top: var(--space-xl);
         }
     }
 </style>

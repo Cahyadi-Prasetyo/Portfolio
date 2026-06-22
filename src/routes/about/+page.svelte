@@ -468,8 +468,18 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+        .page {
+            padding-top: calc(var(--nav-height) + var(--space-3xl));
+        }
+
+        .page-title {
+            font-size: clamp(28px, 6vw, 36px);
+            margin-bottom: var(--space-2xl);
+        }
+
         .bio-layout {
             grid-template-columns: 1fr;
+            gap: var(--space-xl);
         }
 
         .bio-photo-wrap {
@@ -478,12 +488,67 @@
         }
 
         .bio-photo {
-            width: 140px;
-            height: 170px;
+            width: 120px;
+            height: 150px;
+        }
+
+        .bio-text p {
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        .section-heading {
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+        .exp-header {
+            gap: var(--space-md);
+        }
+
+        .exp-logo-wrap {
+            width: 40px;
+            height: 40px;
+        }
+
+        .exp-role {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .exp-company {
+            font-size: 13px;
         }
 
         .exp-details {
+            padding-left: var(--space-md);
+        }
+
+        .exp-points {
             padding-left: var(--space-lg);
+        }
+
+        .exp-points li {
+            font-size: 13px;
+            line-height: 19px;
+        }
+
+        .exp-skills {
+            font-size: 13px;
+            padding: var(--space-sm) var(--space-md);
+        }
+
+        .edu-logo-wrap {
+            width: 40px;
+            height: 40px;
+        }
+
+        .edu-degree {
+            font-size: 14px;
+        }
+
+        .edu-school {
+            font-size: 13px;
         }
     }
 </style>

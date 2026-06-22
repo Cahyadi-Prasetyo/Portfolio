@@ -78,17 +78,28 @@
 
     @media (max-width: 768px) {
         .about-preview {
-            padding: var(--space-4xl) 0;
+            padding: var(--space-3xl) 0;
         }
 
         .preview-layout {
             grid-template-columns: 1fr;
-            gap: var(--space-xl);
+            gap: var(--space-lg);
         }
 
         .preview-left {
             position: relative;
             top: 0;
+        }
+
+        .preview-heading {
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        .preview-text {
+            font-size: 15px;
+            line-height: 24px;
+            text-align: left;
         }
     }
 </style>

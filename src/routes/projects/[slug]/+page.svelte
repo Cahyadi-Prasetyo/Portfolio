@@ -224,7 +224,24 @@
     @media (max-width: 768px) {
         .detail-layout {
             grid-template-columns: 1fr;
-            gap: var(--space-3xl);
+            gap: var(--space-2xl);
+        }
+
+        .detail-text {
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        .project-actions {
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+
+        .project-actions .btn {
+            font-size: 14px;
+            height: 40px;
+            flex: 1;
+            min-width: 0;
         }
     }
 </style>

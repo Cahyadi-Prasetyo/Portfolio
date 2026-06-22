@@ -97,7 +97,7 @@
             </div>
 
             <div class="hero-photo reveal delay-1">
-                <img src="/my.webp" alt="Cahyadi Prasetyo" />
+                <img src="/images.webp" alt="Cahyadi Prasetyo" />
             </div>
         </div>
     </div>
@@ -356,7 +356,7 @@
 
     @media (max-width: 768px) {
         .hero {
-            padding: calc(var(--nav-height) + var(--space-4xl)) 0
+            padding: calc(var(--nav-height) + var(--space-3xl)) 0
                 var(--space-2xl);
             min-height: auto;
         }
@@ -364,41 +364,79 @@
         .hero-layout {
             flex-direction: column-reverse;
             gap: var(--space-xl);
-            align-items: flex-start;
-            text-align: left;
+            align-items: center;
+            text-align: center;
         }
 
         .hero-content {
-            align-items: flex-start;
+            align-items: center;
         }
 
         .hero-photo {
-            width: 180px;
-            height: 220px;
-            align-self: flex-start;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            align-self: center;
+            box-shadow: 0 0 0 4px var(--color-canvas), 0 0 0 5px var(--color-hairline);
+        }
+
+        .hero-photo::after {
+            border-radius: 50%;
         }
 
         .hero-headline {
+            font-size: clamp(36px, 10vw, 48px);
             letter-spacing: -2px;
         }
 
         .hero-typewriter {
-            letter-spacing: -1.5px;
+            font-size: clamp(22px, 6vw, 32px);
+            letter-spacing: -1px;
+            min-height: 1.3em;
+        }
+
+        .hero-body {
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: center;
         }
 
         .hero-actions {
             flex-direction: column;
             width: 100%;
+            gap: var(--space-sm);
         }
 
         .hero-actions .btn {
             width: 100%;
             justify-content: center;
+            font-size: 14px;
+            height: 44px;
         }
 
         .trust-list {
-            gap: var(--space-xl);
+            gap: var(--space-lg);
             flex-direction: column;
+            align-items: center;
+        }
+
+        .trust-name {
+            font-size: var(--body-md);
+        }
+    }
+
+    @media (max-width: 400px) {
+        .hero-photo {
+            width: 120px;
+            height: 120px;
+        }
+
+        .hero-headline {
+            font-size: 32px;
+        }
+
+        .hero-typewriter {
+            font-size: 20px;
         }
     }
 </style>

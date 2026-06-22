@@ -605,19 +605,22 @@
         .project-row {
             flex-direction: column;
             align-items: flex-start;
-            gap: var(--space-lg);
+            gap: var(--space-md);
+            padding: var(--space-xl) 0;
         }
 
         .project-row:hover {
             margin: 0;
-            padding: var(--space-2xl) 0;
+            padding: var(--space-xl) 0;
             background: transparent;
             border-bottom-color: var(--color-hairline);
+            border-radius: 0;
         }
 
         .row-thumb {
             width: 100%;
-            height: 200px;
+            height: 180px;
+            border-radius: var(--radius-md);
         }
 
         .row-action {
@@ -626,10 +629,26 @@
 
         .filters {
             flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+
+        .filter-btn {
+            font-size: 12px;
+            padding: 6px 12px;
         }
 
         .kanban-board {
             grid-template-columns: 1fr;
+        }
+
+        .more-projects-wrapper {
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-2xl);
+        }
+
+        .more-btn {
+            width: 100%;
+            justify-content: center;
         }
     }
 </style>

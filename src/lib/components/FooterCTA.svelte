@@ -86,4 +86,21 @@
         transform: translateY(-2px);
         box-shadow: var(--shadow-level-2);
     }
+
+    @media (max-width: 768px) {
+        .cta-band {
+            padding: var(--space-4xl) 0;
+        }
+
+        .cta-title {
+            font-size: clamp(20px, 5vw, 28px);
+            line-height: 1.3;
+        }
+
+        .cta-desc {
+            font-size: 14px;
+            line-height: 22px;
+            padding: 0 var(--space-sm);
+        }
+    }
 </style>
