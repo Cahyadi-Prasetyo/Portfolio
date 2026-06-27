@@ -72,7 +72,7 @@ export const translations: Record<Language, any> = {
             },
             experience: [
                 {
-                    period: 'Februari 2026 – Sekarang',
+                    period: 'Februari 2026 – Juni 2026',
                     role: 'Asisten Praktikum Jaringan Komputer',
                     company: 'Universitas Maritim Raja Ali Haji (UMRAH)',
                     logo: '/logo_umrah.webp',
@@ -293,7 +293,7 @@ export const translations: Record<Language, any> = {
             },
             experience: [
                 {
-                    period: 'Feb 2026 – Present',
+                    period: 'Feb 2026 – Jun 2026',
                     role: 'Computer Network Lab Assistant',
                     company: 'Universitas Maritim Raja Ali Haji (UMRAH)',
                     logo: '/logo_umrah.webp',

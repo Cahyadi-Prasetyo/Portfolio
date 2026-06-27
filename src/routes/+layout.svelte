@@ -35,13 +35,14 @@
     afterNavigate(() => {
         // Small delay to let new page DOM render
         setTimeout(observeRevealElements, 50);
-        // Scroll to top on navigation
-        window.scrollTo(0, 0);
+        // Scroll to top on navigation (behavior: 'instant' overrides html scroll-behavior)
+        window.scrollTo({ top: 0, behavior: 'instant' });
     });
 </script>
 
+<a href="#main-content" class="skip-link">Skip to content</a>
 <Navbar />
-<main>
+<main id="main-content">
     {@render children()}
 </main>
 <Footer />

@@ -10,6 +10,7 @@
 
     let scrolled = $state(false);
     let mobileOpen = $state(false);
+    let mobileMenuRef: HTMLDivElement | undefined = $state();
 
     onMount(() => {
         initLang();
@@ -18,6 +19,10 @@
 
     function handleScroll() {
         scrolled = window.scrollY > 20;
+    }
+
+    function closeMobile() {
+        mobileOpen = false;
     }
 
     const navLinks = $derived([
@@ -39,7 +44,7 @@
 
         <div class="nav-center">
             {#each navLinks as link}
-                <a href={link.href} class="nav-link" class:active={$page.url.pathname === link.href}>
+                <a href={link.href} class="nav-link" class:active={$page.url.pathname === link.href} aria-current={$page.url.pathname === link.href ? 'page' : undefined}>
                     {link.label}
                 </a>
             {/each}
@@ -67,15 +72,16 @@
 
 <!-- Mobile overlay -->
 {#if mobileOpen}
-    <div class="mobile-overlay" role="dialog">
+    <div class="mobile-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu" bind:this={mobileMenuRef}>
         <div class="mobile-menu">
             {#each navLinks as link}
-                <a href={link.href} class="mobile-link" onclick={() => mobileOpen = false}
-                   class:active={$page.url.pathname === link.href}>
+                <a href={link.href} class="mobile-link" onclick={closeMobile}
+                   class:active={$page.url.pathname === link.href}
+                   aria-current={$page.url.pathname === link.href ? 'page' : undefined}>
                     {link.label}
                 </a>
             {/each}
-            
+
             <div class="mobile-toggles">
                 <button class="mobile-link toggle-btn" onclick={toggleTheme}>
                     <span>Theme</span>
@@ -86,8 +92,8 @@
                     <span>{currentLang.toUpperCase()}</span>
                 </button>
             </div>
-            
-            <a href="/contact" class="btn btn-primary mobile-cta" onclick={() => mobileOpen = false}>
+
+            <a href="/contact" class="btn btn-primary mobile-cta" onclick={closeMobile}>
                 {t.nav.contact}
             </a>
         </div>

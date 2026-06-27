@@ -98,6 +98,31 @@
   --shadow-level-4: 0px 12px 32px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.14);
 }
 
+/* ── Skip link (hidden until focused) ── */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: var(--space-md);
+  z-index: 200;
+  height: 40px;
+  padding: 0 var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-ink);
+  color: var(--color-on-primary);
+  font-size: var(--body-sm);
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-md);
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
 /* ── Reset ── */
 *, *::before, *::after {
   margin: 0;
@@ -272,6 +297,12 @@ button {
   box-shadow: var(--shadow-level-3);
 }
 
+/* ── Focus ring (consistent across all interactive elements) ── */
+:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
 /* ── Animations — Premium Reveal ── */
 .reveal {
   opacity: 0;
@@ -289,6 +320,27 @@ button {
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
 .delay-4 { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .fade-in {
+    animation: none;
+  }
+}
 
 /* ── Utilities for Visual Interest ── */
 .text-gradient {

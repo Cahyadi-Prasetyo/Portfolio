@@ -24,7 +24,7 @@
             <h1 class="page-title text-gradient">{t.about.title}</h1>
             <div class="bio-layout">
                 <div class="bio-photo-wrap">
-                    <img src="/my.webp" alt="Cahyadi Prasetyo" class="bio-photo" />
+                    <img src="/images.webp" alt="Cahyadi Prasetyo" class="bio-photo" loading="lazy" />
                 </div>
                 <div class="bio-text">
                     {#each t.about.bio.split("\n\n") as paragraph}

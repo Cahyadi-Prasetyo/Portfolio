@@ -97,7 +97,7 @@
             </div>
 
             <div class="hero-photo reveal delay-1">
-                <img src="/images.webp" alt="Cahyadi Prasetyo" />
+                <img src="/images.webp" alt="Cahyadi Prasetyo" loading="lazy" />
             </div>
         </div>
         
