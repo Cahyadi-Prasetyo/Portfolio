@@ -33,6 +33,9 @@
         Git: "git",
         GitHub: "github",
         Pandas: "pandas",
+        Flutter: "flutter",
+        Dart: "dart",
+        Go: "go",
     };
 
     const techIcons: Record<string, string> = {

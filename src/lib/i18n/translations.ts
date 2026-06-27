@@ -43,11 +43,11 @@ export const translations: Record<Language, any> = {
             techStack: {
                 frontend: {
                     label: 'Frontend',
-                    items: ['React', 'Vue.js', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS']
+                    items: ['React', 'Vue.js', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Flutter', 'Dart']
                 },
                 backend: {
                     label: 'Backend',
-                    items: ['Node.js', 'PHP', 'Laravel', 'CodeIgniter', 'Python']
+                    items: ['Node.js', 'PHP', 'Laravel', 'CodeIgniter', 'Python', 'Go']
                 },
                 database: {
                     label: 'Database',
@@ -264,11 +264,11 @@ export const translations: Record<Language, any> = {
             techStack: {
                 frontend: {
                     label: 'Frontend',
-                    items: ['React', 'Vue.js', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML/CSS']
+                    items: ['React', 'Vue.js', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML/CSS', 'Flutter', 'Dart']
                 },
                 backend: {
                     label: 'Backend',
-                    items: ['Node.js', 'PHP', 'Laravel', 'CodeIgniter', 'Python']
+                    items: ['Node.js', 'PHP', 'Laravel', 'CodeIgniter', 'Python', 'Go']
                 },
                 database: {
                     label: 'Database',
