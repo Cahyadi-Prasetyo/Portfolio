@@ -90,8 +90,8 @@
                         >{t.hero.ctaSecondary}</a
                     >
                     <a href="/cv-visual.pdf" download="CV-Cahyadi-Prasetyo.pdf" class="btn btn-outline" title={t.hero.cvVisual}>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        Download CV
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        {t.hero.cvVisual}
                     </a>
                 </div>
             </div>
@@ -195,13 +195,13 @@
 
     @keyframes pulse {
         0% {
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+            box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-success) 40%, transparent);
         }
         70% {
-            box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+            box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-success) 0%, transparent);
         }
         100% {
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-success) 0%, transparent);
         }
     }
 
@@ -230,6 +230,7 @@
         letter-spacing: -2px;
         margin-bottom: var(--space-2xl);
         min-height: 1.2em; /* Prevents layout jump when empty */
+        overflow-wrap: break-word;
     }
 
     .dynamic-text {
@@ -279,7 +280,7 @@
     }
 
     .primary-glow:hover {
-        box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: var(--shadow-level-3);
         transform: translateY(-1px);
     }
 
@@ -299,7 +300,7 @@
         position: absolute;
         inset: 0;
         border-radius: var(--radius-lg);
-        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+        box-shadow: var(--shadow-level-1);
         pointer-events: none;
     }
 
@@ -438,6 +439,14 @@
 
         .hero-typewriter {
             font-size: 20px;
+        }
+
+        .trust-list {
+            gap: var(--space-md);
+        }
+
+        .trust-name {
+            font-size: var(--body-sm);
         }
     }
 </style>

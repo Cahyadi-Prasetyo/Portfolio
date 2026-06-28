@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="row-action">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </div>
                 </a>
             {/each}
@@ -46,7 +46,7 @@
         <div class="work-footer reveal delay-4">
             <a href="/projects" class="btn btn-outline">
                 {t.selectedWork.viewAll}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
         </div>
     </div>
@@ -161,21 +161,21 @@
     }
 
     .status-concept {
-        color: #f59e0b;
-        background: rgba(245, 158, 11, 0.1);
-        border-color: rgba(245, 158, 11, 0.2);
+        color: var(--color-warning);
+        background: color-mix(in srgb, var(--color-warning) 12%, transparent);
+        border-color: color-mix(in srgb, var(--color-warning) 25%, transparent);
     }
 
     .status-in-progress {
-        color: #3b82f6;
-        background: rgba(59, 130, 246, 0.1);
-        border-color: rgba(59, 130, 246, 0.2);
+        color: var(--color-info);
+        background: color-mix(in srgb, var(--color-info) 12%, transparent);
+        border-color: color-mix(in srgb, var(--color-info) 25%, transparent);
     }
 
     .status-shipped {
-        color: #10b981;
-        background: rgba(16, 185, 129, 0.1);
-        border-color: rgba(16, 185, 129, 0.2);
+        color: var(--color-success);
+        background: color-mix(in srgb, var(--color-success) 12%, transparent);
+        border-color: color-mix(in srgb, var(--color-success) 25%, transparent);
     }
 
     .row-desc {
@@ -216,12 +216,12 @@
             flex-direction: column;
             align-items: flex-start;
             gap: var(--space-md);
-            padding: var(--space-xl) 0;
+            padding: var(--space-lg) 0;
         }
 
         .project-row:hover {
             margin: 0;
-            padding: var(--space-xl) 0;
+            padding: var(--space-lg) 0;
             background: transparent;
             border-bottom-color: var(--color-hairline);
             border-radius: 0;
@@ -229,7 +229,7 @@
 
         .row-thumb {
             width: 100%;
-            height: 180px;
+            height: 150px;
             border-radius: var(--radius-md);
         }
 
@@ -242,8 +242,8 @@
         }
 
         .row-desc {
-            font-size: 13px;
-            line-height: 20px;
+            font-size: 14px;
+            line-height: 22px;
             -webkit-line-clamp: 3;
         }
 

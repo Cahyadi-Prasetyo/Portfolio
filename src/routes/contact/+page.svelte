@@ -55,7 +55,7 @@
     <div class="bg-grid"></div>
     <div class="container">
         <section class="header reveal">
-            <span class="page-eyebrow">Get in touch</span>
+            <span class="page-eyebrow">{t.contact.label}</span>
             <h1 class="page-title text-gradient">{t.contact.title}</h1>
             <p class="page-desc">{t.contact.desc}</p>
         </section>
@@ -63,7 +63,7 @@
         <div class="contact-layout">
             <!-- Form card -->
             <div class="form-card reveal">
-                <form class="contact-form" onsubmit={handleSubmit}>
+                <form class="contact-form" onsubmit={handleSubmit} aria-busy={sending} novalidate>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">{t.contact.nameLabel}</label>
@@ -82,53 +82,56 @@
 
                     <div class="form-group">
                         <label for="message">{t.contact.messageLabel}</label>
-                        <textarea id="message" bind:value={formData.message} placeholder={t.contact.messagePlaceholder} rows="5" required></textarea>
+                        <textarea id="message" bind:value={formData.message} placeholder={t.contact.messagePlaceholder} rows="4" required></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary submit-btn" disabled={sending}>
                         {#if sending}
-                            Sending...
+                            {t.contact.sending}
                         {:else if sent}
-                            ✓ Sent Successfully!
+                            {t.contact.success}
                         {:else if error}
-                            ✕ Failed to send
+                            {t.contact.error}
                         {:else}
                             {t.contact.send}
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         {/if}
                     </button>
                 </form>
+                <div class="sr-only" aria-live="polite" role="status">
+                    {#if sending}{t.contact.sending}{:else if sent}{t.contact.success}{:else if error}{t.contact.error}{/if}
+                </div>
             </div>
 
             <!-- Aside info -->
             <div class="contact-aside reveal">
                 <div class="aside-card">
                     <div class="aside-block">
-                        <span class="aside-label">Email</span>
+                        <span class="aside-label">{t.contact.emailLabel}</span>
                         <a href="mailto:{t.contact.email}" class="aside-email">{t.contact.email}</a>
                     </div>
                     <hr class="aside-divider" />
                     <div class="aside-block">
-                        <span class="aside-label">Social</span>
+                        <span class="aside-label">{t.contact.socialLabel}</span>
                         <div class="aside-links">
-                            <a href="https://github.com/Cahyadi-Prasetyo" target="_blank" rel="noopener">
+                            <a href="https://github.com/Cahyadi-Prasetyo" target="_blank" rel="noopener noreferrer">
                                 GitHub
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
                             </a>
-                            <a href="https://www.linkedin.com/in/cahyadiprasetyo/" target="_blank" rel="noopener">
+                            <a href="https://www.linkedin.com/in/cahyadiprasetyo/" target="_blank" rel="noopener noreferrer">
                                 LinkedIn
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
                             </a>
-                            <a href="https://instagram.com/cahyadi_p24" target="_blank" rel="noopener">
+                            <a href="https://instagram.com/cahyadi_p24" target="_blank" rel="noopener noreferrer">
                                 Instagram
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
                             </a>
                         </div>
                     </div>
                     <hr class="aside-divider" />
                     <div class="aside-block">
-                        <span class="aside-label">Location</span>
-                        <p class="aside-text">Kijang Kota, Kepulauan Riau</p>
+                        <span class="aside-label">{t.contact.locationLabel}</span>
+                        <p class="aside-text">{t.contact.location}</p>
                     </div>
                 </div>
             </div>
@@ -216,7 +219,7 @@
         font-family: var(--font-sans);
         font-size: var(--body-sm);
         padding: 0 var(--space-sm);
-        height: 40px;
+        min-height: 44px;
         border: 1px solid var(--color-hairline);
         border-radius: var(--radius-sm);
         background: var(--color-canvas);
@@ -259,7 +262,7 @@
     .aside-divider {
         border: none;
         border-top: 1px solid var(--color-hairline);
-        margin: var(--space-lg) 0;
+        margin: var(--space-md) 0;
     }
 
     .aside-block {
@@ -277,12 +280,14 @@
     }
 
     .aside-email {
-        font-size: var(--body-sm);
+        font-size: var(--body-md);
         font-weight: 500;
         color: var(--color-ink);
         word-break: break-all;
         letter-spacing: -0.28px;
         transition: color var(--transition-fast);
+        display: inline-block;
+        padding: var(--space-xxs) 0;
     }
 
     .aside-email:hover {
@@ -298,18 +303,20 @@
     .aside-links {
         display: flex;
         flex-direction: column;
-        gap: var(--space-xs);
+        gap: 2px;
     }
 
     .aside-links a {
         display: inline-flex;
         align-items: center;
-        gap: 4px;
-        font-size: var(--body-sm);
+        gap: 6px;
+        font-size: var(--body-md);
         font-weight: 400;
         color: var(--color-body);
         letter-spacing: -0.28px;
         transition: color var(--transition-fast);
+        padding: 10px 0;
+        min-height: 44px;
     }
 
     .aside-links a:hover {

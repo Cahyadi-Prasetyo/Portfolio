@@ -40,9 +40,22 @@
 
 <div
     class="carousel-container"
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="Project images"
+    tabindex="0"
+    onkeydown={(e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); prev(e); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); next(e); }
+        if (e.key === 'Home') { e.preventDefault(); goToSlide(0); }
+        if (e.key === 'End') { e.preventDefault(); goToSlide(displayImages.length - 1); }
+    }}
     onmouseenter={() => (isPaused = true)}
     onmouseleave={() => (isPaused = false)}
 >
+    <div class="carousel-visually-hidden" aria-live="polite" aria-atomic="false">
+        Slide {currentIndex + 1} of {displayImages.length}
+    </div>
     {#if displayImages.length > 0}
         <div
             class="carousel-track"
@@ -74,7 +87,9 @@
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
-                    stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                ><path d="m15 18-6-6 6-6" /></svg
                 >
             </button>
             <button class="nav-btn next" onclick={next} aria-label="Next image">
@@ -86,8 +101,23 @@
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
-                    stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                ><path d="m9 18 6-6-6-6" /></svg
                 >
+            </button>
+
+            <!-- Pause/Play button -->
+            <button
+                class="carousel-pause"
+                onclick={() => isPaused = !isPaused}
+                aria-label={isPaused ? 'Resume slideshow' : 'Pause slideshow'}
+            >
+                {#if isPaused}
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                {:else}
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                {/if}
             </button>
 
             <!-- Pagination Dots -->
@@ -124,7 +154,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+        box-shadow: var(--shadow-level-1);
         pointer-events: none;
         z-index: 10;
     }
@@ -156,9 +186,9 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.9);
+        background: color-mix(in srgb, var(--color-canvas) 85%, transparent);
         border: 1px solid var(--color-hairline);
-        color: #171717; /* Always dark for contrast against image */
+        color: var(--color-ink);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -168,7 +198,7 @@
             opacity var(--transition-base),
             transform var(--transition-base);
         z-index: 20;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow-level-2);
     }
 
     .carousel-container:hover .nav-btn {
@@ -177,7 +207,7 @@
 
     .nav-btn:hover {
         transform: translateY(-50%) scale(1.05);
-        background: #ffffff;
+        background: var(--color-canvas);
     }
 
     .nav-btn.prev {
@@ -197,7 +227,7 @@
         display: flex;
         gap: 8px;
         z-index: 20;
-        background: rgba(0, 0, 0, 0.3);
+        background: color-mix(in srgb, var(--color-ink) 40%, transparent);
         padding: 6px 10px;
         border-radius: 20px;
         backdrop-filter: blur(4px);
@@ -207,7 +237,7 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.5);
+        background: color-mix(in srgb, var(--color-canvas) 50%, transparent);
         border: none;
         padding: 0;
         cursor: pointer;
@@ -215,12 +245,52 @@
     }
 
     .dot:hover {
-        background: rgba(255, 255, 255, 0.8);
+        background: color-mix(in srgb, var(--color-canvas) 80%, transparent);
     }
 
     .dot.active {
-        background: #ffffff;
+        background: var(--color-canvas);
         transform: scale(1.2);
+    }
+
+    .carousel-pause {
+        position: absolute;
+        top: var(--space-md);
+        right: var(--space-md);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: color-mix(in srgb, var(--color-ink) 40%, transparent);
+        border: none;
+        color: var(--color-canvas);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 20;
+        opacity: 0;
+        transition: opacity var(--transition-base), background var(--transition-base);
+    }
+
+    .carousel-container:hover .carousel-pause,
+    .carousel-pause:focus {
+        opacity: 1;
+    }
+
+    .carousel-pause:hover {
+        background: color-mix(in srgb, var(--color-ink) 60%, transparent);
+    }
+
+    .carousel-visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
     }
 
     .carousel-empty {
@@ -232,5 +302,29 @@
         color: var(--color-mute);
         font-family: var(--font-mono);
         font-size: var(--caption);
+    }
+
+    @media (max-width: 600px) {
+        .nav-btn {
+            width: 44px;
+            height: 44px;
+            opacity: 1;
+        }
+        .nav-btn.prev { left: var(--space-xs); }
+        .nav-btn.next { right: var(--space-xs); }
+        .pagination {
+            padding: 6px 10px;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+        }
+        .carousel-pause {
+            opacity: 1;
+            top: var(--space-sm);
+            right: var(--space-sm);
+            width: 44px;
+            height: 44px;
+        }
     }
 </style>

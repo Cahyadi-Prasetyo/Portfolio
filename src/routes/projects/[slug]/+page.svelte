@@ -18,13 +18,13 @@
     <div class="container">
         {#if project}
             <a href="/projects" class="back-link reveal">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
                 {t.projects.backToProjects}
             </a>
 
             <div class="project-header reveal">
                 <span class="project-eyebrow">
-                    {project.category === "web" ? "Web App" : project.category === "mobile" ? "Mobile App" : project.category === "game" ? "Game Project" : "AI Project"}
+                    {project.category === "web" ? t.projects.webApp : project.category === "mobile" ? t.projects.mobileApp : project.category === "game" ? t.projects.gameProject : t.projects.aiProject}
                 </span>
                 <h1 class="project-title text-gradient">{project.title}</h1>
             </div>
@@ -33,7 +33,7 @@
                 {#if project.liveUrl}
                     <a href={project.liveUrl} target="_blank" rel="noopener" class="btn btn-primary primary-glow">
                         {t.projects.liveDemo}
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
                     </a>
                 {/if}
                 {#if project.githubUrl}
@@ -51,7 +51,7 @@
 
             <div class="detail-layout">
                 <main class="detail-main reveal">
-                    <span class="detail-label">About this project</span>
+                    <span class="detail-label">{t.projects.aboutThis}</span>
                     <p class="detail-text">
                         {currentLang === "id" ? project.description.id : project.description.en}
                     </p>
@@ -60,20 +60,20 @@
                 <aside class="detail-sidebar reveal delay-1">
                     {#if project.role}
                         <div class="meta-block">
-                            <span class="detail-label">Role</span>
+                            <span class="detail-label">{t.projects.role}</span>
                             <span class="meta-value">{currentLang === "id" ? project.role.id : project.role.en}</span>
                         </div>
                     {/if}
                     
                     {#if project.duration}
                         <div class="meta-block">
-                            <span class="detail-label">Timeline</span>
+                            <span class="detail-label">{t.projects.timeline}</span>
                             <span class="meta-value">{currentLang === "id" ? project.duration.id : project.duration.en}</span>
                         </div>
                     {/if}
 
                     <div class="meta-block">
-                        <span class="detail-label">Tech Stack</span>
+                        <span class="detail-label">{t.projects.techStackSection}</span>
                         <div class="tech-list">
                             {#each project.tech as tech}
                                 <span class="tag">{tech}</span>
@@ -84,7 +84,7 @@
             </div>
         {:else}
             <div class="not-found">
-                <h1>Project not found.</h1>
+                <h1>{t.projects.notFound}</h1>
                 <a href="/projects" class="btn btn-primary">{t.projects.backToProjects}</a>
             </div>
         {/if}
@@ -108,6 +108,7 @@
         margin-bottom: var(--space-3xl);
         transition: color var(--transition-fast);
         letter-spacing: -0.28px;
+        padding: var(--space-xs) 0;
     }
 
     .back-link:hover {
@@ -147,7 +148,7 @@
     }
 
     .primary-glow:hover {
-        box-shadow: 0 4px 14px 0 rgba(0,0,0,0.2);
+        box-shadow: var(--shadow-level-3);
         transform: translateY(-1px);
     }
 
@@ -224,12 +225,19 @@
     @media (max-width: 768px) {
         .detail-layout {
             grid-template-columns: 1fr;
-            gap: var(--space-2xl);
+            gap: var(--space-xl);
         }
 
         .detail-text {
             font-size: 15px;
             line-height: 24px;
+            text-align: left;
+        }
+
+        .detail-sidebar {
+            gap: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-hairline);
         }
 
         .project-actions {
@@ -239,9 +247,14 @@
 
         .project-actions .btn {
             font-size: 14px;
-            height: 40px;
+            min-height: 44px;
             flex: 1;
             min-width: 0;
+            justify-content: center;
+        }
+
+        .project-title {
+            font-size: clamp(28px, 7vw, 36px);
         }
     }
 </style>

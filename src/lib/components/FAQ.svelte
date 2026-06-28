@@ -20,21 +20,25 @@
 
             <div class="faq-list">
                 {#each t.faq.items as item, i}
-                    <button
-                        class="faq-item"
-                        class:open={openIndex === i}
-                        onclick={() => toggle(i)}
-                    >
-                        <div class="faq-question">
-                            <span class="faq-text">{item.q}</span>
-                            <span class="faq-icon">{openIndex === i ? '−' : '+'}</span>
-                        </div>
+                    <div class="faq-item-wrapper">
+                        <button
+                            class="faq-item"
+                            class:open={openIndex === i}
+                            aria-expanded={openIndex === i}
+                            aria-controls="faq-answer-{i}"
+                            onclick={() => toggle(i)}
+                        >
+                            <div class="faq-question">
+                                <span class="faq-text">{item.q}</span>
+                                <span class="faq-icon" aria-hidden="true">{openIndex === i ? '−' : '+'}</span>
+                            </div>
+                        </button>
                         {#if openIndex === i}
-                            <div class="faq-answer fade-in">
+                            <div class="faq-answer fade-in" id="faq-answer-{i}" role="region">
                                 <p>{item.a}</p>
                             </div>
                         {/if}
-                    </button>
+                    </div>
                 {/each}
             </div>
         </div>
@@ -74,18 +78,22 @@
         flex-direction: column;
     }
 
+    .faq-item-wrapper {
+        border-bottom: 1px solid var(--color-hairline);
+    }
+
+    .faq-item-wrapper:first-child {
+        border-top: 1px solid var(--color-hairline);
+    }
+
     .faq-item {
         width: 100%;
         text-align: left;
         padding: 0;
         border: none;
-        border-bottom: 1px solid var(--color-hairline);
         background: none;
         cursor: pointer;
-    }
-
-    .faq-item:first-child {
-        border-top: 1px solid var(--color-hairline);
+        min-height: 48px;
     }
 
     .faq-question {
@@ -94,6 +102,7 @@
         align-items: center;
         padding: var(--space-lg) 0;
         gap: var(--space-lg);
+        min-height: 48px;
     }
 
     .faq-text {
@@ -127,26 +136,32 @@
         animation: fadeIn 0.3s cubic-bezier(0.2, 1, 0.3, 1) both;
     }
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(-4px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
     @media (max-width: 768px) {
         .faq-layout {
             grid-template-columns: 1fr;
             gap: var(--space-2xl);
         }
-        
+
         .faq-header {
             position: relative;
             top: 0;
+        }
+
+        .faq-question {
+            padding: var(--space-md) 0;
+        }
+
+        .faq-text {
+            font-size: 15px;
+        }
+
+        .faq-icon {
+            font-size: 28px;
+            width: 32px;
+        }
+
+        .faq-answer p {
+            font-size: 14px;
         }
     }
 </style>

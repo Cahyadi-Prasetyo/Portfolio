@@ -14,6 +14,7 @@ export const translations: Record<Language, any> = {
             bio: 'Mahasiswa Teknik Informatika (UMRAH) yang aktif belajar dan membangun proyek web sejak 2022. Saya berpengalaman mengembangkan aplikasi dari sisi frontend (React, Vue, Svelte) hingga backend (Laravel, Node.js), serta membuat visualisasi data. Melalui magang di BPS Kepri dan Pelindo, saya belajar bekerja dalam tim dan menyelesaikan masalah teknis secara nyata.',
             cta: 'Lihat Hasil Kerja Saya',
             ctaSecondary: 'Hubungi Saya',
+            cvAts: 'Download CV ATS',
             cvVisual: 'Download CV'
         },
         trust: {
@@ -40,6 +41,7 @@ export const translations: Record<Language, any> = {
             titleExp: 'Pengalaman',
             titleEdu: 'Pendidikan',
             titleCert: 'Sertifikasi',
+            viewCert: 'Lihat Sertifikat →',
             techStack: {
                 frontend: {
                     label: 'Frontend',
@@ -180,7 +182,18 @@ export const translations: Record<Language, any> = {
             filterGame: 'Game',
             liveDemo: 'Lihat Demo',
             sourceCode: 'Source Code',
-            backToProjects: 'Kembali ke Proyek'
+            backToProjects: 'Kembali ke Proyek',
+            empty: 'Belum ada proyek di kategori ini.',
+            more: 'Lihat Proyek Lainnya',
+            webApp: 'Web App',
+            mobileApp: 'Mobile App',
+            gameProject: 'Game Project',
+            aiProject: 'AI Project',
+            notFound: 'Project not found.',
+            aboutThis: 'About this project',
+            role: 'Role',
+            timeline: 'Timeline',
+            techStackSection: 'Tech Stack'
         },
         featured: {
             label: 'Proyek Pilihan',
@@ -210,6 +223,12 @@ export const translations: Record<Language, any> = {
             messageLabel: 'Pesan',
             messagePlaceholder: 'Ceritakan tentang proyek Anda...',
             send: 'Kirim Pesan',
+            sending: 'Mengirim...',
+            success: 'Terkirim!',
+            error: 'Gagal mengirim',
+            socialLabel: 'Sosial',
+            locationLabel: 'Lokasi',
+            location: 'Kijang Kota, Kepulauan Riau',
             email: 'chdprasetyo@gmail.com',
             orEmail: 'Atau kirim email langsung ke'
         },
@@ -219,7 +238,8 @@ export const translations: Record<Language, any> = {
             button: 'Hubungi Saya'
         },
         footer: {
-            copy: '© 2026 Cahyadi Prasetyo. All rights reserved.'
+            copy: '© 2026 Cahyadi Prasetyo. All rights reserved.',
+            backToTop: 'Kembali ke atas'
         }
     },
     en: {
@@ -372,6 +392,24 @@ export const translations: Record<Language, any> = {
                     logo: '/logo_smk.webp',
                     desc: 'Studied programming fundamentals, databases, and application development.'
                 }
+            ],
+            titleCert: 'Certifications',
+            viewCert: 'View Certificate →',
+            certifications: [
+                {
+                    year: '2023',
+                    title: 'Competency Certificate',
+                    issuer: 'Certification Body',
+                    logo: '/Sertifikat-Kompetensi.webp',
+                    desc: 'Professional competency certification.'
+                },
+                {
+                    year: '2022',
+                    title: 'Internship Certificate',
+                    issuer: 'Internship Host',
+                    logo: '/Sertifikat-PKL.webp',
+                    desc: 'Certificate of completion for internship program.'
+                }
             ]
         },
         projects: {
@@ -385,7 +423,18 @@ export const translations: Record<Language, any> = {
             filterGame: 'Game',
             liveDemo: 'Live Demo',
             sourceCode: 'Source Code',
-            backToProjects: 'Back to Projects'
+            backToProjects: 'Back to Projects',
+            empty: 'No projects in this category yet.',
+            more: 'See More Projects',
+            webApp: 'Web App',
+            mobileApp: 'Mobile App',
+            gameProject: 'Game Project',
+            aiProject: 'AI Project',
+            notFound: 'Project not found.',
+            aboutThis: 'About this project',
+            role: 'Role',
+            timeline: 'Timeline',
+            techStackSection: 'Tech Stack'
         },
         featured: {
             label: 'Selected Work',
@@ -415,7 +464,13 @@ export const translations: Record<Language, any> = {
             messageLabel: 'Message',
             messagePlaceholder: 'Tell me about your project...',
             send: 'Send Message',
-            email: 'chdprasetyo@gmail.com ' ,
+            sending: 'Sending...',
+            success: 'Sent successfully!',
+            error: 'Failed to send',
+            socialLabel: 'Social',
+            locationLabel: 'Location',
+            location: 'Kijang Kota, Kepulauan Riau',
+            email: 'chdprasetyo@gmail.com',
             orEmail: 'Or email me directly at'
         },
         footerCta: {
@@ -424,7 +479,8 @@ export const translations: Record<Language, any> = {
             button: 'Contact Me'
         },
         footer: {
-            copy: '© 2026 Cahyadi Prasetyo. All rights reserved.'
+            copy: '© 2026 Cahyadi Prasetyo. All rights reserved.',
+            backToTop: 'Back to top'
         }
     }
 };

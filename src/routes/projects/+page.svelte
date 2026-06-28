@@ -50,27 +50,27 @@
         </section>
 
         <!-- Filter tabs -->
-        <div class="filters reveal">
-            <button class="filter-tab" class:active={activeFilter === "all"} onclick={() => setFilter("all")}>
+        <div class="filters reveal" role="tablist" aria-label="Filter projects by category">
+            <button class="filter-tab" class:active={activeFilter === "all"} aria-pressed={activeFilter === "all"} onclick={() => setFilter("all")}>
                 {t.projects.filterAll}
             </button>
-            <button class="filter-tab" class:active={activeFilter === "web"} onclick={() => setFilter("web")}>
+            <button class="filter-tab" class:active={activeFilter === "web"} aria-pressed={activeFilter === "web"} onclick={() => setFilter("web")}>
                 {t.projects.filterWeb}
             </button>
-            <button class="filter-tab" class:active={activeFilter === "mobile"} onclick={() => setFilter("mobile")}>
+            <button class="filter-tab" class:active={activeFilter === "mobile"} aria-pressed={activeFilter === "mobile"} onclick={() => setFilter("mobile")}>
                 {t.projects.filterMobile}
             </button>
-            <button class="filter-tab" class:active={activeFilter === "ai"} onclick={() => setFilter("ai")}>
+            <button class="filter-tab" class:active={activeFilter === "ai"} aria-pressed={activeFilter === "ai"} onclick={() => setFilter("ai")}>
                 {t.projects.filterAI}
             </button>
-            <button class="filter-tab" class:active={activeFilter === "game"} onclick={() => setFilter("game")}>
+            <button class="filter-tab" class:active={activeFilter === "game"} aria-pressed={activeFilter === "game"} onclick={() => setFilter("game")}>
                 {t.projects.filterGame}
             </button>
         </div>
 
         {#if filteredProjects.length === 0}
             <div class="empty-state reveal">
-                <p>Belum ada proyek di kategori ini.</p>
+                <p>{t.projects.empty}</p>
             </div>
         {:else}
             {#if viewMode === 'list'}
@@ -113,7 +113,7 @@
                             </div>
                             <div class="k-card-body">
                                 <div class="k-card-meta">
-                                    <span class="k-cat">{project.category === 'web' ? 'Web App' : project.category === 'mobile' ? 'Mobile App' : project.category === 'game' ? 'Game' : 'AI Project'}</span>
+                                    <span class="k-cat">{project.category === 'web' ? t.projects.webApp : project.category === 'mobile' ? t.projects.mobileApp : project.category === 'game' ? t.projects.gameProject : t.projects.aiProject}</span>
                                     <span class="k-role">{currentLang === 'id' ? project.role.id : project.role.en}</span>
                                 </div>
                                 <h4 class="k-title">{project.title}</h4>
@@ -139,7 +139,7 @@
 
         <div class="more-projects-wrapper reveal delay-2">
             <a href="https://github.com/Cahyadi-Prasetyo" target="_blank" rel="noopener noreferrer" class="btn btn-outline more-btn">
-                {currentLang === 'id' ? 'Lihat Proyek Lainnya' : 'See More Projects'}
+                {t.projects.more}
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.15-.38 6.47-1.4 6.47-7.05 0-1.5-.5-2.75-1.4-3.7.1-.2.6-1.7-.1-3.6 0 0-1.2-.4-3.9 1.4a13.3 13.3 0 0 0-7 0c-2.7-1.8-3.9-1.4-3.9-1.4-.7 1.9-.2 3.4-.1 3.6-.9.9-1.4 2.2-1.4 3.7 0 5.65 3.32 6.67 6.47 7.05a4.8 4.8 0 0 0-1 3.03V22"/><path d="M9 20c-5 1.5-5-2.5-7-3"/></svg>
             </a>
         </div>
@@ -192,7 +192,7 @@
     .view-toggle button {
         background: transparent;
         border: none;
-        padding: 6px;
+        padding: 8px;
         border-radius: 4px;
         color: var(--color-mute);
         cursor: pointer;
@@ -229,6 +229,7 @@
         background: var(--color-canvas-soft-2);
         border-radius: var(--radius-pill-sm);
         width: fit-content;
+        max-width: 100%;
     }
 
     .filter-tab {
@@ -243,6 +244,10 @@
         cursor: pointer;
         transition: all var(--transition-fast);
         letter-spacing: -0.28px;
+        white-space: nowrap;
+        min-height: 36px;
+        display: inline-flex;
+        align-items: center;
     }
 
     .filter-tab:hover {
@@ -352,21 +357,21 @@
     }
 
     .status-concept {
-        color: #f59e0b;
-        background: rgba(245, 158, 11, 0.1);
-        border-color: rgba(245, 158, 11, 0.2);
+        color: var(--color-warning);
+        background: color-mix(in srgb, var(--color-warning) 12%, transparent);
+        border-color: color-mix(in srgb, var(--color-warning) 25%, transparent);
     }
 
     .status-in-progress {
-        color: #3b82f6;
-        background: rgba(59, 130, 246, 0.1);
-        border-color: rgba(59, 130, 246, 0.2);
+        color: var(--color-info);
+        background: color-mix(in srgb, var(--color-info) 12%, transparent);
+        border-color: color-mix(in srgb, var(--color-info) 25%, transparent);
     }
 
     .status-shipped {
-        color: #10b981;
-        background: rgba(16, 185, 129, 0.1);
-        border-color: rgba(16, 185, 129, 0.2);
+        color: var(--color-success);
+        background: color-mix(in srgb, var(--color-success) 12%, transparent);
+        border-color: color-mix(in srgb, var(--color-success) 25%, transparent);
     }
 
     .row-desc {
@@ -424,6 +429,7 @@
 
     .k-card-image {
         width: 100%;
+        height: 180px;
         background: var(--color-canvas-soft-2);
         overflow: hidden;
         position: relative;
@@ -434,7 +440,8 @@
 
     .k-card-image img {
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
         display: block;
         transition: transform var(--transition-base);
     }
@@ -490,7 +497,7 @@
     }
 
     .k-title {
-        font-size: var(--body-md, 1rem);
+        font-size: var(--body-md);
         font-weight: 600;
         color: var(--color-ink);
         letter-spacing: -0.3px;
@@ -587,7 +594,7 @@
 
     .more-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        box-shadow: var(--shadow-level-2);
     }
 
     @media (max-width: 960px) {
@@ -600,6 +607,24 @@
         .header-row {
             flex-direction: column;
             align-items: flex-start;
+        }
+
+        .view-toggle button {
+            padding: 10px;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .page-title {
+            font-size: clamp(28px, 7vw, 36px);
+        }
+
+        .k-card-image {
+            height: 150px;
+        }
+
+        .empty-state {
+            padding: var(--space-3xl) 0;
         }
 
         .project-row {
@@ -628,13 +653,22 @@
         }
 
         .filters {
-            flex-wrap: wrap;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            flex-wrap: nowrap;
             gap: var(--space-xs);
+            border-radius: var(--radius-md);
         }
 
-        .filter-btn {
-            font-size: 12px;
-            padding: 6px 12px;
+        .filters::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-tab {
+            min-height: 44px;
+            padding: var(--space-sm) var(--space-md);
         }
 
         .kanban-board {
