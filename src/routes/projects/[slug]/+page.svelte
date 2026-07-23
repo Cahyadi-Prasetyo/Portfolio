@@ -24,7 +24,7 @@
 
             <div class="project-header reveal">
                 <span class="project-eyebrow">
-                    {project.category === "web" ? t.projects.webApp : project.category === "mobile" ? t.projects.mobileApp : project.category === "game" ? t.projects.gameProject : t.projects.aiProject}
+                    {project.category === "web" ? t.projects.webApp : project.category === "mobile" ? t.projects.mobileApp : t.projects.gameProject}
                 </span>
                 <h1 class="project-title text-gradient">{project.title}</h1>
             </div>

@@ -178,7 +178,6 @@ export const translations: Record<Language, any> = {
             filterAll: 'Semua',
             filterWeb: 'Website',
             filterMobile: 'Mobile',
-            filterAI: 'AI',
             filterGame: 'Game',
             liveDemo: 'Lihat Demo',
             sourceCode: 'Source Code',
@@ -188,12 +187,13 @@ export const translations: Record<Language, any> = {
             webApp: 'Web App',
             mobileApp: 'Mobile App',
             gameProject: 'Game Project',
-            aiProject: 'AI Project',
             notFound: 'Project not found.',
             aboutThis: 'About this project',
             role: 'Role',
             timeline: 'Timeline',
-            techStackSection: 'Tech Stack'
+            techStackSection: 'Tech Stack',
+            prevPage: 'Sebelumnya',
+            nextPage: 'Selanjutnya'
         },
         featured: {
             label: 'Proyek Pilihan',
@@ -419,7 +419,6 @@ export const translations: Record<Language, any> = {
             filterAll: 'All',
             filterWeb: 'Website',
             filterMobile: 'Mobile',
-            filterAI: 'AI',
             filterGame: 'Game',
             liveDemo: 'Live Demo',
             sourceCode: 'Source Code',
@@ -429,12 +428,13 @@ export const translations: Record<Language, any> = {
             webApp: 'Web App',
             mobileApp: 'Mobile App',
             gameProject: 'Game Project',
-            aiProject: 'AI Project',
             notFound: 'Project not found.',
             aboutThis: 'About this project',
             role: 'Role',
             timeline: 'Timeline',
-            techStackSection: 'Tech Stack'
+            techStackSection: 'Tech Stack',
+            prevPage: 'Previous',
+            nextPage: 'Next'
         },
         featured: {
             label: 'Selected Work',

@@ -6,9 +6,16 @@
     const t = $derived(getTranslations());
     const currentLang = $derived(getCurrentLang());
 
-    let activeFilter = $state<"all" | "web" | "mobile" | "ai" | "game">("all");
+    let activeFilter = $state<"all" | "web" | "mobile" | "game">("all");
     let viewMode = $state<"list" | "kanban">("kanban");
     let filteredProjects = $derived(getProjectsByCategory(activeFilter));
+
+    const ITEMS_PER_PAGE = 6;
+    let currentPage = $state(1);
+    let totalPages = $derived(Math.ceil(filteredProjects.length / ITEMS_PER_PAGE));
+    let paginatedProjects = $derived(
+        filteredProjects.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
+    );
 
     onMount(() => {
         const savedMode = localStorage.getItem('portfolio-view-mode');
@@ -21,8 +28,18 @@
         localStorage.setItem('portfolio-view-mode', viewMode);
     });
 
-    function setFilter(filter: "all" | "web" | "mobile" | "ai" | "game") {
+    function setFilter(filter: "all" | "web" | "mobile" | "game") {
         activeFilter = filter;
+        currentPage = 1;
+    }
+
+    function goToPage(page: number) {
+        if (page >= 1 && page <= totalPages) {
+            currentPage = page;
+            if (typeof window !== 'undefined') {
+                window.scrollTo({ top: 200, behavior: 'smooth' });
+            }
+        }
     }
 </script>
 
@@ -60,9 +77,6 @@
             <button class="filter-tab" class:active={activeFilter === "mobile"} aria-pressed={activeFilter === "mobile"} onclick={() => setFilter("mobile")}>
                 {t.projects.filterMobile}
             </button>
-            <button class="filter-tab" class:active={activeFilter === "ai"} aria-pressed={activeFilter === "ai"} onclick={() => setFilter("ai")}>
-                {t.projects.filterAI}
-            </button>
             <button class="filter-tab" class:active={activeFilter === "game"} aria-pressed={activeFilter === "game"} onclick={() => setFilter("game")}>
                 {t.projects.filterGame}
             </button>
@@ -76,7 +90,7 @@
             {#if viewMode === 'list'}
                 <!-- Minimalist List View -->
                 <div class="project-list">
-                    {#each filteredProjects as project, i (project.slug)}
+                    {#each paginatedProjects as project, i (project.slug)}
                         <a href="/projects/{project.slug}" class="project-row fade-in" style="animation-delay: {i * 0.05}s">
                             <div class="row-thumb">
                                 <img src={project.imageUrl} alt={project.title} loading="lazy" />
@@ -105,7 +119,7 @@
             {:else}
                 <!-- Kanban View -->
                 <div class="kanban-board fade-in">
-                    {#each filteredProjects as project, i}
+                    {#each paginatedProjects as project, i (project.slug)}
                         <a href="/projects/{project.slug}" class="kanban-card" style="animation-delay: {i * 0.07}s">
                             <div class="k-card-image">
                                 <img src={project.imageUrl} alt={project.title} loading="lazy" />
@@ -113,7 +127,7 @@
                             </div>
                             <div class="k-card-body">
                                 <div class="k-card-meta">
-                                    <span class="k-cat">{project.category === 'web' ? t.projects.webApp : project.category === 'mobile' ? t.projects.mobileApp : project.category === 'game' ? t.projects.gameProject : t.projects.aiProject}</span>
+                                    <span class="k-cat">{project.category === 'web' ? t.projects.webApp : project.category === 'mobile' ? t.projects.mobileApp : t.projects.gameProject}</span>
                                     <span class="k-role">{currentLang === 'id' ? project.role.id : project.role.en}</span>
                                 </div>
                                 <h4 class="k-title">{project.title}</h4>
@@ -133,6 +147,45 @@
                             </div>
                         </a>
                     {/each}
+                </div>
+            {/if}
+
+            {#if totalPages > 1}
+                <div class="pagination reveal">
+                    <button 
+                        class="pagination-btn" 
+                        disabled={currentPage === 1} 
+                        onclick={() => goToPage(currentPage - 1)}
+                        aria-label={t.projects.prevPage}
+                    >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        <span>{t.projects.prevPage}</span>
+                    </button>
+
+                    <div class="pagination-pages">
+                        {#each Array(totalPages) as _, idx}
+                            {@const pageNum = idx + 1}
+                            <button 
+                                class="pagination-num" 
+                                class:active={currentPage === pageNum}
+                                onclick={() => goToPage(pageNum)}
+                                aria-label="Page {pageNum}"
+                                aria-current={currentPage === pageNum ? 'page' : undefined}
+                            >
+                                {pageNum}
+                            </button>
+                        {/each}
+                    </div>
+
+                    <button 
+                        class="pagination-btn" 
+                        disabled={currentPage === totalPages} 
+                        onclick={() => goToPage(currentPage + 1)}
+                        aria-label={t.projects.nextPage}
+                    >
+                        <span>{t.projects.nextPage}</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </button>
                 </div>
             {/if}
         {/if}
@@ -595,6 +648,78 @@
     .more-btn:hover {
         transform: translateY(-2px);
         box-shadow: var(--shadow-level-2);
+    }
+
+    /* Pagination — Vercel minimalistic style */
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-md);
+        margin-top: var(--space-3xl);
+        padding-top: var(--space-2xl);
+    }
+
+    .pagination-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        padding: 0 var(--space-md);
+        height: 36px;
+        font-family: var(--font-sans);
+        font-size: var(--body-sm);
+        font-weight: 500;
+        color: var(--color-ink);
+        background: var(--color-canvas);
+        border: 1px solid var(--color-hairline);
+        border-radius: var(--radius-pill);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+
+    .pagination-btn:hover:not(:disabled) {
+        border-color: var(--color-hairline-strong);
+        background: var(--color-canvas-soft-2);
+        box-shadow: var(--shadow-level-1);
+    }
+
+    .pagination-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+
+    .pagination-pages {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .pagination-num {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-size: var(--caption);
+        font-weight: 500;
+        color: var(--color-body);
+        background: transparent;
+        border: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+
+    .pagination-num:hover {
+        color: var(--color-ink);
+        background: var(--color-canvas-soft-2);
+    }
+
+    .pagination-num.active {
+        background: var(--color-ink);
+        color: var(--color-on-primary);
+        font-weight: 600;
     }
 
     @media (max-width: 960px) {

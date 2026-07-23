@@ -10,7 +10,7 @@ export interface Project {
         en: string;
     };
     tech: string[];
-    category: 'web' | 'mobile' | 'ai' | 'game';
+    category: 'web' | 'mobile' | 'game';
     liveUrl?: string;
     githubUrl?: string;
     featured: boolean;
@@ -159,6 +159,28 @@ export const projects: Project[] = [
         status: 'shipped',
         role: { id: 'Game Developer', en: 'Game Developer' },
         duration: { id: '2 Minggu', en: '2 Weeks' }
+    },
+    {
+        slug: 'absensi-kkn',
+        title: 'Absensi KKN — Sistem Presensi Digital',
+        description: {
+            id: 'Sistem presensi digital berbasis web yang dirancang khusus untuk kegiatan Kuliah Kerja Nyata (KKN). Platform ini menggantikan metode absensi manual dengan sistem berbasis GPS dan QR Code yang terintegrasi. Mahasiswa dapat melakukan check-in kehadiran melalui validasi lokasi GPS real-time dengan radius posko yang dikonfigurasi oleh Admin, atau melalui pemindaian QR Code menggunakan kamera perangkat. Dilengkapi dengan dashboard Admin yang komprehensif untuk monitoring kehadiran, manajemen data mahasiswa, pengaturan koordinat posko & jam absensi, ekspor laporan ke Excel, serta fitur keamanan berupa enkripsi password SHA-256 dengan Salt unik. Seluruh konfigurasi sistem (koordinat, radius, jam buka/tutup) bersifat dinamis dan dikendalikan sepenuhnya melalui panel pengaturan Admin.',
+            en: 'A web-based digital attendance system specifically designed for Community Service Program (KKN) activities. The platform replaces manual attendance methods with an integrated GPS and QR Code-based system. Students can check in through real-time GPS location validation within an Admin-configured post radius, or by scanning QR Codes using their device camera. Equipped with a comprehensive Admin dashboard for attendance monitoring, student data management, post coordinate & attendance schedule configuration, Excel report export, and security features including SHA-256 password encryption with unique Salt. All system configurations (coordinates, radius, open/close times) are dynamic and fully controlled through the Admin settings panel.'
+        },
+        shortDesc: {
+            id: 'Sistem presensi digital berbasis GPS & QR Code dengan dashboard Admin, enkripsi password, dan ekspor laporan Excel untuk kegiatan KKN.',
+            en: 'GPS & QR Code-based digital attendance system with Admin dashboard, password encryption, and Excel report export for KKN activities.'
+        },
+        tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Leaflet'],
+        category: 'web',
+        liveUrl: 'https://absensi-kkn8sungaienam.vercel.app/login',
+        githubUrl: 'https://github.com/Cahyadi-Prasetyo/absensi-kkn.git',
+        featured: true,
+        imageUrl: '/absensi-kkn.webp',
+        images: ['/absensi-kkn.webp'],
+        status: 'shipped',
+        role: { id: 'Full Stack Developer', en: 'Full Stack Developer' },
+        duration: { id: '2 Minggu', en: '2 Weeks' }
     }
 ];
 
@@ -170,7 +192,7 @@ export function getFeaturedProjects(): Project[] {
     return projects.filter((p) => p.featured);
 }
 
-export function getProjectsByCategory(category: 'all' | 'web' | 'mobile' | 'ai' | 'game'): Project[] {
+export function getProjectsByCategory(category: 'all' | 'web' | 'mobile' | 'game'): Project[] {
     if (category === 'all') return projects;
     return projects.filter((p) => p.category === category);
 }
