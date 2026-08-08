@@ -156,10 +156,19 @@ export const translations: Record<Language, any> = {
             ],
             certifications: [
                 {
+                    year: '2026',
+                    title: 'SK Penetapan Asisten Praktikum Semester Genap 2025/2026 — FTTK UMRAH',
+                    issuer: 'FTTK Universitas Maritim Raja Ali Haji',
+                    logo: '/logo_umrah.webp',
+                    pdf: '/SK-Asisten-Praktikum-FTTK-2026.pdf',
+                    desc: 'Fakultas Teknik dan Teknologi Kemaritiman, Universitas Maritim Raja Ali Haji resmi menetapkan 27 Asisten Praktikum untuk mendukung kegiatan pembelajaran praktikum Semester Genap Tahun Akademik 2025/2026, mencakup Program Studi Teknik Informatika, Kimia, Teknik Industri, Teknik Elektro, dan Teknik Perkapalan. Penetapan ini tertuang dalam Surat Keputusan Dekan FTTK UMRAH Nomor 752/DST/UN53.01/DT.01.01/2026 tertanggal 10 Juni 2026.\n\n#FTTK #UMRAH #AsistenPraktikum #PendidikanTinggi #TeknikMaritim'
+                },
+                {
                     year: '2023',
                     title: 'Sertifikat Kompetensi',
                     issuer: 'Lembaga Sertifikasi',
                     logo: '/Sertifikat-Kompetensi.webp',
+                    pdf: '/Sertifikat-Kompetensi.pdf',
                     desc: 'Sertifikat kompetensi keahlian.'
                 },
                 {
@@ -167,6 +176,7 @@ export const translations: Record<Language, any> = {
                     title: 'Sertifikat Praktik Kerja Lapangan',
                     issuer: 'Instansi PKL',
                     logo: '/Sertifikat-PKL.webp',
+                    pdf: '/Sertifikat-PKL.pdf',
                     desc: 'Sertifikat penyelesaian Praktik Kerja Lapangan (PKL).'
                 }
             ]
@@ -397,10 +407,19 @@ export const translations: Record<Language, any> = {
             viewCert: 'View Certificate →',
             certifications: [
                 {
+                    year: '2026',
+                    title: 'SK Penetapan Asisten Praktikum Semester Genap 2025/2026 — FTTK UMRAH',
+                    issuer: 'FTTK Universitas Maritim Raja Ali Haji',
+                    logo: '/logo_umrah.webp',
+                    pdf: '/SK-Asisten-Praktikum-FTTK-2026.pdf',
+                    desc: 'Faculty of Engineering and Maritime Technology, Raja Ali Haji Maritime University officially appointed 27 Lab Assistants to support lab learning activities for the Even Semester of Academic Year 2025/2026, covering Informatics Engineering, Chemistry, Industrial Engineering, Electrical Engineering, and Naval Architecture. This appointment is stated in the FTTK UMRAH Dean Decree Number 752/DST/UN53.01/DT.01.01/2026 dated June 10, 2026.\n\n#FTTK #UMRAH #AsistenPraktikum #PendidikanTinggi #TeknikMaritim'
+                },
+                {
                     year: '2023',
                     title: 'Competency Certificate',
                     issuer: 'Certification Body',
                     logo: '/Sertifikat-Kompetensi.webp',
+                    pdf: '/Sertifikat-Kompetensi.pdf',
                     desc: 'Professional competency certification.'
                 },
                 {
@@ -408,6 +427,7 @@ export const translations: Record<Language, any> = {
                     title: 'Internship Certificate',
                     issuer: 'Internship Host',
                     logo: '/Sertifikat-PKL.webp',
+                    pdf: '/Sertifikat-PKL.pdf',
                     desc: 'Certificate of completion for internship program.'
                 }
             ]

@@ -128,7 +128,7 @@
                         <div class="edu-item">
                             <div class="edu-logo-wrap">
                                 {#if cert.logo}
-                                    <a href={cert.logo} target="_blank" rel="noopener noreferrer" class="cert-img-link">
+                                    <a href={cert.pdf || cert.logo} target="_blank" rel="noopener noreferrer" class="cert-img-link">
                                         <img src={cert.logo} alt={cert.issuer} class="edu-logo" />
                                     </a>
                                 {:else}
@@ -142,8 +142,8 @@
                                 {#if cert.desc}
                                     <p class="edu-desc">{cert.desc}</p>
                                 {/if}
-                                {#if cert.logo}
-                                    <a href={cert.logo} target="_blank" rel="noopener noreferrer" class="cert-link">{t.about.viewCert}</a>
+                                {#if cert.pdf || cert.logo}
+                                    <a href={cert.pdf || cert.logo} target="_blank" rel="noopener noreferrer" class="cert-link">{t.about.viewCert}</a>
                                 {/if}
                             </div>
                         </div>
