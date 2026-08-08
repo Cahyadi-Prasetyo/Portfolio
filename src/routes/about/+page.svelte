@@ -360,6 +360,7 @@
         color: var(--color-body);
         line-height: 20px;
         letter-spacing: -0.28px;
+        text-align: justify;
     }
 
     .exp-points li::marker {
@@ -466,6 +467,7 @@
         font-size: var(--body-sm);
         color: var(--color-mute);
         letter-spacing: -0.28px;
+        text-align: justify;
     }
 
     .cert-img-link {

@@ -10,8 +10,16 @@ export const translations: Record<Language, any> = {
         },
         hero: {
             greeting: 'Hai! Saya Cahyadi Prasetyo 👋',
-            value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
-            bio: 'Mahasiswa Teknik Informatika (UMRAH) yang aktif belajar dan membangun proyek web sejak 2022. Saya berpengalaman mengembangkan aplikasi dari sisi frontend (React, Vue, Svelte) hingga backend (Laravel, Node.js), serta membuat visualisasi data. Melalui magang di BPS Kepri dan Pelindo, saya belajar bekerja dalam tim dan menyelesaikan masalah teknis secara nyata.',
+            status: 'Available for new projects',
+            specialty: 'Spesialis Web & Data',
+            name: 'Cahyadi Prasetyo',
+            value: 'Membangun Solusi Web Berkinerja Tinggi & Visualisasi Data Berdampak',
+            roles: [
+                'Full-Stack Developer.',
+                'IT Mentor & Lab Assistant.',
+                'Data Enthusiast.'
+            ],
+            bio: 'Mahasiswa Teknik Informatika UMRAH dengan fokus pada pengembangan aplikasi web berkinerja tinggi (SvelteKit, React, Node.js, Go) dan visualisasi data interaktif. Berpengalaman mendigitalisasi data statistik di BPS Kepri dan mendukung infrastruktur IT di PT. Pelindo.',
             cta: 'Lihat Hasil Kerja Saya',
             ctaSecondary: 'Hubungi Saya',
             cvAts: 'Download CV ATS',
@@ -144,7 +152,7 @@ export const translations: Record<Language, any> = {
                     degree: 'S1 Teknik Informatika',
                     school: 'Universitas Maritim Raja Ali Haji',
                     logo: '/logo_umrah.webp',
-                    desc: 'Fokus pada pengembangan perangkat lunak dan data analytics. IPK Saat Ini: 3.43'
+                    desc: 'Fokus pada pengembangan perangkat lunak dan data analytics. IPK Saat Ini: 3.48'
                 },
                 {
                     period: '2020 – 2023',
@@ -261,8 +269,16 @@ export const translations: Record<Language, any> = {
         },
         hero: {
             greeting: "Hi! I'm Cahyadi Prasetyo 👋",
-            value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
-            bio: "An Informatics Engineering student (UMRAH) active in web development and IT since 2022. I have hands-on experience building applications from frontend (React, Vue, Svelte) to backend (Laravel, Node.js), as well as creating data visualizations. Through internships at BPS Kepri and Pelindo, I have learned to collaborate in team environments and solve practical technical problems.",
+            status: 'Available for new projects',
+            specialty: 'Web & Data Specialist',
+            name: 'Cahyadi Prasetyo',
+            value: 'Crafting High-Performance Web Applications & Impactful Data Solutions',
+            roles: [
+                'Full-Stack Developer.',
+                'IT Mentor & Lab Assistant.',
+                'Data Enthusiast.'
+            ],
+            bio: 'Informatics Engineering student at UMRAH specializing in high-performance web development (SvelteKit, React, Node.js, Go) and interactive data visualization. Proven experience digitizing statistical data at BPS Riau Islands and supporting corporate IT infrastructure at PT. Pelindo.',
             cta: 'See My Work',
             ctaSecondary: 'Contact Me',
             cvAts: 'Download ATS CV',
@@ -288,7 +304,7 @@ export const translations: Record<Language, any> = {
             readMore: 'Read more',
             skillsLabel: 'Skills',
             bio: "My journey in IT started during vocational high school (SMK) and continues as I pursue a Bachelor's degree in Informatics Engineering at UMRAH. Since 2022, I have been putting theory into practice through hands-on roles, such as assisting with data digitalization at BPS Kepulauan Riau and supporting IT operations at PT. Pelindo.\n\nI focus on Web Development from both Frontend (React, Vue, Svelte) and Backend (Laravel, Node.js) perspectives, and have a keen interest in data analysis and computer networking. For me, coding is a tool to build useful systems that simplify daily tasks.\n\nI am always open to learning new things, collaborating in teams, or helping bring your digital projects to life. Let's connect! 🚀",
-             techStackLabel: 'Tech Stack',
+            techStackLabel: 'Tech Stack',
             titleExp: 'Experience',
             titleEdu: 'Education',
             techStack: {
@@ -393,7 +409,7 @@ export const translations: Record<Language, any> = {
                     degree: 'Bachelor of Computer Science',
                     school: 'Universitas Maritim Raja Ali Haji',
                     logo: '/logo_umrah.webp',
-                    desc: 'Focusing on software engineering and data analytics. Current GPA: 3.43'
+                    desc: 'Focusing on software engineering and data analytics. Current GPA: 3.48'
                 },
                 {
                     period: '2019 – 2022',

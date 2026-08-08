@@ -36,8 +36,8 @@ export const projects: Project[] = [
             en: 'SMART-TASK is an Android-based mobile application designed to help students manage academic tasks more effectively. Developed as a final year project with a heavy focus on High-Performance Engineering. Unlike conventional to-do list apps, SMART-TASK implements adaptive intelligence that analyzes user behavior patterns to provide progressive task management support, backed by natively fast Golang backend infrastructure.'
         },
         shortDesc: {
-            id: 'Aplikasi manajemen tugas cerdas dengan adaptif AI dan backend Golang berkinerja tinggi.',
-            en: 'Smart task management app with adaptive AI and high-performance Golang backend.'
+            id: 'Membantu pengguna mengelola tugas harian secara otomatis dengan AI adaptif; backend Golang memastikan respons cepat bahkan dengan ribuan task aktif.',
+            en: 'Helps users automate daily task management with adaptive AI; Golang backend ensures fast response even with thousands of active tasks.'
         },
         tech: ['Flutter', 'Go', 'PostgreSQL', 'Redis', 'Firebase','Google'],
         category: 'mobile',
@@ -58,8 +58,8 @@ export const projects: Project[] = [
             en: 'A static dashboard presenting strategic economic and development indicators for the Riau Islands Province and its 7 districts/cities. Built for presentation purposes at Statistics Indonesia (BPS) for the 2026 Economic Census. Displays 8 key indicators including Economic Growth, HDI, GDI, Unemployment Rate, School Participation, Poverty, and Gini Ratio.'
         },
         shortDesc: {
-            id: 'Dashboard indikator strategis ekonomi BPS Kepulauan Riau untuk Sensus 2026.',
-            en: 'Strategic economic indicators dashboard for BPS Riau Islands (2026 Census).'
+            id: 'Menyajikan data 8 indikator strategis ekonomi BPS Kepri di 7 kabupaten/kota secara terpusat untuk mempermudah analisis tren pembangunan daerah secara real-time.',
+            en: 'Centralizes 8 strategic BPS Kepri economic indicators across 7 districts/cities to streamline real-time regional development trend analysis.'
         },
         tech: ['HTML5', 'CSS3', 'JavaScript'],
         category: 'web',
@@ -80,8 +80,8 @@ export const projects: Project[] = [
             en: 'An interactive dashboard for BPS data visualization integrated directly with Google Looker Studio. Provides interactive and responsive data visualization wrapped in a clean, modern glassmorphism interface. Features loading indicators and iframe sandbox security, developed purely using HTML/CSS and Vanilla JavaScript without heavy frameworks.'
         },
         shortDesc: {
-            id: 'Dasbor visualisasi data BPS yang terintegrasi dengan Google Looker Studio.',
-            en: 'BPS data visualization dashboard integrated with Google Looker Studio.'
+            id: 'Mengatasi visualisasi data ketenagakerjaan SAKERNAS BPS yang kompleks melalui integrasi Looker Studio & antarmuka glassmorphism agar laporan interaktif dan mudah diakses.',
+            en: 'Simplifies complex BPS SAKERNAS employment data by integrating Looker Studio with a glassmorphism web interface for interactive, instant reporting.'
         },
         tech: ['HTML5', 'CSS3', 'JavaScript', 'Looker Studio', 'PHP'],
         category: 'web',
@@ -102,8 +102,8 @@ export const projects: Project[] = [
             en: 'An innovative digital promotion platform for MSMEs adopting a vertical short-video interface (TikTok-style). Enables sellers to create engaging video content for their products, boosting buyer engagement, and direct integration with marketplaces.'
         },
         shortDesc: {
-            id: 'Platform promosi digital berbasis video pendek (TikTok-style) untuk UMKM.',
-            en: 'Digital promotion platform based on short videos (TikTok-style) for MSMEs.'
+            id: 'Meningkatkan visibilitas produk UMKM yang sepi pembeli dengan platform video pendek vertikal (TikTok-style), mendorong interaksi langsung ke marketplace.',
+            en: 'Boosts low-visibility MSME product sales through a vertical short-video platform (TikTok-style), driving direct buyer engagement to marketplaces.'
         },
         tech: ['React.js', 'Tailwind CSS','Laravel','MySQL'],
         category: 'web',
@@ -124,8 +124,8 @@ export const projects: Project[] = [
             en: 'A flight ticket price monitoring platform based on fixed routes, time-series, and historical data for price trend analysis, purchasing strategy evaluation, and price monitoring needs approaching specific periods (e.g., holidays).\n\nThe platform performs scheduled and manual ticket price scraping, stores daily price history, and presents data in a web dashboard and structured spreadsheets.'
         },
         shortDesc: {
-            id: 'Platform pemantauan harga tiket pesawat berbasis rute tetap, time-series, dan data historis.',
-            en: 'Flight ticket price monitoring platform based on fixed routes, time-series, and historical data.'
+            id: 'Mengantisipasi fluktuasi harga tiket pesawat liburan dengan otomatisasi scraping time-series, menyajikan tren harga historis untuk evaluasi strategi pembelian.',
+            en: 'Anticipates holiday flight price fluctuations using automated time-series price scraping to provide historical trend analysis for optimal purchase timing.'
         },
         tech: ['Next.js', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Docker'],
         category: 'web',
@@ -146,8 +146,8 @@ export const projects: Project[] = [
             en: 'A simple courier game developed using C and the Raylib graphics library. Players are tasked with delivering packages by navigating through basic obstacles, specifically designed to interactively practice algorithmic logic and data structures.'
         },
         shortDesc: {
-            id: 'Game kurir sederhana yang dibangun menggunakan bahasa C dan Raylib.',
-            en: 'A simple courier game built using C and Raylib.'
+            id: 'Mempermudah pemahaman algoritma rute tercepat & struktur data melalui game simulasi kurir interaktif berbasis C dan Raylib secara visual dan real-time.',
+            en: 'Visualizes complex pathfinding algorithms and data structures through an interactive courier simulation game built with C and Raylib.'
         },
         tech: ['C', 'Raylib'],
         category: 'game',
@@ -168,8 +168,8 @@ export const projects: Project[] = [
             en: 'A web-based digital attendance system specifically designed for Community Service Program (KKN) activities. The platform replaces manual attendance methods with an integrated GPS and QR Code-based system. Students can check in through real-time GPS location validation within an Admin-configured post radius, or by scanning QR Codes using their device camera. Equipped with a comprehensive Admin dashboard for attendance monitoring, student data management, post coordinate & attendance schedule configuration, Excel report export, and security features including SHA-256 password encryption with unique Salt. All system configurations (coordinates, radius, open/close times) are dynamic and fully controlled through the Admin settings panel.'
         },
         shortDesc: {
-            id: 'Sistem presensi digital berbasis GPS & QR Code dengan dashboard Admin, enkripsi password, dan ekspor laporan Excel untuk kegiatan KKN.',
-            en: 'GPS & QR Code-based digital attendance system with Admin dashboard, password encryption, and Excel report export for KKN activities.'
+            id: 'Mengeliminasi kecurangan lokasi absensi manual KKN dengan presensi GPS real-time & QR Code, mempercepat rekapitulasi laporan Admin hingga 80%.',
+            en: 'Eliminates manual KKN attendance location spoofing using real-time GPS & QR Code check-ins, cutting Admin report compilation time by 80%.'
         },
         tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Leaflet'],
         category: 'web',

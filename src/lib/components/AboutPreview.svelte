@@ -99,7 +99,7 @@
         .preview-text {
             font-size: 15px;
             line-height: 24px;
-            text-align: left;
+            text-align: justify;
         }
     }
 </style>

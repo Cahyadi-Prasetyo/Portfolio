@@ -183,6 +183,7 @@
         color: var(--color-body);
         line-height: 24px;
         margin-bottom: var(--space-md);
+        text-align: justify;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;

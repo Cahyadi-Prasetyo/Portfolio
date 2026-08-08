@@ -432,6 +432,7 @@
         color: var(--color-body);
         line-height: 24px;
         margin-bottom: var(--space-md);
+        text-align: justify;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
@@ -561,6 +562,7 @@
         font-size: 12px;
         color: var(--color-body);
         line-height: 20px;
+        text-align: justify;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
