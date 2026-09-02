@@ -223,15 +223,26 @@
     }
 
     @media (max-width: 768px) {
+        .page-wrapper {
+            padding-top: calc(var(--nav-height) + var(--space-2xl));
+            padding-bottom: var(--space-3xl);
+        }
+
+        .back-link {
+            margin-bottom: var(--space-xl);
+        }
+
         .detail-layout {
             grid-template-columns: 1fr;
             gap: var(--space-xl);
         }
 
         .detail-text {
-            font-size: 15px;
-            line-height: 24px;
-            text-align: left;
+            font-size: 14px;
+            line-height: 22px;
+            text-align: justify;
+            word-break: break-word;
+            hyphens: auto;
         }
 
         .detail-sidebar {
@@ -254,7 +265,27 @@
         }
 
         .project-title {
-            font-size: clamp(28px, 7vw, 36px);
+            font-size: clamp(24px, 7vw, 32px);
+            letter-spacing: -1.5px;
+        }
+
+        .project-hero-image {
+            margin-bottom: var(--space-2xl);
+        }
+    }
+
+    @media (max-width: 400px) {
+        .project-title {
+            font-size: 22px;
+            letter-spacing: -1px;
+        }
+
+        .project-actions {
+            flex-direction: column;
+        }
+
+        .project-actions .btn {
+            width: 100%;
         }
     }
 </style>

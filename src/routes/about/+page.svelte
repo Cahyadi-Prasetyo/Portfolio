@@ -523,10 +523,11 @@
         }
 
         .bio-text p {
-            font-size: 15px;
-            line-height: 24px;
-            text-align: left;
+            font-size: 14px;
+            line-height: 22px;
+            text-align: justify;
             hyphens: auto;
+            word-break: break-word;
         }
 
         .section-heading {
@@ -537,9 +538,10 @@
         }
 
         .exp-header {
-            gap: var(--space-md);
-            padding: var(--space-xl) 0;
+            gap: var(--space-sm);
+            padding: var(--space-md) 0;
             padding-right: var(--space-2xl);
+            position: relative;
         }
 
         .exp-toggle {
@@ -563,7 +565,7 @@
         }
 
         .exp-details {
-            padding-left: var(--space-md);
+            padding-left: var(--space-sm);
         }
 
         .exp-points {
@@ -601,8 +603,8 @@
 
     @media (max-width: 400px) {
         .bio-photo {
-            width: 120px;
-            height: 150px;
+            width: 100px;
+            height: 125px;
         }
 
         .exp-header {
@@ -612,7 +614,38 @@
         .exp-toggle {
             position: absolute;
             right: 0;
-            top: var(--space-xl);
+            top: var(--space-md);
+        }
+
+        .exp-logo-wrap {
+            width: 36px;
+            height: 36px;
+        }
+
+        .exp-role {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .exp-company {
+            font-size: 13px;
+        }
+
+        .edu-item {
+            gap: var(--space-sm);
+        }
+
+        .edu-logo-wrap {
+            width: 36px;
+            height: 36px;
+        }
+
+        .edu-degree {
+            font-size: 14px;
+        }
+
+        .edu-school {
+            font-size: 13px;
         }
 
         .section-heading {

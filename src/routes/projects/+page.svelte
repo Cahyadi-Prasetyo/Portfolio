@@ -734,6 +734,7 @@
         .header-row {
             flex-direction: column;
             align-items: flex-start;
+            gap: var(--space-md);
         }
 
         .view-toggle button {
@@ -743,7 +744,7 @@
         }
 
         .page-title {
-            font-size: clamp(28px, 7vw, 36px);
+            font-size: clamp(24px, 7vw, 32px);
         }
 
         .k-card-image {
@@ -758,12 +759,12 @@
             flex-direction: column;
             align-items: flex-start;
             gap: var(--space-md);
-            padding: var(--space-xl) 0;
+            padding: var(--space-lg) 0;
         }
 
         .project-row:hover {
             margin: 0;
-            padding: var(--space-xl) 0;
+            padding: var(--space-lg) 0;
             background: transparent;
             border-bottom-color: var(--color-hairline);
             border-radius: 0;
@@ -773,6 +774,12 @@
             width: 100%;
             height: 180px;
             border-radius: var(--radius-md);
+        }
+
+        .row-desc {
+            text-align: left;
+            font-size: 13px;
+            line-height: 20px;
         }
 
         .row-action {
@@ -796,10 +803,16 @@
         .filter-tab {
             min-height: 44px;
             padding: var(--space-sm) var(--space-md);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .kanban-board {
             grid-template-columns: 1fr;
+        }
+
+        .k-desc {
+            text-align: left;
         }
 
         .more-projects-wrapper {
@@ -810,6 +823,42 @@
         .more-btn {
             width: 100%;
             justify-content: center;
+        }
+
+        .pagination {
+            gap: var(--space-xs);
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+
+        .pagination-btn {
+            height: 40px;
+            padding: 0 var(--space-sm);
+            font-size: 13px;
+        }
+
+        .pagination-num {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .page-title {
+            font-size: 22px;
+        }
+
+        .row-thumb {
+            height: 140px;
+        }
+
+        .k-card-image {
+            height: 120px;
+        }
+
+        .pagination-btn span {
+            display: none;
         }
     }
 </style>
