@@ -9,17 +9,8 @@ export const translations: Record<Language, any> = {
             contact: 'Kontak'
         },
         hero: {
-            greeting: 'Hai! Saya Cahyadi Prasetyo 👋',
-            status: 'Available for new projects',
-            specialty: 'Spesialis Web & Data',
-            name: 'Cahyadi Prasetyo',
-            value: 'Membangun Solusi Web Berkinerja Tinggi & Visualisasi Data Berdampak',
-            roles: [
-                'Full-Stack Developer.',
-                'IT Mentor & Lab Assistant.',
-                'Data Enthusiast.'
-            ],
-            bio: 'Mahasiswa Teknik Informatika UMRAH dengan fokus pada pengembangan aplikasi web berkinerja tinggi (SvelteKit, React, Node.js, Go) dan visualisasi data interaktif. Berpengalaman mendigitalisasi data statistik di BPS Kepri dan mendukung infrastruktur IT di PT. Pelindo.',
+            value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
+            bio: 'Mahasiswa Teknik Informatika (UMRAH) yang aktif belajar dan membangun proyek web sejak 2022. Saya berpengalaman mengembangkan aplikasi dari sisi frontend (React, Vue, Svelte) hingga backend (Laravel, Node.js), serta membuat visualisasi data. Melalui magang di BPS Kepri dan Pelindo, saya belajar bekerja dalam tim dan menyelesaikan masalah teknis secara nyata.',
             cta: 'Lihat Hasil Kerja Saya',
             ctaSecondary: 'Hubungi Saya',
             cvAts: 'Download CV ATS',
@@ -53,7 +44,7 @@ export const translations: Record<Language, any> = {
             techStack: {
                 frontend: {
                     label: 'Frontend',
-                    items: ['React', 'Vue.js', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Flutter', 'Dart']
+                    items: ['React', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS', 'JavaScript', 'Flutter', 'Dart']
                 },
                 backend: {
                     label: 'Backend',
@@ -66,10 +57,6 @@ export const translations: Record<Language, any> = {
                 devops: {
                     label: 'DevOps',
                     items: ['Docker', 'Nginx']
-                },
-                design: {
-                    label: 'Design Tools',
-                    items: ['Figma', 'Canva']
                 },
                 vcs: {
                     label: 'Version Control',
@@ -152,7 +139,7 @@ export const translations: Record<Language, any> = {
                     degree: 'S1 Teknik Informatika',
                     school: 'Universitas Maritim Raja Ali Haji',
                     logo: '/logo_umrah.webp',
-                    desc: 'Fokus pada pengembangan perangkat lunak dan data analytics. IPK Saat Ini: 3.48'
+                    desc: 'Fokus pada pengembangan perangkat lunak dan data analytics. IPK Saat Ini: 3.43'
                 },
                 {
                     period: '2020 – 2023',
@@ -165,18 +152,17 @@ export const translations: Record<Language, any> = {
             certifications: [
                 {
                     year: '2026',
-                    title: 'SK Penetapan Asisten Praktikum Semester Genap 2025/2026 — FTTK UMRAH',
-                    issuer: 'FTTK Universitas Maritim Raja Ali Haji',
+                    title: 'SK Penetapan Asisten Praktikum Laboratorium — FTTK UMRAH',
+                    issuer: 'Fakultas Teknik dan Teknologi Kemaritiman (FTTK) UMRAH',
                     logo: '/logo_umrah.webp',
-                    pdf: '/SK-Asisten-Praktikum-FTTK-2026.pdf',
-                    desc: 'Fakultas Teknik dan Teknologi Kemaritiman, Universitas Maritim Raja Ali Haji resmi menetapkan 27 Asisten Praktikum untuk mendukung kegiatan pembelajaran praktikum Semester Genap Tahun Akademik 2025/2026, mencakup Program Studi Teknik Informatika, Kimia, Teknik Industri, Teknik Elektro, dan Teknik Perkapalan. Penetapan ini tertuang dalam Surat Keputusan Dekan FTTK UMRAH Nomor 752/DST/UN53.01/DT.01.01/2026 tertanggal 10 Juni 2026.\n\n#FTTK #UMRAH #AsistenPraktikum #PendidikanTinggi #TeknikMaritim'
+                    pdf: '/sertifikasi-asdos.webp',
+                    desc: 'Ditetapkan secara resmi melalui Surat Keputusan Dekan FTTK UMRAH (Nomor: 1909/UN53.01/AL.01.03/2026) sebagai Asisten Praktikum untuk memfasilitasi dan mengampu mahasiswa pada praktikum laboratorium Jaringan Komputer, perancangan topologi jaringan dengan Cisco Packet Tracer, serta analisis transmisi protokol data.'
                 },
                 {
                     year: '2023',
                     title: 'Sertifikat Kompetensi',
                     issuer: 'Lembaga Sertifikasi',
                     logo: '/Sertifikat-Kompetensi.webp',
-                    pdf: '/Sertifikat-Kompetensi.pdf',
                     desc: 'Sertifikat kompetensi keahlian.'
                 },
                 {
@@ -184,7 +170,6 @@ export const translations: Record<Language, any> = {
                     title: 'Sertifikat Praktik Kerja Lapangan',
                     issuer: 'Instansi PKL',
                     logo: '/Sertifikat-PKL.webp',
-                    pdf: '/Sertifikat-PKL.pdf',
                     desc: 'Sertifikat penyelesaian Praktik Kerja Lapangan (PKL).'
                 }
             ]
@@ -269,16 +254,8 @@ export const translations: Record<Language, any> = {
         },
         hero: {
             greeting: "Hi! I'm Cahyadi Prasetyo 👋",
-            status: 'Available for new projects',
-            specialty: 'Web & Data Specialist',
-            name: 'Cahyadi Prasetyo',
-            value: 'Crafting High-Performance Web Applications & Impactful Data Solutions',
-            roles: [
-                'Full-Stack Developer.',
-                'IT Mentor & Lab Assistant.',
-                'Data Enthusiast.'
-            ],
-            bio: 'Informatics Engineering student at UMRAH specializing in high-performance web development (SvelteKit, React, Node.js, Go) and interactive data visualization. Proven experience digitizing statistical data at BPS Riau Islands and supporting corporate IT infrastructure at PT. Pelindo.',
+            value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
+            bio: "An Informatics Engineering student (UMRAH) active in web development and IT since 2022. I have hands-on experience building applications from frontend (React, Vue, Svelte) to backend (Laravel, Node.js), as well as creating data visualizations. Through internships at BPS Kepri and Pelindo, I have learned to collaborate in team environments and solve practical technical problems.",
             cta: 'See My Work',
             ctaSecondary: 'Contact Me',
             cvAts: 'Download ATS CV',
@@ -304,17 +281,17 @@ export const translations: Record<Language, any> = {
             readMore: 'Read more',
             skillsLabel: 'Skills',
             bio: "My journey in IT started during vocational high school (SMK) and continues as I pursue a Bachelor's degree in Informatics Engineering at UMRAH. Since 2022, I have been putting theory into practice through hands-on roles, such as assisting with data digitalization at BPS Kepulauan Riau and supporting IT operations at PT. Pelindo.\n\nI focus on Web Development from both Frontend (React, Vue, Svelte) and Backend (Laravel, Node.js) perspectives, and have a keen interest in data analysis and computer networking. For me, coding is a tool to build useful systems that simplify daily tasks.\n\nI am always open to learning new things, collaborating in teams, or helping bring your digital projects to life. Let's connect! 🚀",
-            techStackLabel: 'Tech Stack',
+             techStackLabel: 'Tech Stack',
             titleExp: 'Experience',
             titleEdu: 'Education',
             techStack: {
                 frontend: {
                     label: 'Frontend',
-                    items: ['React', 'Vue.js', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML/CSS', 'Flutter', 'Dart']
+                    items: ['React', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS', 'JavaScript', 'Flutter', 'Dart']
                 },
                 backend: {
                     label: 'Backend',
-                    items: ['Node.js', 'PHP', 'Laravel', 'CodeIgniter', 'Python', 'Go']
+                    items: ['Node.js', 'Laravel', 'CodeIgniter', 'Python', 'Go']
                 },
                 database: {
                     label: 'Database',
@@ -324,10 +301,7 @@ export const translations: Record<Language, any> = {
                     label: 'DevOps',
                     items: ['Docker', 'Nginx']
                 },
-                design: {
-                    label: 'Design Tools',
-                    items: ['Figma', 'Canva']
-                },
+                
                 vcs: {
                     label: 'Version Control',
                     items: ['Git', 'GitHub']
@@ -409,7 +383,7 @@ export const translations: Record<Language, any> = {
                     degree: 'Bachelor of Computer Science',
                     school: 'Universitas Maritim Raja Ali Haji',
                     logo: '/logo_umrah.webp',
-                    desc: 'Focusing on software engineering and data analytics. Current GPA: 3.48'
+                    desc: 'Focusing on software engineering and data analytics. Current GPA: 3.43'
                 },
                 {
                     period: '2019 – 2022',
@@ -424,18 +398,17 @@ export const translations: Record<Language, any> = {
             certifications: [
                 {
                     year: '2026',
-                    title: 'SK Penetapan Asisten Praktikum Semester Genap 2025/2026 — FTTK UMRAH',
-                    issuer: 'FTTK Universitas Maritim Raja Ali Haji',
+                    title: 'Dean Decree of Appointment as Laboratory Teaching Assistant — FTTK UMRAH',
+                    issuer: 'Faculty of Engineering and Maritime Technology, UMRAH',
                     logo: '/logo_umrah.webp',
-                    pdf: '/SK-Asisten-Praktikum-FTTK-2026.pdf',
-                    desc: 'Faculty of Engineering and Maritime Technology, Raja Ali Haji Maritime University officially appointed 27 Lab Assistants to support lab learning activities for the Even Semester of Academic Year 2025/2026, covering Informatics Engineering, Chemistry, Industrial Engineering, Electrical Engineering, and Naval Architecture. This appointment is stated in the FTTK UMRAH Dean Decree Number 752/DST/UN53.01/DT.01.01/2026 dated June 10, 2026.\n\n#FTTK #UMRAH #AsistenPraktikum #PendidikanTinggi #TeknikMaritim'
+                    pdf: '/sertifikasi-asdos.webp',
+                    desc: 'Officially appointed under the Dean Decree of FTTK UMRAH (No. 1909/UN53.01/AL.01.03/2026) as a Laboratory Teaching Assistant to guide and instruct undergraduate students in Computer Networks practicum, Cisco Packet Tracer topology designs, and network protocol troubleshooting.'
                 },
                 {
                     year: '2023',
                     title: 'Competency Certificate',
                     issuer: 'Certification Body',
                     logo: '/Sertifikat-Kompetensi.webp',
-                    pdf: '/Sertifikat-Kompetensi.pdf',
                     desc: 'Professional competency certification.'
                 },
                 {
@@ -443,7 +416,6 @@ export const translations: Record<Language, any> = {
                     title: 'Internship Certificate',
                     issuer: 'Internship Host',
                     logo: '/Sertifikat-PKL.webp',
-                    pdf: '/Sertifikat-PKL.pdf',
                     desc: 'Certificate of completion for internship program.'
                 }
             ]

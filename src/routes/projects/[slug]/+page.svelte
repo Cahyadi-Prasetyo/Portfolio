@@ -96,6 +96,7 @@
         padding-top: calc(var(--nav-height) + var(--space-3xl));
         padding-bottom: var(--space-5xl);
         min-height: 100vh;
+        min-height: 100dvh;
     }
 
     .back-link {

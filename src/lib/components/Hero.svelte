@@ -2,23 +2,20 @@
     import { getTranslations } from "$lib/i18n/index.svelte";
     const t = $derived(getTranslations());
 
-    const roles = $derived(t.hero.roles || [
+    let roles = [
         "Full-Stack Developer.",
         "IT Mentor & Lab Assistant.",
-        "Data Enthusiast."
-    ]);
-
+        "Data Enthusiast.",
+    ];
     let currentRoleIndex = $state(0);
     let currentText = $state("");
     let isDeleting = $state(false);
 
     $effect(() => {
         let timer: ReturnType<typeof setTimeout>;
-        const roleList = roles;
 
         function type() {
-            const safeIndex = currentRoleIndex % roleList.length;
-            const fullText = roleList[safeIndex] || "";
+            const fullText = roles[currentRoleIndex];
 
             if (isDeleting) {
                 currentText = fullText.substring(0, currentText.length - 1);
@@ -33,7 +30,7 @@
                 isDeleting = true;
             } else if (isDeleting && currentText === "") {
                 isDeleting = false;
-                currentRoleIndex = (currentRoleIndex + 1) % roleList.length;
+                currentRoleIndex = (currentRoleIndex + 1) % roles.length;
                 typeSpeed = 400; // Pause before typing new word
             }
 
@@ -52,35 +49,23 @@
     <div class="container relative-z">
         <div class="hero-layout">
             <div class="hero-content">
-                <!-- Eyebrow Bar: Badge "Available for new projects" + Chip "Spesialis Web & Data" -->
-                <div class="hero-eyebrow reveal">
-                    <span class="status-dot"></span>
-                    <span class="eyebrow-text">{t.hero.status}</span>
-                    <span class="eyebrow-divider" aria-hidden="true">•</span>
-                    <span class="eyebrow-badge">{t.hero.specialty}</span>
-                </div>
 
-                <!-- Layer 1: Nama "Cahyadi Prasetyo" (Ukuran sedang, muted dark grey) -->
-                <p class="hero-name reveal delay-1">{t.hero.name}</p>
+                <h1 class="hero-headline reveal delay-1">Cahyadi Prasetyo</h1>
 
-                <!-- Layer 2: Main Headline Value Proposition (Giant bold text-gradient) -->
-                <h1 class="hero-headline reveal delay-2 text-gradient">{t.hero.value}</h1>
-
-                <!-- Layer 3: Typewriter sub-headline (roles) -->
-                <div class="hero-typewriter reveal delay-3">
-                    <span class="dynamic-text">{currentText}</span
+                <div class="hero-typewriter reveal delay-2">
+                    <span class="dynamic-text text-gradient">{currentText}</span
                     ><span
                         class="cursor"
-                        class:blink={currentText === roles[currentRoleIndex % roles.length]}
+                        class:blink={currentText === roles[currentRoleIndex]}
                         >|</span
                     >
                 </div>
 
-                <p class="hero-body reveal delay-4">
+                <p class="hero-body reveal delay-3">
                     {t.hero.bio}
                 </p>
 
-                <div class="hero-actions reveal delay-5">
+                <div class="hero-actions reveal delay-4">
                     <a href="#work" class="btn btn-primary primary-glow">
                         {t.hero.cta}
                         <svg
@@ -131,14 +116,15 @@
 
 <style>
     .hero {
-        padding: calc(var(--nav-height) + var(--space-2xl)) 0 var(--space-2xl);
+        padding: calc(var(--nav-height) + var(--space-6xl)) 0 var(--space-5xl);
         background: transparent;
         position: relative;
         overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: auto;
+        min-height: 85vh;
+        min-height: 85dvh;
     }
 
     .relative-z {
@@ -159,36 +145,39 @@
         background: radial-gradient(
             circle,
             rgba(23, 23, 23, 0.04) 0%,
-            transparent 70%
+            rgba(255, 255, 255, 0) 70%
         );
-        filter: blur(60px);
-        z-index: 1;
+        border-radius: 50%;
+        z-index: 0;
         pointer-events: none;
     }
 
     .hero-layout {
-        display: grid;
-        grid-template-columns: 1fr 320px;
-        gap: var(--space-3xl);
+        display: flex;
+        flex-direction: row;
         align-items: center;
+        gap: var(--space-4xl);
+        text-align: left;
+        max-width: 1000px;
+        margin: 0 auto;
     }
 
     .hero-content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        flex: 1;
     }
 
     .hero-eyebrow {
         display: inline-flex;
         align-items: center;
         gap: var(--space-xs);
-        padding: 5px 12px;
+        padding: 6px 12px;
         background: var(--color-canvas);
         border-radius: var(--radius-full);
-        margin-bottom: var(--space-md);
+        margin-bottom: var(--space-xl);
         box-shadow: 0 0 0 1px var(--color-hairline);
-        flex-wrap: wrap;
     }
 
     .status-dot {
@@ -222,44 +211,21 @@
         text-transform: uppercase;
     }
 
-    .eyebrow-divider {
-        color: var(--color-hairline-strong);
-        font-size: 10px;
-    }
-
-    .eyebrow-badge {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        color: var(--color-ink);
-        text-transform: uppercase;
-    }
-
-    .hero-name {
-        font-size: clamp(18px, 2.2vw, 24px);
-        font-weight: 500;
-        line-height: 1.3;
-        letter-spacing: -0.6px;
-        color: var(--color-body);
-        margin-bottom: 4px;
-    }
-
     .hero-headline {
-        font-size: clamp(30px, 4.2vw, 50px);
+        font-size: clamp(48px, 8vw, 80px);
         font-weight: 600;
-        line-height: 1.12;
-        letter-spacing: -2px;
-        margin-bottom: var(--space-sm);
+        line-height: 1.05;
+        letter-spacing: -3.5px;
+        color: var(--color-ink);
+        margin-bottom: var(--space-xs);
     }
 
     .hero-typewriter {
-        font-size: clamp(18px, 2.4vw, 26px);
+        font-size: clamp(32px, 5vw, 56px);
         font-weight: 600;
-        line-height: 1.2;
-        letter-spacing: -0.8px;
-        color: var(--color-body);
-        margin-bottom: var(--space-md);
+        line-height: 1.1;
+        letter-spacing: -2px;
+        margin-bottom: var(--space-2xl);
         min-height: 1.2em; /* Prevents layout jump when empty */
         overflow-wrap: break-word;
     }
@@ -289,12 +255,12 @@
     }
 
     .hero-body {
-        font-size: clamp(14px, 1.2vw, 17px);
+        font-size: clamp(16px, 2vw, 20px);
         font-weight: 400;
-        line-height: 1.55;
+        line-height: 1.6;
         color: var(--color-body);
-        max-width: 580px;
-        margin-bottom: var(--space-xl);
+        max-width: 600px;
+        margin-bottom: var(--space-3xl);
         text-align: justify;
     }
 
@@ -315,24 +281,15 @@
         transform: translateY(-1px);
     }
 
-    /* Photo visual treatment */
+    /* Photo */
     .hero-photo {
         flex-shrink: 0;
-        width: 250px;
-        height: 310px;
+        width: 280px;
+        height: 350px;
         border-radius: var(--radius-lg);
         overflow: hidden;
-        background: var(--color-canvas-soft-2);
-        border: 1px solid var(--color-hairline);
         box-shadow: var(--shadow-level-2);
         position: relative;
-        transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
-    }
-
-    .hero-photo:hover {
-        border-color: var(--color-hairline-strong);
-        box-shadow: var(--shadow-level-4);
-        transform: translateY(-2px);
     }
 
     .hero-photo::after {
@@ -340,7 +297,7 @@
         position: absolute;
         inset: 0;
         border-radius: var(--radius-lg);
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        box-shadow: var(--shadow-level-1);
         pointer-events: none;
     }
 
@@ -349,12 +306,6 @@
         height: 100%;
         object-fit: cover;
         object-position: 30% 25%;
-        filter: grayscale(75%) contrast(1.05) brightness(0.98);
-        transition: filter var(--transition-base);
-    }
-
-    .hero-photo:hover img {
-        filter: grayscale(0%) contrast(1) brightness(1);
     }
 
     /* Trust bar */
@@ -404,14 +355,14 @@
 
     @media (max-width: 768px) {
         .hero {
-            padding: calc(var(--nav-height) + var(--space-2xl)) 0 var(--space-xl);
+            padding: calc(var(--nav-height) + var(--space-3xl)) 0
+                var(--space-2xl);
             min-height: auto;
         }
 
         .hero-layout {
-            display: flex;
             flex-direction: column-reverse;
-            gap: var(--space-lg);
+            gap: var(--space-xl);
             align-items: center;
             text-align: center;
         }
@@ -420,41 +371,9 @@
             align-items: center;
         }
 
-        .hero-eyebrow {
-            justify-content: center;
-            margin-bottom: var(--space-sm);
-        }
-
-        .hero-name {
-            font-size: 18px;
-            text-align: center;
-        }
-
-        .hero-headline {
-            font-size: clamp(24px, 7vw, 36px);
-            letter-spacing: -1.5px;
-            line-height: 1.15;
-            text-align: center;
-        }
-
-        .hero-typewriter {
-            font-size: clamp(16px, 5vw, 22px);
-            letter-spacing: -0.5px;
-            min-height: 1.3em;
-            text-align: center;
-        }
-
-        .hero-body {
-            font-size: 14px;
-            line-height: 1.6;
-            text-align: center;
-            max-width: 100%;
-            margin-bottom: var(--space-lg);
-        }
-
         .hero-photo {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             align-self: center;
             box-shadow: 0 0 0 4px var(--color-canvas), 0 0 0 5px var(--color-hairline);
@@ -464,14 +383,27 @@
             border-radius: 50%;
         }
 
-        .hero-photo img {
-            object-position: center 20%;
+        .hero-headline {
+            font-size: clamp(36px, 10vw, 48px);
+            letter-spacing: -2px;
+        }
+
+        .hero-typewriter {
+            font-size: clamp(22px, 6vw, 32px);
+            letter-spacing: -1px;
+            min-height: 1.3em;
+        }
+
+        .hero-body {
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: center;
         }
 
         .hero-actions {
             flex-direction: column;
             width: 100%;
-            gap: var(--space-xs);
+            gap: var(--space-sm);
         }
 
         .hero-actions .btn {
@@ -481,55 +413,37 @@
             height: 44px;
         }
 
-        .trust {
-            padding: var(--space-xl) 0;
-        }
-
         .trust-list {
-            gap: var(--space-md);
+            gap: var(--space-lg);
             flex-direction: column;
             align-items: center;
         }
 
         .trust-name {
-            font-size: var(--body-sm);
+            font-size: var(--body-md);
         }
     }
 
     @media (max-width: 400px) {
-        .hero {
-            padding: calc(var(--nav-height) + var(--space-lg)) 0 var(--space-md);
-        }
-
         .hero-photo {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
         }
 
         .hero-headline {
-            font-size: 22px;
-            letter-spacing: -1px;
+            font-size: 32px;
         }
 
         .hero-typewriter {
-            font-size: 16px;
-        }
-
-        .hero-name {
-            font-size: 16px;
-        }
-
-        .eyebrow-text,
-        .eyebrow-badge {
-            font-size: 10px;
+            font-size: 20px;
         }
 
         .trust-list {
-            gap: var(--space-sm);
+            gap: var(--space-md);
         }
 
         .trust-name {
-            font-size: var(--caption);
+            font-size: var(--body-sm);
         }
     }
 </style>

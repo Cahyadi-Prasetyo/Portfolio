@@ -269,6 +269,11 @@
         background: var(--color-canvas-soft-2);
     }
 
+    .exp-header:active {
+        transform: scale(0.99);
+        transition-duration: 60ms;
+    }
+
     .exp-logo-wrap {
         flex-shrink: 0;
         width: 48px;
