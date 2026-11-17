@@ -87,6 +87,11 @@
         box-shadow: var(--shadow-level-2);
     }
 
+    .cta-button:active {
+        transform: scale(0.97) translateY(0);
+        transition-duration: 60ms;
+    }
+
     @media (max-width: 768px) {
         .cta-band {
             padding: var(--space-4xl) 0;

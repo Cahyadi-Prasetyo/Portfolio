@@ -259,6 +259,11 @@
         color: var(--color-ink);
     }
 
+    .view-toggle button:active {
+        transform: scale(0.92);
+        transition-duration: 60ms;
+    }
+
     .view-toggle button.active {
         background: var(--color-canvas);
         color: var(--color-ink);
@@ -305,6 +310,11 @@
 
     .filter-tab:hover {
         color: var(--color-ink);
+    }
+
+    .filter-tab:active {
+        transform: scale(0.96);
+        transition-duration: 60ms;
     }
 
     .filter-tab.active {
@@ -468,16 +478,22 @@
         overflow: hidden;
         box-shadow: var(--shadow-level-1);
         text-decoration: none;
-        transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
         display: flex;
         flex-direction: column;
         height: 100%;
+        user-select: none;
     }
 
     .kanban-card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-level-2);
-        border-color: var(--color-mute);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-level-3);
+        border-color: var(--color-hairline-strong);
+    }
+
+    .kanban-card:active {
+        transform: scale(0.985);
+        transition-duration: 60ms;
     }
 
     .k-card-image {

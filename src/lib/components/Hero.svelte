@@ -49,10 +49,6 @@
     <div class="container relative-z">
         <div class="hero-layout">
             <div class="hero-content">
-                <div class="hero-eyebrow reveal">
-                    <span class="status-dot"></span>
-                    <span class="eyebrow-text">Available for new projects</span>
-                </div>
 
                 <h1 class="hero-headline reveal delay-1">Cahyadi Prasetyo</h1>
 
@@ -128,6 +124,7 @@
         align-items: center;
         justify-content: center;
         min-height: 85vh;
+        min-height: 85dvh;
     }
 
     .relative-z {

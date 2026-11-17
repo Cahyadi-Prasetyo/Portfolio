@@ -9,7 +9,6 @@ export const translations: Record<Language, any> = {
             contact: 'Kontak'
         },
         hero: {
-            greeting: 'Hai! Saya Cahyadi Prasetyo 👋',
             value: 'Full-Stack Developer, IT Mentor, & Data Enthusiast.',
             bio: 'Mahasiswa Teknik Informatika (UMRAH) yang aktif belajar dan membangun proyek web sejak 2022. Saya berpengalaman mengembangkan aplikasi dari sisi frontend (React, Vue, Svelte) hingga backend (Laravel, Node.js), serta membuat visualisasi data. Melalui magang di BPS Kepri dan Pelindo, saya belajar bekerja dalam tim dan menyelesaikan masalah teknis secara nyata.',
             cta: 'Lihat Hasil Kerja Saya',
@@ -45,7 +44,7 @@ export const translations: Record<Language, any> = {
             techStack: {
                 frontend: {
                     label: 'Frontend',
-                    items: ['React', 'Vue.js', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Flutter', 'Dart']
+                    items: ['React', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS', 'JavaScript', 'Flutter', 'Dart']
                 },
                 backend: {
                     label: 'Backend',
@@ -58,10 +57,6 @@ export const translations: Record<Language, any> = {
                 devops: {
                     label: 'DevOps',
                     items: ['Docker', 'Nginx']
-                },
-                design: {
-                    label: 'Design Tools',
-                    items: ['Figma', 'Canva']
                 },
                 vcs: {
                     label: 'Version Control',
@@ -155,6 +150,14 @@ export const translations: Record<Language, any> = {
                 }
             ],
             certifications: [
+                {
+                    year: '2026',
+                    title: 'SK Penetapan Asisten Praktikum Laboratorium — FTTK UMRAH',
+                    issuer: 'Fakultas Teknik dan Teknologi Kemaritiman (FTTK) UMRAH',
+                    logo: '/logo_umrah.webp',
+                    pdf: '/sertifikasi-asdos.webp',
+                    desc: 'Ditetapkan secara resmi melalui Surat Keputusan Dekan FTTK UMRAH (Nomor: 1909/UN53.01/AL.01.03/2026) sebagai Asisten Praktikum untuk memfasilitasi dan mengampu mahasiswa pada praktikum laboratorium Jaringan Komputer, perancangan topologi jaringan dengan Cisco Packet Tracer, serta analisis transmisi protokol data.'
+                },
                 {
                     year: '2023',
                     title: 'Sertifikat Kompetensi',
@@ -284,11 +287,11 @@ export const translations: Record<Language, any> = {
             techStack: {
                 frontend: {
                     label: 'Frontend',
-                    items: ['React', 'Vue.js', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML/CSS', 'Flutter', 'Dart']
+                    items: ['React', 'Svelte', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS', 'JavaScript', 'Flutter', 'Dart']
                 },
                 backend: {
                     label: 'Backend',
-                    items: ['Node.js', 'PHP', 'Laravel', 'CodeIgniter', 'Python', 'Go']
+                    items: ['Node.js', 'Laravel', 'CodeIgniter', 'Python', 'Go']
                 },
                 database: {
                     label: 'Database',
@@ -298,10 +301,7 @@ export const translations: Record<Language, any> = {
                     label: 'DevOps',
                     items: ['Docker', 'Nginx']
                 },
-                design: {
-                    label: 'Design Tools',
-                    items: ['Figma', 'Canva']
-                },
+                
                 vcs: {
                     label: 'Version Control',
                     items: ['Git', 'GitHub']
@@ -396,6 +396,14 @@ export const translations: Record<Language, any> = {
             titleCert: 'Certifications',
             viewCert: 'View Certificate →',
             certifications: [
+                {
+                    year: '2026',
+                    title: 'Dean Decree of Appointment as Laboratory Teaching Assistant — FTTK UMRAH',
+                    issuer: 'Faculty of Engineering and Maritime Technology, UMRAH',
+                    logo: '/logo_umrah.webp',
+                    pdf: '/sertifikasi-asdos.webp',
+                    desc: 'Officially appointed under the Dean Decree of FTTK UMRAH (No. 1909/UN53.01/AL.01.03/2026) as a Laboratory Teaching Assistant to guide and instruct undergraduate students in Computer Networks practicum, Cisco Packet Tracer topology designs, and network protocol troubleshooting.'
+                },
                 {
                     year: '2023',
                     title: 'Competency Certificate',

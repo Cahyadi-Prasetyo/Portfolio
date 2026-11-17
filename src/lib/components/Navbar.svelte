@@ -127,12 +127,13 @@
         background: var(--color-nav-bg);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        transition: border-color var(--transition-base), background var(--transition-base);
+        transition: border-color var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
         border-bottom: 1px solid transparent;
     }
 
     .nav.scrolled {
         border-bottom-color: var(--color-hairline);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), inset 0 -1px 0 0 var(--color-hairline);
     }
 
     .nav-inner {
@@ -297,6 +298,11 @@
     .nav-icon-btn:hover, .nav-lang-btn:hover {
         color: var(--color-ink);
         background: var(--color-canvas-soft-2);
+    }
+
+    .nav-icon-btn:active, .nav-lang-btn:active, .toggle-btn:active {
+        transform: scale(0.92);
+        transition-duration: 60ms;
     }
 
     .mobile-toggles {

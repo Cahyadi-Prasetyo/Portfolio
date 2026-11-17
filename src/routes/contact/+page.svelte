@@ -144,6 +144,7 @@
         padding-top: calc(var(--nav-height) + var(--space-4xl));
         padding-bottom: var(--space-5xl);
         min-height: 100vh;
+        min-height: 100dvh;
     }
 
     .page-eyebrow {

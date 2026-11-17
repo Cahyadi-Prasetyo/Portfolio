@@ -128,7 +128,7 @@
                         <div class="edu-item">
                             <div class="edu-logo-wrap">
                                 {#if cert.logo}
-                                    <a href={cert.logo} target="_blank" rel="noopener noreferrer" class="cert-img-link">
+                                    <a href={cert.pdf || cert.logo} target="_blank" rel="noopener noreferrer" class="cert-img-link">
                                         <img src={cert.logo} alt={cert.issuer} class="edu-logo" />
                                     </a>
                                 {:else}
@@ -142,8 +142,8 @@
                                 {#if cert.desc}
                                     <p class="edu-desc">{cert.desc}</p>
                                 {/if}
-                                {#if cert.logo}
-                                    <a href={cert.logo} target="_blank" rel="noopener noreferrer" class="cert-link">{t.about.viewCert}</a>
+                                {#if cert.pdf || cert.logo}
+                                    <a href={cert.pdf || cert.logo} target="_blank" rel="noopener noreferrer" class="cert-link">{t.about.viewCert}</a>
                                 {/if}
                             </div>
                         </div>
@@ -269,6 +269,11 @@
         background: var(--color-canvas-soft-2);
     }
 
+    .exp-header:active {
+        transform: scale(0.99);
+        transition-duration: 60ms;
+    }
+
     .exp-logo-wrap {
         flex-shrink: 0;
         width: 48px;
@@ -360,6 +365,7 @@
         color: var(--color-body);
         line-height: 20px;
         letter-spacing: -0.28px;
+        text-align: justify;
     }
 
     .exp-points li::marker {
@@ -466,6 +472,7 @@
         font-size: var(--body-sm);
         color: var(--color-mute);
         letter-spacing: -0.28px;
+        text-align: justify;
     }
 
     .cert-img-link {
@@ -521,10 +528,11 @@
         }
 
         .bio-text p {
-            font-size: 15px;
-            line-height: 24px;
-            text-align: left;
+            font-size: 14px;
+            line-height: 22px;
+            text-align: justify;
             hyphens: auto;
+            word-break: break-word;
         }
 
         .section-heading {
@@ -535,9 +543,10 @@
         }
 
         .exp-header {
-            gap: var(--space-md);
-            padding: var(--space-xl) 0;
+            gap: var(--space-sm);
+            padding: var(--space-md) 0;
             padding-right: var(--space-2xl);
+            position: relative;
         }
 
         .exp-toggle {
@@ -561,7 +570,7 @@
         }
 
         .exp-details {
-            padding-left: var(--space-md);
+            padding-left: var(--space-sm);
         }
 
         .exp-points {
@@ -599,8 +608,8 @@
 
     @media (max-width: 400px) {
         .bio-photo {
-            width: 120px;
-            height: 150px;
+            width: 100px;
+            height: 125px;
         }
 
         .exp-header {
@@ -610,7 +619,38 @@
         .exp-toggle {
             position: absolute;
             right: 0;
-            top: var(--space-xl);
+            top: var(--space-md);
+        }
+
+        .exp-logo-wrap {
+            width: 36px;
+            height: 36px;
+        }
+
+        .exp-role {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .exp-company {
+            font-size: 13px;
+        }
+
+        .edu-item {
+            gap: var(--space-sm);
+        }
+
+        .edu-logo-wrap {
+            width: 36px;
+            height: 36px;
+        }
+
+        .edu-degree {
+            font-size: 14px;
+        }
+
+        .edu-school {
+            font-size: 13px;
         }
 
         .section-heading {

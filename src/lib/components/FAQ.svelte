@@ -94,6 +94,11 @@
         background: none;
         cursor: pointer;
         min-height: 48px;
+        transition: opacity var(--transition-fast);
+    }
+
+    .faq-item:active {
+        opacity: 0.8;
     }
 
     .faq-question {
